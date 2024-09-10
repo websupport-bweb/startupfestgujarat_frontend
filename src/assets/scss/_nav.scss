@@ -1,0 +1,40 @@
+.nav-tabs-custom {
+    border-bottom: 1px solid #e9ebec;
+
+    .nav-item {
+        position: relative;
+
+        .nav-link {
+            border: none;
+            font-weight: 500;
+
+            &::after {
+                content: "";
+                background: red;
+                height: 1px;
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                transition: all 250ms ease 0s;
+                transform: scale(0);
+            }
+
+            &.active {
+                color: red;
+
+                &:after {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+    &.card-header-tabs {
+        margin-top: -1rem;
+
+        .nav-link {
+            padding: 20px;
+        }
+    }
+}
