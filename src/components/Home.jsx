@@ -82,7 +82,7 @@ export default function Home() {
 
                 <Modal show={show} onHide={handleClose} size="xl" className="video-modal">
                   <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                  
                   </Modal.Header>
                   <Modal.Body>
                     <iframe

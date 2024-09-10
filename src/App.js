@@ -9,6 +9,8 @@ import '../src/assets/css/style.css';
 import Home from './components/Home';
 import Register from './pages/Register';
 import Footer from './components/Footer';
+import Participants from './pages/Participants';
+import StartupContent from './pages/StartupContent';
 
 function App() {
   return (
@@ -18,8 +20,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path='/register' element ={<Register />} />
+          <Route path='/participants' element ={<Participants />} />
+          <Route path='/startup' element ={<StartupContent />} />
         </Routes>
-        <Header/>
+        <Footer/>
       </BrowserRouter>
     </>
   );

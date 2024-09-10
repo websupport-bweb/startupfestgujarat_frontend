@@ -26,8 +26,13 @@ body {
 .header .menubar {
     display: flex;
     align-items: center;
+    padding: 0;
 }
 
+.header .menubar .navbar-nav .dropdown-menu {
+    padding: 15px 0;
+    border: 0;
+}
 .header .menubar.left {
     justify-content: right;
 }
@@ -43,16 +48,24 @@ body {
     padding: 0 10px;
 }
 
-.header .menubar ul.navbar-item li a {
+.header .menubar .flex{
+    display: flex;
+}
+.header .menubar .container{
+display: block;
+}
+.header .menubar .navbar-item a {
     color: #000;
     text-decoration: none;
     font-weight: 600;
     font-size: 14px;
 }
-.header .menubar ul.navbar-item li a:hover{
+.header .menubar .navbar-item a:hover{
     color: var(--primary-blue);    
 }
-   
+.header .menubar .navbar-item a.dropdown-item{
+    padding: 10px ;
+}
 /* .header .menubar ul.navbar-item li a:hover::after {
     content: "";
     position: absolute;
@@ -100,7 +113,15 @@ body {
     border-radius: 10px;
     transition: 0.05s ease all;
 }
+.theme-btn.light-blue{
+    background-color: var(--bright-blue);
+    border-color: var(--bright-blue);
+}
 
+.theme-btn.light-blue:hover{
+    color: var(--bright-blue);
+    border-color: var(--bright-blue);
+}
 button.theme-btn:hover {
     background: #fff;
     color: #003777;
@@ -282,10 +303,10 @@ hr.gradient-line {
     background: linear-gradient(white, white) padding-box, linear-gradient(100.24deg, #6DDCFF 95%, #7F60F9 100%) border-box
   }
   .para {
-    /* font-family: Inter; */
-    font-size: 17px;
+    font-family: Inter;
+    font-size: 15px;
     font-weight: 400;
-    line-height: 29.7px;
+    line-height: 25px;
     text-align: left;
 }
 
@@ -591,4 +612,141 @@ footer .copyright a{
 footer .copyright a:hover{
     color: var(--primary-blue);
     text-decoration: none;
+}
+.gradeint-bg {
+    background: linear-gradient(180deg, #D3F0FF 0%, rgba(255, 255, 255, 0) 100%);
+    background-size: cover;
+    height: 100%;
+}
+.startup-sec .startup-banner{
+border-radius: 20px;
+margin-bottom: 50px;
+}
+
+.txt-blue {
+color: var(--bright-blue);
+font-size: 24px;
+font-weight: 600;
+}
+
+.startup-sec .flex {
+    display: flex;
+    gap: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+.startup-sec .flex svg{
+    font-size: 25px;
+    fill: none;
+    stroke: #646464;
+    stroke-width: 1.5px;
+    color: #57687D;
+}
+
+.startup-sec .box-content {
+    padding: 20px 15px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 2px 4px 8px #E5EEF0;
+    min-height: 220px;
+}
+
+.startup-sec .box-content .box-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #000000;
+}
+.startup-sec .box-content.reviews .box-title {
+    font-size: 14px;
+}
+
+.startup-sec .box-content.reviews .flex{
+    display: flex;
+}
+
+.startup-sec .box-content.reviews .flex .star{
+    display: flex;
+}
+.startup-sec .box-content.reviews .flex .star svg{
+    padding-left: 8px;
+    fill: #FCD34D;
+}
+.startup-sec .box-content .detail {
+    display: flex;
+    gap: 10px;
+}
+.startup-sec .box-content .detail .txt .btns{
+    display: flex;
+    gap: 20px;
+}
+.startup-sec .box-content .detail .txt .btns .theme-btn, .startup-sec .box-content .detail .txt .btns .theme-btn-light {
+    font-size: 12px;
+    padding: 6px 12px;
+}
+.startup-sec .box-content .detail svg {
+    font-size: 15px;
+    background: #4AD2E433;
+    padding: 5px;
+    flex-basis: 25%;
+    height: 40px;
+    width: 40px;
+    border-radius: 13px;
+    color: #3F38DD;
+}
+
+.startup-sec .box-content .detail span svg {
+    font-size: 16px;
+    background: none;
+    padding: 0;
+    flex-basis: 0;
+    height: auto;
+    width: auto;
+    border-radius: 13px;
+    color: #3F38DD;
+}
+.startup-sec .box-content .detail img {
+    background: #4AD2E433;
+    padding: 10px;
+    flex-basis: 25%;
+    height: max-content;
+    max-width: 45px;
+    border-radius: 13px;
+}
+.startup-sec .box-content .detail img.no-bg {
+    background: transparent;
+    padding: 0;
+    flex-basis: 25%;
+    height: max-content;
+    max-width: 80px;
+    border-radius: 13px;
+}
+.startup-sec .box-content .detail a {
+    color: #546BE2;
+    border-bottom: 1px solid #546BE2;
+    text-decoration: none;
+}
+
+.startup-sec .box-content .detail .txt h6 {
+    font-weight: 600;
+    font-size: 16px;
+}
+.startup-sec .box-content .detail .txt .details-sec{
+    min-height: 95px;
+    align-content: center;
+}
+.startup-sec .box-content .detail .txt p {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+.detail-right h4 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.detail-right h6{
+    font-weight: 600;
+}
+.detail-right p {
+    font-size: 14px;
+    margin-bottom: 30px;
 }
