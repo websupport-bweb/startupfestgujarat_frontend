@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Inter');
+:root{
+    --light-blue:#F4F9FE;
+    --dark-black: #18181B;
+    --primary-blue: #003777;
+    --bright-blue:#2563EB;
 
+    /* --speaker-btn-primary : #FF8C5E;
+    --speaker-btn-secondary : #FFB397; */
+  }
+  
 
 body {
     font-family: 'Inter';
@@ -74,7 +83,7 @@ body {
     color: #fff;
     background: #003777;
     border: 2px solid #003777;
-    padding: 5px 20px;
+    padding: 10px 35px;;
     border-radius: 10px;
     transition: 0.05s ease all;
 }
@@ -89,7 +98,7 @@ button.theme-btn-light {
     background: #fff;
     color: #003777;
     border: 2px solid #003777;
-    padding: 5px 10px;
+    padding: 10px 35px;
     border-radius: 10px;
     transition: 0.05s ease all;
 }
@@ -136,7 +145,7 @@ button.theme-btn-light:hover {
 }
 .play-btn {
     position: absolute;
-    background-image: url(http://localhost:3000/static/media/play.f0761a9b427c9b60aef7.png);
+    background-image: url('../img/play.png');
     display: block;
     height: 100px;
     width: 100px;
@@ -148,20 +157,20 @@ button.theme-btn-light:hover {
 .video-area {
     background-repeat: no-repeat;
     display: inline-block;
-    background-image: url(http://localhost:3000/static/media/gradient-bg.c7710dcbbfa210c12bcb.png);
+    background-image: url('../img/gradient-bg.png');
     background-size: contain;
     background-position: center;
 }
 .light-bg{
-    background-color: #eff5ff;
+    background-color: #F4F9FE;
 }
 .padding-sec{
 padding: 70px 0;
 }
 
 .title {
+    font-size: 40px;
     font-weight: 600;
-    font-size: 32px;
     margin-bottom: 20px;
 }
 
@@ -174,11 +183,14 @@ padding: 70px 0;
 .box h4{
     font-size: 24px;
     line-height: 28px;
+    font-weight: 600;
 }
 
 .box p {
     color: #2563EB;
     font-size: 13px;
+    font-weight: 600;
+line-height: 28px;
 }
 
 .counter-box {
@@ -215,3 +227,130 @@ hr.gradient-line {
     border-right: 2px solid transparent; /* Transparent border to show the gradient */
     background: linear-gradient(white, white) padding-box, linear-gradient(100.24deg, #6DDCFF 95%, #7F60F9 100%) border-box
   }
+  .para {
+    /* font-family: Inter; */
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 29.7px;
+    text-align: left;
+}
+
+.container-bg {
+    background-color: var(--light-blue);
+    /* width: Fill (1,920px)px; */
+/* height: 710px; */
+/* padding: 80px 120px ;
+gap: 24px; */
+/* opacity: 0px; */
+
+}
+
+.col-card {
+    background-color: #F1F5F9;
+
+    box-shadow: 2px 4px 28px 0px #D5E3F1;
+    border-radius: 20px;
+    padding: 21px;
+
+}
+.col-card h3 {
+   
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 32px;
+   
+    color: var(--primary-blue);    
+}
+
+.col-card p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23px;
+    height: 66px;
+}
+.margin-between {
+    margin-right: 120px;
+}
+
+.yellow-bg{
+    background: #FDE193;
+
+}
+
+.para-custom {
+    color: #3B4353;
+    font-size: 17px !important;
+    line-height: 27px;
+    margin-bottom: 20px;
+}
+
+.col-card2 {
+    background-color: white;
+    box-shadow: 2px 4px 28px 0px #D5E3F1;
+    border-radius: 20px;
+    padding: 21px;
+}
+.col-card2 p {
+    color: var(--bright-blue);
+    font-weight: 600;
+    font-size: 23px;
+    margin-bottom: 2px;
+}
+
+.col-card2 h4 {
+    font-size: 21px;
+    letter-spacing: 0px;
+}
+.check {
+    font-size: 20px;
+    color: var(--bright-blue);
+}
+.row-gap {
+gap: 60px;
+}
+
+.font-blue{
+    color: var(--bright-blue);
+}
+
+.sfg {
+font-size: 24px;
+font-weight: 600;
+letter-spacing: -0.20000000298023224px;
+}
+
+.sfg h3 {
+    line-height: 60px;
+}
+
+
+.border-custom {
+    position: relative;
+    /* padding-bottom: 10px; Optional: Adjust padding based on your design */
+  }
+  
+  .border-custom::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1.3px; /* Adjust this to change border thickness */
+    background: linear-gradient(90deg, rgba(174, 174, 193, 0.8) 0%, rgba(82, 82, 91, 0.8) 47.5%, rgba(174, 174, 193, 0.8) 100%);
+  }
+
+
+.outer-border {
+    border-right: 1.2px solid #52525BCC;
+    border-left: 1.2px solid #52525BCC;
+    /* border: 0.69px solid #52525BCC */
+}
+
+.dark-bg {
+    background-color: var(--primary-blue);
+}
+
+.w-70 {
+    width: 70%;
+}
+  
