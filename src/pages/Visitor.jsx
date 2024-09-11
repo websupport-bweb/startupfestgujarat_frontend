@@ -17,6 +17,7 @@ import parti4 from "../assets/img/client/4.jpg";
 import logo from "../assets/img/logo.png";
 import map from "../assets/img/Map.png";
 import frame from "../assets/img/event-ticket.png";
+import { Link } from 'react-router-dom';
 
 export default function Visitor() {
     const [settings] = useState({
@@ -398,9 +399,9 @@ export default function Visitor() {
           <Row>
             <Col lg="12">
               <div className="banner-btns">
-                <button className="theme-btn-light light-border">
+                <Link to="/register" className="theme-btn-light light-border">
                   Register Now
-                </button>
+                </Link>
               </div>
             </Col>
           </Row>

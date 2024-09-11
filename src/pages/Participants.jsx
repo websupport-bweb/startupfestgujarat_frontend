@@ -11,6 +11,8 @@ import parti3 from "../assets/img/regis-closed.jpg";
 import img1 from "../assets/img/img-1.png";
 import img2 from "../assets/img/img-2.png";
 import img3 from "../assets/img/img-3.png";
+import { Link } from 'react-router-dom';
+
 
 export default function Participants() {
   return (
@@ -33,7 +35,7 @@ export default function Participants() {
                 journey.
               </p>
 
-              <button className="theme-btn">Register Now</button>
+              <Link to="/register" className="theme-btn">Register Now</Link>
             </Col>
             <Col lg="6">
               <img src={parti1} className="w-100" />
@@ -100,7 +102,7 @@ export default function Participants() {
               </p>
               
 
-              <button className="theme-btn">Register Now</button>
+              <Link to="/register" className="theme-btn">Register Now</Link>
             </Col>
             <Col lg="6">
               <img src={parti2} className="w-100" />
@@ -121,7 +123,7 @@ export default function Participants() {
               </h5>
             </Col>
             <Col className="flex-shrink-0 text-end">
-              <button className="theme-btn">Register Now</button>
+              <Link to="/register" className="theme-btn">Register Now</Link>
             </Col>
           </Row>
           <Row>
@@ -168,9 +170,9 @@ export default function Participants() {
             </Col>
             <Col lg={4}>
               <div className="banner-btns">
-                <button className="theme-btn-light light-border">
+                <Link to="/register" className="theme-btn-light light-border">
                   Register Now
-                </button>
+                </Link>
               </div>
             </Col>
           </Row>

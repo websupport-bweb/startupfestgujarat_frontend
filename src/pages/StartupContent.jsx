@@ -47,6 +47,9 @@ export default function StartupContent() {
   const [map, setMap] = useState(false);
 
   const handleMap = () => setMap(!map);
+
+  const [quantity, setQuantity] = useState(1)
+
   return (
     <div className="gradeint-bg padding-sec startup-sec">
       <div className="banner">
@@ -103,15 +106,18 @@ export default function StartupContent() {
                   </div> */}
                     </div>
                     <div className="ince-btns">
-                      <button className="decrr">
+                      <button onClick={()=>{ setQuantity(prevQuantity => prevQuantity - 1)}} className="decrr">
                         <FaMinus />
                       </button>
                       <input
                         type="num"
                         className="text-center"
-                        placeholder="1"
+                        // placeholder="1"
+                        onChange={(e)=>{setQuantity(e.target.value)}}
+                        value={quantity}
+                        min={0}
                       />
-                      <button className="incrr active">
+                      <button onClick={()=>{ setQuantity(prevQuantity => prevQuantity + 1 )}}  className="incrr active">
                         <FaPlus />
                       </button>
                     </div>
@@ -194,7 +200,7 @@ export default function StartupContent() {
                 </Col>
 
                 <Col lg={4}>
-                  <div className="box-content">
+                  <div className="box-content third">
                     <h6 className="box-title">Hosted By</h6>
                     <div className="detail">
                       <img src={img1} className="no-bg" />

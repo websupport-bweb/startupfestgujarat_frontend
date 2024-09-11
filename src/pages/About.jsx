@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { IoIosArrowDown } from "react-icons/io";
+import { Link } from 'react-router-dom';
 
 export default function About() {
 
@@ -38,7 +39,6 @@ export default function About() {
                 Startup Fest Gujarat.
               </p>
 
-              <button className="theme-btn">Learn More</button>
             </Col>
             <Col lg="6">
               <img src={about} className="w-100" />
@@ -199,9 +199,9 @@ export default function About() {
           <Row>
             <Col lg="12">
               <div className="banner-btns">
-                <button className="theme-btn-light light-border">
+                <Link to="/register" className="theme-btn-light light-border">
                   Register Now
-                </button>
+                </Link>
               </div>
             </Col>
           </Row>
