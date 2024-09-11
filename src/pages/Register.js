@@ -878,7 +878,7 @@ const Register = () => {
                             type="button"
                             onClick={() => setAddMore(true)}
                             className="no-style"
-                            ><a href='/' className='txt-blue'>+ Add Attendees</a></Button>
+                            >+ Add Attendees</Button>
                             {addMore && (
                                 (customActiveTab === '1' || customActiveTab === '2') ? (
                                     <div>

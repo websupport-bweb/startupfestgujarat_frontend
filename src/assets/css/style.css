@@ -588,6 +588,12 @@ gap: 24px; */
     background: #F4FAFF;
 }
 
+
+.register-btn:hover{background: #fff;
+    color: #003777;
+    border: 2px solid #003777;
+}
+
 .register-sec .title {
     font-weight: 600;
     font-size: 36px;
@@ -1599,7 +1605,28 @@ text-align: left;
 }
 
 .no-style {
+    color: var(--bright-blue);
     background: transparent;
     border: none;
 }
 
+.no-style:hover {
+    color: var(--bright-blue);
+    background: transparent;
+    border: none;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: var(--bs-dropdown-link-active-color);
+    text-decoration: none;
+    background-color: var(--bs-dropdown-link-hover-bg);;
+}
+
+.soon {
+    height: 28vh;
+    font-size: 40px;
+    align-content: center;
+    padding: 40px 0;
+    font-weight: 600;
+    text-align: center;
+}

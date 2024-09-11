@@ -40,7 +40,7 @@ export default function Header() {
                     <NavDropdown.Item href="/awards">
                       Award Night
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/">
+                    <NavDropdown.Item href="/start-up-showcase">
                       2023 Startup Showcase
                     </NavDropdown.Item>
                   </NavDropdown>

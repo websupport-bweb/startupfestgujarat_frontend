@@ -24,6 +24,7 @@ import Sponser from './pages/Sponser';
 import Awardsnight from './pages/Awardsnight';
 import Startup from './pages/Startup';
 import Faq from './pages/Faq';
+import StartUpShowCase from './pages/StartupShowCase';
 
 
 
@@ -52,6 +53,8 @@ function App() {
           <Route path='/awards' element ={<Awardsnight />} />
           <Route path='/start-up' element ={<Startup />} />
           <Route path='/faq' element ={<Faq />} />
+          <Route path='/start-up-showcase' element ={<StartUpShowCase />} />
+
 
         </Routes>
         <Footer/>
