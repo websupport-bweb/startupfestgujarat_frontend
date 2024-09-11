@@ -887,6 +887,12 @@ footer .copyright a:hover {
 
 }
 
+
+.css-13cymwt-control {
+    background-color: #f7fafe !important;
+   border-radius: 6px !important;
+   border-width: 0px !important;
+
 .tags h4 {
     font-weight: 600;
     margin: 50px 0 20px 0;
@@ -1556,4 +1562,5 @@ text-align: left;
 .hello img{
     width: 200px;
     object-fit: contain;
+
 }
