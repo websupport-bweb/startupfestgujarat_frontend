@@ -378,6 +378,7 @@ letter-spacing: -0.20000000298023224px;
             }
 
             &.active {
+                background: transparent;
                 color: var(--bright-blue);
 
                 &:after {
@@ -398,8 +399,8 @@ letter-spacing: -0.20000000298023224px;
 
 
 .bg-light {
-    background: #F8FAFC;
-   
+    background: #F8FAFC !important;
+    border: 1.2px solid #CBD5E1 !important
 }
 
 .f-13{
@@ -439,4 +440,16 @@ letter-spacing: -0.20000000298023224px;
     position: sticky;
     top: 0;
     object-position: bottom;
+}
+
+.register-btn {
+ background-color: var(--primary-blue);
+ color: white;
+ padding: 10px 35px;
+ width: 100%;
+ border:none
+}
+
+.register-bg {
+    background: #F4FAFF;
 }
