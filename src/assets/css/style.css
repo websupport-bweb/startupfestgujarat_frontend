@@ -614,7 +614,7 @@ footer .copyright a:hover{
     text-decoration: none;
 }
 .gradeint-bg {
-    background: linear-gradient(180deg, #D3F0FF 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(180deg, #e6f7ff 0%, rgba(255, 255, 255, 0) 100%);
     background-size: cover;
     height: 100%;
 }
@@ -650,7 +650,9 @@ font-weight: 600;
     box-shadow: 2px 4px 8px #E5EEF0;
     min-height: 220px;
 }
-
+.startup-sec .box-content.reviews{
+    min-height: fit-content;
+}
 .startup-sec .box-content .box-title {
     font-size: 18px;
     margin-bottom: 20px;
@@ -663,13 +665,16 @@ font-weight: 600;
 
 .startup-sec .box-content.reviews .flex{
     display: flex;
+    gap: 15px;
 }
 
 .startup-sec .box-content.reviews .flex .star{
     display: flex;
+    font-size: 14px;
 }
 .startup-sec .box-content.reviews .flex .star svg{
-    padding-left: 8px;
+    padding-left: 5px;
+    font-size: 18px;
     fill: #FCD34D;
 }
 .startup-sec .box-content .detail {
@@ -695,15 +700,31 @@ font-weight: 600;
     color: #3F38DD;
 }
 
-.startup-sec .box-content .detail span svg {
+.startup-sec .box-content .detail span svg  {
     font-size: 16px;
     background: none;
     padding: 0;
-    flex-basis: 0;
+    flex-basis: auto;
     height: auto;
     width: auto;
     border-radius: 13px;
     color: #3F38DD;
+}
+.startup-sec .box-content.reviews svg {
+    font-size: 16px;
+    background: none;
+    padding: 0;
+    flex-basis: auto;
+    border-radius: 13px;
+    color: #3F38DD;
+}
+
+.startup-sec .box-content.reviews .show svg {
+    font-size: 16px;
+    color: #5040A1;
+    height: auto;
+    width: auto;
+    padding-left: 5px;
 }
 .startup-sec .box-content .detail img {
     background: #4AD2E433;
@@ -721,9 +742,16 @@ font-weight: 600;
     max-width: 80px;
     border-radius: 13px;
 }
-.startup-sec .box-content .detail a {
+.startup-sec .box-content .detail a{
     color: #546BE2;
     border-bottom: 1px solid #546BE2;
+    text-decoration: none;
+}
+.startup-sec .box-content.reviews .show-map{
+    color: #5040A1;
+    font-size: 13px;
+    font-weight: 600;
+    border-bottom: 0 solid #546BE2;
     text-decoration: none;
 }
 
@@ -749,4 +777,157 @@ font-weight: 600;
 .detail-right p {
     font-size: 14px;
     margin-bottom: 30px;
+}
+.tags h4{
+    font-weight: 600;
+    margin: 50px 0 20px 0;
+}
+.tags .square {
+    background: #F2F4F5;
+    padding: 10px 15px;
+    border-radius: 2px 0px 0px 0px;
+    color: #3B4353;
+    margin-right: 10px;
+    font-size: 14px;
+    border: 0;
+}
+
+.tags .round {
+    background: #F2F4F5;
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: 0;
+    color: #3B4353;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+p.big-btns {
+    margin-top: 30px;
+}
+
+.tags p.big-btns .square {
+    font-size: 16px;
+}
+
+.tags p.big-btns .square svg {
+    margin-right: 10px;
+    color: #2563EB;
+}
+
+.startup-sec .box-content .detail .txt .details-sec .star svg {
+    font-size: 15px;
+    background: transparent;
+    padding: 5px;
+    flex-basis: unset;
+    height: auto;
+    width: auto;
+    border-radius: 13px;
+    color: #f9d14d;
+}
+
+.startup-sec .box-content.reviews .detail .txt h6{
+    font-size: 14px;
+}
+
+.startup-sec .box-content.reviews .detail .txt .details-sec{
+    min-height: auto;
+    margin-bottom: 20px;
+}
+.startup-sec .box-content.reviews .comment {
+    font-size: 14px;
+}
+
+.startup-sec .box-content.reviews .detail img{
+    background-color: transparent;
+    padding: 0;
+}
+.startup-sec .box-content.reviews .detail .social{
+    margin:20px 0;
+    width: 100%;
+    text-align: center;
+}
+
+.startup-sec .box-content.reviews .detail .social button{
+background-color: transparent;
+padding: 0;
+border: 0;
+}
+.startup-sec .box-content.reviews .detail .social svg {
+    color: gray;
+    margin: 0 20px;
+    height: auto;
+    width: auto;
+    font-size: 25px;
+    border-radius: 0;
+}
+
+.startup-sec .box-content.reviews .detail .label {
+	padding: 10px;
+	font-size: 18px;
+	color: #111;
+}
+.startup-sec .box-content.reviews .copy-text {
+    position: relative;
+    padding: 0 0 0 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    display: flex;
+    justify-content: space-between;
+}
+.startup-sec .box-content.reviews .copy-text input.text {
+	padding-right: 10px;
+	font-size: 12px;
+	color: #000;
+	border: none;
+	outline: none;
+    width: 100%;
+}
+.startup-sec .box-content.reviews .copy-text button {
+	padding: 5px 10px;
+	background: #EBF4FF;
+	color: #fff;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	border-radius: 0;
+	cursor: pointer;
+}
+.startup-sec .box-content.reviews .copy-text  svg {
+    font-size: 16px;
+    background: none;
+    padding: 0;
+    flex-basis: auto;
+    border-radius: 13px;
+    color: #75757C;
+}
+.startup-sec .box-content.reviews .copy-text button:active {
+	background: #809ce2;
+}
+.startup-sec .box-content.reviews .copy-text button:before {
+	content: "Copied";
+	position: absolute;
+	top: -45px;
+	right: 0px;
+	background: #5c81dc;
+	padding: 8px 10px;
+	border-radius: 20px;
+	font-size: 15px;
+	display: none;
+}
+.startup-sec .box-content.reviews .copy-text button:after {
+	content: "";
+	position: absolute;
+	top: -20px;
+	right: 25px;
+	width: 10px;
+	height: 10px;
+	background: #5c81dc;
+	transform: rotate(45deg);
+	display: none;
+}
+.startup-sec .box-content.reviews .copy-text.active button:before,
+.startup-sec .box-content.reviews .copy-text.active button:after {
+	display: block;
 }
