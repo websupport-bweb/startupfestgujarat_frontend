@@ -56,7 +56,7 @@ export default function Home() {
                   Connecting Innovators and Investors.
                 </h5>
                 <h3 className="banner-text">
-                  Join the Junction of Vision and Opportunity at{" "}
+                  Join the Junction of Vision and Opportunity at
                   <span className="gradient">Startup Fest</span> Gujarat!
                 </h3>
               </div>
@@ -217,15 +217,15 @@ export default function Home() {
               </h5>
             </Col>
             <Col className="flex-shrink-0 text-end">
-              <button className="theme-btn">Learn More</button>
+              <button className="theme-btn">Register Now</button>
             </Col>
           </Row>
           <Row>
             <Col className="col-card margin-between">
               <h3>Pitcher</h3>
               <p>
-                Pitchers will get a 3 by 3 stall and a chance to{" "}
-                <span className="yellow-bg">present their project/idea/</span>{" "}
+                Pitchers will get a 3 by 3 stall and a chance to
+                <span className="yellow-bg">present their project/idea/</span>
                 startup on stage in front of all the investors.
               </p>
               <img src={img1} className="w-100" />
@@ -233,11 +233,11 @@ export default function Home() {
             <Col className="col-card margin-between">
               <h3>Startup</h3>
               <p>
-                Startups/ franchises will get a 2/2 stall and{" "}
+                Startups/ franchises will get a 2/2 stall and
                 <span className="yellow-bg">
                   visibility in front of all the investors
-                </span>{" "}
-                coming in.{" "}
+                </span>
+                coming in.
               </p>
               <img src={img2} className="w-100" />
             </Col>
@@ -247,7 +247,7 @@ export default function Home() {
                 Investors will get a chance to talk to all the startups and an
                 opportunity to
                 <span className="yellow-bg">
-                  {" "}
+                  
                   multiply their money by 2-3 times.
                 </span>
               </p>
@@ -266,9 +266,9 @@ export default function Home() {
                   <Row>
                     <Col lg={2}>
                       <div className="check">
-                        {" "}
+                        
                         <FaRegCheckCircle />
-                      </div>{" "}
+                      </div>
                     </Col>
                     <Col>
                       <p>1000+</p>
@@ -280,9 +280,9 @@ export default function Home() {
                   <Row>
                     <Col lg={2}>
                       <div className="check">
-                        {" "}
+                        
                         <FaRegCheckCircle />
-                      </div>{" "}
+                      </div>
                     </Col>
                     <Col>
                       <p>1000+</p>
@@ -296,9 +296,9 @@ export default function Home() {
                   <Row>
                     <Col lg={2}>
                       <div className="check">
-                        {" "}
+                        
                         <FaRegCheckCircle />
-                      </div>{" "}
+                      </div>
                     </Col>
                     <Col>
                       <p>1000+</p>
@@ -310,9 +310,9 @@ export default function Home() {
                   <Row>
                     <Col lg={2}>
                       <div className="check">
-                        {" "}
+                        
                         <FaRegCheckCircle />
-                      </div>{" "}
+                      </div>
                     </Col>
                     <Col>
                       <p>1000+</p>
@@ -326,7 +326,7 @@ export default function Home() {
               <p className="font-blue">SFG 2024</p>
               <h3 className="title mb-5">
                 India Startup Revolution is Here and now! At Ahmedabad Septem
-                <span className="gradient">ber 28 & 29, 2024 </span>{" "}
+                <span className="gradient">ber 28 & 29, 2024 </span>
               </h3>
             </Col>
           </Row>

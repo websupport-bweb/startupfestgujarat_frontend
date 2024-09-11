@@ -11,6 +11,23 @@ import Register from './pages/Register';
 import Footer from './components/Footer';
 import Participants from './pages/Participants';
 import StartupContent from './pages/StartupContent';
+import Highlights from './pages/Highlights';
+import Speakers from './pages/Speakers';
+import STFS from './pages/STFS';
+
+import Visitor from './pages/Visitor';
+import About from './pages/About';
+import InvestorAccelator from './pages/InvestorAccelator';
+
+import Contact from './pages/Contact';
+import Sponser from './pages/Sponser';
+import Awardsnight from './pages/Awardsnight';
+import Startup from './pages/Startup';
+import Faq from './pages/Faq';
+
+
+
+
 
 function App() {
   return (
@@ -22,6 +39,20 @@ function App() {
           <Route path='/register' element ={<Register />} />
           <Route path='/participants' element ={<Participants />} />
           <Route path='/startup' element ={<StartupContent />} />
+          <Route path='/highlights' element ={<Highlights />} />
+          <Route path='/speakers' element ={<Speakers />} />
+          <Route path='/sharkTank' element ={<STFS />} />
+
+          <Route path='/visitor' element ={<Visitor/>} />
+          <Route path='/about' element ={<About/>} />
+          <Route path='/investor' element ={<InvestorAccelator/>} />
+
+          <Route path='/contact' element ={<Contact />} />
+          <Route path='/sponser' element ={<Sponser />} />
+          <Route path='/awards' element ={<Awardsnight />} />
+          <Route path='/start-up' element ={<Startup />} />
+          <Route path='/faq' element ={<Faq />} />
+
         </Routes>
         <Footer/>
       </BrowserRouter>

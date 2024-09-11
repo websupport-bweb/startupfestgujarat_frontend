@@ -27,8 +27,8 @@ export default function Footer() {
                         <h4>Company</h4>
                     </div>
                     <ul className="footer-list">
-                        <li><a href="/">About Us</a></li>
-                        <li><a href="/">Participate</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/participants">Participate</a></li>
                         <li><a href="/">Contact Us</a></li>
                     </ul>
                     </div>
@@ -40,10 +40,10 @@ export default function Footer() {
                         <h4>Fest</h4>
                     </div>
                     <ul className="footer-list">
-                        <li><a href="/">Pitcher</a></li>
-                        <li><a href="/">Start-Up</a></li>
-                        <li><a href="/">Investor</a></li>
-                        <li><a href="/">Visitor</a></li>
+                        <li><a href="/startup">Pitcher</a></li>
+                        <li><a href="/startup">Start-Up</a></li>
+                        <li><a href="/startup">Investor</a></li>
+                        <li><a href="/visitor">Visitor</a></li>
                     </ul>
                     </div>
                 </Col>
