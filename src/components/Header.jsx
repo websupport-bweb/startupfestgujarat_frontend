@@ -7,6 +7,8 @@ import { MdLocationPin } from "react-icons/md";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
+
 
 export default function Header() {
   return (
@@ -92,53 +94,13 @@ export default function Header() {
                     </a>
                   </li>
                 </ul>
-                <button className="theme-btn">Register Now</button>
+                <Link to="/register" className="theme-btn">Register Now</Link>
               </div>
             </Col>
           </Row>
         </Container>
       </Navbar>
-      {/* <Container>
-        <Row className="align-items-center">
-          <Col lg={7}>
-            <div className="menubar">
-              <a href="/" className="logo">
-                <img src={logo} className="logo-header" />
-              </a>
-              <ul className="navbar-item">
-                <li>
-                  <a href="/">2023 Highlights</a>
-                </li>
-                <li>
-                  <a href="/">Reason to participate</a>
-                </li>
-                <li>
-                  <a href="/">Info</a>
-                </li>
-                <li>
-                  <a href="/">Contact Us</a>
-                </li>
-              </ul>
-            </div>
-          </Col>
-          <Col lg={5}>
-            <div className="menubar left">
-              <ul className="navbar-item-left mr-3">
-                <li>
-                  <a href="/">Sept 28-29,2024</a>
-                </li>
-                <li>
-                  <a href="/">
-                    <MdLocationPin />
-                    Science City
-                  </a>
-                </li>
-              </ul>
-              <button className="theme-btn">Register Now</button>
-            </div>
-          </Col>
-        </Row>
-      </Container> */}
+     
     </div>
   );
 }

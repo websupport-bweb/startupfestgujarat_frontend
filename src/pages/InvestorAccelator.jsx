@@ -4,6 +4,8 @@ import banner from "../assets/img/invest-banner.jpg";
 import img1 from "../assets/img/investor1.jpg";
 import img2 from "../assets/img/investor2.jpg";
 import img3 from "../assets/img/bg-img-invest.png";
+import { Link } from 'react-router-dom';
+
 
 export default function InvestorAccelator() {
   return (
@@ -26,7 +28,7 @@ export default function InvestorAccelator() {
                 next level
               </p>
 
-              <button className="theme-btn">Register Now</button>
+              <Link to="/register" className="theme-btn">Register Now</Link>
             </Col>
             <Col lg="6">
               <img src={img1} className="w-100" />
@@ -34,24 +36,19 @@ export default function InvestorAccelator() {
           </Row>
         </Container>
       </section>
-      <section className="register-sec dark-bg padding-sec ">
+      <section className="register-sec padding-sec showcase">
         <Container>
-          <div className="bg-img">
-            <div className="w-70 m-auto">
-              <h3 className="title text-center text-white">
-                Be a Part of Gujarat's Largest Startup Fest Setting the Pace for
-                Innovation!
+        <img src={img3} />
+          <div className="overlay padding-sec">
+            <div className="w-70 m-auto content">
+              <h5 className="title text-center text-white">
+              I'm convinced that about half of what separates the successful entrepreneurs from the non-successful ones is pure perseverance.
+              </h5>
+              <h3>
+              ~– Jeff Bezos, Founder of Amazon
               </h3>
             </div>
-            <Row>
-              <Col lg="12">
-                <div className="banner-btns">
-                  <button className="theme-btn-light light-border">
-                    Register Now
-                  </button>
-                </div>
-              </Col>
-            </Row>
+           
           </div>
         </Container>
       </section>
@@ -69,7 +66,7 @@ export default function InvestorAccelator() {
                 next level
               </p>
 
-              <button className="theme-btn">Register Now</button>
+              <Link to="/register" className="theme-btn">Register Now</Link>
             </Col>
             <Col lg="6">
               <img src={img2} className="w-100" />

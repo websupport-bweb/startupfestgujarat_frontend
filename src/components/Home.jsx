@@ -26,6 +26,8 @@ import innov from "../assets/img/innov.png";
 import fin from "../assets/img/fin.png";
 import mobile from "../assets/img/mobile.png";
 import edu from "../assets/img/edu.png";
+import { Link } from "react-router-dom";
+
 
 export default function Home() {
 
@@ -63,7 +65,7 @@ export default function Home() {
             </Col>
             <Col lg="12">
               <div className="banner-btns">
-                <button className="theme-btn">Register Now</button>
+                <Link to="/register" className="theme-btn">Register Now</Link>
                 <button className="theme-btn-light">
                   <IoIosArrowRoundDown /> Explore More
                 </button>
@@ -124,7 +126,9 @@ export default function Home() {
                 Startup Fest Gujarat.
               </p>
 
-              <button className="theme-btn">Learn More</button>
+              <div className="mt-5">
+              <Link to="/about" className="theme-btn">Learn More</Link>
+              </div>
             </Col>
             <Col lg="6">
               <img src={about} className="w-100" />
@@ -217,7 +221,7 @@ export default function Home() {
               </h5>
             </Col>
             <Col className="flex-shrink-0 text-end">
-              <button className="theme-btn">Register Now</button>
+              <Link to="/register" className="theme-btn">Register Now</Link>
             </Col>
           </Row>
           <Row>

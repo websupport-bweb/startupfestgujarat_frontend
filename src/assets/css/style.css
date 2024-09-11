@@ -123,6 +123,7 @@ body {
     padding: 5px 10px;
 }
 
+
 .theme-btn {
     color: #fff;
     background: #003777;
@@ -131,6 +132,7 @@ body {
     ;
     border-radius: 10px;
     transition: 0.05s ease all;
+    text-decoration: none;
 }
 
 .theme-btn.light-blue {
@@ -143,28 +145,29 @@ body {
     border-color: var(--bright-blue);
 }
 
-button.theme-btn:hover {
+.theme-btn:hover {
     background: #fff;
     color: #003777;
     border: 2px solid #003777;
 }
 
-button.theme-btn-light {
+.theme-btn-light {
     background: #fff;
     color: #003777;
     border: 2px solid #003777;
     padding: 10px 35px;
     border-radius: 10px;
     transition: 0.05s ease all;
+    text-decoration: none;
 }
 
-button.theme-btn-light:hover {
+.theme-btn-light:hover {
     color: #fff;
     background: #003777;
     border: 2px solid #003777;
 }
 
-button.theme-btn-light.light-border:hover {
+.theme-btn-light.light-border:hover {
     color: #fff;
     background: #003777;
     border: 2px solid #ffffff;
@@ -736,7 +739,7 @@ footer .copyright a:hover {
     background: #fff;
     border-radius: 12px;
     box-shadow: 2px 4px 8px #E5EEF0;
-    min-height: 220px;
+    min-height: 200px;
 }
 
 .startup-sec .box-content.reviews {
@@ -865,6 +868,9 @@ footer .copyright a:hover {
 .startup-sec .box-content .detail .txt .details-sec {
     min-height: 95px;
     align-content: center;
+}
+.startup-sec .box-content.third .detail .txt .details-sec {
+    min-height: 80px;
 }
 
 .startup-sec .box-content .detail .txt p {
@@ -1424,9 +1430,6 @@ p.big-btns {
 }
 
 
-
-
-
 .showcase {
     width: 100%;
     height: 350px;
@@ -1434,7 +1437,10 @@ p.big-btns {
     position: relative;
     color: white;
     text-align: center;
-}
+
+  }
+  
+
 
 .showcase img {
     width: 100%;
@@ -1453,6 +1459,21 @@ p.big-btns {
     position: absolute;
     top: 0;
     left: 0;
+    z-index:999
+  }
+  
+  .showcase h2 {
+    margin-top: 170px;
+    font-size: 3em;
+  }
+  
+  .showcase p {
+    margin-top: 8px;
+    font-size: 1.2em;
+  }
+
+  .showcase .content h5 {
+
     z-index: 999
 }
 
@@ -1467,15 +1488,18 @@ p.big-btns {
 }
 
 .showcase .content h5 {
+
     font-size: 30px;
     font-weight: 500;
     line-height: 36px;
 }
 
-.showcase .content h3 {
+  .showcase .content h3{
     font-size: 40px;
     color: #ffffffda;
-}
+  }
+  
+
 
 .col-card h5 {
     color: var(--bright-blue);
@@ -1564,3 +1588,4 @@ text-align: left;
     object-fit: contain;
 
 }
+
