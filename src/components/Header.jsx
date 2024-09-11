@@ -26,13 +26,13 @@ export default function Header() {
                     title="2023 Highlights"
                     id="navbarScrollingDropdown"
                   >
-                    <NavDropdown.Item href="/">
+                    <NavDropdown.Item href="/highlights">
                       2023 Highlights
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/">
+                    <NavDropdown.Item href="/speakers">
                       2023 Speaker And Mentors
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/">
+                    <NavDropdown.Item href="/sharkTank">
                       Shark Tank Featured Startups
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/awards">

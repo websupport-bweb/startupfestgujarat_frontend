@@ -1470,3 +1470,90 @@ p.big-btns {
     font-size: 40px;
     color: #ffffffda;
 }
+
+.col-card h5 {
+    color: var(--bright-blue);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    margin-top: 20px;
+}
+.bhDiv{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: absolute;
+    bottom: 10px;
+}
+.bhDiv img{
+    width: 40px;
+height: 40px;
+gap: 0px;
+border: 0.45px 0px 0px 0px;
+opacity: 0px;
+}
+.bhDiv h6{
+font-size: 14px;
+font-weight: 500;
+/* line-height: 20px; */
+margin-bottom: 0px !important;
+text-align: left;
+}
+.color-grey{
+    color: #3B4353;
+}
+.color-sky{
+    color: var(--bright-blue);
+    text-decoration: underline;
+    margin-bottom: 0px !important;
+}
+.mb-0{
+    margin-bottom: 0px;
+}
+.bg-img{
+    background-image: url("../img/scottbelsky.png");
+    background-blend-mode: color-burn;
+    background-color: rgb(75 0 253 / 50%);
+}
+.br-20{
+    border-radius: 20px;
+}
+.speaker-card{
+    height: 400px;
+    position: relative;
+    padding: 20px;
+}
+.speaker-card img{
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.speaker-card-div{
+    position: absolute;
+    bottom: 0px;
+    background-color: var(--primary-blue);
+    width: calc(100% - 40px);
+    left: 0px;
+    display: flex;
+    align-items: center;
+    /* height: 50px; */
+    color: var(--light-blue);
+    padding: 10px 0px 10px 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.font-sm{
+    font-size: 12px;
+    color: #FFFFFFCC;
+}
+.hello{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+.hello img{
+    width: 200px;
+    object-fit: contain;
+}
