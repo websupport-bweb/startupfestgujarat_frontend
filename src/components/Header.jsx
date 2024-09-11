@@ -73,6 +73,8 @@ export default function Header() {
                   </NavDropdown>
 
                   <Nav.Link href="/contact">Contact</Nav.Link>
+                  <Nav.Link href="/sponser">Sponser</Nav.Link>
+                  <Nav.Link href="/awards">Awards</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
               </div>

@@ -12,6 +12,10 @@ import Footer from './components/Footer';
 import Participants from './pages/Participants';
 import StartupContent from './pages/StartupContent';
 import Contact from './pages/Contact';
+import Sponser from './pages/Sponser';
+import Awardsnight from './pages/Awardsnight';
+
+
 
 
 function App() {
@@ -25,6 +29,8 @@ function App() {
           <Route path='/participants' element ={<Participants />} />
           <Route path='/startup' element ={<StartupContent />} />
           <Route path='/contact' element ={<Contact />} />
+          <Route path='/sponser' element ={<Sponser />} />
+          <Route path='/awards' element ={<Awardsnight />} />
         </Routes>
         <Footer/>
       </BrowserRouter>
