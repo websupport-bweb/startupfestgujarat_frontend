@@ -8,8 +8,11 @@ import Select from "react-select";
 import axios from 'axios'
 import StartupForm from "../components/StartupForm";
 import InvestorForm from "../components/VIsitorForm";
-
-
+import imgEvent from "../assets/img/eventPass.png"
+import logo from "../assets/img/logo.png";
+import Modal from 'react-bootstrap/Modal';
+import map from "../assets/img/Map.png";
+import frame from "../assets/img/event-ticket.png";
 
 const Register = () => {
     const isdCodes = [
@@ -261,7 +264,7 @@ const Register = () => {
         StateID: '',
         brochure: '',
         productImages: '',
-        
+
     }
 
     const investorInitialValue = {
@@ -337,7 +340,7 @@ const Register = () => {
     }, [])
 
     const handleChange = (e) => {
-     
+
 
         const { name, value, type, checked } = e.target;
         setValues({
@@ -348,7 +351,7 @@ const Register = () => {
 
     };
     const handleInvestorChange = (e) => {
-        
+
 
         const { name, value, type, checked } = e.target;
         setInvestorValues({
@@ -368,6 +371,9 @@ const Register = () => {
     };
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    const [show, setShow] = useState(false);
+    const handleShow = () => setShow(true);
+    const handleClose = () => setShow(false);
 
     const validateForm = () => {
         let errors = {};
@@ -494,14 +500,15 @@ const Register = () => {
 
     const [participant, setPaticipantId] = useState('66deba1c8d13756fe2697beb')
     const [ticketId, setTicketId] = useState('66e162ee158fdfa7198f4765')
-    const [isInvestor , setIsInvestor] = useState(true)
+    const [isInvestor, setIsInvestor] = useState(true)
     const [registerData, setRegisterData] = useState([])
     const handleSubmit = async (e) => {
         setIsSubmit(true);
         console.log("ll");
-
+        // handleShow()
         const errors = validateForm();
         console.log(errors);
+        
         if (Object.keys(errors).length === 0) {
             const formData = new FormData();
             console.log(values)
@@ -540,9 +547,16 @@ const Register = () => {
             try {
                 const res = await axios.post(`${process.env.REACT_APP_URL}/api/auth/create/StartUpDetailsMaster`, formData);
                 if (res.data.isOk) {
+                    setAddMore(false)
+                    // alert("Form submitted successfully")
                     alert("Form submitted successfully")
-                    setValues(initialValues)
+                    console.log(res)
+                    console.log(registerData)
                     setRegisterData((prevData) => [...prevData, res.data.data]);
+                    setValues(initialValues)
+                    console.log(customActiveTab)
+                    handleShow()
+                    
 
                 }
                 else {
@@ -556,6 +570,11 @@ const Register = () => {
             }
         }
     };
+
+    // useEffect(() => {
+    //     handleShow()
+    // }, [registerData])
+
     const handleInvestorSubmit = async (e) => {
         setIsSubmit(true);
         console.log("ll");
@@ -563,37 +582,38 @@ const Register = () => {
         const errors = validateInvestorForm();
         console.log(errors);
         if (Object.keys(errors).length === 0) {
-            
-            const data={
-                name:investorvalues.contactPersonName,
-                email:investorvalues.email,
-                contactNo:investorvalues.contactNo,
-                countryCode:investorvalues.countryCode.value,
-                companyName:investorvalues.companyName,
-                City:investorvalues.City,
-                description:investorvalues.description,
-                pincode:investorvalues.pincode,
+
+            const data = {
+                name: investorvalues.contactPersonName,
+                email: investorvalues.email,
+                contactNo: investorvalues.contactNo,
+                countryCode: investorvalues.countryCode.value,
+                companyName: investorvalues.companyName,
+                City: investorvalues.City,
+                description: investorvalues.description,
+                pincode: investorvalues.pincode,
                 address: investorvalues.address,
-                CountryID:investorvalues.CountryID.value,
-                StateID:investorvalues.StateID.value,
-                participantCategoryId:participant,
-                ticketId:ticketId
+                CountryID: investorvalues.CountryID.value,
+                StateID: investorvalues.StateID.value,
+                participantCategoryId: participant,
+                ticketId: ticketId
             }
             // Handle file uploads
 
 
             try {
                 let res
-                if(isInvestor===true)
-                {res = await axios.post(`${process.env.REACT_APP_URL}/api/auth/investor`, data);}
-                else if (isInvestor==false)
-                {
-                    res=await axios.post(`${process.env.REACT_APP_URL}/api/auth/visitor`, data);
+                if (isInvestor === true) { res = await axios.post(`${process.env.REACT_APP_URL}/api/auth/investor`, data); }
+                else if (isInvestor == false) {
+                    res = await axios.post(`${process.env.REACT_APP_URL}/api/auth/visitor`, data);
                 }
                 if (res.data.isOk) {
+                    setAddMore(false)
                     alert("Form submitted successfully")
                     setInvestorValues(investorInitialValue)
                     setRegisterData((prevData) => [...prevData, res.data.data]);
+                    handleShow()
+                    
                 }
                 else {
                     console.log(res.data)
@@ -733,47 +753,175 @@ const Register = () => {
 
                                 <TabPane tabId="3">
                                     <div>
-                                        <InvestorForm 
-                                        investorvalues={investorvalues}
-                                        handleInvestorChange={handleInvestorChange}
-                                        
-                                        InvestorformErrors={InvestorformErrors}
-                                        isSubmit={isSubmit}
-                                        handleInvestorSubmit={handleInvestorSubmit}
-                                        country={country}
-                                        states={states}
-                                        fetchState={fetchState}
-                                        setInvestorValues={setInvestorValues}
-                                        isdCodes={isdCodes}
-                                        
+                                        <InvestorForm
+                                            investorvalues={investorvalues}
+                                            handleInvestorChange={handleInvestorChange}
+
+                                            InvestorformErrors={InvestorformErrors}
+                                            isSubmit={isSubmit}
+                                            handleInvestorSubmit={handleInvestorSubmit}
+                                            country={country}
+                                            states={states}
+                                            fetchState={fetchState}
+                                            setInvestorValues={setInvestorValues}
+                                            isdCodes={isdCodes}
+
                                         />
                                     </div>
-                                   
+
                                 </TabPane>
                                 <TabPane tabId="4">
                                     <div>
-                                        <InvestorForm 
-                                        investorvalues={investorvalues}
-                                        handleInvestorChange={handleInvestorChange}
-                                        
-                                        InvestorformErrors={InvestorformErrors}
-                                        isSubmit={isSubmit}
-                                        handleInvestorSubmit={handleInvestorSubmit}
-                                        country={country}
-                                        states={states}
-                                        fetchState={fetchState}
-                                        setInvestorValues={setInvestorValues}
-                                        isdCodes={isdCodes}
-                                        
+                                        <InvestorForm
+                                            investorvalues={investorvalues}
+                                            handleInvestorChange={handleInvestorChange}
+
+                                            InvestorformErrors={InvestorformErrors}
+                                            isSubmit={isSubmit}
+                                            handleInvestorSubmit={handleInvestorSubmit}
+                                            country={country}
+                                            states={states}
+                                            fetchState={fetchState}
+                                            setInvestorValues={setInvestorValues}
+                                            isdCodes={isdCodes}
+
                                         />
                                     </div>
-                                   
+
                                 </TabPane>
                             </TabContent>
                         </div>
                     </Col>
                 </Row>
             </div>
+
+            <Modal
+                className="event-popup"
+                show={show}
+                onHide={handleClose}
+                animation={false}
+                size="lg"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        <img src={imgEvent} />
+                        <span>Event Pass</span>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Here is your pass for event access
+                    <Row className='scroll-hori'>
+                        {console.log(registerData)}
+                        <Col lg={6}>
+                            {registerData.map((items, index) => {
+                                return (
+                                    <Row className='mb-2 ticket-area' key={index}>
+                                        <Col lg={7} className="b-right">
+                                            <div className="logo-area">
+                                                <img src={map} className="map-img" alt="" />
+                                                <img src={logo} className="logo-img" alt="" />
+                                            </div>
+                                            <div className="name">
+
+                                                <div className="txt-ixon">
+                                                    <div className="tick-name">
+                                                        <h6>Event Name </h6>
+                                                        <p>
+                                                            <b>Friday AfterHours: Sufi Unplugged</b>
+                                                        </p>
+                                                    </div>
+                                                    <img src={frame} className="frame-img" />
+                                                </div>
+
+                                                <div className="txt-ixon two">
+                                                    <div className="tick-name">
+                                                        <h6>Time </h6>
+                                                        <p>
+                                                            <b>28,29 September</b>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Col>
+                                        <Col lg={4}>
+                                            <div className="txt-ixon two h-100 align-content-center">
+                                                <div className='name'>
+                                                    <h5>{items.contactPersonNam}</h5>
+                                                    <hr />
+                                                </div>
+                                                <div className="tick-name">
+                                                    <h6>Email </h6>
+                                                    <p>
+                                                        <b>{items.email}</b>
+                                                    </p>
+                                                </div>
+                                                <div className="tick-name">
+                                                    <h6>Contact </h6>
+                                                    <p>
+                                                        <b>{items.countryCode}{items.contactNo}</b>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </Col>
+                                        <Col lg={1} className="p-0">
+                                            <div className="bg-blue">
+                                                <p className="vert-txt">Event pass</p>
+                                            </div>
+                                        </Col>
+                                    </Row>)
+                            })}
+
+
+                        </Col>
+                        <Col lg={6}>
+                            <Button 
+                            type="button"
+                            onClick={() => setAddMore(true)}
+                            className="no-style"
+                            ><a href='/' className='txt-blue'>+ Add Attendees</a></Button>
+                            {addMore && (
+                                (customActiveTab === '1' || customActiveTab === '2') ? (
+                                    <div>
+                                        <StartupForm
+                                            values={values}
+                                            handleChange={handleChange}
+                                            handleFileChange={handleFileChange}
+                                            formErrors={formErrors}
+                                            isSubmit={isSubmit}
+                                            handleSubmit={handleSubmit}
+                                            country={country}
+                                            states={states}
+                                            fetchState={fetchState}
+                                            setValues={setValues}
+                                            isdCodes={isdCodes}
+                                            categories={categories}
+                                            stages={stages}
+                                        />
+                                    </div>
+                                ) : (
+                                    <div>
+                                        <InvestorForm
+                                            investorvalues={investorvalues}
+                                            handleInvestorChange={handleInvestorChange}
+                                            InvestorformErrors={InvestorformErrors}
+                                            isSubmit={isSubmit}
+                                            handleInvestorSubmit={handleInvestorSubmit}
+                                            country={country}
+                                            states={states}
+                                            fetchState={fetchState}
+                                            setInvestorValues={setInvestorValues}
+                                            isdCodes={isdCodes}
+                                        />
+                                    </div>
+                                )
+                            )}
+
+                        </Col>
+                    </Row>
+                </Modal.Body>
+
+            </Modal>
+
         </React.Fragment>
     );
 };

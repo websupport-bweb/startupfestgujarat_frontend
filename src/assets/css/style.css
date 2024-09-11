@@ -1328,6 +1328,7 @@ p.big-btns {
 .event-popup .txt-ixon .tick-name  p{
     color: #3B4353;
     font-size: 12px;
+    word-break: break-all;
 }
 .event-popup hr {
     border-top: 2px solid;
@@ -1386,4 +1387,9 @@ p.big-btns {
     background-color: #f7fafe !important;
    border-radius: 6px !important;
    border-width: 0px !important;
+}
+
+.no-style {
+    background: transparent;
+    border: none;
 }
