@@ -37,7 +37,7 @@ export default function Header() {
                     <NavDropdown.Item href="/">
                       Shark Tank Featured Startups
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/">
+                    <NavDropdown.Item href="/awards">
                       Award Night
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/">
@@ -51,13 +51,13 @@ export default function Header() {
                     title="Reasons To Participate"
                     id="navbarScrollingDropdown"
                   >
-                    <NavDropdown.Item href="/">
+                    <NavDropdown.Item href="/start-up">
                       For Startups
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/investor">
                       For Investors And Accelerators 
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/">
+                    <NavDropdown.Item href="/sponser">
                       For Sponsors
                     </NavDropdown.Item>
                   </NavDropdown>
@@ -74,7 +74,9 @@ export default function Header() {
                     </NavDropdown.Item>
                   </NavDropdown>
 
-                  <Nav.Link href="/">Contact</Nav.Link>
+                  <Nav.Link href="/contact">Contact</Nav.Link>
+                  {/* <Nav.Link href="/sponser">Sponser</Nav.Link> */}
+                  {/* <Nav.Link href="/awards">Awards</Nav.Link> */}
                 </Nav>
               </Navbar.Collapse>
               </div>
