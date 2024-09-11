@@ -6,6 +6,8 @@ import classnames from "classnames";
 import bg from '../assets/img/register_bg.png';
 import Select from "react-select";
 import axios from 'axios'
+import StartupForm from "../components/StartupForm";
+import InvestorForm from "../components/VIsitorForm";
 
 
 
@@ -237,7 +239,7 @@ const Register = () => {
         { country: "Zimbabwe", code: "+263" },
     ];
 
-    const [values, setValues] = useState({
+    const initialValues = {
         contactPersonName: '',
         email: '',
         contactNo: '',
@@ -258,11 +260,30 @@ const Register = () => {
         CountryID: '',
         StateID: '',
         brochure: '',
-        productImages: ''
-    });
+        productImages: '',
+        
+    }
+
+    const investorInitialValue = {
+        contactPersonName: '',
+        email: '',
+        contactNo: '',
+        countryCode: '',
+        companyName: '',
+        City: '',
+        description: '',
+        pincode: '',
+        address: '',
+        CountryID: '',
+        StateID: '',
+    }
+
+    const [values, setValues] = useState(initialValues);
+    const [investorvalues, setInvestorValues] = useState(investorInitialValue);
 
     const [customActiveTab, setCustomActiveTab] = useState('1');
     const [images, setImages] = useState([]);
+    const [addMore, setAddMore] = useState(false)
 
     const toggleCustom = tab => {
         if (customActiveTab !== tab) {
@@ -295,12 +316,12 @@ const Register = () => {
         }
 
     }
-    const [states, setStates]=useState([])
+    const [states, setStates] = useState([])
     const fetchState = async (_id) => {
         try {
             const res = await axios.get(`${process.env.REACT_APP_URL}/api/auth/location/statesByCountry/${_id}`)
             console.log(res)
-            
+
             setStates(res.data);
         }
         catch (error) {
@@ -316,15 +337,26 @@ const Register = () => {
     }, [])
 
     const handleChange = (e) => {
-        console.log(e)
-        
+     
+
         const { name, value, type, checked } = e.target;
         setValues({
             ...values,
             [name]: type === 'checkbox' ? checked : value
         });
 
-         
+
+    };
+    const handleInvestorChange = (e) => {
+        
+
+        const { name, value, type, checked } = e.target;
+        setInvestorValues({
+            ...investorvalues,
+            [name]: type === 'checkbox' ? checked : value
+        });
+
+
     };
 
     const handleFileChange = (e) => {
@@ -406,9 +438,65 @@ const Register = () => {
         setFormErrors(errors);
         return errors;
     };
+    const [InvestorformErrors, setInvestorFormErrors] = useState({});
+    const validateInvestorForm = () => {
+        let errors = {};
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const contactRegex = /((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}/;
+        if (!investorvalues.contactPersonName) {
+            errors.contactPersonName = 'Contact Person Name is required';
+        }
+        if (!investorvalues.email) {
+            errors.email = 'Email is required';
+        } else if (!emailRegex.test(investorvalues.email)) {
+            errors.email = 'Invalid Email address!';
+        }
+        if (!investorvalues.contactNo && !investorvalues.countryCode) {
+            errors.contactNo = 'Contact Number and country code is required';
+        }
+        if (!investorvalues.contactNo) {
+            errors.contactNo = 'Contact Number is required';
+        } else if (!contactRegex.test(investorvalues.contactNo)) {
+            errors.contactNo = 'Invalid Mobile Number!';
+        }
+        if (!investorvalues.companyName) {
+            errors.companyName = 'Startup name is required';
+        }
+
+        if (!investorvalues.countryCode) {
+            errors.countryCode = 'Country Code is required';
+        }
 
 
-    const handleSubmit = async(e) => {
+        if (!investorvalues.pincode) {
+            errors.pincode = 'Pincode is required';
+        }
+        if (!investorvalues.address) {
+            errors.address = 'Address is required';
+        }
+        if (!investorvalues.CountryID) {
+            errors.CountryID = 'Country is required';
+        }
+        if (!investorvalues.StateID) {
+            errors.StateID = 'State is required';
+        }
+        if (!investorvalues.description) {
+            errors.description = 'Brief About Startup is required';
+        }
+
+        if (!investorvalues.terms) {
+            errors.terms = 'Please accept the terms and conditions';
+        }
+        setInvestorFormErrors(errors);
+        return errors;
+    };
+
+
+    const [participant, setPaticipantId] = useState('66deba1c8d13756fe2697beb')
+    const [ticketId, setTicketId] = useState('66e162ee158fdfa7198f4765')
+    const [isInvestor , setIsInvestor] = useState(true)
+    const [registerData, setRegisterData] = useState([])
+    const handleSubmit = async (e) => {
         setIsSubmit(true);
         console.log("ll");
 
@@ -435,8 +523,9 @@ const Register = () => {
             formData.append("address", values.address);
             formData.append("CountryID", values.CountryID.value);
             formData.append("StateID", values.StateID.value);
-            formData.append("participantCategoryId", '66deba2b8d13756fe2697bee');
-        
+            formData.append("participantCategoryId", participant);
+            formData.append("ticketId", ticketId);
+
             // Handle file uploads
             if (values.logo) {
                 formData.append("logo", values.logo);
@@ -448,13 +537,15 @@ const Register = () => {
                 formData.append("productImages", values.productImages);
             }
 
-            try{
-                const res= await axios.post(`${process.env.REACT_APP_URL}/api/auth/create/StartUpDetailsMaster`, formData);
-                if(res.data.isOk)
-                {
-                    alert("Form submitteed successfully")
+            try {
+                const res = await axios.post(`${process.env.REACT_APP_URL}/api/auth/create/StartUpDetailsMaster`, formData);
+                if (res.data.isOk) {
+                    alert("Form submitted successfully")
+                    setValues(initialValues)
+                    setRegisterData((prevData) => [...prevData, res.data.data]);
+
                 }
-                else{
+                else {
                     console.log(res.data)
                     alert(res.data.message)
                 }
@@ -463,12 +554,64 @@ const Register = () => {
                 console.error("An error occurred during submission:", error.message);
                 // alert("An error occurred while submitting the form. Please try again after some time.");
             }
-        }   
+        }
     };
+    const handleInvestorSubmit = async (e) => {
+        setIsSubmit(true);
+        console.log("ll");
 
-    const stages =[
-        {value:'Initial', label:'Initial'},
-        {value:'Growth', label:'Growth'},
+        const errors = validateInvestorForm();
+        console.log(errors);
+        if (Object.keys(errors).length === 0) {
+            
+            const data={
+                name:investorvalues.contactPersonName,
+                email:investorvalues.email,
+                contactNo:investorvalues.contactNo,
+                countryCode:investorvalues.countryCode.value,
+                companyName:investorvalues.companyName,
+                City:investorvalues.City,
+                description:investorvalues.description,
+                pincode:investorvalues.pincode,
+                address: investorvalues.address,
+                CountryID:investorvalues.CountryID.value,
+                StateID:investorvalues.StateID.value,
+                participantCategoryId:participant,
+                ticketId:ticketId
+            }
+            // Handle file uploads
+
+
+            try {
+                let res
+                if(isInvestor===true)
+                {res = await axios.post(`${process.env.REACT_APP_URL}/api/auth/investor`, data);}
+                else if (isInvestor==false)
+                {
+                    res=await axios.post(`${process.env.REACT_APP_URL}/api/auth/visitor`, data);
+                }
+                if (res.data.isOk) {
+                    alert("Form submitted successfully")
+                    setInvestorValues(investorInitialValue)
+                    setRegisterData((prevData) => [...prevData, res.data.data]);
+                }
+                else {
+                    console.log(res.data)
+                    alert(res.data.message)
+                }
+            }
+            catch (error) {
+                console.error("An error occurred during submission:", error.message);
+                // alert("An error occurred while submitting the form. Please try again after some time.");
+            }
+        }
+    };
+    const stages = [
+        { value: 'Ideation', label: 'Ideation' },
+        { value: 'PoC/MVP', label: 'PoC/MVP' },
+        { value: 'Early Revenue', label: 'Early Revenue' },
+        { value: 'Revenue', label: 'Revenue' },
+        { value: 'Growth', label: 'Growth' },
     ]
 
     return (
@@ -488,7 +631,12 @@ const Register = () => {
                                     <NavLink
                                         style={{ cursor: "pointer" }}
                                         className={classnames({ active: customActiveTab === "1" })}
-                                        onClick={() => { toggleCustom("1") }}
+                                        onClick={() => {
+                                            toggleCustom("1")
+                                            setPaticipantId("66deba1c8d13756fe2697beb")
+                                            setTicketId('66e162ee158fdfa7198f4765')
+                                            // setValues(initialValues)
+                                        }}
                                     >
                                         Pitcher
                                     </NavLink>
@@ -497,7 +645,12 @@ const Register = () => {
                                     <NavLink
                                         style={{ cursor: "pointer" }}
                                         className={classnames({ active: customActiveTab === "2" })}
-                                        onClick={() => toggleCustom("2")}
+                                        onClick={() => {
+                                            toggleCustom("2")
+                                            setPaticipantId('66deba2b8d13756fe2697bee')
+                                            setTicketId('66e1631b158fdfa7198f4767')
+                                        }
+                                        }
                                     >
                                         Start-Up
                                     </NavLink>
@@ -506,490 +659,115 @@ const Register = () => {
                                     <NavLink
                                         style={{ cursor: "pointer" }}
                                         className={classnames({ active: customActiveTab === "3" })}
-                                        onClick={() => toggleCustom("3")}
+                                        onClick={() => {
+                                            toggleCustom("3")
+                                            setPaticipantId('66deba3b8d13756fe2697bf1')
+                                            setTicketId('66e16380158fdfa7198f476b')
+                                            setIsInvestor(true)
+
+                                        }}
                                     >
-                                        Investor/Visitor
+                                        Investor
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem className="f-15 pb-0">
+                                    <NavLink
+                                        style={{ cursor: "pointer" }}
+                                        className={classnames({ active: customActiveTab === "4" })}
+                                        onClick={() => {
+                                            toggleCustom("4")
+                                            setPaticipantId('66e1617c158fdfa7198f4763')
+                                            setTicketId('66e163bd158fdfa7198f476d')
+                                            setIsInvestor(false)
+
+                                        }}
+                                    >
+                                        Visitor
                                     </NavLink>
                                 </NavItem>
                             </Nav>
 
                             <TabContent activeTab={customActiveTab}>
-                                <TabPane tabId="2">
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="contactPersonName">
-                                            Name<span className="text-danger">*</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            name="contactPersonName"
-                                            className="form-control bg-light"
-                                            value={values.contactPersonName}
-                                            onChange={handleChange}
-                                        />
-                                        {isSubmit && formErrors.contactPersonName && (
-                                            <p className="text-danger f-13">{formErrors.contactPersonName}</p>
-                                        )}
-                                    </div>
 
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="email">
-                                            Email<span className="text-danger">*</span>
-                                        </label>
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            className="form-control bg-light"
-                                            value={values.email}
-                                            onChange={handleChange}
-                                        />
-                                        {isSubmit && formErrors.email && (
-                                            <p className="text-danger f-13">{formErrors.email}</p>
-                                        )}
-                                    </div>
-
-                                    <div className="row mb-3">
-                                        <div className="col-md-4">
-                                            <label className="f-13 fw-bold" htmlFor="countryCode">
-                                                Country Code
-                                            </label>
-                                            <Select
-                                                name="countryCode"
-                                                className="p-0 b-0 form-control bg-light"
-                                                value={values.countryCode}
-                                                // onChange={handleChange}
-                                                onChange={(e)=>{ setValues({
-                                                    ...values,
-                                                    countryCode: e
-                                                })}}
-                                                options={isdCodes.map((item ) => ({
-                                                    value:item.code ,
-                                                    label: `${item.country} (${item.code})`,
-                                                  }))}
-                                            >
-                                                {isdCodes.map(({ country, code }) => (
-                                                    <option key={code} value={code}>
-                                                        {`${country} (${code})`}
-                                                    </option>
-                                                ))}
-                                            </Select>
-                                            {isSubmit && formErrors.countryCode && (
-                                                <p className="text-danger f-13">{formErrors.countryCode}</p>
-                                            )}
-                                        </div>
-                                        <div className="col-md-8">
-                                            <label className="f-13 fw-bold" htmlFor="contactNo">
-                                                Contact Number
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="contactNo"
-                                                className="form-control bg-light"
-                                                value={values.contactNo}
-                                                onChange={handleChange}
-                                            />
-                                            {isSubmit && formErrors.contactNo && (
-                                                <p className="text-danger f-13">{formErrors.contactNo}</p>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="companyName">
-                                            Startup name<span className="text-danger">*</span> <span className="text-muted-grey">(The official name of the startup)</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            name="companyName"
-                                            className="form-control bg-light"
-                                            value={values.companyName}
-                                            onChange={handleChange}
-                                        />
-                                        {isSubmit && formErrors.companyName && (
-                                            <p className="text-danger f-13">{formErrors.companyName}</p>
-                                        )}
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="founderName">
-                                            Founder name<span className="text-danger">*</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            name="founderName"
-                                            className="form-control bg-light"
-                                            value={values.founderName}
-                                            onChange={handleChange}
-                                        />
-                                        {isSubmit && formErrors.founderName && (
-                                            <p className="text-danger f-13">{formErrors.founderName}</p>
-                                        )}
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="categoryId">
-                                            Industry/Sector<span className="text-danger">*</span>
-                                        </label>
-                                        <Select
-                                            name="categoryId"
-                                            className="p-0 form-control bg-light"
-                                            value={values.categoryId}
-                                            // onChange={handleChange}
-                                            onChange={(e)=>{ setValues({
-                                                ...values,
-                                                categoryId: e
-                                            })}}
-                                            options={categories.map((item) => ({
-                                                value: item._id,
-                                                label: item.categoryName,
-                                              }))}
-                                        >
-                                            {/* <option value=""></option>
-                                            {categories.map((category) => (
-                                                <option key={category._id} value={category._id}>
-                                                    {category.categoryName}
-                                                </option>
-                                            ))} */}
-                                        </Select>
-                                        {isSubmit && formErrors.categoryId && (
-                                            <p className="text-danger f-13">{formErrors.categoryId}</p>
-                                        )}
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="stageOfStartup">
-                                            Stage of Startup<span className="text-danger">*</span>
-                                        </label>
-                                        <Select
-                                            name="stageOfStartup"
-                                            className="p-0 form-control bg-light"
-                                            value={values.stageOfStartup}
-                                            // onChange={handleChange}
-                                            onChange={(e)=>{ setValues({
-                                                ...values,
-                                                stageOfStartup: e
-                                            })}}
-                                            options={stages.map((item) => ({
-                                                value: item.value,
-                                                label: item.label,
-                                              }))}
-                                        >
-                                            {/* <option value=""></option>
-                                            <option value="seed">Initial</option>
-                                            <option value="growth">Growth</option> */}
-                                        </Select>
-                                        {isSubmit && formErrors.stageOfStartup && (
-                                            <p className="text-danger f-13">{formErrors.stageOfStartup}</p>
-                                        )}
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="teamSize">
-                                            Current Team Size<span className="text-danger">*</span>
-                                        </label>
-                                        <input
-                                            type="text"
-                                            name="teamSize"
-                                            className="form-control bg-light"
-                                            value={values.teamSize}
-                                            onChange={handleChange}
-                                        />
-                                        {isSubmit && formErrors.teamSize && (
-                                            <p className="text-danger f-13">{formErrors.teamSize}</p>
-                                        )}
-                                    </div>
-
-                                    <div className="row mb-3">
-                                        <div className="col">
-                                            <label className="f-13 fw-bold" htmlFor="CountryID">
-                                                Country<span className="text-danger">*</span>
-                                            </label>
-                                            <Select
-                                                name="CountryID"
-                                                className="p-0 form-control bg-light"
-                                                value={values.CountryID}
-                                                // onChange={handleChange}
-                                                onChange={(e)=>{ 
-                                                    setValues({
-                                                    ...values,
-                                                    CountryID: e
-                                                })
-                                                fetchState(e.value)}}
-                                                options={country.map((item) => ({
-                                                    value: item._id,
-                                                    label: item.CountryName,
-                                                  }))}
-                                            >
-                                                {/* <option value=""></option>
-                                            {country.map((category) => (
-                                                <option key={category._id} value={category._id}>
-                                                    {category.CountryName}
-                                                </option> 
-                                            ))}*/}
-                                            </Select>
-                                            {isSubmit && formErrors.CountryID && (
-                                                <p className="text-danger f-13">{formErrors.CountryID}</p>
-                                            )}
-                                        </div>
-                                        <div className="col">
-                                            <label className="f-13 fw-bold" htmlFor="StateID">
-                                                State<span className="text-danger">*</span>
-                                            </label>
-                                            <Select
-                                                name="StateID"
-                                                className="p-0 form-control bg-light"
-                                                value={values.StateID}
-                                                onChange={(e)=>{ setValues({
-                                                    ...values,
-                                                    StateID: e
-                                                })}}
-                                                options={states.map((item) => ({
-                                                    value: item._id,
-                                                    label: item.StateName,
-                                                  }))}
-                                            >
-                                               
-                                            {/* {states.map((category) => (
-                                                <option key={category._id} value={category._id}>
-                                                    {category.StateName}
-                                                </option>
-                                            ))} */}
-                                            </Select>
-                                            {isSubmit && formErrors.StateID && (
-                                                <p className="text-danger f-13">{formErrors.StateID}</p>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    <div className="row mb-3">
-                                        <div className="col">
-                                            <label className="f-13 fw-bold" htmlFor="City">
-                                                City of Operation
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="City"
-                                                className="form-control bg-light"
-                                                value={values.City}
-                                                onChange={handleChange}
-                                            />
-                                            {isSubmit && formErrors.City && (
-                                                <p className="text-danger f-13">{formErrors.City}</p>
-                                            )}
-                                        </div>
-                                        <div className="col">
-                                            <label className="f-13 fw-bold" htmlFor="pincode">
-                                                PinCode<span className="text-danger">*</span>
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="pincode"
-                                                className="form-control bg-light"
-                                                value={values.pincode}
-                                                onChange={handleChange}
-                                            />
-                                            {isSubmit && formErrors.pincode && (
-                                                <p className="text-danger f-13">{formErrors.pincode}</p>
-                                            )}
-                                        </div>
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="address">
-                                            Address<span className="text-danger">*</span>
-                                        </label>
-                                        <textarea
-                                            name="address"
-                                            className="form-control bg-light"
-                                            value={values.address}
-                                            onChange={handleChange}
-                                        />
-                                        {isSubmit && formErrors.address && (
-                                            <p className="text-danger f-13">{formErrors.address}</p>
-                                        )}
-                                    </div>
-
-                                    <div className="mb-3">
-                                    <div className="">
-                                            <label className="f-13 fw-bold" htmlFor="legalName">
-                                                Legal name of Company
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="legalName"
-                                                className="form-control bg-light"
-                                                value={values.legalName}
-                                                onChange={handleChange}
-                                            />
-                                            {isSubmit && formErrors.legalName && (
-                                                <p className="text-danger f-13">{formErrors.legalName}</p>
-                                            )}
-                                        </div>
-                                    </div>
-                                    <div className="mb-3">
-                                    
-                                            <label className="f-13 fw-bold" htmlFor="yearFounded">
-                                               Year of Establishment
-                                            </label>
-                                            <input
-                                                type="text"
-                                                name="yearFounded"
-                                                className="form-control bg-light"
-                                                value={values.yearFounded}
-                                                onChange={handleChange}
-                                            />
-                                            {isSubmit && formErrors.yearFounded && (
-                                                <p className="text-danger f-13">{formErrors.yearFounded}</p>
-                                            )}
-                                        </div>
-                                    
-                                    
-
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="description">
-                                            Brief About Startup<span className="text-danger">*</span>
-                                        </label>
-                                        <textarea
-                                            name="description"
-                                            className="form-control bg-light"
-                                            value={values.description}
-                                            onChange={handleChange}
-                                        />
-                                        {isSubmit && formErrors.description && (
-                                            <p className="text-danger f-13">{formErrors.description}</p>
-                                        )}
-                                    </div>
-
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="logo">
-                                            Company Logo<span className="text-danger">*</span>
-                                        </label>
-                                        <input
-                                            type="file"
-                                            name="logo"
-                                            className="form-control"
-                                            onChange={handleFileChange}
-                                            accept="image/*"
-                                        />
-                                        {isSubmit && formErrors.logo && (
-                                            <p className="text-danger f-13">{formErrors.logo}</p>
-                                        )}
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="brochure">
-                                            Brochure
-                                        </label>
-                                        <input
-                                            type="file"
-                                            name="brochure"
-                                            className="form-control"
-                                            onChange={handleFileChange}
-                                            accept="image/*"
-                                        />
-
-                                    </div>
-                                    <div className="mb-3">
-                                        <label className="f-13 fw-bold" htmlFor="productImages">
-                                            Product Images
-                                        </label>
-                                        <input
-                                            type="file"
-                                            name="productImages"
-                                            className="form-control"
-                                            onChange={handleFileChange}
-                                            accept="image/*"
-                                        />
-
-                                    </div>
-
-                                    <div className="mb-3 form-check">
-                                        <input
-                                            type="checkbox"
-                                            name="terms"
-                                            className="form-check-input"
-                                            checked={values.terms}
-                                            onChange={handleChange}
-                                        />
-                                        <label className="f-13 fw-bold form-check-label" htmlFor="terms">
-                                            I agree to the Terms & Conditions<span className="text-danger">*</span>
-                                        </label>
-                                        {isSubmit && formErrors.terms && (
-                                            <p className="text-danger f-13">{formErrors.terms}</p>
-                                        )}
-                                    </div>
+                                <TabPane tabId="1">
                                     <div>
-                                        <Button type="submit" color="primary" className="mt-3 register-btn" onClick={handleSubmit}>Register</Button>
+                                        <StartupForm
+                                            values={values}
+                                            handleChange={handleChange}
+                                            handleFileChange={handleFileChange}
+                                            formErrors={formErrors}
+                                            isSubmit={isSubmit}
+                                            handleSubmit={handleSubmit}
+                                            country={country}
+                                            states={states}
+                                            fetchState={fetchState}
+                                            setValues={setValues}
+                                            isdCodes={isdCodes}
+                                            categories={categories}
+                                            stages={stages}
+                                        />
+                                    </div>
+                                </TabPane>
+
+
+                                <TabPane tabId="2">
+                                    <div>
+                                        <StartupForm
+                                            values={values}
+                                            handleChange={handleChange}
+                                            handleFileChange={handleFileChange}
+                                            formErrors={formErrors}
+                                            isSubmit={isSubmit}
+                                            handleSubmit={handleSubmit}
+                                            country={country}
+                                            states={states}
+                                            fetchState={fetchState}
+                                            setValues={setValues}
+                                            isdCodes={isdCodes}
+                                            categories={categories}
+                                            stages={stages}
+                                        />
                                     </div>
                                 </TabPane>
 
 
                                 <TabPane tabId="3">
-                                    <Formik
-                                        initialValues={{
-                                            name: '',
-                                            email: '',
-                                            contactNo: '',
-
-                                            terms: false
-                                        }}
-                                        // validationSchema={validationSchema}
-                                        onSubmit={(values) => {
-                                            // handle form submission logic
-
-                                        }}
-                                    >
-                                        {({ setFieldValue }) => (
-                                            <Form className="mt-4">
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="name">Name<span className="text-danger">*</span></Label>
-                                                    <Field name="name" className="form-control bg-light" />
-                                                    <ErrorMessage name="name" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="email">Email<span className="text-danger">*</span></Label>
-                                                    <Field name="email" type="email" className="form-control bg-light" />
-                                                    <ErrorMessage name="email" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-
-                                                <div className="row mb-3">
-
-                                                    <div className="col-md-4" style={{ zIndex: '1000' }}>
-                                                        <Label for="contact" className="f-13 fw-bold">Country Code</Label>
-                                                        <Field as="select" name="isdCode" className="form-control bg-light">
-                                                            {/* <option value="">Select ISD Code</option> */}
-                                                            {isdCodes.map(({ country, code }) => (
-                                                                <option key={code} value={code}>
-                                                                    {`${country} (${code})`}
-                                                                </option>
-                                                            ))}
-                                                        </Field>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <div className="">
-                                                            <Label for="contact" className="f-13 fw-bold">Contact Number</Label>
-                                                            {/* <Label className="f-13 fw-bold" for="contactNo">Phone<span className="text-danger">*</span></Label> */}
-                                                            <Field name="contactNo" className="form-control bg-light" />
-                                                            <ErrorMessage name="contactNo" component="div" className="text-danger f-13 mb-3" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-
-
-                                                <div className="form-check">
-                                                    <Field type="checkbox" name="terms" className="form-check-input" />
-                                                    <Label className="f-13 fw-bold form-check-label" for="terms">
-                                                        Accept Terms and Conditions
-                                                    </Label>
-                                                    <ErrorMessage name="terms" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <Button type="submit" color="primary" className="mt-3 register-btn" onClick={handleSubmit}>Register</Button>
-                                            </Form>
-                                        )}
-                                    </Formik>
+                                    <div>
+                                        <InvestorForm 
+                                        investorvalues={investorvalues}
+                                        handleInvestorChange={handleInvestorChange}
+                                        
+                                        InvestorformErrors={InvestorformErrors}
+                                        isSubmit={isSubmit}
+                                        handleInvestorSubmit={handleInvestorSubmit}
+                                        country={country}
+                                        states={states}
+                                        fetchState={fetchState}
+                                        setInvestorValues={setInvestorValues}
+                                        isdCodes={isdCodes}
+                                        
+                                        />
+                                    </div>
+                                   
+                                </TabPane>
+                                <TabPane tabId="4">
+                                    <div>
+                                        <InvestorForm 
+                                        investorvalues={investorvalues}
+                                        handleInvestorChange={handleInvestorChange}
+                                        
+                                        InvestorformErrors={InvestorformErrors}
+                                        isSubmit={isSubmit}
+                                        handleInvestorSubmit={handleInvestorSubmit}
+                                        country={country}
+                                        states={states}
+                                        fetchState={fetchState}
+                                        setInvestorValues={setInvestorValues}
+                                        isdCodes={isdCodes}
+                                        
+                                        />
+                                    </div>
+                                   
                                 </TabPane>
                             </TabContent>
                         </div>
