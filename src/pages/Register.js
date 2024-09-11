@@ -1,27 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { Button, Col, Row, Input, Label, Container, Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
 import bg from '../assets/img/register_bg.png';
 import Select from "react-select";
+import axios from 'axios'
 
 
-const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Name is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
-    phone: Yup.string().required("Phone is required"),
-    startupName: Yup.string().required("Startup name is required"),
-    founderName: Yup.string().required("Founder name is required"),
-    industry: Yup.string().required("Industry is required"),
-    stageOfStartup: Yup.string().required("Stage of startup is required"),
-    teamSize: Yup.string().required("Team size is required"),
-    cityOfOperation: Yup.string().required("City of operation is required"),
-    aboutStartup: Yup.string().required("Brief about startup is required"),
-    legalName: Yup.string().required("Legal name is required"),
-    yearFounded: Yup.date().required("Year founded is required"),
-    terms: Yup.bool().oneOf([true], "You must accept the terms and conditions")
-});
 
 const Register = () => {
     const isdCodes = [
@@ -250,6 +236,31 @@ const Register = () => {
         { country: "Zambia", code: "+260" },
         { country: "Zimbabwe", code: "+263" },
     ];
+
+    const [values, setValues] = useState({
+        contactPersonName: '',
+        email: '',
+        contactNo: '',
+        countryCode: '',
+        companyName: '',
+        founderName: '',
+        categoryId: '',
+        stageOfStartup: '',
+        teamSize: '',
+        City: '',
+        description: '',
+        legalName: '',
+        yearFounded: '',
+        terms: false,
+        logo: '',
+        pincode: '',
+        address: '',
+        CountryID: '',
+        StateID: '',
+        brochure: '',
+        productImages: ''
+    });
+
     const [customActiveTab, setCustomActiveTab] = useState('1');
     const [images, setImages] = useState([]);
 
@@ -259,34 +270,217 @@ const Register = () => {
         }
     };
 
-    const handleImageUpload = (event) => {
-        const files = event.target.files;
-        setImages([...images, ...files]);
-    };
-    const handlelogoUpload = (event) => {
-        const files = event.target.files;
-        setImages([...images, ...files]);
-    };
-    const handlebrochureUpload = (event) => {
-        const files = event.target.files;
-        setImages([...images, ...files]);
+    const [categories, setCategories] = useState([]);
+    const fetchData = async () => {
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_URL}/api/auth/list/categoryMaster`)
+            console.log(res)
+            setCategories(res.data);
+        }
+        catch (error) {
+            console.error(error)
+        }
+
+    }
+
+    const [country, setCountry] = useState([])
+    const fetchCountry = async () => {
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_URL}/api/auth/location/country`)
+            console.log(res)
+            setCountry(res.data);
+        }
+        catch (error) {
+            console.error(error)
+        }
+
+    }
+    const [states, setStates]=useState([])
+    const fetchState = async (_id) => {
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_URL}/api/auth/location/statesByCountry/${_id}`)
+            console.log(res)
+            
+            setStates(res.data);
+        }
+        catch (error) {
+            console.error(error)
+        }
+
+    }
+    useEffect(() => {
+
+        fetchData()
+        fetchCountry()
+
+    }, [])
+
+    const handleChange = (e) => {
+        console.log(e)
+        
+        const { name, value, type, checked } = e.target;
+        setValues({
+            ...values,
+            [name]: type === 'checkbox' ? checked : value
+        });
+
+         
     };
 
-    const handleImageRemove = (index) => {
-        const updatedImages = images.filter((_, i) => i !== index);
-        setImages(updatedImages);
+    const handleFileChange = (e) => {
+        const { name, files } = e.target;
+        setValues({
+            ...values,
+            [name]: files[0]
+        });
     };
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+
+    const validateForm = () => {
+        let errors = {};
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const contactRegex = /((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}/;
+        if (!values.contactPersonName) {
+            errors.contactPersonName = 'Contact Person Name is required';
+        }
+        if (!values.email) {
+            errors.email = 'Email is required';
+        } else if (!emailRegex.test(values.email)) {
+            errors.email = 'Invalid Email address!';
+        }
+        if (!values.contactNo && !values.countryCode) {
+            errors.contactNo = 'Contact Number and country code is required';
+        }
+        if (!values.contactNo) {
+            errors.contactNo = 'Contact Number is required';
+        } else if (!contactRegex.test(values.contactNo)) {
+            errors.contactNo = 'Invalid Mobile Number!';
+        }
+        if (!values.companyName) {
+            errors.companyName = 'Startup name is required';
+        }
+        if (!values.founderName) {
+            errors.founderName = 'Founder Name is required';
+        }
+        if (!values.countryCode) {
+            errors.countryCode = 'Country Code is required';
+        }
+        if (!values.categoryId) {
+            errors.categoryId = 'Industry/Sector is required';
+        }
+        if (!values.stageOfStartup) {
+            errors.stageOfStartup = 'Stage of Startup is required';
+        }
+        if (!values.teamSize) {
+            errors.teamSize = 'Team Size is required';
+        }
+
+        if (!values.pincode) {
+            errors.pincode = 'Pincode is required';
+        }
+        if (!values.address) {
+            errors.address = 'Address is required';
+        }
+        if (!values.CountryID) {
+            errors.CountryID = 'Country is required';
+        }
+        if (!values.StateID) {
+            errors.StateID = 'State is required';
+        }
+        if (!values.description) {
+            errors.description = 'Brief About Startup is required';
+        }
+        if (!values.legalName) {
+            errors.legalName = 'Legal Name Startup is required';
+        }
+        if (!values.yearFounded) {
+            errors.yearFounded = 'Establishment Date of  Startup is required';
+        }
+        if (!values.logo) {
+            errors.logo = 'Company Logo is required';
+        }
+        if (!values.terms) {
+            errors.terms = 'Please accept the terms and conditions';
+        }
+        setFormErrors(errors);
+        return errors;
+    };
+
+
+    const handleSubmit = async(e) => {
+        setIsSubmit(true);
+        console.log("ll");
+
+        const errors = validateForm();
+        console.log(errors);
+        if (Object.keys(errors).length === 0) {
+            const formData = new FormData();
+            console.log(values)
+            formData.append("contactPersonName", values.contactPersonName);
+            formData.append("email", values.email);
+            formData.append("contactNo", values.contactNo);
+            formData.append("countryCode", values.countryCode.value);
+            formData.append("companyName", values.companyName);
+            formData.append("founderName", values.founderName);
+            formData.append("categoryId", values.categoryId.value);
+            formData.append("stageOfStartup", values.stageOfStartup.value);
+            formData.append("teamSize", values.teamSize);
+            formData.append("City", values.City);
+            formData.append("description", values.description);
+            formData.append("legalName", values.legalName);
+            formData.append("yearFounded", values.yearFounded);
+            formData.append("terms", values.terms);
+            formData.append("pincode", values.pincode);
+            formData.append("address", values.address);
+            formData.append("CountryID", values.CountryID.value);
+            formData.append("StateID", values.StateID.value);
+            formData.append("participantCategoryId", '66deba2b8d13756fe2697bee');
+        
+            // Handle file uploads
+            if (values.logo) {
+                formData.append("logo", values.logo);
+            }
+            if (values.brochure) {
+                formData.append("brochure", values.brochure);
+            }
+            if (values.productImages) {
+                formData.append("productImages", values.productImages);
+            }
+
+            try{
+                const res= await axios.post(`${process.env.REACT_APP_URL}/api/auth/create/StartUpDetailsMaster`, formData);
+                if(res.data.isOk)
+                {
+                    alert("Form submitteed successfully")
+                }
+                else{
+                    console.log(res.data)
+                    alert(res.data.message)
+                }
+            }
+            catch (error) {
+                console.error("An error occurred during submission:", error.message);
+                // alert("An error occurred while submitting the form. Please try again after some time.");
+            }
+        }   
+    };
+
+    const stages =[
+        {value:'Initial', label:'Initial'},
+        {value:'Growth', label:'Growth'},
+    ]
 
     return (
         <React.Fragment>
-            <div>
+            <div className="register-bg">
                 <Row className="w-100">
                     <Col lg={5}>
                         <img src={bg} className="w-100 form-img" alt="Background" />
                     </Col>
                     <Col lg={6}>
-                        <div className="form-padding">
-                            <h3 className="title mt-4 mb-1">Register</h3>
+                        <div className="form-padding pb-4">
+                            <h3 className="title mt-4 mb-1 pt-4">Register</h3>
                             <h5 className="para-custom">Let us know what you are seeking as</h5>
 
                             <Nav tabs className="nav-tabs-custom nav-success nav-justified mb-3">
@@ -321,26 +515,426 @@ const Register = () => {
 
                             <TabContent activeTab={customActiveTab}>
                                 <TabPane tabId="2">
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="contactPersonName">
+                                            Name<span className="text-danger">*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="contactPersonName"
+                                            className="form-control bg-light"
+                                            value={values.contactPersonName}
+                                            onChange={handleChange}
+                                        />
+                                        {isSubmit && formErrors.contactPersonName && (
+                                            <p className="text-danger f-13">{formErrors.contactPersonName}</p>
+                                        )}
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="email">
+                                            Email<span className="text-danger">*</span>
+                                        </label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            className="form-control bg-light"
+                                            value={values.email}
+                                            onChange={handleChange}
+                                        />
+                                        {isSubmit && formErrors.email && (
+                                            <p className="text-danger f-13">{formErrors.email}</p>
+                                        )}
+                                    </div>
+
+                                    <div className="row mb-3">
+                                        <div className="col-md-4">
+                                            <label className="f-13 fw-bold" htmlFor="countryCode">
+                                                Country Code
+                                            </label>
+                                            <Select
+                                                name="countryCode"
+                                                className="p-0 b-0 form-control bg-light"
+                                                value={values.countryCode}
+                                                // onChange={handleChange}
+                                                onChange={(e)=>{ setValues({
+                                                    ...values,
+                                                    countryCode: e
+                                                })}}
+                                                options={isdCodes.map((item ) => ({
+                                                    value:item.code ,
+                                                    label: `${item.country} (${item.code})`,
+                                                  }))}
+                                            >
+                                                {isdCodes.map(({ country, code }) => (
+                                                    <option key={code} value={code}>
+                                                        {`${country} (${code})`}
+                                                    </option>
+                                                ))}
+                                            </Select>
+                                            {isSubmit && formErrors.countryCode && (
+                                                <p className="text-danger f-13">{formErrors.countryCode}</p>
+                                            )}
+                                        </div>
+                                        <div className="col-md-8">
+                                            <label className="f-13 fw-bold" htmlFor="contactNo">
+                                                Contact Number
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="contactNo"
+                                                className="form-control bg-light"
+                                                value={values.contactNo}
+                                                onChange={handleChange}
+                                            />
+                                            {isSubmit && formErrors.contactNo && (
+                                                <p className="text-danger f-13">{formErrors.contactNo}</p>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="companyName">
+                                            Startup name<span className="text-danger">*</span> <span className="text-muted-grey">(The official name of the startup)</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="companyName"
+                                            className="form-control bg-light"
+                                            value={values.companyName}
+                                            onChange={handleChange}
+                                        />
+                                        {isSubmit && formErrors.companyName && (
+                                            <p className="text-danger f-13">{formErrors.companyName}</p>
+                                        )}
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="founderName">
+                                            Founder name<span className="text-danger">*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="founderName"
+                                            className="form-control bg-light"
+                                            value={values.founderName}
+                                            onChange={handleChange}
+                                        />
+                                        {isSubmit && formErrors.founderName && (
+                                            <p className="text-danger f-13">{formErrors.founderName}</p>
+                                        )}
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="categoryId">
+                                            Industry/Sector<span className="text-danger">*</span>
+                                        </label>
+                                        <Select
+                                            name="categoryId"
+                                            className="p-0 form-control bg-light"
+                                            value={values.categoryId}
+                                            // onChange={handleChange}
+                                            onChange={(e)=>{ setValues({
+                                                ...values,
+                                                categoryId: e
+                                            })}}
+                                            options={categories.map((item) => ({
+                                                value: item._id,
+                                                label: item.categoryName,
+                                              }))}
+                                        >
+                                            {/* <option value=""></option>
+                                            {categories.map((category) => (
+                                                <option key={category._id} value={category._id}>
+                                                    {category.categoryName}
+                                                </option>
+                                            ))} */}
+                                        </Select>
+                                        {isSubmit && formErrors.categoryId && (
+                                            <p className="text-danger f-13">{formErrors.categoryId}</p>
+                                        )}
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="stageOfStartup">
+                                            Stage of Startup<span className="text-danger">*</span>
+                                        </label>
+                                        <Select
+                                            name="stageOfStartup"
+                                            className="p-0 form-control bg-light"
+                                            value={values.stageOfStartup}
+                                            // onChange={handleChange}
+                                            onChange={(e)=>{ setValues({
+                                                ...values,
+                                                stageOfStartup: e
+                                            })}}
+                                            options={stages.map((item) => ({
+                                                value: item.value,
+                                                label: item.label,
+                                              }))}
+                                        >
+                                            {/* <option value=""></option>
+                                            <option value="seed">Initial</option>
+                                            <option value="growth">Growth</option> */}
+                                        </Select>
+                                        {isSubmit && formErrors.stageOfStartup && (
+                                            <p className="text-danger f-13">{formErrors.stageOfStartup}</p>
+                                        )}
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="teamSize">
+                                            Current Team Size<span className="text-danger">*</span>
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="teamSize"
+                                            className="form-control bg-light"
+                                            value={values.teamSize}
+                                            onChange={handleChange}
+                                        />
+                                        {isSubmit && formErrors.teamSize && (
+                                            <p className="text-danger f-13">{formErrors.teamSize}</p>
+                                        )}
+                                    </div>
+
+                                    <div className="row mb-3">
+                                        <div className="col">
+                                            <label className="f-13 fw-bold" htmlFor="CountryID">
+                                                Country<span className="text-danger">*</span>
+                                            </label>
+                                            <Select
+                                                name="CountryID"
+                                                className="p-0 form-control bg-light"
+                                                value={values.CountryID}
+                                                // onChange={handleChange}
+                                                onChange={(e)=>{ 
+                                                    setValues({
+                                                    ...values,
+                                                    CountryID: e
+                                                })
+                                                fetchState(e.value)}}
+                                                options={country.map((item) => ({
+                                                    value: item._id,
+                                                    label: item.CountryName,
+                                                  }))}
+                                            >
+                                                {/* <option value=""></option>
+                                            {country.map((category) => (
+                                                <option key={category._id} value={category._id}>
+                                                    {category.CountryName}
+                                                </option> 
+                                            ))}*/}
+                                            </Select>
+                                            {isSubmit && formErrors.CountryID && (
+                                                <p className="text-danger f-13">{formErrors.CountryID}</p>
+                                            )}
+                                        </div>
+                                        <div className="col">
+                                            <label className="f-13 fw-bold" htmlFor="StateID">
+                                                State<span className="text-danger">*</span>
+                                            </label>
+                                            <Select
+                                                name="StateID"
+                                                className="p-0 form-control bg-light"
+                                                value={values.StateID}
+                                                onChange={(e)=>{ setValues({
+                                                    ...values,
+                                                    StateID: e
+                                                })}}
+                                                options={states.map((item) => ({
+                                                    value: item._id,
+                                                    label: item.StateName,
+                                                  }))}
+                                            >
+                                               
+                                            {/* {states.map((category) => (
+                                                <option key={category._id} value={category._id}>
+                                                    {category.StateName}
+                                                </option>
+                                            ))} */}
+                                            </Select>
+                                            {isSubmit && formErrors.StateID && (
+                                                <p className="text-danger f-13">{formErrors.StateID}</p>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="row mb-3">
+                                        <div className="col">
+                                            <label className="f-13 fw-bold" htmlFor="City">
+                                                City of Operation
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="City"
+                                                className="form-control bg-light"
+                                                value={values.City}
+                                                onChange={handleChange}
+                                            />
+                                            {isSubmit && formErrors.City && (
+                                                <p className="text-danger f-13">{formErrors.City}</p>
+                                            )}
+                                        </div>
+                                        <div className="col">
+                                            <label className="f-13 fw-bold" htmlFor="pincode">
+                                                PinCode<span className="text-danger">*</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="pincode"
+                                                className="form-control bg-light"
+                                                value={values.pincode}
+                                                onChange={handleChange}
+                                            />
+                                            {isSubmit && formErrors.pincode && (
+                                                <p className="text-danger f-13">{formErrors.pincode}</p>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="address">
+                                            Address<span className="text-danger">*</span>
+                                        </label>
+                                        <textarea
+                                            name="address"
+                                            className="form-control bg-light"
+                                            value={values.address}
+                                            onChange={handleChange}
+                                        />
+                                        {isSubmit && formErrors.address && (
+                                            <p className="text-danger f-13">{formErrors.address}</p>
+                                        )}
+                                    </div>
+
+                                    <div className="mb-3">
+                                    <div className="">
+                                            <label className="f-13 fw-bold" htmlFor="legalName">
+                                                Legal name of Company
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="legalName"
+                                                className="form-control bg-light"
+                                                value={values.legalName}
+                                                onChange={handleChange}
+                                            />
+                                            {isSubmit && formErrors.legalName && (
+                                                <p className="text-danger f-13">{formErrors.legalName}</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="mb-3">
+                                    
+                                            <label className="f-13 fw-bold" htmlFor="yearFounded">
+                                               Year of Establishment
+                                            </label>
+                                            <input
+                                                type="text"
+                                                name="yearFounded"
+                                                className="form-control bg-light"
+                                                value={values.yearFounded}
+                                                onChange={handleChange}
+                                            />
+                                            {isSubmit && formErrors.yearFounded && (
+                                                <p className="text-danger f-13">{formErrors.yearFounded}</p>
+                                            )}
+                                        </div>
+                                    
+                                    
+
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="description">
+                                            Brief About Startup<span className="text-danger">*</span>
+                                        </label>
+                                        <textarea
+                                            name="description"
+                                            className="form-control bg-light"
+                                            value={values.description}
+                                            onChange={handleChange}
+                                        />
+                                        {isSubmit && formErrors.description && (
+                                            <p className="text-danger f-13">{formErrors.description}</p>
+                                        )}
+                                    </div>
+
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="logo">
+                                            Company Logo<span className="text-danger">*</span>
+                                        </label>
+                                        <input
+                                            type="file"
+                                            name="logo"
+                                            className="form-control"
+                                            onChange={handleFileChange}
+                                            accept="image/*"
+                                        />
+                                        {isSubmit && formErrors.logo && (
+                                            <p className="text-danger f-13">{formErrors.logo}</p>
+                                        )}
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="brochure">
+                                            Brochure
+                                        </label>
+                                        <input
+                                            type="file"
+                                            name="brochure"
+                                            className="form-control"
+                                            onChange={handleFileChange}
+                                            accept="image/*"
+                                        />
+
+                                    </div>
+                                    <div className="mb-3">
+                                        <label className="f-13 fw-bold" htmlFor="productImages">
+                                            Product Images
+                                        </label>
+                                        <input
+                                            type="file"
+                                            name="productImages"
+                                            className="form-control"
+                                            onChange={handleFileChange}
+                                            accept="image/*"
+                                        />
+
+                                    </div>
+
+                                    <div className="mb-3 form-check">
+                                        <input
+                                            type="checkbox"
+                                            name="terms"
+                                            className="form-check-input"
+                                            checked={values.terms}
+                                            onChange={handleChange}
+                                        />
+                                        <label className="f-13 fw-bold form-check-label" htmlFor="terms">
+                                            I agree to the Terms & Conditions<span className="text-danger">*</span>
+                                        </label>
+                                        {isSubmit && formErrors.terms && (
+                                            <p className="text-danger f-13">{formErrors.terms}</p>
+                                        )}
+                                    </div>
+                                    <div>
+                                        <Button type="submit" color="primary" className="mt-3 register-btn" onClick={handleSubmit}>Register</Button>
+                                    </div>
+                                </TabPane>
+
+
+                                <TabPane tabId="3">
                                     <Formik
                                         initialValues={{
                                             name: '',
                                             email: '',
-                                            phone: '',
-                                            startupName: '',
-                                            founderName: '',
-                                            industry: '',
-                                            stageOfStartup: '',
-                                            teamSize: '',
-                                            cityOfOperation: '',
-                                            aboutStartup: '',
-                                            legalName: '',
-                                            yearFounded: '',
+                                            contactNo: '',
+
                                             terms: false
                                         }}
-                                        validationSchema={validationSchema}
+                                        // validationSchema={validationSchema}
                                         onSubmit={(values) => {
                                             // handle form submission logic
-                                            console.log("Form Submitted: ", values, images);
+
                                         }}
                                     >
                                         {({ setFieldValue }) => (
@@ -359,9 +953,9 @@ const Register = () => {
 
 
                                                 <div className="row mb-3">
-                                                    
+
                                                     <div className="col-md-4" style={{ zIndex: '1000' }}>
-                                                    <Label for="contact" className="f-13 fw-bold">Country Code</Label>
+                                                        <Label for="contact" className="f-13 fw-bold">Country Code</Label>
                                                         <Field as="select" name="isdCode" className="form-control bg-light">
                                                             {/* <option value="">Select ISD Code</option> */}
                                                             {isdCodes.map(({ country, code }) => (
@@ -372,130 +966,17 @@ const Register = () => {
                                                         </Field>
                                                     </div>
                                                     <div class="col-md-8">
-                                                    <div className="">
-                                                    <Label for="contact" className="f-13 fw-bold">Contact Number</Label>
-                                                    {/* <Label className="f-13 fw-bold" for="phone">Phone<span className="text-danger">*</span></Label> */}
-                                                    <Field name="phone" className="form-control bg-light" />
-                                                    <ErrorMessage name="phone" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
+                                                        <div className="">
+                                                            <Label for="contact" className="f-13 fw-bold">Contact Number</Label>
+                                                            {/* <Label className="f-13 fw-bold" for="contactNo">Phone<span className="text-danger">*</span></Label> */}
+                                                            <Field name="contactNo" className="form-control bg-light" />
+                                                            <ErrorMessage name="contactNo" component="div" className="text-danger f-13 mb-3" />
+                                                        </div>
                                                     </div>
                                                 </div>
 
 
-                                                
 
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="startupName">Startup name<span className="text-danger">*</span> <span className="text-muted-grey">(The official name of the startup)</span></Label>
-                                                    <Field name="startupName" className="form-control bg-light" />
-                                                    <ErrorMessage name="startupName" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="founderName">Founder name<span className="text-danger">*</span> <span className="text-muted-grey">(Name of the founders or co-founders)</span></Label>
-                                                    <Field name="founderName" className="form-control bg-light" />
-                                                    <ErrorMessage name="founderName" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="industry">Industry/Sector<span className="text-danger">*</span></Label>
-                                                    <Field as="select" name="industry" className="form-control bg-light">
-                                                        <option value=""></option>
-                                                        <option value="tech">Tech</option>
-                                                        <option value="health">Health</option>
-                                                        {/* Add more options as required */}
-                                                    </Field>
-                                                    <ErrorMessage name="industry" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="stageOfStartup">Stage of Startup<span className="text-danger">*</span></Label>
-                                                    <Field as="select" name="stageOfStartup" className="form-control bg-light">
-                                                        <option value=""></option>
-                                                        <option value="seed">Seed</option>
-                                                        <option value="growth">Growth</option>
-                                                        {/* Add more options as required */}
-                                                    </Field>
-                                                    <ErrorMessage name="stageOfStartup" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="teamSize">Current Team Size<span className="text-danger">*</span></Label>
-                                                    <Field name="teamSize" className="form-control bg-light" />
-                                                    <ErrorMessage name="teamSize" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="cityOfOperation">City of Operation<span className="text-danger">*</span></Label>
-                                                    <Field name="cityOfOperation" className="form-control bg-light" />
-                                                    <ErrorMessage name="cityOfOperation" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="aboutStartup">Brief About Startup<span className="text-danger">*</span></Label>
-                                                    <Field name="aboutStartup" as="textarea" className="form-control bg-light" />
-                                                    <ErrorMessage name="aboutStartup" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="logo">Company Logo<span className="text-danger">*</span></Label>
-                                                    <Input
-                                                        type="file"
-                                                        id="logo"
-                                                        name="logo"
-                                                        // multiple
-                                                        onChange={(event) => {
-                                                            handlelogoUpload(event);
-                                                            setFieldValue("logo", event.currentTarget.files);
-                                                        }}
-                                                        accept="image/*"
-                                                    />
-                                                    
-                                                    <ErrorMessage name="productImages" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="brochure">Brochure</Label>
-                                                    <Input
-                                                        type="file"
-                                                        id="brochure"
-                                                        name="brochure"
-                                                        multiple
-                                                        onChange={(event) => {
-                                                            handlebrochureUpload(event);
-                                                            setFieldValue("brochure", event.currentTarget.files);
-                                                        }}
-                                                        // accept="image/*"
-                                                    />
-                                                    
-                                                    
-                                                </div>
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="productImages">Product Image</Label>
-                                                    <Input
-                                                        type="file"
-                                                        id="productImages"
-                                                        name="productImages"
-                                                        multiple
-                                                        onChange={(event) => {
-                                                            handleImageUpload(event);
-                                                            setFieldValue("productImages", event.currentTarget.files);
-                                                        }}
-                                                        accept="image/*"
-                                                    />
-                                                     
-                                                    <ErrorMessage name="productImages" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="legalName">Legal Name<span className="text-danger">*</span> <span className="text-muted-grey">(As per Incorporation Certificate)</span></Label>
-                                                    <Field name="legalName" className="form-control bg-light" />
-                                                    <ErrorMessage name="legalName" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
-
-                                                <div className="mb-3">
-                                                    <Label className="f-13 fw-bold" for="yearFounded">Year Founded<span className="text-danger">*</span> <span className="text-muted-grey">(The year the startup was established)</span></Label>
-                                                    <Field name="yearFounded" type="date" className="form-control bg-light" />
-                                                    <ErrorMessage name="yearFounded" component="div" className="text-danger f-13 mb-3" />
-                                                </div>
 
                                                 <div className="form-check">
                                                     <Field type="checkbox" name="terms" className="form-check-input" />
@@ -505,7 +986,7 @@ const Register = () => {
                                                     <ErrorMessage name="terms" component="div" className="text-danger f-13 mb-3" />
                                                 </div>
 
-                                                <Button type="submit" color="primary" className="mt-3">Submit</Button>
+                                                <Button type="submit" color="primary" className="mt-3 register-btn" onClick={handleSubmit}>Register</Button>
                                             </Form>
                                         )}
                                     </Formik>
