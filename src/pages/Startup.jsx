@@ -8,6 +8,7 @@ import mobile from "../assets/img/star.png";
 import about from "../assets/img/about-img.png";
 import banner from "../assets/img/banner.png";
 import funding from "../assets/img/funding.png";
+import img3 from "../assets/img/image.png";
 
 
 function Startup() {
@@ -101,19 +102,21 @@ connections.
       </section>
 
 
-        <section>
-        <Row className="m-0 p-0">
-          <Col lg="12" className="p-0">
-            <div className="p-relative">
-              <img
-                src={banner}
-                className="w-100"
-                style={{ objectFit: "cover", height: "auto" }}
-                alt="Responsive Image"
-              />
+       <section className="register-sec dark-bg padding-sec showcase">
+        <Container>
+        <img src={img3} />
+          <div className="overlay padding-sec">
+            <div className="w-70 m-auto content">
+              <h5 className="title text-center text-white">
+              I'm convinced that about half of what separates the successful entrepreneurs from the non-successful ones is pure perseverance.
+              </h5>
+              <h3>
+              ~– Jeff Bezos, Founder of Amazon
+              </h3>
             </div>
-          </Col>
-        </Row>
+           
+          </div>
+        </Container>
       </section>
 
       <section className="padding-sec light-bg">
