@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import clock from "../assets/img/clock-icon.png";
 import caleder from "../assets/img/calender-icon.png";
 import { MdLocationPin } from "react-icons/md";
@@ -7,53 +9,46 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import { TabContent } from "reactstrap";
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    contactPersonName: "",
-    email: "",
-    number: "",
-    subject: "",
-    message: "",
-  });
+  const apiURL = process.env.REACT_APP_URL || "http://localhost:5000";
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setErrorMessage(null);
-
-    try {
-      // Replace this with your backend URL
-      const apiURL = process.env.REACT_APP_URL || "http://localhost:5000";
-
-      const response = await axios.post(`${apiURL}/api/auth/contact`, formData);
-
-      if (response.status === 200) {
-        alert("Form submitted successfully!");
-        setFormData({
-          contactPersonName: "",
-          email: "",
-          number: "",
-          subject: "",
-          message: "",
-        });
+  // Formik initial values and validation schema
+  const formik = useFormik({
+    initialValues: {
+      contactPersonName: "",
+      email: "",
+      number: "",
+      subject: "",
+      message: "",
+    },
+    validationSchema: Yup.object({
+      contactPersonName: Yup.string()
+        .required("Name is required"),
+      email: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
+      number: Yup.string()
+        .required("Phone number is required")
+        .matches(/^\d+$/, "Phone number must be digits only")
+        .min(10, "Phone number must be at least 10 digits"),
+      subject: Yup.string().required("Subject is required"),
+      message: Yup.string(),
+    }),
+    onSubmit: async (values, { resetForm, setSubmitting, setErrors }) => {
+      setSubmitting(true);
+      try {
+        const response = await axios.post(`${apiURL}/api/auth/contact`, values);
+        if (response.status === 200) {
+          alert("Form submitted successfully!");
+          resetForm();
+        }
+      } catch (error) {
+        setErrors({ submit: "Error submitting the form. Please try again later." });
+        console.error(error);
+      } finally {
+        setSubmitting(false);
       }
-    } catch (error) {
-      setErrorMessage("Error submitting the form. Please try again later.");
-      console.error(error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    },
+  });
 
   return (
     <>
@@ -85,57 +80,73 @@ function Contact() {
           <Col lg={6}>
             <div className="form-padding pb-4">
               <TabContent>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={formik.handleSubmit}>
                   <div className="mb-3 mt-5">
                     <label className="f-13 fw-bold" htmlFor="contactPersonName">
-                      Name
+                      Name<span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
                       name="contactPersonName"
                       className="form-control bg-light"
                       placeholder="Your Name"
-                      value={formData.contactPersonName}
-                      onChange={handleInputChange}
+                      value={formik.values.contactPersonName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
+                    {formik.touched.contactPersonName && formik.errors.contactPersonName ? (
+                      <div className="text-danger">{formik.errors.contactPersonName}</div>
+                    ) : null}
                   </div>
                   <div className="mb-3">
                     <label className="f-13 fw-bold" htmlFor="email">
-                      Email
+                      Email<span className="text-danger">*</span>
                     </label>
                     <input
                       type="email"
                       name="email"
                       className="form-control bg-light"
                       placeholder="Your@company.com"
-                      value={formData.email}
-                      onChange={handleInputChange}
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
+                    {formik.touched.email && formik.errors.email ? (
+                      <div className="text-danger">{formik.errors.email}</div>
+                    ) : null}
                   </div>
                   <div className="mb-3">
                     <label className="f-13 fw-bold" htmlFor="number">
-                      Phone number
+                      Phone number<span className="text-danger">*</span>
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       name="number"
                       className="form-control bg-light"
                       placeholder="Phone number"
-                      value={formData.number}
-                      onChange={handleInputChange}
+                      value={formik.values.number}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
+                    {formik.touched.number && formik.errors.number ? (
+                      <div className="text-danger">{formik.errors.number}</div>
+                    ) : null}
                   </div>
                   <div className="mb-3">
                     <label className="f-13 fw-bold" htmlFor="subject">
-                      Subject
+                      Subject<span className="text-danger">*</span>
                     </label>
                     <input
                       type="text"
                       name="subject"
                       className="form-control bg-light"
-                      value={formData.subject}
-                      onChange={handleInputChange}
+                      value={formik.values.subject}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
+                    {formik.touched.subject && formik.errors.subject ? (
+                      <div className="text-danger">{formik.errors.subject}</div>
+                    ) : null}
                   </div>
 
                   <div className="mb-3">
@@ -147,21 +158,22 @@ function Contact() {
                       className="form-control bg-light"
                       style={{ height: 100 }}
                       placeholder="Tell us a little more..."
-                      value={formData.message}
-                      onChange={handleInputChange}
+                      value={formik.values.message}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                     />
                   </div>
-                  {errorMessage && (
-                    <div className="alert alert-danger">{errorMessage}</div>
+                  {formik.errors.submit && (
+                    <div className="alert alert-danger">{formik.errors.submit}</div>
                   )}
                   <div>
                     <Button
                       type="submit"
                       color="primary"
                       className="mt-3 register-btn"
-                      disabled={isSubmitting}
+                      disabled={formik.isSubmitting}
                     >
-                      {isSubmitting ? "Submitting..." : "Submit"}
+                      {formik.isSubmitting ? "Submitting..." : "Submit"}
                     </Button>
                   </div>
                 </form>
@@ -226,13 +238,13 @@ function Contact() {
                   <Col lg={6}>
                     <div className="count border-right">
                       <h3>52</h3>
-                      <h5 className="subtitle">Seconds</h5>
+                      <h5 className="subtitle">Minutes</h5>
                     </div>
                   </Col>
                   <Col lg={6}>
                     <div className="count">
-                      <h3>57</h3>
-                      <h5 className="subtitle">Minutes</h5>
+                      <h3>38</h3>
+                      <h5 className="subtitle">Seconds</h5>
                     </div>
                   </Col>
                 </Row>
