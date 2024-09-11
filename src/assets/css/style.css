@@ -898,7 +898,7 @@ footer .copyright a:hover {
     background-color: #f7fafe !important;
    border-radius: 6px !important;
    border-width: 0px !important;
-
+}
 .tags h4 {
     font-weight: 600;
     margin: 50px 0 20px 0;
@@ -1370,6 +1370,7 @@ p.big-btns {
 .event-popup .txt-ixon .tick-name p {
     color: #3B4353;
     font-size: 12px;
+    word-break: break-all;
 }
 
 .event-popup hr {
@@ -1587,5 +1588,17 @@ text-align: left;
     width: 200px;
     object-fit: contain;
 
+}
+
+
+.css-13cymwt-control {
+    background-color: #f7fafe !important;
+   border-radius: 6px !important;
+   border-width: 0px !important;
+}
+
+.no-style {
+    background: transparent;
+    border: none;
 }
 
