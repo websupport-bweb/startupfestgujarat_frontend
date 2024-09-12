@@ -167,8 +167,8 @@ const StartupForm = ({ values, handleChange, handleFileChange, formErrors, isSub
                         })
                     }}
                     options={stages.map((item) => ({
-                        value: item.value,
-                        label: item.label,
+                        value: item._id,
+                        label: item.StageOfStartup,
                     }))}
                 >
                     {/* <option value=""></option>
