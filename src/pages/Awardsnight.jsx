@@ -19,7 +19,7 @@ function Awardsnight() {
           >
             Startup Fest Award Night 2023
           </h2>
-          <Col lg="12" className="p-0">
+          <Col lg={12} className="p-0">
             <div className="p-relative">
               <img
                 src={img1}

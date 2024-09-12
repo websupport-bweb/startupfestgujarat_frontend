@@ -74,7 +74,7 @@ export default function Home() {
                 </h3>
               </div>
             </Col>
-            <Col lg="12">
+            <Col lg={12}>
               <div className="banner-btns">
                 <Link to="/register" className="theme-btn">Register Now</Link>
                 <button className="theme-btn-light" onClick={handleScroll}>
@@ -88,7 +88,7 @@ export default function Home() {
       <section className="" id="target-section">
         <Container>
           <Row className="justify-content-center">
-            <Col lg="12">
+            <Col lg={12}>
               <div className=" p-relative">
                 <img src={video} className="w-100" />
                 <a onClick={handleShow} className="play-btn"></a>
@@ -120,7 +120,7 @@ export default function Home() {
       <section className="padding-sec light-bg">
         <Container>
           <Row className="justify-content-center">
-            <Col lg={6}>
+            <Col xs={12} md={6} lg={6}>
               <h3 className="title">About start up fest</h3>
               <p className="para">
                 Welcome to Startup Fest Gujarat, presented by the Snehshilp
@@ -137,12 +137,14 @@ export default function Home() {
                 Startup Fest Gujarat.
               </p>
 
+
               <div className="mt-5">
                 <Link to="/about" className="theme-btn">Learn More</Link>
+
               </div>
             </Col>
-            <Col lg="6">
-              <img src={about} className="w-100" />
+            <Col xs={12} md={6} lg={6}>
+              <img src={about} className="w-100 img-padding" />
             </Col>
           </Row>
         </Container>
@@ -150,22 +152,22 @@ export default function Home() {
 
       <section className="padding-sec">
         <Container>
-          <Row>
-            <Col lg={6}>
+          <Row className="count-box">
+            <Col lg={6} xs={12} >
               <h3 className="title mb-5">
                 India <span className="gradient">Startup Revolution </span> is
                 here and now!
               </h3>
 
               <Row>
-                <Col lg={4}>
+                <Col lg={4} xs={12} >
                   <div className="box">
                     <MdLocationPin />
                     <h4>Venue</h4>
                     <p>Vigyan Bhavanm, Science City, Ahmedabad.</p>
                   </div>
                 </Col>
-                <Col lg={4}>
+                <Col lg={4} xs={12} >
                   <div className="box">
                     {/* <SlCalender /> */}
                     <img src={caleder} width={45} />
@@ -173,7 +175,7 @@ export default function Home() {
                     <p>28 & 29 September, 2024</p>
                   </div>
                 </Col>
-                <Col lg={4}>
+                <Col lg={4} xs={12} >
                   <div className="box">
                     <img src={clock} width={45} />
                     <h4>Time</h4>
@@ -183,30 +185,33 @@ export default function Home() {
               </Row>
             </Col>
 
+
             <Col lg={6}>
               <Timer />
-            </Col>
-          </Row>
+              </Col>
+                 </Row>
         </Container>
       </section>
 
       <section className="container-bg padding-sec">
         <Container>
-          <Row className="d-flex">
-            <Col className="flex-grow-1">
-              <h3 className="title mb-5">Register Yourself</h3>
-              <h5 className="para-custom">
+          <Row>
+            <Col lg={8} xs={6}>
+            <h3 className="title">Register Yourself</h3>
+            </Col>
+            <Col lg={4} xs={6} className="text-end">
+            <Link to="/register" className="theme-btn">Register Now</Link>
+            </Col>
+            <Col lg={6} xs={12}>
+            <h5 className="para-custom">
                 People who register for the Start-Up Fest will be allotted a
                 5-minute time slot to present their startup in front of
                 potential investors.
               </h5>
             </Col>
-            <Col className="flex-shrink-0 text-end">
-              <Link to="/register" className="theme-btn">Register Now</Link>
-            </Col>
           </Row>
-          <Row>
-            <Col className="col-card margin-between">
+          <Row className="justify-content-between">
+            <Col lg={3} xs={12} className="col-card">
               <h3>Pitcher</h3>
               <p>
                 Pitchers will get a 3 by 3 stall and a chance to
@@ -215,7 +220,7 @@ export default function Home() {
               </p>
               <img src={img1} className="w-100" />
             </Col>
-            <Col className="col-card margin-between">
+            <Col lg={3} xs={12} className="col-card">
               <h3>Startup</h3>
               <p>
                 Startups/ franchises will get a 2/2 stall and
@@ -226,7 +231,7 @@ export default function Home() {
               </p>
               <img src={img2} className="w-100" />
             </Col>
-            <Col className="col-card">
+            <Col lg={3} xs={12} className="col-card">
               <h3>Investors</h3>
               <p>
                 Investors will get a chance to talk to all the startups and an
@@ -371,7 +376,7 @@ export default function Home() {
             </h3>
           </div>
           <Row>
-            <Col lg="12">
+            <Col lg={12}>
               <div className="banner-btns">
                 <button className="theme-btn-light light-border">
                   Register Now

@@ -17,7 +17,7 @@ function Startup() {
     <>
       <section>
         <Row className="m-0 p-0">
-          <Col lg="12" className="p-0">
+          <Col lg={12} className="p-0">
             <div className="p-relative">
               <img
                 src={img1}

@@ -211,7 +211,7 @@ export default function Visitor() {
             </h3>
           </div>
           <Row>
-            <Col lg="12">
+            <Col lg={12}>
               <div className="banner-btns">
                 <Link to="/register" className="theme-btn-light light-border">
                   Register Now

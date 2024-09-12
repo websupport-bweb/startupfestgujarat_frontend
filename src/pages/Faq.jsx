@@ -22,7 +22,7 @@ function Faq() {
             Everything you need to know about the product and billing.
           </p>
 
-          <Col lg="12" className="p-0">
+          <Col lg={12} className="p-0">
             <div className="p-relative">
               <Accordion defaultActiveKey="0" style={{width:'60%',margin:'auto'}}>
       <Accordion.Item eventKey="0">

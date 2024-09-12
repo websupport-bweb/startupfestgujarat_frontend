@@ -34,7 +34,12 @@ body {
     padding: 15px 0;
     border: 0;
 }
-
+.header .right-header {
+    text-align: right;
+}
+.header .navbar-toggler{
+    border: 0;
+}
 .header .menubar.left {
     justify-content: right;
 }
@@ -123,8 +128,12 @@ body {
 .header .theme-btn {
     padding: 5px 10px;
 }
-
-
+.padding-btn{
+    margin-top: 3rem;
+}
+.count-box{
+    text-align: left;
+}
 .theme-btn {
     color: #fff;
     background: #003777;

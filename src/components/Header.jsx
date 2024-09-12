@@ -159,7 +159,7 @@ export default function Header() {
         </Navbar.Offcanvas>
         </div>
                 </Col>
-                <Col lg={5} className="text-end">
+                <Col lg={5} className="right-header">
               <div className="menubar left">
                 <ul className="navbar-item-left mr-3">
                   <li>
