@@ -140,7 +140,7 @@ export default function Header() {
                 <NavDropdown.Item href="/start-up">
                   For Startups
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/investor">
+                <NavDropdown.Item href="/investor-accelator">
                   For Investors And Accelerators
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/sponser">

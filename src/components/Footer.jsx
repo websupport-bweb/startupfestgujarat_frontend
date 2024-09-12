@@ -40,10 +40,10 @@ export default function Footer() {
                         <h4>Fest</h4>
                     </div>
                     <ul className="footer-list">
-                        <li><a href="/pitcher">Pitcher</a></li>
+                        <li><a href="/startup">Pitcher</a></li>
                         <li><a href="/startup">Start-Up</a></li>
-                        <li><a href="/investor">Investor</a></li>
-                        <li><a href="/visitor">Visitor</a></li>
+                        <li><a href="/startup">Investor</a></li>
+                        <li><a href="/startup">Visitor</a></li>
                     </ul>
                     </div>
                 </Col>
