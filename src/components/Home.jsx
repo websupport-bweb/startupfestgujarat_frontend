@@ -212,13 +212,14 @@ export default function Home() {
           </Row>
           <Row className="justify-content-between">
             <Col lg={3} xs={12} className="col-card">
+              <Link to="/startup" className="no-design">
               <h3>Pitcher</h3>
               <p>
                 Pitchers will get a 3 by 3 stall and a chance to
                 <span className="yellow-bg">present their project/idea/</span>
                 startup on stage in front of all the investors.
               </p>
-              <img src={img1} className="w-100" />
+              <img src={img1} className="w-100" /></Link>
             </Col>
             <Col lg={3} xs={12} className="col-card">
               <h3>Startup</h3>
