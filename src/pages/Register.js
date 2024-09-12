@@ -332,10 +332,26 @@ const Register = () => {
         }
 
     }
+
+    const [stages, setStages] = useState([])
+    const fetchStages= async () => {
+        try {
+            const res = await axios.get(`${process.env.REACT_APP_URL}/api/auth/list/StageOfStartup`)
+            console.log(res)
+            setStages(res.data);
+        }
+        catch (error) {
+            console.error(error)
+        }
+
+    }
+
+
     useEffect(() => {
 
         fetchData()
         fetchCountry()
+        fetchStages()
 
     }, [])
 
@@ -371,7 +387,7 @@ const Register = () => {
     };
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(true);
     const handleShow = () => {
         setShow(true)
         // setRegisterData([])
@@ -635,13 +651,13 @@ const Register = () => {
             }
         }
     };
-    const stages = [
-        { value: 'Ideation', label: 'Ideation' },
-        { value: 'PoC/MVP', label: 'PoC/MVP' },
-        { value: 'Early Revenue', label: 'Early Revenue' },
-        { value: 'Revenue', label: 'Revenue' },
-        { value: 'Growth', label: 'Growth' },
-    ]
+    // const stages = [
+    //     { value: 'Ideation', label: 'Ideation' },
+    //     { value: 'PoC/MVP', label: 'PoC/MVP' },
+    //     { value: 'Early Revenue', label: 'Early Revenue' },
+    //     { value: 'Revenue', label: 'Revenue' },
+    //     { value: 'Growth', label: 'Growth' },
+    // ]
 
     return (
         <React.Fragment>
@@ -925,6 +941,10 @@ const Register = () => {
                                     </div>
                                 )
                             )}
+
+<div>
+                <Button type="button" color="primary" className="mt-3 register-btn">Proceed to Checkout</Button>
+            </div>
 
                         </Col>
                     </Row>

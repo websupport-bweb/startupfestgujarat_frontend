@@ -113,9 +113,11 @@ export default function Header() {
           placement="end"
         >
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title id="offcanvasNavbarLabel">Menu</Offcanvas.Title>
+            <Offcanvas.Title id="offcanvasNavbarLabel">
+            <img src={logo} className="logo-offcanvas" width="200"/>
+            </Offcanvas.Title>
           </Offcanvas.Header>
-          <Offcanvas.Body>
+          <Offcanvas.Body className="mobile-menu" >
             <Nav className="me-auto my-2 my-lg-0 navbar-item" navbarScroll>
               <NavDropdown title="2023 Highlights" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="/highlights">
@@ -140,7 +142,7 @@ export default function Header() {
                 <NavDropdown.Item href="/start-up">
                   For Startups
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/investor">
+                <NavDropdown.Item href="/investor-accelator">
                   For Investors And Accelerators
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/sponser">

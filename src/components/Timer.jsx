@@ -22,9 +22,9 @@ const Timer =()=>{
       // Calculate the difference in milliseconds
       const difference = now-targetDate  ;
 
-      console.log("Current Time:", new Date(now).toLocaleString());
-      console.log("Target Date:", new Date(targetDate).toLocaleString());
-      console.log("Difference:", difference);
+      // console.log("Current Time:", new Date(now).toLocaleString());
+      // console.log("Target Date:", new Date(targetDate).toLocaleString());
+      // console.log("Difference:", difference);
 
       if (difference > 0) {
         // Calculate days, hours, minutes, and seconds from the difference

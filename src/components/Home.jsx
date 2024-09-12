@@ -45,12 +45,34 @@ export default function Home() {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 3000,
-    autoplaySpeed: 2000,
+    speed: 4000,
+    autoplaySpeed: 3000,
     cssEase: 'linear',
+    responsive: [
+      {
+        breakpoint: 1024, // Screen width less than 1024px
+        settings: {
+          slidesToShow: 3, // Show 3 slides
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768, // Screen width less than 768px
+        settings: {
+          slidesToShow: 2, // Show 2 slides
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480, // Screen width less than 480px
+        settings: {
+          slidesToShow: 2, // Show 1 slide
+          slidesToScroll: 1,
+        },
+      },
+    ],
   });
-
-  const [show, setShow] = useState(false);
+    const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -69,14 +91,16 @@ export default function Home() {
                   Connecting Innovators and Investors.
                 </h5>
                 <h3 className="banner-text">
-                  Join the Junction of Vision and Opportunity at
+                  Join the Junction of Vision and Opportunity at 
                   <span className="gradient">Startup Fest</span> Gujarat!
                 </h3>
               </div>
             </Col>
             <Col lg={12}>
               <div className="banner-btns">
-                <Link to="/register" className="theme-btn">Register Now</Link>
+                <Link to="/register" className="theme-btn">
+                  Register Now
+                </Link>
                 <button className="theme-btn-light" onClick={handleScroll}>
                   <IoIosArrowRoundDown /> Explore More
                 </button>
@@ -93,10 +117,13 @@ export default function Home() {
                 <img src={video} className="w-100" />
                 <a onClick={handleShow} className="play-btn"></a>
 
-                <Modal show={show} onHide={handleClose} size="xl" className="video-modal">
-                  <Modal.Header closeButton>
-
-                  </Modal.Header>
+                <Modal
+                  show={show}
+                  onHide={handleClose}
+                  size="xl"
+                  className="video-modal"
+                >
+                  <Modal.Header closeButton></Modal.Header>
                   <Modal.Body>
                     <iframe
                       width="100%"
@@ -137,10 +164,10 @@ export default function Home() {
                 Startup Fest Gujarat.
               </p>
 
-
-              <div className="mt-5">
-                <Link to="/about" className="theme-btn">Learn More</Link>
-
+              <div className="padding-btn">
+                <Link to="/about" className="theme-btn">
+                  Learn More
+                </Link>
               </div>
             </Col>
             <Col xs={12} md={6} lg={6}>
@@ -153,21 +180,21 @@ export default function Home() {
       <section className="padding-sec">
         <Container>
           <Row className="count-box">
-            <Col lg={6} xs={12} >
+            <Col lg={6} xs={12}>
               <h3 className="title mb-5">
                 India <span className="gradient">Startup Revolution </span> is
                 here and now!
               </h3>
 
               <Row>
-                <Col lg={4} xs={12} >
+                <Col lg={4} xs={12}>
                   <div className="box">
                     <MdLocationPin />
                     <h4>Venue</h4>
                     <p>Vigyan Bhavanm, Science City, Ahmedabad.</p>
                   </div>
                 </Col>
-                <Col lg={4} xs={12} >
+                <Col lg={4} xs={12}>
                   <div className="box">
                     {/* <SlCalender /> */}
                     <img src={caleder} width={45} />
@@ -175,7 +202,7 @@ export default function Home() {
                     <p>28 & 29 September, 2024</p>
                   </div>
                 </Col>
-                <Col lg={4} xs={12} >
+                <Col lg={4} xs={12}>
                   <div className="box">
                     <img src={clock} width={45} />
                     <h4>Time</h4>
@@ -197,13 +224,15 @@ export default function Home() {
         <Container>
           <Row>
             <Col lg={8} xs={6}>
-            <h3 className="title">Register Yourself</h3>
+              <h3 className="title">Register Yourself</h3>
             </Col>
             <Col lg={4} xs={6} className="text-end">
-            <Link to="/register" className="theme-btn">Register Now</Link>
+              <Link to="/register" className="theme-btn">
+                Register Now
+              </Link>
             </Col>
             <Col lg={6} xs={12}>
-            <h5 className="para-custom">
+              <h5 className="para-custom">
                 People who register for the Start-Up Fest will be allotted a
                 5-minute time slot to present their startup in front of
                 potential investors.
@@ -212,36 +241,41 @@ export default function Home() {
           </Row>
           <Row className="justify-content-between">
             <Col lg={3} xs={12} className="col-card">
-              <h3>Pitcher</h3>
-              <p>
-                Pitchers will get a 3 by 3 stall and a chance to
-                <span className="yellow-bg">present their project/idea/</span>
-                startup on stage in front of all the investors.
-              </p>
-              <img src={img1} className="w-100" />
+              <Link to="/startup" className="no-design">
+                <h3>Pitcher</h3>
+                <p>
+                  Pitchers will get a 3 by 3 stall and a chance to
+                  <span className="yellow-bg">present their project/idea/</span>
+                  startup on stage in front of all the investors.
+                </p>
+                <img src={img1} className="w-100" />
+              </Link>
             </Col>
             <Col lg={3} xs={12} className="col-card">
-              <h3>Startup</h3>
-              <p>
-                Startups/ franchises will get a 2/2 stall and
-                <span className="yellow-bg">
-                  visibility in front of all the investors
-                </span>
-                coming in.
-              </p>
-              <img src={img2} className="w-100" />
+              <Link to="/startup" className="no-design">
+                <h3>Startup</h3>
+                <p>
+                  Startups/ franchises will get a 2/2 stall and
+                  <span className="yellow-bg">
+                    visibility in front of all the investors
+                  </span>
+                  coming in.
+                </p>
+                <img src={img2} className="w-100" />
+              </Link>
             </Col>
             <Col lg={3} xs={12} className="col-card">
-              <h3>Investors</h3>
-              <p>
-                Investors will get a chance to talk to all the startups and an
-                opportunity to
-                <span className="yellow-bg">
-
-                  multiply their money by 2-3 times.
-                </span>
-              </p>
-              <img src={img3} className="w-100" />
+              <Link to="/startup" className="no-design">
+                <h3>Investors</h3>
+                <p>
+                  Investors will get a chance to talk to all the startups and an
+                  opportunity to
+                  <span className="yellow-bg">
+                    multiply their money by 2-3 times.
+                  </span>
+                </p>
+                <img src={img3} className="w-100" />
+              </Link>
             </Col>
           </Row>
         </Container>
@@ -250,73 +284,56 @@ export default function Home() {
       <section className="padding-sec ">
         <Container>
           <Row>
-            <Col className="">
-              <Row className="margin-between row-gap">
-                <Col className=" col-card2">
-                  <Row>
-                    <Col lg={2}>
-                      <div className="check">
-
-                        <FaRegCheckCircle />
-                      </div>
-                    </Col>
-                    <Col>
-                      <p>1000+</p>
-                      <h4>Pitcher</h4>
-                    </Col>
-                  </Row>
+            <Col lg={6} xs={12} className="order-lg-0 order-1">
+              <Row className="">
+                <Col lg={5} xs={6}>
+                  <div className="col-card2">
+                    <div className="check">
+                      <FaRegCheckCircle />
+                    </div>
+                    <p>1000+</p>
+                    <h4>Participants</h4>
+                  </div>
                 </Col>
-                <Col className=" col-card2">
-                  <Row>
-                    <Col lg={2}>
-                      <div className="check">
+                <Col lg={5} xs={6}>
+                  <div className="col-card2">
+                    <div className="check">
+                      <FaRegCheckCircle />
+                    </div>
 
-                        <FaRegCheckCircle />
-                      </div>
-                    </Col>
-                    <Col>
-                      <p>200+</p>
-                      <h4>Start-Up</h4>
-                    </Col>
-                  </Row>
+                    <p>200+</p>
+                    <h4>Startups</h4>
+                  </div>
                 </Col>
-              </Row>
-              <Row className="margin-between row-gap mt-4">
-                <Col className=" col-card2">
-                  <Row>
-                    <Col lg={2}>
-                      <div className="check">
 
-                        <FaRegCheckCircle />
-                      </div>
-                    </Col>
-                    <Col>
-                      <p>135+</p>
-                      <h4>Investor</h4>
-                    </Col>
-                  </Row>
-                </Col>
-                <Col className=" col-card2">
-                  <Row>
-                    <Col lg={2}>
-                      <div className="check">
+                <Col lg={5} xs={6}>
+                  <div className="col-card2">
+                    <div className="check">
+                      <FaRegCheckCircle />
+                    </div>
 
-                        <FaRegCheckCircle />
-                      </div>
-                    </Col>
-                    <Col>
-                      <p>15000+</p>
-                      <h4>Visitor</h4>
-                    </Col>
-                  </Row>
+                    <p>135+</p>
+                    <h4>Investors</h4>
+                  </div>
                 </Col>
+
+                <Col lg={5} xs={6} >
+                  <div className="col-card2">
+                    <div className="check">
+                      <FaRegCheckCircle />
+                    </div>
+
+                    <p>135+</p>
+                    <h4>Visitors</h4>
+                  </div>
+                </Col>
+
               </Row>
             </Col>
-            <Col className="sfg">
+            <Col lg={6} xs={12} className="sfg order-lg-1 order-0">
               <p className="font-blue">SFG 2024</p>
-              <h3 className="title mb-5">
-                India Startup Revolution is Here and now! At Ahmedabad Septem
-                <span className="gradient">ber 28 & 29, 2024 </span>
+              <h3 className="title">
+                India Startup Revolution is Here and now! At Ahmedabad September <span className="gradient"> 28 & 29, 2024 </span>
               </h3>
             </Col>
           </Row>
@@ -326,14 +343,14 @@ export default function Home() {
       <section className="container-bg padding-sec">
         <Container>
           <Row>
-            <Col className="sfg ">
+            <Col lg={6} md={12} xs={12} className="sfg ">
               <p className="font-blue">SFG 2024</p>
               <h3 className="title mb-5">
                 Innovation at Bottom of the Pyramid in Rural Innovations and
                 Entrepreneurship
               </h3>
             </Col>
-            <Col>
+            <Col  lg={6} md={12} xs={12} >
               <Row className="text-center border-custom">
                 <Col>
                   <img src={agry} />

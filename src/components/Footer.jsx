@@ -12,16 +12,18 @@ export default function Footer() {
     <footer>
         <Container>
             <Row>
-                <Col lg={3}>
-                    <div className='footer-logo'>
+                <Col lg={3} xs={12}>
+                   <div className="f-logo">
+                   <div className='footer-logo'>
                         <img src={logo}/>
                     </div>
                     <p className='footer-text'>
                     Clarity gives you the blocks and components you need to create a truly professional website.
                     </p>
+                   </div>
                 </Col>
 
-                <Col lg={3}>
+                <Col lg={3} xs={3}>
                     <div className="footer-cols">
                     <div className='footer-title'>
                         <h4>Company</h4>
@@ -34,21 +36,21 @@ export default function Footer() {
                     </div>
                 </Col>
 
-                <Col lg={3}>
+                <Col lg={3} xs={3}>
                     <div className="footer-cols">
                     <div className='footer-title'>
                         <h4>Fest</h4>
                     </div>
                     <ul className="footer-list">
-                        <li><a href="/pitcher">Pitcher</a></li>
+                        <li><a href="/startup">Pitcher</a></li>
                         <li><a href="/startup">Start-Up</a></li>
-                        <li><a href="/investor">Investor</a></li>
-                        <li><a href="/visitor">Visitor</a></li>
+                        <li><a href="/startup">Investor</a></li>
+                        <li><a href="/startup">Visitor</a></li>
                     </ul>
                     </div>
                 </Col>
 
-                <Col lg={3}>
+                <Col lg={3} xs={6}>
                     <div className="footer-cols">
                     <div className='footer-title'>
                         <h4>Startup Revolution</h4>
@@ -56,7 +58,7 @@ export default function Footer() {
                     <ul className="footer-list flex">
                         <li><img src={clock} width={45} />10:00 AM TO 10:00 PM</li>
                         <li><img src={caleder} width={45} />28 & 29 Sep, 2024</li>
-                        <li><MdLocationPin />Vigyan Bhavan ,Science City,
+                        <li><MdLocationPin />Vigyan Bhavan, Science City,
                         Ahmedabad</li>
                     </ul>
                     </div>

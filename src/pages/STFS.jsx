@@ -12,26 +12,30 @@ import rabari from "../assets/img/rabari.png";
 const STFS = () => {
   return (
     <>
-
-<section className="padding-sec">
+      <section className="padding-sec">
         <Container>
           <Row className="justify-content-center align-items-center">
-            <Col lg={4}>
-              <h3 className="title">
-              Shark tank Featured 
-              Startup Journey
-              </h3>
+            <Col lg={5} xs={12}>
+              <h3 className="title">Shark tank Featured Startup Journey</h3>
             </Col>
-            <Col lg={8} className='hello'>
-              <img src={urban} className="" />
-              <img src={bull} className="" />
-              <img src={pabi} className="" />
+            <Col lg={6} xs={12} className="hello offset-lg-1">
+              <Row className="align-items-center">
+                <Col lg={4} xs={4}>
+                  <img src={urban} className="" />
+                </Col>
+                <Col lg={4} xs={4}>
+                  <img src={bull} className="" />
+                </Col>
+                <Col lg={4} xs={4}>
+                  <img src={pabi} className="" />
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Container>
       </section>
 
-      <section className="container-bg padding-sec">
+      <section className="container-bg padding-sec img-sec">
         <Container>
           <Row className="d-flex">
             <Col className="flex-grow-1">
@@ -105,10 +109,7 @@ const STFS = () => {
             </Col>
           </Row>
         </Container>
-      </section>
-
-      <section className="container-bg padding-sec">
-        <Container>
+        <Container className='pt-5'>
           <Row className="d-flex">
             <Col className="flex-grow-1">
               <h3 className="title mb-5">Pabiben.com</h3>
@@ -143,7 +144,7 @@ const STFS = () => {
       <section className="padding-sec">
       </section>
     </>
-  )
+  );
 }
 
 export default STFS

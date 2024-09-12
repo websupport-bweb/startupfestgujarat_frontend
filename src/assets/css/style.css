@@ -19,7 +19,26 @@ body {
 .header {
     padding: 20px 0;
 }
+.header .navbar-nav .dropdown-menu {
+    position: absolute;
+    border: 0;
+}
+.mobile-menu .offcanvas-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
 
+.mobile-menu .navbar-nav .dropdown-menu .dropdown-item {
+    padding-bottom: 10px;
+}
+.mobile-menu .nav-item.show .nav-link {
+    font-weight: 600;
+}
+
+.mobile-menu img.logo-offcanvas {
+    max-width: 230px;
+}
 .header .logo-header {
     max-width: 200px;
 }
@@ -139,10 +158,12 @@ body {
     background: #003777;
     border: 2px solid #003777;
     padding: 10px 35px;
-    ;
     border-radius: 10px;
     transition: 0.05s ease all;
     text-decoration: none;
+    display: block;
+    width: fit-content;
+    margin-top: 20px;
 }
 
 .theme-btn.light-blue {
@@ -206,6 +227,7 @@ body {
     background-image: url('../img/blur-bg.png');
     background-size: cover;
     background-position: center;
+    margin-left: 5px;
 }
 
 .banner-btns {
@@ -419,8 +441,9 @@ gap: 24px; */
     background-color: white;
     box-shadow: 2px 4px 28px 0px #D5E3F1;
     border-radius: 20px;
-    padding: 21px;
+    padding: 10px 20px;
     font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
 }
 
 .col-card2 p {
@@ -457,6 +480,7 @@ gap: 24px; */
 .sfg h3 {
     line-height: 55px;
     font-size: 37px;
+    margin-bottom: 30px;
 }
 
 .border-custom {
@@ -759,10 +783,13 @@ footer .copyright a:hover {
     background: #fff;
     border-radius: 12px;
     box-shadow: 2px 4px 8px #E5EEF0;
-    min-height: 200px;
+    min-height: fit-content;
+    /* min-height: 200px; */
     margin-bottom: 20px;
 }
-
+.startup-sec .box-content.third{
+    min-height: fit-content;
+}
 .startup-sec .box-content.reviews {
     min-height: fit-content;
 }
@@ -1243,7 +1270,7 @@ p.big-btns {
 .event-box {
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0px 12px 16px -4px #10182814;
+    box-shadow: 0px 0px 16px 2px #10182814;
     border-radius: 10px;
     height: 100%;
 }
@@ -1304,6 +1331,8 @@ p.big-btns {
 
 .event-box .auth-area img {
     max-width: 50px;
+    border-radius: 50%;
+    border: 1.5px solid #e0e0e0;
 }
 
 .event-box .auth-area span {
@@ -1478,13 +1507,16 @@ p.big-btns {
 .showcase .overlay {
     width: 100%;
     height: 100%;
-    background-color: #041e66db;
+    background-color: #002078db;
     position: absolute;
     top: 0;
     left: 0;
     z-index:999
   }
-  
+  .showcase .content{
+    position: relative;
+    height: 100%;
+  }
   .showcase h2 {
     margin-top: 170px;
     font-size: 3em;
@@ -1517,11 +1549,16 @@ p.big-btns {
     line-height: 36px;
 }
 
-  .showcase .content h3{
+.showcase .content h3 {
     font-size: 40px;
+    position: absolute;
     color: #ffffffda;
-  }
-  
+    display: flex;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    place-content: center;
+}
 
 
 .col-card h5 {
@@ -1583,8 +1620,31 @@ text-align: left;
     object-fit: cover;
     object-position: top;
 }
+.relative-img{
+    position: relative;
+}
+.relative-img .text {
+    position: absolute;
+    bottom: 0px;
+    background-color: var(--primary-blue);
+    width: 100%;
+    
+    font-weight: 600;
+    color: #ffffff;
+    padding: 10px 0px 10px 20px;
+}
 
-.speaker-card-div{
+.img-sec img {
+    max-height: 350px;
+    object-fit: cover;
+}
+
+.img-sec .bg-img1 {
+    background: #fff;
+    height: 100%;
+    align-content: center;
+}
+.speaker-card-div {
     position: absolute;
     bottom: 0px;
     background-color: var(--primary-blue);
@@ -1592,14 +1652,15 @@ text-align: left;
     left: 0px;
     display: flex;
     align-items: center;
-    /* height: 50px; */
-    color: var(--light-blue);
+    font-weight: 600;
+    color: #ffffff;
     padding: 10px 0px 10px 20px;
     /* margin-left: 20px; */
     margin-right: 20px;
 }
 .font-sm{
     font-size: 12px;
+    font-weight: 500;
     color: #FFFFFFCC;
 }
 .hello{
@@ -1607,10 +1668,8 @@ text-align: left;
     gap: 30px;
     justify-content: center;
 }
-.hello img{
-    width: 200px;
-    object-fit: contain;
-
+.hello img {
+    width: 100%;
 }
 
 
@@ -1645,6 +1704,18 @@ text-align: left;
     padding: 40px 0;
     font-weight: 600;
     text-align: center;
+}
+.w-sm{
+    width: 80%;
+}
+
+.iframe-map  iframe{
+    margin-top: 20px;
+}
+
+a.no-design {
+    text-decoration: none;
+    color: inherit;
 }
 
 .pitcher-card-a{

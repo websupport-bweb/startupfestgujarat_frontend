@@ -31,7 +31,7 @@ export default function InvestorAccelator() {
               <Link to="/register" className="theme-btn">Register Now</Link>
             </Col>
             <Col lg="6">
-              <img src={img1} className="w-100" />
+              <img src={img1} className="w-100 img-padding" />
             </Col>
           </Row>
         </Container>
@@ -69,7 +69,7 @@ export default function InvestorAccelator() {
               <Link to="/register" className="theme-btn">Register Now</Link>
             </Col>
             <Col xs={12} md={6} lg={6}>
-              <img src={img2} className="w-100" />
+              <img src={img2} className="w-100 img-padding" />
             </Col>
           </Row>
         </Container>

@@ -188,31 +188,32 @@ function Contact() {
         </Row>
       </Container>
 
-      <section className="padding-sec" style={{ overflow: "hidden" }}>
+      <section className="padding-sec">
         <Container>
-          <Row>
-            <Col lg={6}>
+          <Row className="count-box">
+            <Col lg={6} xs={12}>
               <h3 className="title mb-5">
                 India <span className="gradient">Startup Revolution </span> is
                 here and now!
               </h3>
 
               <Row>
-                <Col lg={4}>
+                <Col lg={4} xs={12}>
                   <div className="box">
                     <MdLocationPin />
                     <h4>Venue</h4>
                     <p>Vigyan Bhavanm, Science City, Ahmedabad.</p>
                   </div>
                 </Col>
-                <Col lg={4}>
+                <Col lg={4} xs={12}>
                   <div className="box">
+                    {/* <SlCalender /> */}
                     <img src={caleder} width={45} />
                     <h4>Date</h4>
                     <p>28 & 29 September, 2024</p>
                   </div>
                 </Col>
-                <Col lg={4}>
+                <Col lg={4} xs={12}>
                   <div className="box">
                     <img src={clock} width={45} />
                     <h4>Time</h4>

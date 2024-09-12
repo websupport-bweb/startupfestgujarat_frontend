@@ -34,10 +34,10 @@ function Startup() {
         <Container>
           <Row className="justify-content-between">
             <Col xs={12} md={5} lg={5}>
-              <h3 className="title">Empowering Tomorrow's <br />
+              <h3 className="title">Empowering Tomorrow's 
 Innovators</h3>
               <p className="para">
-               Startup Fest Gujarat Season 1 delivered unparalleled value with world-br
+               Startup Fest Gujarat Season 1 delivered unparalleled value with world-br 
 class content, offering direct 1:1 access to industry leaders, speakers, and 
 mentors throughout the event. It was a hub for entrepreneurial growth, 
 featuring investment opportunities worth hundreds of crores awarded 
@@ -48,11 +48,11 @@ for startups to accelerate their growth and make meaningful industry
 connections.
               </p>
               <div className="mt-5">
-              <button className="theme-btn">Register Now</button>
+              <Link to="/register" className="theme-btn">Register Now</Link>
               </div>
             </Col>
             <Col xs={12} md={6} lg={6}>
-              <img src={about} className="w-100" />
+              <img src={about} className="w-100 img-padding" />
             </Col>
           </Row>
         </Container>
@@ -62,19 +62,17 @@ connections.
         <section className="padding-sec">
           <Container>
             <Row>
-              <Col className="sfg ">
-                {/* <p className="font-blue">SFG 2024</p> */}
+              <Col lg={4}  xs={12} className="sfg ">
                 <h3 className="title mt-5">
-                  Startupfest At A Glance
+                  Startupfest At  A Glance
                 </h3>
               </Col>
-              <Col>
+              <Col lg={6}  xs={12} className="offset-lg-2">
                 <Row className="text-center border-custom">
                   <Col>
                     <img src={agry} />
                     <p className="fw-bold pt-3 font-blue ">
-                      {" "}
-                      World-class <br /> content
+                      World-class  content
                     </p>
                   </Col>
                   <Col className="outer-border-startup">
@@ -86,13 +84,13 @@ connections.
                   <Col className="pt-4">
                     <img src={fin} />
                     <p className="fw-bold pt-3 font-blue ">
-                      Media spotlight <br /> and Exposure
+                      Media spotlight  and Exposure
                     </p>
                   </Col>
                   <Col className="outer-border-startup pt-4">
                     <img src={mobile} />
                     <p className="fw-bold pt-3 font-blue">
-                      Innovative Prizes & <br />
+                      Innovative Prizes & 
                       Investment Oppournities
                     </p>
                   </Col>
@@ -121,11 +119,11 @@ connections.
         </Container>
       </section>
 
-      <section className="padding-sec light-bg">
+      <section className="padding-sec">
         <Container>
           <Row className="justify-content-between">
             <Col xs={12} md={5} lg={5}>
-              <h3 className="title">Over Crore In Funding <br />
+              <h3 className="title">Over Crore In Funding 
 Opportunities!</h3>
               <p className="para">
               With an impressive ?532+ crore pool fund, Startup Fest Gujarat Season 1 
@@ -143,7 +141,7 @@ business.
               </div>
             </Col>
             <Col xs={12} md={6} lg={6}>
-              <img src={funding} className="w-100" />
+              <img src={funding} className="w-100 img-padding" />
             </Col>
           </Row>
         </Container>

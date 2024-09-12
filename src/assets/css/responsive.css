@@ -16,12 +16,13 @@
         padding: 5px 10px;
         margin-left: 10px;
         font-size: 12px;
+        display: none;
     }
     .header .menubar.left {
         justify-content: space-between;
     }
     .banner-text {
-        font-size: 28px;
+        font-size: 26px;
         line-height: 40px;
         padding: 0 30px;
     }
@@ -38,7 +39,7 @@
     }
 
     .title {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .padding-sec {
@@ -58,6 +59,53 @@
     .col-card {
         margin: 10px;
         max-width: fit-content;
+    }
+
+    .sfg h3 {
+        line-height: 30px;
+        font-size: 25px;
+        letter-spacing: 0;
+    }
+
+    .register-sec .title {
+        font-size: 20px;
+        line-height: 35px;
+    }
+
+    .register-sec.dark-bg .w-70{
+        width: 90%;
+    }
+
+    footer .footer-cols {
+        padding-left: 0;
+    }
+    .f-logo {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+    .mobile-menu .navbar-nav .dropdown-menu {
+        position: static;
+        border: 0;
+    }
+    .mobile-menu img.logo-offcanvas {
+        max-width: 230px;
+    }
+
+    .event-box {
+        margin-bottom: 20px;
+    }
+
+    .showcase {
+        height: 300px;
+    }
+    .showcase .content h5 {
+        font-size: 22px;
+        line-height: 28px;
+        margin-bottom: 20px;
+    }
+    .showcase .content h3 {
+        font-size: 24px;
     }
 }
 

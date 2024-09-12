@@ -3,40 +3,17 @@ import Slider from 'react-slick';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import { IoIosArrowRoundDown } from "react-icons/io";
-import video from "../assets/img/video-img.png";
 import about from "../assets/img/about-img.png";
-import clock from "../assets/img/clock-icon.png";
-import caleder from "../assets/img/calender-icon.png";
-import { MdLocationPin } from "react-icons/md";
-import { SlCalender } from "react-icons/sl";
-import { FaRegCheckCircle } from "react-icons/fa";
-import img1 from "../assets/img/img-1.png";
-import img2 from "../assets/img/img-2.png";
-import img3 from "../assets/img/img-3.png";
-import parti1 from "../assets/img/client/1.jpg";
-import parti2 from "../assets/img/client/2.jpg";
-import parti3 from "../assets/img/client/3.jpg";
-import parti4 from "../assets/img/client/4.jpg";
-import agry from "../assets/img/agry.png";
-import food from "../assets/img/food.png";
-import innov from "../assets/img/innov.png";
-import fin from "../assets/img/fin.png";
-import mobile from "../assets/img/mobile.png";
-import edu from "../assets/img/edu.png";
 import bannerImg from "../assets/img/image 15image.png";
 import { MdArrowOutward } from "react-icons/md";
-import bhImg from "../assets/img/blockhead.png";
-import event1 from "../assets/img/event1.png";
-import event2 from "../assets/img/event2.png";
-import event3 from "../assets/img/event3.png";
-import { IoArrowDown } from "react-icons/io5";
 import venue from "../assets/img/venue.png";
 import { FaArrowDown } from "react-icons/fa6";
-import auth1 from "../assets/img/blockhead.png"
+import auth1 from "../assets/img/shilp-icon.png"
 import highbg from "../assets/img/highlights-bg.png"
+import one from "../assets/img/event1.jpg"
+import two from "../assets/img/event2.jpg"
+import three from "../assets/img/event3.jpg"
+import { Link } from "react-router-dom";
 
 export default function Highlights() {
 
@@ -58,8 +35,8 @@ export default function Highlights() {
     
   return (
     <>
-      <section className="top-banner">
-        <img src={bannerImg} alt="" style={{ width: "100%" }} />
+      <section className="">
+        <img src={bannerImg} className="w-100" />
       </section>
 
       <section className="padding-sec light-bg">
@@ -67,19 +44,21 @@ export default function Highlights() {
           <Row className="justify-content-between">
             <Col xs={12} md={5} lg={5}>
               <h3 className="title">
-                Startup Fest Gujarat: Where Innovation Meets Investment
+                Startup Fest Gujarat: <br />
+                Where Innovation Meets Investment
               </h3>
               <p className="para">
-                Snehshilp Foundation’s “Start-Up Fest Gujarat” Highlights the
-                Thriving Spirit of Entrepreneurship and Innovation in the Region
-                Founded and driven by the visionary Mrs. Snehal Brahmbhatt, the
-                event aims to fill the void in start-up support by providing a
-                comprehensive platform for fresh ideas to flourish.
+                Snehshilp foundation’s “start-up fest gujarat” highlights the
+                thriving spirit of entrepreneurship and innovation in the
+                region. Founded and driven by the visionary mrs. Snehal
+                brahmbhatt, the event aims to fill the void in start-up support
+                by providing a comprehensive platform for fresh ideas to
+                flourish.
               </p>
               <p className="para">
                 The annual event brings together start-ups, investors, and
-                industry leaders for two days, creating an atmosphere of
-                inspiration and fruitful collaboration.
+                Industry collaboration.Leaders for two days, creating an
+                Atmosphere of inspiration and fruitful collaboration.
               </p>
             </Col>
             <Col xs={12} md={6} lg={6}>
@@ -116,7 +95,7 @@ export default function Highlights() {
               </p>
               <div className="bhDiv">
                 <img src={bhImg} />
-                <h6>Blockheads vinyl cafe</h6>
+                <h6>Snehshilp Foundation</h6>
               </div>
             </Col>
             <Col className="col-card" lg={4} style={{ position: "relative" }}>
@@ -132,7 +111,7 @@ export default function Highlights() {
               </p>
               <div className="bhDiv">
                 <img src={bhImg} />
-                <h6>Blockheads vinyl cafe</h6>
+                <h6>Snehshilp Foundation</h6>
               </div>
             </Col>
             <Col className="col-card" lg={4} style={{ position: "relative" }}>
@@ -150,7 +129,7 @@ export default function Highlights() {
               </p>
               <div className="bhDiv">
                 <img src={bhImg} />
-                <h6>Blockheads vinyl cafe</h6>
+                <h6>Snehshilp Foundation</h6>
               </div>
             </Col>
           </Row> */}
@@ -158,24 +137,24 @@ export default function Highlights() {
             <Col lg={12}>
               <div className="heading-one d-flex justify-content-between">
                 <h4 className="title">Event Showcases</h4>
-                <div className="view-mre">
+                {/* <div className="view-mre">
                   <FaArrowDown />
                   <a href="/">View more</a>
-                </div>
+                </div> */}
               </div>
             </Col>
             <Col lg={4}>
               <div className="event-box">
                 <div className="img-area">
-                  <img src={img1} className="w-100" />
+                  <img src={one} className="w-100" />
                 </div>
 
                 <div className="txt-area">
                   <p className="eve-date">Friday, September 13</p>
-                  <a href="/" className="name-line">
+                  <Link to="/startup" className="name-line">
                     <h5>Friday AfterHours: Sufi Unplugged</h5>
                     <MdArrowOutward />
-                  </a>
+                  </Link>
                   <p className="desc">
                     Get ready for a mesmerizing evening with "Sufi Unplugged" at
                     Blockheads featuring the incredible talent of Ayush! Known
@@ -183,52 +162,50 @@ export default function Highlights() {
                 </div>
                 <div className="auth-area">
                   <img src={auth1} className="img" />
-                  <span>Blockheads vinyl cafe</span>
+                  <span>Snehshilp Foundation</span>
                 </div>
               </div>
             </Col>
             <Col lg={4}>
               <div className="event-box">
                 <div className="img-area">
-                  <img src={img2} className="w-100" />
+                  <img src={two} className="w-100" />
                 </div>
 
                 <div className="txt-area">
-                  <p className="eve-date">Monday, September 25</p>
-                  <a href="/" className="name-line">
-                    <h5>
-                      Ahmedabad Startup Networking Event (Invite Only) by AY
-                      Ventures
-                    </h5>
+                  <p className="eve-date">Saturday, September 28</p>
+                  <Link to="/startup" className="name-line">
+                    <h5>Start-Up Fest 2.0 Gujarat by Snehshilp Foundation</h5>
                     <MdArrowOutward />
-                  </a>
+                  </Link>
                   <p className="desc">
-                    Get ready for Engiexpo Industrial Engineering Exhibition
-                    2024, a mind-blowing in-person event showcasing the latest
-                    advancements.
+                    Join us for the second edition of Start-Up Fest Gujarat, a
+                    day dedicated to empowering your business journey with
+                    unparalleled knowledge, inspiration, and networking
+                    opportunities. 
                   </p>
                 </div>
                 <div className="auth-area">
                   <img src={auth1} className="img" />
-                  <span>Blockheads vinyl cafe</span>
+                  <span>Snehshilp Foundation</span>
                 </div>
               </div>
             </Col>
             <Col lg={4}>
               <div className="event-box">
                 <div className="img-area">
-                  <img src={img3} className="w-100" />
+                  <img src={three} className="w-100" />
                 </div>
 
                 <div className="txt-area">
                   <p className="eve-date">Tuesday, September 30</p>
-                  <a href="/" className="name-line">
+                  <Link to="/startup" className="name-line">
                     <h5>
                       14th Engiexpo Industrial Engineering Exhibition Ahmedabad-
                       2024
                     </h5>
                     <MdArrowOutward />
-                  </a>
+                  </Link>
                   <p className="desc">
                     This exhibition is a must-attend for all industrial
                     engineering enthusiasts, professionals, and students...
@@ -236,7 +213,7 @@ export default function Highlights() {
                 </div>
                 <div className="auth-area">
                   <img src={auth1} className="img" />
-                  <span>Blockheads vinyl cafe</span>
+                  <span>Snehshilp Foundation</span>
                 </div>
               </div>
             </Col>

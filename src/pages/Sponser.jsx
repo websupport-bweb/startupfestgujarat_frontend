@@ -45,145 +45,123 @@ function Sponser() {
       {/* Add Speakers Heading */}
       <section className="register-bg">
         <Container className="register-bg py-5">
-          <h2
-            style={{
-              fontWeight: "bold",
-              paddingTop: "40px",
-              paddingBottom: "20px",
-            //   textAlign: "center",
-            }}
-          >
-            Sponsers
-          </h2> {/* Added paddingTop and paddingBottom for heading */}
+          <h2 className="title mb-4">
+            Sponsors
+          </h2>
           <Row className="m-0 p-0">
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4" xs={6} className="">
               <div className="p-relative">
                 <img src={img23} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img2} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img3} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-          </Row>
-
-           <Row className="m-0 p-0">
-            <Col lg="4" className=""> {/* Added padding for cards */}
+         
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img4} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img5} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img6} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-          </Row>
-
-           <Row className="m-0 p-0">
-            <Col lg="4" className=""> {/* Added padding for cards */}
+        
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img7} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img8} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img9} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-          </Row>
-
-
-           <Row className="m-0 p-0">
-            <Col lg="4" className=""> {/* Added padding for cards */}
+         
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img10} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img11} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img12} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-          </Row>
-
-           <Row className="m-0 p-0">
-            <Col lg="4" className=""> {/* Added padding for cards */}
+          
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img13} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img14} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img15} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-          </Row>
-
-           <Row className="m-0 p-0">
-            <Col lg="4" className=""> {/* Added padding for cards */}
+          
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img16} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img17} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img18} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-          </Row>
-
-           <Row className="m-0 p-0">
-            <Col lg="4" className=""> {/* Added padding for cards */}
+          
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img19} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img20} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-            <Col lg="4" className=""> {/* Added padding for cards */}
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img21} className="w-100" alt="Responsive Image" />
               </div>
             </Col>
-          </Row>
-
-           <Row className="m-0 p-0">
-            <Col lg="4" className=""> {/* Added padding for cards */}
+         
+            <Col lg="4"  xs={6} className="">
               <div className="p-relative">
                 <img src={img22} className="w-100" alt="Responsive Image" />
               </div>

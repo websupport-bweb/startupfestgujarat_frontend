@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useEffect, useState} from 'react'
 import about from "../assets/img/about-img.png";
 import sciencecity from "../assets/img/science-city.jpg";
 import g20 from "../assets/img/g20.jpg";
@@ -11,34 +11,40 @@ import Col from "react-bootstrap/Col";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import Timer from '../components/Timer';
+import axios from 'axios';
+
 
 export default function About() {
 
     const [map, setMap] = useState(false);
 
     const handleMap = () => setMap(!map);
+    const [faq, setFaq] = useState([])
+
+    useEffect(()=>{
+      
+  const fetchAbout = async () => {
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_URL}/api/auth/cms/get-content/66e2c092b91cb37980f500b1`)
+      console.log(res.data)
+
+      setFaq(res.data);
+    }
+    catch (error) {
+      console.error(error)
+    }
+  }
+
+  fetchAbout()
+    },[])
+
   return (
     <>
       <section className="padding-sec light-bg">
         <Container>
-        <h6 className="txt-blue sm-title">About us</h6>
-          <Row className="justify-content-between">
-            <Col xs={12} md={5} lg={5}>
-              <h3 className="title">The Largest Business Expert </h3>
-              <p className="para">
-                Welcome to Startup Fest Gujarat, presented by the Snehshilp
-                Foundation! Get ready to immerse yourself in a dynamic ecosystem
-                where innovation and entrepreneurship converge. With over 300
-                startups, visionary investors, and renowned keynote speakers,
-                we're setting the stage for an event that celebrates Gujarat's
-                thriving business landscape.
-              </p>
-              <p className="para">
-                Join us in Ahmedabad, the heart of entrepreneurial brilliance,
-                for an unforgettable experience that amplifies business ideas
-                and fosters collaboration. Embrace the future of business at
-                Startup Fest Gujarat.
-              </p>
+          <Row className="justify-content-center">
+            <Col lg={6}>
+            {React.createElement('div', { dangerouslySetInnerHTML: { __html: faq.ContentUpload } })}
 
             </Col>
             <Col xs={12} md={6} lg={6}>
@@ -50,26 +56,22 @@ export default function About() {
 
       <section className="padding-sec">
         <Container>
-          <Row>
-            <Col lg={6}>
+          <Row className="count-box">
+            <Col lg={6} xs={12}>
               <h3 className="title mb-5">
                 India <span className="gradient">Startup Revolution </span> is
                 here and now!
               </h3>
 
               <Row>
-                <Col lg={4}>
+                <Col lg={4} xs={12}>
                   <div className="box">
                     <MdLocationPin />
                     <h4>Venue</h4>
                     <p>Vigyan Bhavanm, Science City, Ahmedabad.</p>
-                    <div className="show">
-                      <a onClick={handleMap} className='show-btn'>Show Map</a>
-                        <IoIosArrowDown />
-                    </div>
                   </div>
                 </Col>
-                <Col lg={4}>
+                <Col lg={4} xs={12}>
                   <div className="box">
                     {/* <SlCalender /> */}
                     <img src={caleder} width={45} />
@@ -77,7 +79,7 @@ export default function About() {
                     <p>28 & 29 September, 2024</p>
                   </div>
                 </Col>
-                <Col lg={4}>
+                <Col lg={4} xs={12}>
                   <div className="box">
                     <img src={clock} width={45} />
                     <h4>Time</h4>
@@ -91,18 +93,6 @@ export default function About() {
             <Timer />
             </Col>
           </Row>
-        </Container>
-        <Container fluid className="p-0 my-3">
-          {map && (
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3086.551930808391!2d72.4961889187413!3d23.076971500290245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9dd1d3d9cd79%3A0xe620538d49e61b0b!2sVigyan%20Bhawan%20Science%20City!5e0!3m2!1sen!2sus!4v1726029670292!5m2!1sen!2sus"
-              width="100%"
-              height="400"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          )}
         </Container>
       </section>
 
@@ -141,10 +131,10 @@ export default function About() {
       <section className="padding-sec">
         <Container>
           <Row className="justify-content-center">
-            <Col lg="6">
+            <Col lg="6" className='order-lg-0 order-1'>
               <img src={g20} className="w-100" />
             </Col>
-            <Col lg={6}>
+            <Col lg={6} className='order-lg-1 order-0'>
               <h3 className="title">G20 </h3>
               <p className="para">
                 The G20, short for Group of Twenty, is an international forum
