@@ -10,6 +10,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { IoIosArrowDown } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import Timer from '../components/Timer';
 
 export default function About() {
 
@@ -87,37 +88,7 @@ export default function About() {
             </Col>
 
             <Col lg={6}>
-              <div className="counter-box">
-                <Row>
-                  <Col lg={6}>
-                    <div className="count border-right">
-                      <h3>22</h3>
-                      <h5 className="subtitle">Days</h5>
-                    </div>
-                  </Col>
-                  <Col lg={6}>
-                    <div className="count">
-                      <h3>21</h3>
-                      <h5 className="subtitle">Hours</h5>
-                    </div>
-                  </Col>
-                </Row>
-                <hr className="gradient-line" />
-                <Row>
-                  <Col lg={6}>
-                    <div className="count border-right">
-                      <h3>52</h3>
-                      <h5 className="subtitle">Seconds</h5>
-                    </div>
-                  </Col>
-                  <Col lg={6}>
-                    <div className="count">
-                      <h3>57</h3>
-                      <h5 className="subtitle">Minutes</h5>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
+            <Timer />
             </Col>
           </Row>
         </Container>

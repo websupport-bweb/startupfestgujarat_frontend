@@ -856,7 +856,7 @@ const Register = () => {
                                         <Col lg={4}>
                                             <div className="txt-ixon two h-100 align-content-center">
                                                 <div className='name'>
-                                                    <h5>{items.contactPersonNam}</h5>
+                                                    <h5>{items.contactPersonName}</h5>
                                                     <hr />
                                                 </div>
                                                 <div className="tick-name">

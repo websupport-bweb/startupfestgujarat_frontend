@@ -12,6 +12,7 @@ import img1 from "../assets/img/img-1.png";
 import img2 from "../assets/img/img-2.png";
 import img3 from "../assets/img/img-3.png";
 import { Link } from 'react-router-dom';
+import Timer from '../components/Timer';
 
 
 export default function Participants() {
@@ -79,7 +80,8 @@ export default function Participants() {
             </Col>
 
             <Col lg={6}>
-              <img src={parti3} className="w-100" />
+              {/* <img src={parti3} className="w-100" /> */}
+              <Timer />
             </Col>
           </Row>
         </Container>

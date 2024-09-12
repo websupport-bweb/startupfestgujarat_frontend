@@ -1,4 +1,4 @@
-import React , { useState }from "react";
+import React, { useState, useEffect } from "react";
 import Slider from 'react-slick';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -27,6 +27,7 @@ import fin from "../assets/img/fin.png";
 import mobile from "../assets/img/mobile.png";
 import edu from "../assets/img/edu.png";
 import { Link } from "react-router-dom";
+import Timer from "./Timer";
 
 
 export default function Home() {
@@ -38,22 +39,25 @@ export default function Home() {
     });
   };
 
-    const [settings] = useState({
-      dots: true,
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      autoplay: false,
-      speed: 3000,
-      autoplaySpeed: 2000,
-      cssEase: 'linear',
-    });
+  const [settings] = useState({
+    dots: true,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: false,
+    speed: 3000,
+    autoplaySpeed: 2000,
+    cssEase: 'linear',
+  });
 
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+
+
   return (
     <>
       <section className="top-banner">
@@ -91,7 +95,7 @@ export default function Home() {
 
                 <Modal show={show} onHide={handleClose} size="xl" className="video-modal">
                   <Modal.Header closeButton>
-                  
+
                   </Modal.Header>
                   <Modal.Body>
                     <iframe
@@ -105,7 +109,7 @@ export default function Home() {
                       allowfullscreen
                     ></iframe>
                   </Modal.Body>
-                 
+
                 </Modal>
               </div>
             </Col>
@@ -133,8 +137,10 @@ export default function Home() {
                 Startup Fest Gujarat.
               </p>
 
-              <div className="padding-btn">
-              <Link to="/about" className="theme-btn">Learn More</Link>
+
+              <div className="mt-5">
+                <Link to="/about" className="theme-btn">Learn More</Link>
+
               </div>
             </Col>
             <Col xs={12} md={6} lg={6}>
@@ -179,40 +185,11 @@ export default function Home() {
               </Row>
             </Col>
 
-            <Col lg={6} xs={12}>
-              <div className="counter-box">
-                <Row>
-                  <Col lg={6} xs={6}>
-                    <div className="count border-right">
-                      <h3>22</h3>
-                      <h5 className="subtitle">Days</h5>
-                    </div>
-                  </Col>
-                  <Col lg={6}  xs={6}>
-                    <div className="count">
-                      <h3>21</h3>
-                      <h5 className="subtitle">Hours</h5>
-                    </div>
-                  </Col>
-                </Row>
-                <hr className="gradient-line" />
-                <Row>
-                  <Col lg={6}  xs={6}>
-                    <div className="count border-right">
-                      <h3>52</h3>
-                      <h5 className="subtitle">Seconds</h5>
-                    </div>
-                  </Col>
-                  <Col lg={6}  xs={6}>
-                    <div className="count">
-                      <h3>57</h3>
-                      <h5 className="subtitle">Minutes</h5>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-            </Col>
-          </Row>
+
+            <Col lg={6}>
+              <Timer />
+              </Col>
+                 </Row>
         </Container>
       </section>
 
@@ -260,7 +237,7 @@ export default function Home() {
                 Investors will get a chance to talk to all the startups and an
                 opportunity to
                 <span className="yellow-bg">
-                  
+
                   multiply their money by 2-3 times.
                 </span>
               </p>
@@ -279,7 +256,7 @@ export default function Home() {
                   <Row>
                     <Col lg={2}>
                       <div className="check">
-                        
+
                         <FaRegCheckCircle />
                       </div>
                     </Col>
@@ -293,7 +270,7 @@ export default function Home() {
                   <Row>
                     <Col lg={2}>
                       <div className="check">
-                        
+
                         <FaRegCheckCircle />
                       </div>
                     </Col>
@@ -309,7 +286,7 @@ export default function Home() {
                   <Row>
                     <Col lg={2}>
                       <div className="check">
-                        
+
                         <FaRegCheckCircle />
                       </div>
                     </Col>
@@ -323,7 +300,7 @@ export default function Home() {
                   <Row>
                     <Col lg={2}>
                       <div className="check">
-                        
+
                         <FaRegCheckCircle />
                       </div>
                     </Col>
