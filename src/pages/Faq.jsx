@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Row, Accordion, Card } from 'react-bootstrap';
+import { Col, Row, Accordion, Card, Container } from 'react-bootstrap';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import axios from 'axios';
 
@@ -24,26 +24,22 @@ function Faq() {
 
   return (
     <>
-      <section>
-        <Row className="m-0 p-0">
-          <h2
-            style={{
-              fontWeight: 'bold',
-              paddingTop: '40px',
-              paddingBottom: '40px',
-              textAlign: 'center',
-            }}
-          >
+      <section className='padding-sec'>
+        <Container>
+        <Row className='justify-content-center'>
+          <Col lg={12} xs={12}>
+          <h2 className='title text-center'>
             Frequently asked questions
           </h2>
 
           <p className="para text-center">
             Everything you need to know about the Event
           </p>
+          </Col>
 
-          <Col lg={12} className="p-0">
+          <Col lg={9} xs={12} className="p-0">
             <div className="p-relative">
-              <Accordion defaultActiveKey="0" style={{ width: '60%', margin: 'auto' }}>
+              <Accordion defaultActiveKey="0" >
                 {faq && (
                   <>
                     {faq.map((item, index) => (
@@ -68,6 +64,7 @@ function Faq() {
             </div>
           </Col>
         </Row>
+        </Container>
       </section>
       <br /><br /><br />
     </>
