@@ -40,11 +40,40 @@ export default function About() {
 
   return (
     <>
-      <section className="padding-sec light-bg">
+      {/* <section className="padding-sec light-bg">
         <Container>
           <Row className="justify-content-center about-content">
           {React.createElement('div', { dangerouslySetInnerHTML: { __html: faq.ContentUpload } })}
 
+          </Row>
+        </Container>
+      </section> */}
+
+<section className="padding-sec light-bg">
+        <Container>
+          <Row className="justify-content-between align-items-center">
+            <Col xs={12} md={12} lg={5}>
+            <p className="txt-blue sm-title">
+            About us
+            </p>
+              <h3 className="title">The Largest Business Expert</h3>
+              <p className="para">
+              Welcome to Startup Fest Gujarat, presented by the Snehshilp Foundation! Get ready to immerse yourself in a dynamic ecosystem where innovation and entrepreneurship converge. With over 300 startups, visionary investors, and renowned keynote speakers, we're setting the stage for an event that celebrates Gujarat's thriving business landscape.
+              </p>
+              <p className="para">
+              The annual event brings together start-ups, investors, and industry collaboration. Leaders for two days, creating an atmosphere of inspiration and fruitful collaboration.
+              </p>
+              
+
+              <div className="padding-btn">
+                <Link to="/about" className="theme-btn">
+                  Learn More
+                </Link>
+              </div>
+            </Col>
+            <Col xs={12} md={8} lg={6} className="offset-md-2 offset-lg-0">
+              <img src={about} className="w-100 img-padding" />
+            </Col>
           </Row>
         </Container>
       </section>
