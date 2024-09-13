@@ -43,10 +43,10 @@ export default function Home() {
 
   const [settings] = useState({
     dots: true,
-    infinite: true,
+    infinite: false,
     slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     speed: 4000,
     autoplaySpeed: 3000,
     cssEase: 'linear',
@@ -74,12 +74,34 @@ export default function Home() {
       },
     ],
   });
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
+  const gallery = [
+    { url: require('../assets/img/Sponser logo/1.png') },
+    { url: require('../assets/img/Sponser logo/2.png') },
+    { url: require('../assets/img/Sponser logo/3.png') },
+    { url: require('../assets/img/Sponser logo/4.png') },
+    { url: require('../assets/img/Sponser logo/5.png') },
+    { url: require('../assets/img/Sponser logo/6.png') },
+    { url: require('../assets/img/Sponser logo/7.png') },
+    { url: require('../assets/img/Sponser logo/8.png') },
+    { url: require('../assets/img/Sponser logo/9.png') },
+    { url: require('../assets/img/Sponser logo/11.png') },
+    { url: require('../assets/img/Sponser logo/12.png') },
+    { url: require('../assets/img/Sponser logo/13.png') },
+    { url: require('../assets/img/Sponser logo/14.png') },
+    { url: require('../assets/img/Sponser logo/15.png') },
+    { url: require('../assets/img/Sponser logo/16.png') },
+    { url: require('../assets/img/Sponser logo/17.png') },
+    { url: require('../assets/img/Sponser logo/18.png') },
+    { url: require('../assets/img/Sponser logo/19.png') },
+    { url: require('../assets/img/Sponser logo/20.png') },
+    { url: require('../assets/img/Sponser logo/21.png') },
+    { url: require('../assets/img/Sponser logo/22.png') },
+  ]
 
 
   return (
@@ -151,19 +173,12 @@ export default function Home() {
             <Col xs={12} md={12} lg={5}>
               <h3 className="title">About StartUp Fest</h3>
               <p className="para">
-                Welcome to Startup Fest Gujarat, presented by the Snehshilp
-                Foundation! Get ready to immerse yourself in a dynamic ecosystem
-                where innovation and entrepreneurship converge. With over 300
-                startups, visionary investors, and renowned keynote speakers,
-                we're setting the stage for an event that celebrates Gujarat's
-                thriving business landscape.
+              Snehshilp Foundation's "Start-Up Fest Gujarat" highlights the thriving spirit of entrepreneurship and innovation in the region. Founded and driven by the visionary Mrs. Snehal Brahmbhatt, the event aims to fill the void in start-up support by providing a comprehensive platform for fresh ideas to flourish.
               </p>
               <p className="para">
-                Join us in Ahmedabad, the heart of entrepreneurial brilliance,
-                for an unforgettable experience that amplifies business ideas
-                and fosters collaboration. Embrace the future of business at
-                Startup Fest Gujarat.
+              The annual event brings together start-ups, investors, and industry collaboration. Leaders for two days, creating an atmosphere of inspiration and fruitful collaboration.
               </p>
+              
 
               <div className="padding-btn">
                 <Link to="/about" className="theme-btn">
@@ -361,10 +376,20 @@ export default function Home() {
             <Col lg={10}>
               <div>
                 <Slider {...settings}>
-                  <img src={parti1} alt="participant" />
+                  {gallery.map((item, index) => (
+                    <div className="adjust-height" key={index}>
+                    <img
+                      // key={index}
+                      src={item.url}
+                      alt={`Gallery Image ${index + 1}`}
+                    className="img-fluid "
+                    />
+                    </div>
+                  ))}
+                  {/* <img src={parti1} alt="participant" />
                   <img src={parti2} alt="participant" />
                   <img src={parti3} alt="participant" />
-                  <img src={parti4} alt="participant" />
+                  <img src={parti4} alt="participant" /> */}
                 </Slider>
               </div>
             </Col>

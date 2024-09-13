@@ -37,12 +37,7 @@ export default function InvestorAccelator() {
             <Col lg={5} xs={12}>
               <h3 className="title">Where Startups Meet Leading Investors</h3>
               <p className="para">
-                We’ve curated a range of opportunities specifically designed to
-                connect you with the key players in the industry. Whether you’re
-                looking to meet with venture capitalists, incubators, angel
-                investors, or industry leaders, Startup Fest Gujarat is your
-                gateway to the connections you need to take your startup to the
-                next level
+              We’ve curated a range of opportunities specifically designed to connect you with the key players in the industry. Whether you're looking to meet with venture capitalists, incubators, angel investors, or industry leaders, Startup Fest Gujarat is your gateway to the connections you need to take your startup to the next level.
               </p>
 
               <div className="mt-5">
@@ -77,8 +72,11 @@ export default function InvestorAccelator() {
             <Col xs={12} md={5} lg={5}>
               <h3 className="title">Engage with Leading Startups from Elite Programs</h3>
               <p className="para">
-              At Startup Fest Gujarat, you’ll encounter a diverse array of startups spanning multiple industries and growth stages, all eager to connect 
-              with investors, incubators, and mentors. From cutting-edge Fintech to innovative AI, and from early-stage ventures to those seeking Series A funding, this event is designed to bring together companies across sectors, providing them with the opportunity to secure mentorship, networking, and potential investment to drive their growth forward
+              At Startup Fest Gujarat, you'll encounter a diverse array of startups spanning multiple industries and
+               growth stages, all eager to connect with investors, incubators, and mentors. From cutting-edge Fintech
+                to innovative AI, and from early-stage ventures to those seeking Series A funding, this event is designed 
+                to bring together companies across sectors, providing them with the opportunity to secure mentorship, networking,
+                 and potential investment to drive their growth forward.
               </p>
 
               <div className="mt-5">

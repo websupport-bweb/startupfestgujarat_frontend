@@ -13,14 +13,14 @@ const Timer =()=>{
   });
 
   // Target date for the event (28th August 2024 in local time)
-  const targetDate = new Date('2024-08-28T00:00:00').getTime();
+  const targetDate = new Date('2024-09-28T10:00:00').getTime();
 
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date().getTime(); // Current time in milliseconds
 
       // Calculate the difference in milliseconds
-      const difference = now-targetDate  ;
+      const difference = targetDate-now  ;
 
       // console.log("Current Time:", new Date(now).toLocaleString());
       // console.log("Target Date:", new Date(targetDate).toLocaleString());

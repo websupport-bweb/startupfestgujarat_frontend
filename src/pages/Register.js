@@ -387,7 +387,7 @@ const Register = () => {
     };
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     const handleShow = () => {
         setShow(true)
         // setRegisterData([])
@@ -577,10 +577,27 @@ const Register = () => {
                     console.log(res)
                     console.log(registerData)
                     setRegisterData((prevData) => [...prevData, res.data.data]);
+                    
+
+                    try{
+                        const data={
+                            email:res.data.data.email,
+                            password:res.data.data.password
+                        }
+                        const res2 = await axios.post(`${process.env.REACT_APP_URL}/api/sendOTPEmail`, data);
+                        console.log("res",res2)
+                        if(res2.data.isOk)
+                        {
+                            alert(res2.data.message)
+                        }
+                    }
+                    catch(error)
+                    {
+                        console.error("An error occurred during submission:", error.message);
+                    }
                     setValues(initialValues)
                     console.log(customActiveTab)
                     handleShow()
-                    
 
                 }
                 else {

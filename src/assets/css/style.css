@@ -642,7 +642,8 @@ section.banner-img-top img {
 
 .participant-sec .slick-slide img {
     display: block;
-    padding: 30px;
+    padding: 30px 30px 15px 30px;
+    max-height: 160px;
 }
 
 .participant-sec li button:before {
@@ -1757,6 +1758,21 @@ a.no-design {
 .text-gray{
     color: #667085;
 }
+
+/* .slick-slider {
+    height: 160px;
+}
+
+.slick-list ,
+.slick-track ,
+.slick-initialized .slick-slide {
+    height: 100%;
+}
+
+.adjust-height {
+    height: 100%;
+    aspect-ratio: 1;
+} */
 
 .box-opp {
     padding: 20px;

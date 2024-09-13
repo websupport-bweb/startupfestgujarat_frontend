@@ -35,7 +35,8 @@ function Startup() {
         <Container>
           <Row className="justify-content-between">
             <Col xs={12} md={5} lg={5}>
-              <h3 className="title"> Empowering the Tomorrow's Innovators </h3>
+            <h3 className="title">Empowering Tomorrow's 
+Innovators</h3>
               <p className="para">
                 Startup Fest Gujarat Season 1 delivered unparalleled value with
                 world-br class content, offering direct 1:1 access to industry
@@ -78,7 +79,7 @@ function Startup() {
                   </Col>
                   <Col className="outer-border-startup">
                     <img src={food} />
-                    <p className="fw-bold pt-3 font-blue">Curated Network</p>
+                    <p className="fw-bold pt-3 font-blue">Curated Networking</p>
                   </Col>
                 </Row>
                 <Row className="text-center">
@@ -107,10 +108,10 @@ function Startup() {
           <div className="overlay padding-sec">
             <div className="w-70 m-auto content">
               <h5 className="title text-center text-white">
-                I knew that if I failed I wouldn’t regret that, but I knew the
-                one thing I might regret is not trying
-              </h5>
-              <h3>~– Jeff Bezos, Founder of Amazon</h3>
+               "I knew that if I failed I wouldn’t regret that, but I knew the one thing I might regret is not trying."</h5>
+              <h3>
+              ~– Jeff Bezos, Founder of Amazon
+              </h3>
             </div>
           </div>
         </Container>
@@ -120,21 +121,9 @@ function Startup() {
         <Container>
           <Row className="justify-content-between">
             <Col xs={12} md={5} lg={5}>
-              <h3 className="title">
-                Over ₹532 Crore In Funding Opportunities!
-              </h3>
+              <h3 className="title">Over ₹532 Crores in Investments!</h3>
               <p className="para">
-                With an impressive? 532+ crore pool fund, Startup Fest Gujarat
-                Season 1 offered startups an unprecedented chance to secure the
-                funding they need to thrive. The event was packed with
-                opportunities to propel your business forward, from high-stakes
-                investment pitches to targeted matchups with top investors.
-                Whether you connected with our expert panels, networked in our
-                exclusive investor lounge, or took the stage to pitch your
-                vision, Startup Fest Gujarat Season 1 was the ultimate platform
-                to unlock your startup's potential and secure the resources to
-                scale your business.
-              </p>
+              With an impressive ₹532+ crore pool fund, Startup Fest Gujarat Season 1 offered startups an unprecedented chance to secure the funding they need to thrive. The event was packed with opportunities to propel your business forward, from high-stakes investment pitches to targeted matchups with top investors. Whether you connected with our expert panels, networked in our exclusive investor lounge, or took the stage to pitch your vision, Startup Fest Gujarat Season 1 was the ultimate platform to unlock your startup’s potential and secure the resources to scale your business.</p>
               <div className="mt-5">
                 <Link to="/register" className="theme-btn">
                   Register Now

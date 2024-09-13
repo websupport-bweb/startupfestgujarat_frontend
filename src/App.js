@@ -29,6 +29,7 @@ import StartUpShowCase from './pages/StartupShowCase';
 import PitcherContent from './pages/PitcherContent';
 import InvestorContent from './pages/InvestorContent';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Cms from './pages/CMS';
 
 
 
@@ -61,6 +62,7 @@ function App() {
           <Route path='/faq' element ={<Faq />} />
           <Route path='/start-up-showcase' element ={<StartUpShowCase />} />
           <Route path='/privacypolicy' element ={<PrivacyPolicy />} />
+          <Route path='/cms/:id' element ={<Cms />} />
 
 
         </Routes>

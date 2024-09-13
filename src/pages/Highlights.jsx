@@ -184,14 +184,7 @@ export default function Highlights() {
                 demonstrations in an easily understandable manner
               </p>
               <p className="para">
-                Gujarat Science City is a bold initiative of the Government of
-                Gujarat to realize this priority. The Government is creating a
-                sprawling center at Ahmedabad which aims to provide a perfect
-                blend of education and entertainment. It will showcase
-                contemporary and imaginative exhibits, minds on experiences,
-                working models, virtual reality, activity corners, labs and live
-                demonstrations to provide an understanding of science and
-                technology to the common man
+              Gujarat Science City is a bold initiative of the Government of Gujarat to realize this priority. The Government is creating a sprawling center at Ahmedabad which aims to provide a perfect blend of education and entertainment. It will showcase contemporary and imaginative exhibits, minds-on experiences, working models, virtual reality, activity corners, labs, and live demonstrations to provide an understanding of science and technology to the common man. Photo of Vigyan Bhavan
               </p>
             </Col>
             <Col xs={12} md={6} lg={6}>
