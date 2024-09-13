@@ -577,10 +577,27 @@ const Register = () => {
                     console.log(res)
                     console.log(registerData)
                     setRegisterData((prevData) => [...prevData, res.data.data]);
+                    
+
+                    try{
+                        const data={
+                            email:res.data.data.email,
+                            password:res.data.data.password
+                        }
+                        const res2 = await axios.post(`${process.env.REACT_APP_URL}/api/sendOTPEmail`, data);
+                        console.log("res",res2)
+                        if(res.data.isOk)
+                        {
+                            alert(res.data.message)
+                        }
+                    }
+                    catch(error)
+                    {
+                        console.error("An error occurred during submission:", error.message);
+                    }
                     setValues(initialValues)
                     console.log(customActiveTab)
                     handleShow()
-                    
 
                 }
                 else {
