@@ -42,27 +42,25 @@ const STFS = () => {
               <h3 className="title mb-5">Urban Naps</h3>
             </Col>
           </Row>
-          <Row className='g-4'>
+          <Row className="g-4">
             <Col lg={4}>
-            <div className='speaker-card'>
-            <img src={urban} alt="" className='w-100' style={{objectFit:"none", objectPosition:"center", backgroundColor:"white"}}/>
-            <div className='speaker-card-div' style={{visibility:"hidden"}}>
-                <div>
-            <p className='mb-0'>Piyalee</p>
-            <p className='mb-0 font-sm'>Topic : Role and Impact of the state start-up Eco-system</p>
-            </div>
-            </div>
-            </div>
+              <div className="speaker-card">
+                <img
+                  src={urban}
+                  alt=""
+                  className="w-100"
+                />
+              </div>
             </Col>
             <Col lg={4}>
-            <div className='speaker-card'>
-            <img src={jainam} alt="" className='w-100'/>
-            <div className='speaker-card-div'>
-                <div>
-            <p className='mb-0'>Mr Jainam Mehta</p>
-            </div>
-            </div>
-            </div>
+              <div className="speaker-card">
+                <img src={jainam} alt="" className="w-100" />
+                <div className="speaker-card-div">
+                  <div>
+                    <p className="mb-0">Mr Jainam Mehta</p>
+                  </div>
+                </div>
+              </div>
             </Col>
           </Row>
         </Container>
@@ -75,74 +73,101 @@ const STFS = () => {
               <h3 className="title mb-5">BullSpree</h3>
             </Col>
           </Row>
-          <Row className='g-4'>
+          <Row className="g-4">
             <Col lg={4}>
-            <div className='speaker-card'>
-            <img src={bull} alt="" className='w-100' style={{objectFit:"none", objectPosition:"center", backgroundColor:"white"}}/>
-            <div className='speaker-card-div' style={{visibility:"hidden"}}>
-                <div>
-            <p className='mb-0'>Piyalee</p>
-            <p className='mb-0 font-sm'>Topic : Role and Impact of the state start-up Eco-system</p>
-            </div>
-            </div>
-            </div>
+              <div className="speaker-card">
+                <img
+                  src={bull}
+                  alt=""
+                  className="w-100"
+                  style={{
+                    objectFit: "none",
+                    objectPosition: "center",
+                    backgroundColor: "white",
+                  }}
+                />
+                <div
+                  className="speaker-card-div"
+                  style={{ visibility: "hidden" }}
+                >
+                  <div>
+                    <p className="mb-0">Piyalee</p>
+                    <p className="mb-0 font-sm">
+                      Topic : Role and Impact of the state start-up Eco-system
+                    </p>
+                  </div>
+                </div>
+              </div>
             </Col>
             <Col lg={4}>
-            <div className='speaker-card'>
-            <img src={dharmil} alt="" className='w-100'/>
-            <div className='speaker-card-div'>
-                <div>
-            <p className='mb-0'>Dharmil Bavishi</p>
-            </div>
-            </div>
-            </div>
+              <div className="speaker-card">
+                <img src={dharmil} alt="" className="w-100" />
+                <div className="speaker-card-div">
+                  <div>
+                    <p className="mb-0">Dharmil Bavishi</p>
+                  </div>
+                </div>
+              </div>
             </Col>
             <Col lg={4}>
-            <div className='speaker-card'>
-            <img src={harsh} alt="" className='w-100'/>
-            <div className='speaker-card-div'>
-                <div>
-            <p className='mb-0'>Harsh Dhanawat</p>
-            </div>
-            </div>
-            </div>
+              <div className="speaker-card">
+                <img src={harsh} alt="" className="w-100" />
+                <div className="speaker-card-div">
+                  <div>
+                    <p className="mb-0">Harsh Dhanawat</p>
+                  </div>
+                </div>
+              </div>
             </Col>
           </Row>
         </Container>
-        <Container className='pt-5'>
+        <Container className="pt-5">
           <Row className="d-flex">
             <Col className="flex-grow-1">
               <h3 className="title mb-5">Pabiben.com</h3>
             </Col>
           </Row>
-          <Row className='g-4'>
+          <Row className="g-4">
             <Col lg={4}>
-            <div className='speaker-card'>
-            <img src={pabi} alt="" className='w-100' style={{objectFit:"none", objectPosition:"center", backgroundColor:"white"}}/>
-            <div className='speaker-card-div' style={{visibility:"hidden"}}>
-                <div>
-            <p className='mb-0'>Piyalee</p>
-            <p className='mb-0 font-sm'>Topic : Role and Impact of the state start-up Eco-system</p>
-            </div>
-            </div>
-            </div>
+              <div className="speaker-card">
+                <img
+                  src={pabi}
+                  alt=""
+                  className="w-100"
+                  style={{
+                    objectFit: "none",
+                    objectPosition: "center",
+                    backgroundColor: "white",
+                  }}
+                />
+                <div
+                  className="speaker-card-div"
+                  style={{ visibility: "hidden" }}
+                >
+                  <div>
+                    <p className="mb-0">Piyalee</p>
+                    <p className="mb-0 font-sm">
+                      Topic : Role and Impact of the state start-up Eco-system
+                    </p>
+                  </div>
+                </div>
+              </div>
             </Col>
             <Col lg={4}>
-            <div className='speaker-card'>
-            <img src={rabari} alt="" className='w-100'/>
-            <div className='speaker-card-div'>
-                <div>
-            <p className='mb-0'>Ms Pabiben Rabari</p>
-            </div>
-            </div>
-            </div>
+              <div className="speaker-card">
+                <img src={rabari} alt="" className="w-100" />
+                <div className="speaker-card-div">
+                  <div>
+                    <p className="mb-0">Ms Pabiben Rabari</p>
+                  </div>
+                </div>
+              </div>
             </Col>
           </Row>
         </Container>
       </section>
 
-      <section className="padding-sec">
-      </section>
+      <section className="padding-sec"></section>
     </>
   );
 }

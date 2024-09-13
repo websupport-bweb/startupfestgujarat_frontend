@@ -3,13 +3,13 @@ import { Container } from "react-bootstrap"
 
 const StartUpShowCase =()=>{
 return(
-    <React.Fragment>
+    <div className="padding-sec">
        <Container>
        <div className="soon">
-            Text Will be comming soon
+            Content Coming Soon...
         </div>
        </Container>
-    </React.Fragment>
+    </div>
 )
 }
 

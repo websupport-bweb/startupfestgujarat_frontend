@@ -226,9 +226,6 @@ const Speakers = () => {
           </Row>
         </Container>
       </section>
-
-      <section className="padding-sec">
-      </section>
     </>
   )
 }

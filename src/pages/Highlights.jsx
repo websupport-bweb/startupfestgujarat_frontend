@@ -133,13 +133,13 @@ export default function Highlights() {
               </div>
             </Col>
           </Row> */}
-          <Row className="mt-5">
+          <Row>
             <Col lg={12}>
               <div className="heading-one d-flex justify-content-between">
                 <h4 className="title">Event Showcases</h4>
                 {/* <div className="view-mre">
                   <FaArrowDown />
-                  <a href="/">View more</a>
+                  <Link href="/">View more</Link>
                 </div> */}
               </div>
             </Col>

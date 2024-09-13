@@ -6,13 +6,14 @@ import Col from 'react-bootstrap/Col';
 import { MdLocationPin } from "react-icons/md";
 import clock from "../assets/img/clock-icon.png";
 import caleder from "../assets/img/calender-icon.png";
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
     <footer>
         <Container>
             <Row>
-                <Col lg={3} xs={12}>
+                <Col lg={3} sm={12} xs={12}>
                    <div className="f-logo">
                    <div className='footer-logo'>
                         <img src={logo}/>
@@ -23,43 +24,43 @@ export default function Footer() {
                    </div>
                 </Col>
 
-                <Col lg={3} xs={3}>
+                <Col lg={3} sm={3} xs={3}>
                     <div className="footer-cols">
                     <div className='footer-title'>
                         <h4>Company</h4>
                     </div>
                     <ul className="footer-list">
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/participants">Participate</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
+                        <li><Link to="/about">About Us</Link></li>
+                        <li><Link to="/participants">Participate</Link></li>
+                        <li><Link to="/contact">Contact Us</Link></li>
                     </ul>
                     </div>
                 </Col>
 
-                <Col lg={3} xs={3}>
+                <Col lg={3} sm={3} xs={3}>
                     <div className="footer-cols">
                     <div className='footer-title'>
                         <h4>Fest</h4>
                     </div>
                     <ul className="footer-list">
-                        <li><a href="/startup">Pitcher</a></li>
-                        <li><a href="/startup">Start-Up</a></li>
-                        <li><a href="/startup">Investor</a></li>
-                        <li><a href="/startup">Visitor</a></li>
+                        <li><Link to="/startup">Pitcher</Link></li>
+                        <li><Link to="/startup">Start-Up</Link></li>
+                        <li><Link to="/startup">Investor</Link></li>
+                        <li><Link to="/startup">Visitor</Link></li>
                     </ul>
                     </div>
                 </Col>
 
-                <Col lg={3} xs={6}>
+                <Col lg={3} sm={6} xs={6}>
                     <div className="footer-cols">
                     <div className='footer-title'>
                         <h4>Startup Revolution</h4>
                     </div>
                     <ul className="footer-list flex">
-                        <li><img src={clock} width={45} />10:00 AM TO 10:00 PM</li>
-                        <li><img src={caleder} width={45} />28 & 29 Sep, 2024</li>
-                        <li><MdLocationPin />Vigyan Bhavan, Science City,
-                        Ahmedabad</li>
+                        <li><img src={clock} width={45} /><span>10:00 AM TO 10:00 PM</span></li>
+                        <li><img src={caleder} width={45} /><span>28 & 29 Sep, 2024</span></li>
+                        <li><MdLocationPin /><span>Vigyan Bhavan, Science City,
+                        Ahmedabad</span></li>
                     </ul>
                     </div>
                 </Col>
@@ -67,7 +68,7 @@ export default function Footer() {
             <hr/>
             <Row className="copyright">
                 <Col lg={12}>
-                <p className='mb-0'>© Copyright 2024, All Rights Reserved by <a href="/">Startup Fest</a></p>
+                <p className='mb-0'>© Copyright 2024, All Rights Reserved by <Link to="/">Startup Fest</Link></p>
                 </Col>
             </Row>
         </Container>

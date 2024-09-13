@@ -62,8 +62,8 @@ connections.
         <section className="padding-sec">
           <Container>
             <Row>
-              <Col lg={5}  xs={12} className="sfg ">
-                <h3 className="title mt-5">
+              <Col lg={5}  xs={12} className="sfg align-content-center">
+                <h3 className="title">
                   Startupfest At  A Glance
                 </h3>
               </Col>
@@ -126,7 +126,7 @@ connections.
               <h3 className="title">Over Crore In Funding 
 Opportunities!</h3>
               <p className="para">
-              With an impressive ?532+ crore pool fund, Startup Fest Gujarat Season 1 
+              With an impressive? 532+ crore pool fund, Startup Fest Gujarat Season 1 
 offered startups an unprecedented chance to secure the funding they 
 need to thrive. The event was packed with opportunities to propel your 
 business forward, from high-stakes investment pitches to targeted 

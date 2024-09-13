@@ -18,6 +18,7 @@ import logo from "../assets/img/logo.png";
 import map from "../assets/img/Map.png";
 import frame from "../assets/img/event-ticket.png";
 import { Link } from 'react-router-dom';
+import RegisterYourself from '../components/RegisterYourself';
 
 export default function Visitor() {
     const [settings] = useState({
@@ -61,10 +62,10 @@ export default function Visitor() {
             <Col lg={12}>
               <div className="heading-one d-flex justify-content-between">
                 <h4 className="title">Event Showcases</h4>
-                <div className="view-mre">
+                {/* <div className="view-mre">
                   <FaArrowDown />
-                  <a href="/">View more</a>
-                </div>
+                  <Link to="/">View more</Link>
+                </div> */}
               </div>
             </Col>
             <Col lg={4}>
@@ -75,10 +76,10 @@ export default function Visitor() {
 
                 <div className="txt-area">
                   <p className="eve-date">Friday, September 13</p>
-                  <a href="/" className="name-line">
+                  <Link tohref="/" className="name-line">
                     <h5>Friday AfterHours: Sufi Unplugged</h5>
                     <MdArrowOutward />
-                  </a>
+                  </Link>
                   <p className="desc">
                     Get ready for a mesmerizing evening with "Sufi Unplugged" at
                     Blockheads featuring the incredible talent of Ayush! Known
@@ -98,13 +99,13 @@ export default function Visitor() {
 
                 <div className="txt-area">
                   <p className="eve-date">Monday, September 25</p>
-                  <a href="/" className="name-line">
+                  <Link to="/" className="name-line">
                     <h5>
                       Ahmedabad Startup Networking Event (Invite Only) by AY
                       Ventures
                     </h5>
                     <MdArrowOutward />
-                  </a>
+                  </Link>
                   <p className="desc">
                     Get ready for Engiexpo Industrial Engineering Exhibition
                     2024, a mind-blowing in-person event showcasing the latest
@@ -125,13 +126,13 @@ export default function Visitor() {
 
                 <div className="txt-area">
                   <p className="eve-date">Tuesday, September 30</p>
-                  <a href="/" className="name-line">
+                  <Link to="/" className="name-line">
                     <h5>
                       14th Engiexpo Industrial Engineering Exhibition Ahmedabad-
                       2024
                     </h5>
                     <MdArrowOutward />
-                  </a>
+                  </Link>
                   <p className="desc">
                     This exhibition is a must-attend for all industrial
                     engineering enthusiasts, professionals, and students...
@@ -147,60 +148,7 @@ export default function Visitor() {
         </Container>
       </section>
 
-      <section className="padding-sec">
-        <Container>
-          <Row className="d-flex">
-            <Col className="flex-grow-1">
-              <h3 className="title mb-5">Register Yourself</h3>
-              <h5 className="para-custom">
-                People who register for the Start-Up Fest will be allotted a
-                5-minute time slot to present their startup in front of
-                potential investors.
-              </h5>
-            </Col>
-            <Col className="flex-shrink-0 text-end">
-              <button className="theme-btn" >
-                Register Now
-              </button>
-
-            
-            </Col>
-          </Row>
-          <Row>
-            <Col className="col-card margin-between">
-              <h3>Pitcher</h3>
-              <p>
-                Pitchers will get a 3 by 3 stall and a chance to{" "}
-                <span className="yellow-bg">present their project/idea/ </span>
-                startup on stage in front of all the investors.
-              </p>
-              <img src={img1} className="w-100" />
-            </Col>
-            <Col className="col-card margin-between">
-              <h3>Startup</h3>
-              <p>
-                Startups/ franchises will get a 2/2 stall and{" "}
-                <span className="yellow-bg">
-                  visibility in front of all the investors{" "}
-                </span>
-                coming in.
-              </p>
-              <img src={img2} className="w-100" />
-            </Col>
-            <Col className="col-card">
-              <h3>Investors</h3>
-              <p>
-                Investors will get a chance to talk to all the startups and an
-                opportunity to{" "}
-                <span className="yellow-bg">
-                  multiply their money by 2-3 times.
-                </span>
-              </p>
-              <img src={img3} className="w-100" />
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <RegisterYourself/>
 
       <section className="register-sec dark-bg padding-sec">
         <Container>

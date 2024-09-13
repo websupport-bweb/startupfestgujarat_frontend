@@ -16,8 +16,8 @@ export default function InvestorAccelator() {
 
       <section className="padding-sec light-bg">
         <Container>
-          <Row className="justify-content-center">
-            <Col lg={6}>
+          <Row className="justify-content-between">
+            <Col lg={5} xs={12}>
               <h3 className="title">Where Startups Meet Leading Investors</h3>
               <p className="para">
                 We’ve curated a range of opportunities specifically designed to
@@ -32,7 +32,7 @@ export default function InvestorAccelator() {
               <Link to="/register" className="theme-btn">Register Now</Link>
               </div>
             </Col>
-            <Col lg="6">
+            <Col lg={6} xs={12}>
               <img src={img1} className="w-100 img-padding" />
             </Col>
           </Row>

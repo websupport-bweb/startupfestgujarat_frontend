@@ -53,21 +53,23 @@ function Contact() {
   });
 
   return (
-    <>
+    <div className="padding-sec">
       <Container className="">
-        <Row style={{ overflow: "hidden" }}>
-          <Col lg={6}>
-            <div className="">
-              <h3 className="title mt-4 mb-1 pt-4">
+        <Row >
+          <Col lg={7} xs={12}>
+            <div className="padding-right">
+              <h3 className="title">
                 Get In Touch For Event Inquiries
               </h3>
-              <h5 className="para-custom">
+              <h5 className="para text-gray mb-5">
                 For any questions or inquiries about the event, please fill out
                 the form below. Our team will be delighted to assist you.
                 Contact us now and be a part of an extraordinary experience.
               </h5>
+            </div>
+            
 
-              <iframe
+            <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3086.551930808391!2d72.4961889187413!3d23.076971500290245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9dd1d3d9cd79%3A0xe620538d49e61b0b!2sVigyan%20Bhawan%20Science%20City!5e0!3m2!1sen!2sus!4v1726029670292!5m2!1sen!2sus"
                 width="100%"
                 height="300"
@@ -75,13 +77,11 @@ function Contact() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
-            </div>
           </Col>
-          <Col lg={6}>
+          <Col lg={5}  xs={12}>
             <div className="">
-              <TabContent>
-                <form onSubmit={formik.handleSubmit}>
-                  <div className="mb-3 mt-5">
+                <form onSubmit={formik.handleSubmit} className="contact-sec">
+                  <div className="mb-3">
                     <label className="f-13 fw-bold" htmlFor="contactPersonName">
                       Name<span className="text-danger">*</span>
                     </label>
@@ -171,7 +171,7 @@ function Contact() {
                       {formik.errors.submit}
                     </div>
                   )}
-                  <div>
+                  <div className="text-center">
                     <Button
                       type="submit"
                       color="primary"
@@ -182,7 +182,6 @@ function Contact() {
                     </Button>
                   </div>
                 </form>
-              </TabContent>
             </div>
           </Col>
         </Row>
@@ -229,7 +228,7 @@ function Contact() {
           </Row>
         </Container>
       </section>
-    </>
+    </div>
   );
 }
 

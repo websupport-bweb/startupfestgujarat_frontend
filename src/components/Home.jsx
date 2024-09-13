@@ -28,6 +28,7 @@ import mobile from "../assets/img/mobile.png";
 import edu from "../assets/img/edu.png";
 import { Link } from "react-router-dom";
 import Timer from "./Timer";
+import RegisterYourself from "./RegisterYourself";
 
 
 export default function Home() {
@@ -59,7 +60,7 @@ export default function Home() {
       {
         breakpoint: 768, // Screen width less than 768px
         settings: {
-          slidesToShow: 2, // Show 2 slides
+          slidesToShow: 3, // Show 2 slides
           slidesToScroll: 1,
         },
       },
@@ -158,7 +159,6 @@ export default function Home() {
                       allowfullscreen
                     ></iframe>
                   </Modal.Body>
-
                 </Modal>
               </div>
             </Col>
@@ -169,9 +169,9 @@ export default function Home() {
       <section className="padding-sec light-bg">
         <Container>
           <Row className="justify-content-between">
-            <Col xs={12} md={5} lg={5}>
-              <h3 className="title">About start up fest</h3>
-              <p className="para" style={{ textAlign: "justify" }}>
+            <Col xs={12} md={12} lg={5}>
+              <h3 className="title">About StartUp Fest</h3>
+              <p className="para">
                 Welcome to Startup Fest Gujarat, presented by the Snehshilp
                 Foundation! Get ready to immerse yourself in a dynamic ecosystem
                 where innovation and entrepreneurship converge. With over 300
@@ -179,7 +179,7 @@ export default function Home() {
                 we're setting the stage for an event that celebrates Gujarat's
                 thriving business landscape.
               </p>
-              <p className="para" style={{ textAlign: "justify" }}>
+              <p className="para">
                 Join us in Ahmedabad, the heart of entrepreneurial brilliance,
                 for an unforgettable experience that amplifies business ideas
                 and fosters collaboration. Embrace the future of business at
@@ -192,7 +192,7 @@ export default function Home() {
                 </Link>
               </div>
             </Col>
-            <Col xs={12} md={6} lg={6}>
+            <Col xs={12} md={8} lg={6} className="offset-md-2 offset-lg-0">
               <img src={about} className="w-100 img-padding" />
             </Col>
           </Row>
@@ -201,22 +201,22 @@ export default function Home() {
 
       <section className="padding-sec">
         <Container>
-          <Row className="count-box">
-            <Col lg={6} xs={12}>
+          <Row className="count-box justify-content-center">
+            <Col lg={6} md={12} xs={12}>
               <h3 className="title mb-5">
                 India <span className="gradient">Startup Revolution </span> is
                 here and now!
               </h3>
 
               <Row>
-                <Col lg={4} xs={12}>
+                <Col lg={4} md={4} xs={12}>
                   <div className="box">
                     <MdLocationPin />
                     <h4>Venue</h4>
                     <p>Vigyan Bhavanm, Science City, Ahmedabad.</p>
                   </div>
                 </Col>
-                <Col lg={4} xs={12}>
+                <Col lg={4} md={4} xs={12}>
                   <div className="box">
                     {/* <SlCalender /> */}
                     <img src={caleder} width={45} />
@@ -224,7 +224,7 @@ export default function Home() {
                     <p>28 & 29 September, 2024</p>
                   </div>
                 </Col>
-                <Col lg={4} xs={12}>
+                <Col lg={4} md={4} xs={12}>
                   <div className="box">
                     <img src={clock} width={45} />
                     <h4>Time</h4>
@@ -234,74 +234,16 @@ export default function Home() {
               </Row>
             </Col>
 
-
-            <Col lg={6}>
+            <Col lg={6} md={8} xs={12}>
               <Timer />
             </Col>
           </Row>
         </Container>
       </section>
 
-      <section className="container-bg padding-sec">
-        <Container>
-          <Row>
-            <Col lg={8} xs={6}>
-              <h3 className="title">Register Yourself</h3>
-            </Col>
-            <Col lg={4} xs={6} className="text-end">
-              <Link to="/register" className="theme-btn">
-                Register Now
-              </Link>
-            </Col>
-            <Col lg={6} xs={12}>
-              <h5 className="para-custom">
-                People who register for the Start-Up Fest will be allotted a
-                5-minute time slot to present their startup in front of
-                potential investors.
-              </h5>
-            </Col>
-          </Row>
-          <Row className="justify-content-between">
-            <Col lg={3} xs={12} className="col-card">
-              <Link to="/startup" className="no-design">
-                <h3>Pitcher</h3>
-                <p>
-                  Pitchers will get a 3 by 3 stall and a chance to
-                  <span className="yellow-bg">present their project/idea/</span>
-                  startup on stage in front of all the investors.
-                </p>
-                <img src={img1} className="w-100" />
-              </Link>
-            </Col>
-            <Col lg={3} xs={12} className="col-card">
-              <Link to="/startup" className="no-design">
-                <h3>Startup</h3>
-                <p>
-                  Startups/ franchises will get a 2/2 stall and
-                  <span className="yellow-bg">
-                    visibility in front of all the investors
-                  </span>
-                  coming in.
-                </p>
-                <img src={img2} className="w-100" />
-              </Link>
-            </Col>
-            <Col lg={3} xs={12} className="col-card">
-              <Link to="/startup" className="no-design">
-                <h3>Investors</h3>
-                <p>
-                  Investors will get a chance to talk to all the startups and an
-                  opportunity to
-                  <span className="yellow-bg">
-                    multiply their money by 2-3 times.
-                  </span>
-                </p>
-                <img src={img3} className="w-100" />
-              </Link>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <div className="container-bg">
+        <RegisterYourself />
+      </div>
 
       <section className="padding-sec ">
         <Container>
@@ -339,7 +281,7 @@ export default function Home() {
                   </div>
                 </Col>
 
-                <Col lg={5} xs={6} >
+                <Col lg={5} xs={6}>
                   <div className="col-card2">
                     <div className="check">
                       <FaRegCheckCircle />
@@ -349,13 +291,13 @@ export default function Home() {
                     <h4>Visitors</h4>
                   </div>
                 </Col>
-
               </Row>
             </Col>
             <Col lg={6} xs={12} className="sfg order-lg-1 order-0">
               <p className="font-blue">SFG 2024</p>
               <h3 className="title">
-                India Startup Revolution is Here and now! At Ahmedabad September <span className="gradient"> 28 & 29, 2024 </span>
+                India Startup Revolution is Here and now! At Ahmedabad September{" "}
+                <span className="gradient"> 28 & 29, 2024 </span>
               </h3>
             </Col>
           </Row>
@@ -372,7 +314,7 @@ export default function Home() {
                 Entrepreneurship
               </h3>
             </Col>
-            <Col lg={6} md={12} xs={12} >
+            <Col lg={6} md={12} xs={12}>
               <Row className="text-center border-custom">
                 <Col>
                   <img src={agry} />
@@ -402,7 +344,7 @@ export default function Home() {
                 </Col>
               </Row>
               <Row>
-                <div className="mt-4" style={{ display: "flex", justifyContent: "center" }}>
+                <div className="mt-4 text-center">
                   <p className="fw-bold pt-3 font-blue">Many More...</p>
                 </div>
               </Row>

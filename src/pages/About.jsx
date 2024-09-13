@@ -42,7 +42,7 @@ export default function About() {
     <>
       <section className="padding-sec light-bg">
         <Container>
-          <Row className="justify-content-center">
+          <Row className="justify-content-center about-content">
           {React.createElement('div', { dangerouslySetInnerHTML: { __html: faq.ContentUpload } })}
 
           </Row>

@@ -177,7 +177,6 @@ export default function StartupContent() {
               </h3>
               <Row className=" ">
                 <Col lg={8}>
-                  
                   <div className="detail-right mt-3">
                     <h4>About Event</h4>
                     <p>
@@ -213,7 +212,6 @@ export default function StartupContent() {
                       financial services that can revolutionize your business.
                     </p>
 
-                   
                     <p>
                       Whether you're an established business owner or just
                       beginning your entrepreneurial journey, the Small Business
@@ -225,15 +223,24 @@ export default function StartupContent() {
                       potential of your small business.
                     </p>
                     <p>
-                    Join us at the Start-Up Fest Gujarat 2.0 and take a monumental step towards realizing your entrepreneurial dreams!
+                      Join us at the Start-Up Fest Gujarat 2.0 and take a
+                      monumental step towards realizing your entrepreneurial
+                      dreams!
                     </p>
                     <h6>Refund Policy </h6>
                     <p>
-                    Once registration is confirmed, the fee is non-refundable, IF THE EVENT IS CANCELLED DUE TO ANY UNFORESEEN CIRCUMSTANCES BEYOND THE CONTROL OF THE ORGANIZERS, THE REGISTRATION FEE PAID BY YOU FOR PARTICIPATION WILL BE ADJUSTED TOWARDS YOUR PARTICIPATION ON A NEW DATE. IN THE EVENT OF YOU BEING UNABLE TO PARTICIPATE ON THE NEW DATE, YOU WILL NOT BE ELIGIBLE FOR A REFUND. 
+                      Once registration is confirmed, the fee is non-refundable,
+                      IF THE EVENT IS CANCELLED DUE TO ANY UNFORESEEN
+                      CIRCUMSTANCES BEYOND THE CONTROL OF THE ORGANIZERS, THE
+                      REGISTRATION FEE PAID BY YOU FOR PARTICIPATION WILL BE
+                      ADJUSTED TOWARDS YOUR PARTICIPATION ON A NEW DATE. IN THE
+                      EVENT OF YOU BEING UNABLE TO PARTICIPATE ON THE NEW DATE,
+                      YOU WILL NOT BE ELIGIBLE FOR A REFUND.
                     </p>
                     <h6>Tickets </h6>
                     <p>
-                    Tickets for Start-Up Fest 2.0 Gujarat by Snehshilp Foundation can be booked here.
+                      Tickets for Start-Up Fest 2.0 Gujarat by Snehshilp
+                      Foundation can be booked here.
                     </p>
 
                     {/* <button className="theme-btn" onClick={handleShow}> */}
@@ -293,32 +300,36 @@ export default function StartupContent() {
                             <div className="details-sec">
                               <h6> Vigyan Bhawan Science City </h6>
                               <p>
-                              Vigyan Bhawan Science City, 3FGW+XXW, Divine Rd, Sola, Ahmedabad, Gujarat 380060, India
+                                Vigyan Bhawan Science City, 3FGW+XXW, Divine Rd,
+                                Sola, Ahmedabad, Gujarat 380060, India
                               </p>
                             </div>
-                            <a onClick={handleMap}>Show Map</a>
-                            <span>
-                              <IoIosArrowDown />
-                            </span>
+                            <div className="mt-2">
+                              <a onClick={handleMap}>Show Map</a>
+
+                              <span>
+                                <IoIosArrowDown />
+                              </span>
+                            </div>
                           </div>
                         </div>
                         <div className="iframe-map">
-                    {map && (
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3086.551930808391!2d72.4961889187413!3d23.076971500290245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9dd1d3d9cd79%3A0xe620538d49e61b0b!2sVigyan%20Bhawan%20Science%20City!5e0!3m2!1sen!2sus!4v1726029670292!5m2!1sen!2sus"
-                        width="100%"
-                        height="200"
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                      ></iframe>
-                    )}
-                  </div>
+                          {map && (
+                            <iframe
+                              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3086.551930808391!2d72.4961889187413!3d23.076971500290245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9dd1d3d9cd79%3A0xe620538d49e61b0b!2sVigyan%20Bhawan%20Science%20City!5e0!3m2!1sen!2sus!4v1726029670292!5m2!1sen!2sus"
+                              width="100%"
+                              height="200"
+                              allowFullScreen
+                              loading="lazy"
+                              referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                          )}
+                        </div>
                       </div>
                     </Col>
 
                     <Col lg={12}>
-                      <div className="box-content third">
+                      <div className="box-content">
                         <h6 className="box-title">Hosted By</h6>
                         <div className="detail">
                           <img src={img1} className="no-bg" />

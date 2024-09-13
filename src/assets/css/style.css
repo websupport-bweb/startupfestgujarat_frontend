@@ -309,8 +309,9 @@ body {
 }
 
 .title {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: 600;
+    line-height: 50px;
     margin-bottom: 20px;
 }
 
@@ -376,9 +377,9 @@ hr.gradient-line {
 
 .para {
     font-family: Inter;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 25px;
+    line-height: 26px;
     text-align: justify;
 }
 
@@ -611,7 +612,7 @@ gap: 24px; */
     color: white;
     padding: 10px 35px;
     width: 100%;
-    border: none
+    border: 2px solid var(--primary-blue)
 }
 
 .register-bg {
@@ -703,7 +704,7 @@ footer .footer-list li a:hover {
 
 footer .footer-list li svg {
     color: #003777;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 footer .footer-list li img {
@@ -712,10 +713,14 @@ footer .footer-list li img {
 }
 
 footer .footer-list.flex li {
-    display: flex;
-    gap: 10px;
+    /* display: flex;
+    gap: 10px; */
+    display: table;
 }
-
+footer .footer-list.flex li span{
+    display: table-cell;
+    padding-left: 10px;
+}
 footer hr {
     background-color: #E2E8F0;
     height: 2px;
@@ -784,7 +789,6 @@ footer .copyright a:hover {
     border-radius: 12px;
     box-shadow: 2px 4px 8px #E5EEF0;
     min-height: fit-content;
-    /* min-height: 200px; */
     margin-bottom: 20px;
 }
 .startup-sec .box-content.third{
@@ -837,13 +841,21 @@ footer .copyright a:hover {
     padding: 6px 12px;
 }
 
+.startup-sec .box-content .detail {
+    align-items: center;
+    display: table;
+    vertical-align: middle;
+}
+.startup-sec .box-content .detail  .txt {
+    display: table-cell;
+    padding-left: 10px;
+    vertical-align: top;
+    align-content: center;
+}
 .startup-sec .box-content .detail svg {
-    font-size: 15px;
+    font-size: 40px;
     background: #4AD2E433;
     padding: 5px;
-    flex-basis: 25%;
-    height: 40px;
-    width: 40px;
     border-radius: 13px;
     color: #3F38DD;
 }
@@ -880,21 +892,20 @@ footer .copyright a:hover {
     background: #4AD2E433;
     padding: 10px;
     flex-basis: 25%;
-    height: max-content;
-    max-width: 45px;
+    height: 40px;
+    width: 40px;
     border-radius: 13px;
 }
 
 .startup-sec .box-content .detail img.no-bg {
     background: transparent;
     padding: 0;
-    flex-basis: 25%;
-    height: max-content;
-    max-width: 80px;
-    border-radius: 13px;
+   border-radius: 50%;
+   border: 1.5px solid #e0e0e0;
 }
 
 .startup-sec .box-content .detail a {
+    margin-top: 10px;
     color: #546BE2;
     border-bottom: 1px solid #546BE2;
     text-decoration: none;
@@ -914,15 +925,14 @@ footer .copyright a:hover {
 }
 
 .startup-sec .box-content .detail .txt .details-sec {
-    min-height: 95px;
     align-content: center;
 }
 .startup-sec .box-content.third .detail .txt .details-sec {
-    min-height: 80px;
+    min-height: max-content;
 }
 
 .startup-sec .box-content .detail .txt p {
-    font-size: 12px;
+    font-size: 15px;
     margin-bottom: 0;
 }
 
@@ -936,8 +946,8 @@ footer .copyright a:hover {
 }
 
 .detail-right p {
-    font-size: 14px;
-    margin-bottom: 30px;
+    font-size: 16px;
+    margin-bottom: 20px;
 
 }
 
@@ -1255,6 +1265,7 @@ p.big-btns {
 
 .heading-one .title {
     font-size: 30px;
+    margin-bottom: 40px;
 }
 
 .heading-one .view-mre svg {
@@ -1610,7 +1621,7 @@ text-align: left;
     border-radius: 20px;
 }
 .speaker-card{
-    height: 400px;
+    height: 350px;
     position: relative;
     /* padding: 20px; */
     box-shadow: 0px 12px 16px -4px #10182814;
@@ -1698,10 +1709,8 @@ text-align: left;
 }
 
 .soon {
-    height: 28vh;
     font-size: 40px;
     align-content: center;
-    padding: 40px 0;
     font-weight: 600;
     text-align: center;
 }
@@ -1722,10 +1731,26 @@ a.no-design {
     text-decoration: none;
     color: #041e66db;
 }
+
+.pitcher-card-a svg{
+    font-size: 25px;
+}
 .pitcher-card-div{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.contact-sec{
+    padding: 0;
+}
+
+.padding-right {
+    padding-right: 160px;
+}
+
+.text-gray{
+    color: #667085;
 }
 
 /* .slick-slider {

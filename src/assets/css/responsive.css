@@ -1,6 +1,6 @@
 
 /* Small devices (tablets) */
-@media (min-width: 350px) and (max-width:991px){
+@media (min-width: 300px) and (max-width:991px){
     .header .menubar .flex {
         justify-content: space-between;
     }
@@ -29,9 +29,21 @@
 
     .theme-btn {
         padding: 10px 14px;
+        display: block;
         margin: 0;
+        width: fit-content;
+    }
+    .top-banner {
+        padding: 30px 0;
+    }
+    .theme-btn-light {
+        padding: 10px 14px;
+    }
+    .startup-sec .title{
+        width: 100%;
     }
 
+    
     .play-btn {
         height: 60px;
         width: 60px;
@@ -40,9 +52,13 @@
     }
 
     .title {
-        font-size: 25px;
+        font-size: 25px !important;
+        line-height: 32px !important;
+        margin-bottom: 0;
     }
-
+    .para {
+        margin-top: 20px;
+    }
     .padding-sec {
         padding: 40px 0;
     }
@@ -58,7 +74,7 @@
         text-align: center;
     }
     .col-card {
-        margin: 10px;
+        margin: 20px 30px;
         max-width: fit-content;
     }
 
@@ -110,19 +126,59 @@
     .showcase .content h3 {
         font-size: 24px;
     }
-    .startup-sec .box-content .detail img{
-        height:max-content !important ;
-        flex-basis:content;
-        max-height:max-content !important ;
-        min-width: 50px;
-    }
-
+  
     .startup-sec .box-content .detail{
         align-items: center;
     }
     .startup-sec .box-content .detail .txt .details-sec , .startup-sec .box-content.third .detail .txt .details-sec{
         min-height: fit-content;
     }
+    .about-content h1, .about-content h2, .about-content h3 {
+        font-size: 25px !important;
+    }
+     .about-content h4, .about-content h5, .about-content h6{
+        font-size: 18px !important;
+    }
+    .about-content p {
+        font-size: 15px !important;
+    }
+
+    .contact-sec{
+        padding: 30px 0 0 0;
+    }
+    .padding-right{
+        padding-right: 0;
+    }
+    .contact-sec .register-btn{
+        width: fit-content;
+        
+    }
+
+    .startup-sec .box-content .detail {
+        align-items: center;
+        display: table;
+        vertical-align: middle;
+    }
+    .startup-sec .box-content .detail  .txt {
+        display: table-cell;
+        padding-left: 10px;
+        vertical-align: top;
+    }
+    footer .footer-list.flex li{
+        display: table;
+    }
+    footer .footer-list.flex li span {
+        display: table-cell;
+        padding-left: 10px;
+    }
+
+    footer .footer-list li svg {
+        font-size: 30px;
+    }
+    .col-card p{
+        height: fit-content;
+    }
+   
 }
 
 /* Large devices (large desktops) */
