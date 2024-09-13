@@ -95,7 +95,7 @@ export default function About() {
         <Container>
           <Row className="justify-content-between">
             <Col xs={12} md={5} lg={5}>
-              <h3 className="title">Science city </h3>
+              <h3 className="title">2023 Venue : Science City</h3>
               <p className="para">
                 Located off the Sarkhej Gandhinagar Highway, Science City is an
                 ambitious initiative of the government of Gujarat to trigger an

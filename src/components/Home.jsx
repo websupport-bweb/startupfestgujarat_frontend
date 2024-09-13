@@ -43,12 +43,12 @@ export default function Home() {
 
   const [settings] = useState({
     dots: true,
-    infinite: false,
+    infinite: true,
     slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: false,
-    speed: 4000,
-    autoplaySpeed: 3000,
+    slidesToScroll: 4,
+    autoplay: true,
+    speed: 500,
+    autoplaySpeed: 4000,
     cssEase: 'linear',
     responsive: [
       {
