@@ -57,7 +57,7 @@ export default function Footer() {
                         <h4>Startup Revolution</h4>
                     </div>
                     <ul className="footer-list flex">
-                        <li><img src={clock} width={45} /><span>10:00 AM TO 10:00 PM</span></li>
+                        <li><img src={clock} width={45} /><span>10:00 AM TO 07:00 PM</span></li>
                         <li><img src={caleder} width={45} /><span>28 & 29 Sep, 2024</span></li>
                         <li><MdLocationPin /><span>Vigyan Bhavan, Science City,
                         Ahmedabad</span></li>
