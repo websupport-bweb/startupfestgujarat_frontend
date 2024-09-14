@@ -1789,3 +1789,33 @@ a.no-design {
     padding-top: 15px;
     font-weight: 600;
 }
+
+
+.register-popupc .css-9jq23d {
+    font-size: 10px;    
+    line-height: normal;
+}
+
+.f-sm{
+    font-size: 14px;
+}
+
+.register-popup .css-1jqq78o-placeholder {
+    font-size: 14px;
+}
+.register-popup .css-9jq23d{
+    font-size: 11px;
+}
+
+.register-popup .css-tj5bde-Svg{
+    margin: 0;
+}
+
+.register-popup .css-19bb58m{
+    display: none;
+}
+
+.register-popup .modal-body {
+    max-height: 75vh;
+    overflow: overlay;
+}

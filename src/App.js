@@ -30,8 +30,7 @@ import PitcherContent from './pages/PitcherContent';
 import InvestorContent from './pages/InvestorContent';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import Cms from './pages/CMS';
-
-
+import VisitorPopup from './pages/VisitorPopup';
 
 
 
@@ -42,31 +41,32 @@ function App() {
         <Header /> {/* Move Header outside Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path='/register' element ={<Register />} />
-          <Route path='/participants' element ={<Participants />} />
-          <Route path='/startup' element ={<StartupContent />} />
-          <Route path='/investor' element ={<InvestorContent />} />
-          <Route path='/pitcher' element ={<PitcherContent />} />
-          <Route path='/highlights' element ={<Highlights />} />
-          <Route path='/speakers' element ={<Speakers />} />
-          <Route path='/sharkTank' element ={<STFS />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/participants" element={<Participants />} />
+          <Route path="/startup" element={<StartupContent />} />
+          <Route path="/investor" element={<InvestorContent />} />
+          <Route path="/pitcher" element={<PitcherContent />} />
+          <Route path="/highlights" element={<Highlights />} />
+          <Route path="/speakers" element={<Speakers />} />
+          <Route path="/sharkTank" element={<STFS />} />
 
-          <Route path='/visitor' element ={<Visitor/>} />
-          <Route path='/about' element ={<About/>} />
-          <Route path='/investor-accelator' element ={<InvestorAccelator/>} />
+          <Route path="/visitor" element={<Visitor />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/investor-accelator" element={<InvestorAccelator />} />
 
-          <Route path='/contact' element ={<Contact />} />
-          <Route path='/sponser' element ={<Sponser />} />
-          <Route path='/awards' element ={<Awardsnight />} />
-          <Route path='/start-up' element ={<Startup />} />
-          <Route path='/faq' element ={<Faq />} />
-          <Route path='/start-up-showcase' element ={<StartUpShowCase />} />
-          <Route path='/privacypolicy' element ={<PrivacyPolicy />} />
-          <Route path='/cms/:id' element ={<Cms />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/sponser" element={<Sponser />} />
+          <Route path="/awards" element={<Awardsnight />} />
+          <Route path="/start-up" element={<Startup />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/start-up-showcase" element={<StartUpShowCase />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/cms/:id" element={<Cms />} />
 
-
+          {/* Popup Visitor Registration */}
+          <Route path="/popup-visitor" element={<VisitorPopup />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </>
   );

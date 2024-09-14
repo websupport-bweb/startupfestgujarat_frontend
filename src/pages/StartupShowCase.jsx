@@ -6,7 +6,9 @@ return(
     <div className="padding-sec">
        <Container>
        <div className="soon">
-            Content Coming Soon...
+       Content Coming Soon...
+          {/* <h6 className="title">Concurrent streams of pitching sessions
+          Elevator pitch</h6> */}
         </div>
        </Container>
     </div>
