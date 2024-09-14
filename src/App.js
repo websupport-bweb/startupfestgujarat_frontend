@@ -33,6 +33,8 @@ import Cms from './pages/CMS';
 import PaymentFailure from './pages/PaymentFailure';
 import PaymentSuccess from './pages/PaymentSuccess';
 import VisitorPopup from './pages/VisitorPopup';
+import Sponsor2024 from './pages/Sponsor2024';
+import GuestSpeakers from './pages/GuestSpeakers';
 
 
 
@@ -69,6 +71,8 @@ function App() {
           <Route path='/payment-success' element={<PaymentSuccess />} />
           {/* Popup Visitor Registration */}
           <Route path="/popup-visitor" element={<VisitorPopup />} />
+          <Route path="/sponser-2024" element={<Sponsor2024/>} />
+          <Route path="/guest-speakers" element={<GuestSpeakers />} />
         </Routes>
         <Footer />
       </BrowserRouter>
