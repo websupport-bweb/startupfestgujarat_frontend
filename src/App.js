@@ -33,6 +33,8 @@ import Cms from './pages/CMS';
 import PaymentFailure from './pages/PaymentFailure';
 import PaymentSuccess from './pages/PaymentSuccess';
 import VisitorPopup from './pages/VisitorPopup';
+import Activities from './pages/Faq';
+import Activites from './pages/Activities';
 
 
 
@@ -69,6 +71,9 @@ function App() {
           <Route path='/payment-success' element={<PaymentSuccess />} />
           {/* Popup Visitor Registration */}
           <Route path="/popup-visitor" element={<VisitorPopup />} />
+          <Route path="/activities" element={<Activites />} />
+
+
         </Routes>
         <Footer />
       </BrowserRouter>

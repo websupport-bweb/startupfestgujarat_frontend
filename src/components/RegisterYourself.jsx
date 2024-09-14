@@ -3,9 +3,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { MdArrowOutward } from "react-icons/md";
-import img1 from "../assets/img/img-1.png";
-import img2 from "../assets/img/img-2.png";
-import img3 from "../assets/img/img-3.png";
+import img1 from "../assets/img/pitcher.jpeg";
+import img2 from "../assets/img/start-up.jpeg";
+import img3 from "../assets/img/glob.jpeg";
 import { Link } from 'react-router-dom';
 
 export default function RegisterYourself() {
@@ -35,14 +35,14 @@ export default function RegisterYourself() {
           </Row>
           <Row className="justify-content-between">
             <Col lg={3} md={3} xs={12} className="col-card">
-              <Link to="/startup" className="no-design">
+              <Link to="/register" className="no-design">
                 <div className="name-line pitcher-card-div">
                   <h3>
-                    <Link to="/startup" className="pitcher-card-a">
+                    <Link to="/register" className="pitcher-card-a">
                       Pitcher
                     </Link>
                   </h3>
-                  <Link href="/startup" className="pitcher-card-a">
+                  <Link href="/register" className="pitcher-card-a">
                     <MdArrowOutward/>
                   </Link>
                 </div>
@@ -55,14 +55,14 @@ export default function RegisterYourself() {
               </Link>
             </Col>
             <Col lg={3} md={3} xs={12} className="col-card">
-              <Link to="/startup" className="no-design">
+              <Link to="/register" className="no-design">
                 <div className="name-line pitcher-card-div">
                   <h3>
-                    <Link to="/startup" className="pitcher-card-a">
+                    <Link to="/register" className="pitcher-card-a">
                       Startup
                     </Link>
                   </h3>
-                  <Link to="/startup" className="pitcher-card-a">
+                  <Link to="/register" className="pitcher-card-a">
                     <MdArrowOutward/>
                   </Link>
                 </div>
@@ -78,14 +78,14 @@ export default function RegisterYourself() {
             </Col>
 
             <Col lg={3} md={3} xs={12} className="col-card">
-              <Link to="/startup" className="no-design">
+              <Link to="/register" className="no-design">
                 <div className="name-line pitcher-card-div">
                   <h3>
-                    <Link to="/startup" className="pitcher-card-a">
+                    <Link to="/register" className="pitcher-card-a">
                       Investors
                     </Link>
                   </h3>
-                  <Link to="/startup" className="pitcher-card-a">
+                  <Link to="/register" className="pitcher-card-a">
                     <MdArrowOutward/>
                   </Link>
                 </div>

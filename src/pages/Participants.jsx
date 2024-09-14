@@ -57,14 +57,14 @@ export default function Participants() {
 
           <div className="justify-content-between">
             <div className="d-flex justify-content-center mb-4 ">
-            <h3 className="title text-center">
-              Grab Your Tickets
-            </h3>
-            <div className="">  <img src={arrow} alt="No img" /></div>
+              <h3 className="title text-center">
+                Grab Your Tickets
+              </h3>
+              <div className="">  <img src={arrow} alt="No img" /></div>
 
             </div>
-            
-           
+
+
             <Row>
               <Col lg={6}>
 
@@ -81,9 +81,9 @@ export default function Participants() {
                   {/* <h2 className="bg-yellow"> */}
                   <div className=" d-flex align-items-center justify-content-center "><h2 className="bg-yellow w-content">₹1,000 </h2></div>
                   {/* </h2> */}
-                  <Link to ='/register'>
+                  <Link to='/register'>
                     <div className='speaker-card-div d-flex'><h5 className='m-3 flex-grow-1 text-left text-decoration-none text-white' >Register Now</h5>
-                    <FaArrowRightLong className="shrink-0 right-arrow" /> </div></Link>
+                      <FaArrowRightLong className="shrink-0 right-arrow" /> </div></Link>
                 </div>
               </Col>
 
@@ -92,22 +92,22 @@ export default function Participants() {
                 <div className=' speaker-card bg-white'>
                   <h3 className="text-center pitcher-card-a heading">
 
-                  Visitor Pass
+                    Visitor Pass
 
                   </h3>
 
                   <h3 className="text-center price-check">
-                  ₹1,000
+                    ₹1,000
                   </h3>
                   {/* <h2 className="bg-yellow"> */}
                   <div className=" d-flex align-items-center justify-content-center "><h2 className="bg-yellow w-content">₹1,00 </h2></div>
                   {/* </h2> */}
-                 
-                    <Link to ='/register'>
+
+                  <Link to='/register'>
                     <div className='speaker-card-div d-flex'><h5 className='m-3 flex-grow-1 text-left text-decoration-none text-white' >Register Now</h5>
-                    <FaArrowRightLong className="shrink-0 right-arrow" /> </div></Link>
-                 
-                </div>  
+                      <FaArrowRightLong className="shrink-0 right-arrow" /> </div></Link>
+
+                </div>
               </Col>
 
             </Row>
@@ -119,74 +119,111 @@ export default function Participants() {
 
       <section className="padding-sec">
         <Container>
-          <Row className="count-box">
-            <Col lg={6} xs={12}>
-              <h3 className="title mb-5">
-                India <span className="gradient">Startup Revolution </span> is
-                here and now!
-              </h3>
+          <div className="justify-content-between">
+            <h3 className="title text-center">
+            Exhibit Your Startup
 
-              <Row>
-                <Col lg={4} xs={12}>
-                  <div className="box">
-                    <MdLocationPin />
-                    <h4>Venue</h4>
-                    <p>Vigyan Bhavanm, Science City, Ahmedabad.</p>
-                  </div>
-                </Col>
-                <Col lg={4} xs={12}>
-                  <div className="box">
-                    {/* <SlCalender /> */}
-                    <img src={caleder} width={45} />
-                    <h4>Date</h4>
-                    <p>28 & 29 September, 2024</p>
-                  </div>
-                </Col>
-                <Col lg={4} xs={12}>
-                  <div className="box">
-                    <img src={clock} width={45} />
-                    <h4>Time</h4>
-                    <p>10:00 AM TO 10:00 PM</p>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
+            </h3>
 
-            <Col lg={6}>
-              <Timer />
-            </Col>
-          </Row>
+            <Row className="justify-content-center">
+              <Col lg={4} className="h-100  bg-white ">
+                <div className="speaker-card2 h-100 col-padding">
+                  <h3 className="text-center fw-bolder pitcher-card-a heading">
+                    Sliver
+                  </h3>
+                  <h3 className="text-center fw-bold font-blue">
+                    ₹10,000
+                  </h3>
+                  <h3 className="text-center fs-4 mt-5">
+                    2X2 Meter Stall
+                  </h3>
+                  <div className="min-h">
+                  <p className="mt-5 color-lightgray">This package includes:</p>
+                  <ul>
+                    <li>Chair</li>
+                    <li>1 Table</li>
+                    <li>Food Phases and Visitor Passes</li>
+                    <li>Front Fascia Branding</li>
+                    <li>Access to Meeting Rooms and Investor Zone</li>
+                    <li>Ideal for early stage startups looking for a cost-effective way to showcase their innovations and connect with potential investors.</li>
+
+                  </ul>
+                  </div>
+                  <div className="mt-5 text-center">
+                    <Link to="/register" className="theme-btn">
+                      Register Now
+                    </Link>
+                  </div>
+                </div>
+              </Col>
+              <Col lg={4} className="h-100  bg-white ">
+                <div className="speaker-card2 h-100 col-padding">
+                  <h3 className="text-center fw-bolder pitcher-card-a heading">
+                    Gold
+                  </h3>
+                  <h3 className="text-center fw-bold font-blue">
+                    ₹25,000
+                  </h3>
+                  <h3 className="text-center fs-4 mt-5">
+                    3x3 Meter Stall
+                  </h3>
+                  <div className="min-h">
+                  <p className="mt-5 color-lightgray">This package includes:</p>
+                  <ul>
+                    <li>4 Chairs</li>
+                    <li>Tables</li>
+                    <li>4 Food Phases and Visitor Passes</li>
+                    <li>Front Fascia Branding</li>
+                    <li>Access to Meeting Rooms and Investor Zones</li>
+                    <li>Opportunity to Pitch to Angel Investors and Sharks at the Main Stage (Terms and Conditions Apply)</li>
+                    <li>Perfect for startups ready to make an impression and engage directly with investors, offering enhanced visibility and pitching opportunities.</li>
+
+                  </ul></div>
+                  <div className="mt-5 text-center">
+                    <Link to="/register" className="theme-btn">
+                      Register Now
+                    </Link>
+                  </div>
+                </div>
+              </Col>
+              <Col lg={4} className="h-100  bg-white ">
+                <div className="speaker-card2 h-100 col-padding">
+                  <h3 className="text-center pitcher-card-a heading">
+                    Platinum
+                  </h3>
+                  <h3 className="text-center fw-bold font-blue">
+                    ₹1,00,000
+                  </h3>
+                  <h3 className="text-center fs-4 mt-5">
+                    Sponsorship Stall
+                  </h3>
+                  <div className="min-h">
+                  <p className="mt-5 color-lightgray">This package includes:</p>
+                  <ul>
+                    <li>4 Chairs</li>
+                    <li>Tables</li>
+                    <li>6 Food Phases and Visitor Passes</li>
+                    <li>Front Fascia Branding</li>
+                    <li>Access to VIP Area, Meeting Rooms, and Investor Zones</li>
+                    <li>Branding at the Venue (Logo placement in the backdrop and throughout the venue)</li>
+                    <li>High Visibility Stall Location near the Main Stage, where VIPs and Investors will be seated</li>
+                    <li>Direct Opportunity to Pitch to Angel Investors and Sharks</li>
+
+                  </ul></div>
+                  <div className="mt-5 text-center">
+                    <Link to="/register" className="theme-btn">
+                      Register Now
+                    </Link>
+                  </div>
+                </div>
+              </Col>
+
+            </Row>
+          </div>
         </Container>
       </section>
 
-      <section className="padding-sec light-bg">
-        <Container>
-          <Row className="justify-content-between">
-            <Col xs={12} md={5} lg={5}>
-              <h3 className="title">Start-up / Franchise</h3>
-              <p className="para">
-                Startups and franchises will have a well-equipped 2/2 stall that
-                serves as their business hub throughout the event. This prime
-                location ensures maximum visibility and exposure to a diverse
-                range of investors, offering startups the chance to make
-                impactful connections, form strategic partnerships, and attract
-                crucial funding. The event serves as a valuable platform for
-                startups to showcase their innovative products or services and
-                gain the attention they deserve.
-              </p>
 
-              <div className="mt-5">
-                <Link to="/register" className="theme-btn">
-                  Register Now
-                </Link>
-              </div>
-            </Col>
-            <Col xs={12} md={6} lg={6}>
-              <img src={parti2} className="w-100 img-padding" />
-            </Col>
-          </Row>
-        </Container>
-      </section>
 
       {/* <RegisterYourself /> */}
 
@@ -212,7 +249,7 @@ export default function Participants() {
         </Container>
       </section> */}
 
-      <section className="register-sec dark-bg padding-sec">
+      {/* <section className="register-sec dark-bg padding-sec">
         <Container>
           <div className="w-70 m-auto">
             <h3 className="title text-center text-white">
@@ -230,7 +267,7 @@ export default function Participants() {
             </Col>
           </Row>
         </Container>
-      </section>
+      </section> */}
     </>
   );
 }
