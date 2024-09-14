@@ -1843,6 +1843,7 @@ h6.title {
 .col-20 {
     flex: 0 0 auto;
     width: 20%;
+}
 
 .bg-img2 {
  background-image: url("../img/bg-frame.png");
@@ -1871,5 +1872,33 @@ h6.title {
     font-size: 36px;
     color: #B4CEEC;
     
+}
 
+.color-lightgray {
+    color: #8898AF;
+
+}
+
+.col-padding {
+    padding: 35px 25px;
+}
+
+.speaker-card2 {
+    height: 350px;
+    position: relative;
+    /* padding: 20px; */
+    box-shadow: 0px 0px 12px -1px #10182814;
+    border-radius: 20px;
+}
+
+.min-h {
+    min-height: 354px;
+}
+
+.min-h-activities {
+    min-height: 105px;
+}
+
+.font-sm-activities {
+font-size: 13px;
 }

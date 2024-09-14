@@ -75,6 +75,8 @@ export default function Header() {
 
               <NavDropdown title="Info" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="/about">About Event</NavDropdown.Item>
+                
+                <NavDropdown.Item href="/activities">Activities</NavDropdown.Item>
                 <NavDropdown.Item href="/faq">FAQ</NavDropdown.Item>
               </NavDropdown>
 

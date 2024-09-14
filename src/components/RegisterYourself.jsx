@@ -3,9 +3,9 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { MdArrowOutward } from "react-icons/md";
-import img1 from "../assets/img/img-1.png";
-import img2 from "../assets/img/img-2.png";
-import img3 from "../assets/img/img-3.png";
+import img1 from "../assets/img/pitcher.jpeg";
+import img2 from "../assets/img/start-up.jpeg";
+import img3 from "../assets/img/glob.jpeg";
 import { Link } from 'react-router-dom';
 
 export default function RegisterYourself() {
