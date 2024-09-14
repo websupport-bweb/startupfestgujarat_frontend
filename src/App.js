@@ -32,8 +32,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import Cms from './pages/CMS';
 import PaymentFailure from './pages/PaymentFailure';
 import PaymentSuccess from './pages/PaymentSuccess';
-
-
+import VisitorPopup from './pages/VisitorPopup';
 
 
 
@@ -68,7 +67,8 @@ function App() {
 
           <Route path='/payment-failure' element={<PaymentFailure />} />
           <Route path='/payment-success' element={<PaymentSuccess />} />
-
+          {/* Popup Visitor Registration */}
+          <Route path="/popup-visitor" element={<VisitorPopup />} />
         </Routes>
         <Footer />
       </BrowserRouter>
