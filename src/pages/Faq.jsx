@@ -44,7 +44,7 @@ function Faq() {
                   <>
                     {faq.map((item, index) => (
                       // Your JSX for each item goes here
-                      <div key={index}>
+                      <div key={index} className='mb-3'>
                         {/* Render the content of each item here */}
                         <Accordion.Item eventKey={index}>
                   <Accordion.Header>{item.que}</Accordion.Header>

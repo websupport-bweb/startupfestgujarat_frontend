@@ -1789,3 +1789,32 @@ a.no-design {
     padding-top: 15px;
     font-weight: 600;
 }
+
+.bg-img2 {
+ background-image: url("../img/bg-frame.png");
+}
+
+.speaker-card .heading {
+ font-weight: 600;
+ padding: 30px;
+}
+
+.price-check {
+    text-decoration: line-through;
+    font-weight: 500 !important;
+}
+
+.bg-yellow {
+       padding: 10px 20px;
+    background: #FDE193;
+    border-radius: 10px;
+    margin-top: 20px;
+
+}
+
+.right-arrow {
+    margin-right: 20px;
+    font-size: 36px;
+    color: #B4CEEC;
+    
+}
