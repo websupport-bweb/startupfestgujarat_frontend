@@ -145,7 +145,7 @@ export default function About() {
         </Container>
       </section>
 
-      <section className="padding-sec">
+      {/* <section className="padding-sec">
         <Container>
           <Row className="justify-content-center">
             <Col lg="6" className='order-lg-0 order-1'>
@@ -164,7 +164,7 @@ export default function About() {
             </Col>
           </Row>
         </Container>
-      </section>
+      </section> */}
 
       <section className="register-sec dark-bg padding-sec">
         <Container>

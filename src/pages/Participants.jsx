@@ -15,11 +15,14 @@ import { Link } from "react-router-dom";
 import Timer from "../components/Timer";
 import { MdArrowOutward } from "react-icons/md";
 import RegisterYourself from "../components/RegisterYourself";
+import bg from "../assets/img/bg-frame.png"
+import { FaArrowRightLong } from "react-icons/fa6";
+import arrow from "../assets/img/hurry-arrow.png"
 
 export default function Participants() {
   return (
     <>
-      <section className="padding-sec light-bg">
+      <section className="padding-sec ">
         <Container>
           <Row className="justify-content-between">
             <Col xs={12} md={5} lg={5}>
@@ -48,6 +51,72 @@ export default function Participants() {
           </Row>
         </Container>
       </section>
+
+      <section className="padding-sec bg-img2">
+        <Container>
+
+          <div className="justify-content-between">
+            <div className="d-flex justify-content-center mb-4 ">
+            <h3 className="title text-center">
+              Grab Your Tickets
+            </h3>
+            <div className="">  <img src={arrow} alt="No img" /></div>
+
+            </div>
+            
+           
+            <Row>
+              <Col lg={6}>
+
+                <div className=' speaker-card bg-white'>
+                  <h3 className="text-center pitcher-card-a heading">
+
+                    Investor Pass
+
+                  </h3>
+
+                  <h3 className="text-center price-check">
+                    ₹4,000
+                  </h3>
+                  {/* <h2 className="bg-yellow"> */}
+                  <div className=" d-flex align-items-center justify-content-center "><h2 className="bg-yellow w-content">₹1,000 </h2></div>
+                  {/* </h2> */}
+                  <Link to ='/register'>
+                    <div className='speaker-card-div d-flex'><h5 className='m-3 flex-grow-1 text-left text-decoration-none text-white' >Register Now</h5>
+                    <FaArrowRightLong className="shrink-0 right-arrow" /> </div></Link>
+                </div>
+              </Col>
+
+              <Col lg={6}>
+
+                <div className=' speaker-card bg-white'>
+                  <h3 className="text-center pitcher-card-a heading">
+
+                  Visitor Pass
+
+                  </h3>
+
+                  <h3 className="text-center price-check">
+                  ₹1,000
+                  </h3>
+                  {/* <h2 className="bg-yellow"> */}
+                  <div className=" d-flex align-items-center justify-content-center "><h2 className="bg-yellow w-content">₹1,00 </h2></div>
+                  {/* </h2> */}
+                 
+                    <Link to ='/register'>
+                    <div className='speaker-card-div d-flex'><h5 className='m-3 flex-grow-1 text-left text-decoration-none text-white' >Register Now</h5>
+                    <FaArrowRightLong className="shrink-0 right-arrow" /> </div></Link>
+                 
+                </div>  
+              </Col>
+
+            </Row>
+
+
+          </div>
+        </Container>
+      </section>
+
       <section className="padding-sec">
         <Container>
           <Row className="count-box">
@@ -119,7 +188,7 @@ export default function Participants() {
         </Container>
       </section>
 
-      <RegisterYourself/>
+      {/* <RegisterYourself /> */}
 
       {/* <section className="register-sec dark-bg padding-sec">
         <Container>

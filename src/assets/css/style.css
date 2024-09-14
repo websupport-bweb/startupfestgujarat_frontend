@@ -1819,6 +1819,7 @@ a.no-design {
     max-height: 75vh;
     overflow: overlay;
 }
+
 h6.title {
     font-size: 26px;
 }
@@ -1842,4 +1843,33 @@ h6.title {
 .col-20 {
     flex: 0 0 auto;
     width: 20%;
+
+.bg-img2 {
+ background-image: url("../img/bg-frame.png");
+}
+
+.speaker-card .heading {
+ font-weight: 600;
+ padding: 30px;
+}
+
+.price-check {
+    text-decoration: line-through;
+    font-weight: 500 !important;
+}
+
+.bg-yellow {
+       padding: 10px 20px;
+    background: #FDE193;
+    border-radius: 10px;
+    margin-top: 20px;
+
+}
+
+.right-arrow {
+    margin-right: 20px;
+    font-size: 36px;
+    color: #B4CEEC;
+    
+
 }
