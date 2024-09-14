@@ -38,7 +38,7 @@ function Activites() {
             <div className="p-relative">
                 <Row className='mt-5'>
             {content.map((item, index) => (
-                    <Col lg={3} key={index} className='mb-5'>
+                    <Col lg={4} key={index} className='mb-5'>
                     <div className='h-100 speaker-card2 p-4 bg-white'>
                     
                     <div className='min-h-activities'>
