@@ -65,6 +65,12 @@ export default function Header() {
                 <NavDropdown.Item href="/sponser">
                   For Sponsors
                 </NavDropdown.Item>
+                <NavDropdown.Item href="/guest-speakers">
+                  2024 Guest & Speakers
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/sponser-2024">
+                  2024 Sponsors
+                </NavDropdown.Item>
               </NavDropdown>
 
               <NavDropdown title="Info" id="navbarScrollingDropdown">

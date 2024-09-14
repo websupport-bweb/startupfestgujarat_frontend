@@ -35,6 +35,8 @@ import PaymentSuccess from './pages/PaymentSuccess';
 import VisitorPopup from './pages/VisitorPopup';
 import Activities from './pages/Faq';
 import Activites from './pages/Activities';
+import Sponsor2024 from './pages/Sponsor2024';
+import GuestSpeakers from './pages/GuestSpeakers';
 
 
 
@@ -74,6 +76,8 @@ function App() {
           <Route path="/activities" element={<Activites />} />
 
 
+          <Route path="/sponser-2024" element={<Sponsor2024/>} />
+          <Route path="/guest-speakers" element={<GuestSpeakers />} />
         </Routes>
         <Footer />
       </BrowserRouter>
