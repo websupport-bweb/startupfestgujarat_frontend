@@ -3,7 +3,7 @@ import { Button } from "reactstrap";
 import Select from "react-select";
 import axios from "axios";
 
-const InvestorForm = ({ investorvalues, handleInvestorChange, InvestorformErrors, isSubmit, handleInvestorSubmit, country, states, fetchState, setInvestorValues, isdCodes }) => {
+const VisitorForm = ({ investorvalues, handleInvestorChange, InvestorformErrors, isSubmit, handleInvestorSubmit, setInvestorValues, isdCodes }) => {
     return (
         <div>
             <div className="mb-3">
@@ -84,147 +84,8 @@ const InvestorForm = ({ investorvalues, handleInvestorChange, InvestorformErrors
                         <p className="text-danger f-13">{InvestorformErrors.contactNo}</p>
                     )}
                 </div>
-                <div className="mb-3">
-                    <label className="f-13 fw-bold" htmlFor="companyName">
-                        Company name<span className="text-danger">*</span>
-                    </label>
-                    <input
-                        type="text"
-                        name="companyName"
-                        className="form-control bg-light"
-                        value={investorvalues.companyName}
-                        onChange={handleInvestorChange}
-                    />
-                    {isSubmit && InvestorformErrors.companyName && (
-                        <p className="text-danger f-13">{InvestorformErrors.companyName}</p>
-                    )}
-                </div>
-                <div className="mb-3">
-                    <label className="f-13 fw-bold" htmlFor="description">
-                        Brief About Startup<span className="text-danger">*</span>
-                    </label>
-                    <textarea
-                        name="description"
-                        className="form-control bg-light"
-                        value={investorvalues.description}
-                        onChange={handleInvestorChange}
-                    />
-                    {isSubmit && InvestorformErrors.description && (
-                        <p className="text-danger f-13">{InvestorformErrors.description}</p>
-                    )}
-                </div>
-                <div className="mb-3 row">
-                    <div className="col">
-                        <label className="f-13 fw-bold" htmlFor="CountryID">
-                            Country<span className="text-danger">*</span>
-                        </label>
-                        <Select
-                            name="CountryID"
-                            className="p-0 form-control bg-light"
-                            value={investorvalues.CountryID}
-                            // onChange={handleChange}
-                            onChange={(e) => {
-                                setInvestorValues({
-                                    ...investorvalues,
-                                    CountryID: e
-                                })
-                                fetchState(e.value)
-                            }}
-                            options={country.map((item) => ({
-                                value: item._id,
-                                label: item.CountryName,
-                            }))}
-                        >
-                            {/* <option value=""></option>
-                                            {country.map((category) => (
-                                                <option key={category._id} value={category._id}>
-                                                    {category.CountryName}
-                                                </option> 
-                                            ))}*/}
-                        </Select>
-                        {isSubmit && InvestorformErrors.CountryID && (
-                            <p className="text-danger f-13">{InvestorformErrors.CountryID}</p>
-                        )}
-                    </div>
-                    <div className="col">
-                        <label className="f-13 fw-bold" htmlFor="StateID">
-                            State<span className="text-danger">*</span>
-                        </label>
-                        <Select
-                            name="StateID"
-                            className="p-0 form-control bg-light"
-                            value={investorvalues.StateID}
-                            onChange={(e) => {
-                                setInvestorValues({
-                                    ...investorvalues,
-                                    StateID: e
-                                })
-                            }}
-                            options={states.map((item) => ({
-                                value: item._id,
-                                label: item.StateName,
-                            }))}
-                        >
-
-                            {/* {states.map((category) => (
-                                                <option key={category._id} value={category._id}>
-                                                    {category.StateName}
-                                                </option>
-                                            ))} */}
-                        </Select>
-                        {isSubmit && InvestorformErrors.StateID && (
-                            <p className="text-danger f-13">{InvestorformErrors.StateID}</p>
-                        )}
-                    </div>
-                </div>
-
-                <div className="row mb-3">
-                    <div className="col">
-                        <label className="f-13 fw-bold" htmlFor="City">
-                            City of Operation<span className="text-danger">*</span>
-                        </label>
-                        <input
-                            type="text"
-                            name="City"
-                            className="form-control bg-light"
-                            value={investorvalues.City}
-                            onChange={handleInvestorChange}
-                        />
-                        {isSubmit && InvestorformErrors.City && (
-                            <p className="text-danger f-13">{InvestorformErrors.City}</p>
-                        )}
-                    </div>
-                    <div className="col">
-                        <label className="f-13 fw-bold" htmlFor="pincode">
-                            PinCode<span className="text-danger">*</span>
-                        </label>
-                        <input
-                            type="text"
-                            name="pincode"
-                            className="form-control bg-light"
-                            value={investorvalues.pincode}
-                            onChange={handleInvestorChange}
-                        />
-                        {isSubmit && InvestorformErrors.pincode && (
-                            <p className="text-danger f-13">{InvestorformErrors.pincode}</p>
-                        )}
-                    </div>
-                </div>
-
-                <div className="mb-3">
-                    <label className="f-13 fw-bold" htmlFor="address">
-                        Address<span className="text-danger">*</span>
-                    </label>
-                    <textarea
-                        name="address"
-                        className="form-control bg-light"
-                        value={investorvalues.address}
-                        onChange={handleInvestorChange}
-                    />
-                    {isSubmit && InvestorformErrors.address && (
-                        <p className="text-danger f-13">{InvestorformErrors.address}</p>
-                    )}
-                </div>
+              
+                
                 <div className="mb-3 form-check">
                     <input
                         type="checkbox"
@@ -250,4 +111,4 @@ const InvestorForm = ({ investorvalues, handleInvestorChange, InvestorformErrors
     );
 };
 
-export default InvestorForm;
+export default VisitorForm;

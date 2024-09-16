@@ -329,7 +329,7 @@ const StartupForm = ({ values, handleChange, handleFileChange, formErrors, isSub
             <div className="mb-3">
 
                 <label className="f-13 fw-bold" htmlFor="yearFounded">
-                    Year of Establishment<span className="text-danger">*</span>
+                    Date of Establishment<span className="text-danger">*</span>
                 </label>
                 <input
                     type="date"
@@ -362,7 +362,7 @@ const StartupForm = ({ values, handleChange, handleFileChange, formErrors, isSub
 
             <div className="mb-3">
                 <label className="f-13 fw-bold" htmlFor="logo">
-                    Company Logo<span className="text-danger">*</span>
+                    Company Logo
                 </label>
                 <input
                     type="file"
@@ -371,9 +371,9 @@ const StartupForm = ({ values, handleChange, handleFileChange, formErrors, isSub
                     onChange={handleFileChange}
                     accept="image/*"
                 />
-                {isSubmit && formErrors.logo && (
+                {/* {isSubmit && formErrors.logo && (
                     <p className="text-danger f-13">{formErrors.logo}</p>
-                )}
+                )} */}
             </div>
             <div className="mb-3">
                 <label className="f-13 fw-bold" htmlFor="brochure">
