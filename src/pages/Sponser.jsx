@@ -1,173 +1,61 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import banner from "../assets/img/startup-banner.jpg";
-import img1 from "../assets/img/sponser.png";
-import img2 from "../assets/img/vanilla.png";
-import img3 from "../assets/img/zippit.png";
-import img4 from "../assets/img/def.png";
-import img5 from "../assets/img/rogue.png";
-import img6 from "../assets/img/mirchi.png";
-import img7 from "../assets/img/swarnim.png";
-import img8 from "../assets/img/gallops.png";
-import img9 from "../assets/img/chitra.png";
-import img10 from "../assets/img/insight.png";
-import img11 from "../assets/img/swen.png";
-import img12 from "../assets/img/inocen.png";
-import img13 from "../assets/img/gyanjyot.png";
-import img14 from "../assets/img/drona.png";
-import img15 from "../assets/img/heritage.png";
-import img16 from "../assets/img/amdavad.png";
-import img17 from "../assets/img/gyani.png";
-import img18 from "../assets/img/media.png";
-import img19 from "../assets/img/startup.png";
-import img20 from "../assets/img/ssip.png";
-import img21 from "../assets/img/event.png";
-import img22 from "../assets/img/swargam.png";
-import img23 from "../assets/img/startup-1.png";
 
-function Sponser() {
+const sponsors = [
+  { url: require('../assets/img/startup-1.png'), heading: "Sponsor 1" },
+  { url: require('../assets/img/vanilla.png'), heading: "Sponsor 2" },
+  { url: require('../assets/img/zippit.png'), heading: "Sponsor 3" },
+  { url: require('../assets/img/def.png'), heading: "Sponsor 4" },
+  { url: require('../assets/img/rogue.png'), heading: "Sponsor 5" },
+  { url: require('../assets/img/mirchi.png'), heading: "Sponsor 6" },
+  { url: require('../assets/img/swarnim.png'), heading: "Sponsor 7" },
+  { url: require('../assets/img/gallops.png'), heading: "Sponsor 8" },
+  { url: require('../assets/img/chitra.png'), heading: "Sponsor 9" },
+  { url: require('../assets/img/insight.png'), heading: "Sponsor 10" },
+  { url: require('../assets/img/swen.png'), heading: "Sponsor 11" },
+  { url: require('../assets/img/inocen.png'), heading: "Sponsor 12" },
+  { url: require('../assets/img/gyanjyot.png'), heading: "Sponsor 13" },
+  { url: require('../assets/img/drona.png'), heading: "Sponsor 14" },
+  { url: require('../assets/img/heritage.png'), heading: "Sponsor 15" },
+  { url: require('../assets/img/amdavad.png'), heading: "Sponsor 16" },
+  { url: require('../assets/img/gyani.png'), heading: "Sponsor 17" },
+  { url: require('../assets/img/media.png'), heading: "Sponsor 18" },
+  { url: require('../assets/img/startup.png'), heading: "Sponsor 19" },
+  { url: require('../assets/img/ssip.png'), heading: "Sponsor 20" },
+  { url: require('../assets/img/event.png'), heading: "Sponsor 21" },
+  { url: require('../assets/img/swargam.png'), heading: "Sponsor 22" },
+];
+
+const Sponser = () => {
   return (
     <>
-       <section className="banner-img-top">
+      <section className="banner-img-top">
         <Row className="m-0 p-0">
           <Col lg={12} className="p-0">
             <div className="p-relative">
-              <img src={banner} className="w-100" alt="Responsive Image" />
+              <img src={require('../assets/img/startup-banner.jpg')} className="w-100" alt="Responsive Banner" />
             </div>
           </Col>
         </Row>
       </section>
 
-      {/* Add Speakers Heading */}
+      {/* Sponsors Section */}
       <section className="register-bg">
         <Container className="register-bg py-5">
-          <h2 className="title mb-4">
-            Sponsors
-          </h2>
+          <h2 className="title mb-4">Sponsors</h2>
           <Row className="m-0 p-0">
-            <Col lg="4" xs={6} className="">
-              <div className="p-relative">
-                <img src={img23} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img2} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img3} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-         
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img4} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img5} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img6} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-        
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img7} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img8} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img9} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-         
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img10} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img11} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img12} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-          
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img13} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img14} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img15} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-          
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img16} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img17} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img18} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-          
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img19} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img20} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img21} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-         
-            <Col lg="4"  xs={6} className="">
-              <div className="p-relative">
-                <img src={img22} className="w-100" alt="Responsive Image" />
-              </div>
-            </Col>
-           
+            {sponsors.map((sponsor, index) => (
+              <Col lg="4" xs={6} key={index}>
+                <div className="p-relative">
+                  <img src={sponsor.url} className="w-100" alt={sponsor.heading} />
+                </div>
+              </Col>
+            ))}
           </Row>
         </Container>
       </section>
     </>
   );
-}
+};
 
 export default Sponser;
