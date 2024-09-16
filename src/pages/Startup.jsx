@@ -157,7 +157,7 @@ function Startup() {
           <Row>
             <Col lg={12}>
               <div className="text-center">
-                <h4 className="title">2023 Opportunities</h4>
+                <h4 className="title mb-mob">2023 Opportunities</h4>
               </div>
             </Col>
             {opportunities.map((opportunity, index) => (

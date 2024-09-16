@@ -39,13 +39,15 @@ function Activites() {
                 <Row className='mt-5'>
             {content.map((item, index) => (
                     <Col lg={4} key={index} className='mb-5'>
-                    <div className='h-100 speaker-card2 p-4 bg-white'>
+                    <div className='speaker-card2 p-4 bg-white'>
                     
                     <div className='min-h-activities'>
                     <h4 className='fw-bold'>{item.heading}</h4>
                     <p className='subheading font-sm-activities' >{item.para}</p>
                     </div>
-                    <img src={item.url} className='w-100' alt="no img" />
+                   <div className='act-img'>
+                   <img src={item.url} className='w-100' alt="no img" />
+                   </div>
                     </div>
                     </Col>
                   ))}
@@ -59,7 +61,6 @@ function Activites() {
         </Row>
         </Container>
       </section>
-      <br /><br /><br />
     </>
   );
 }

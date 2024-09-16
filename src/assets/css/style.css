@@ -1849,10 +1849,12 @@ h6.title {
 }
 .list-names ul.flex-list{
    list-style: none;
+   margin-bottom: 0;
 }
-.list-names ul.flex-list.text-gray li {
+.list-names ul.flex-list li {
     padding: 5px 0;
     list-style: disc;
+    font-size: 18px;
 }
 
 .col-20 {
@@ -1899,21 +1901,33 @@ h6.title {
 }
 
 .speaker-card2 {
-    height: 350px;
+    min-height: 360px;
     position: relative;
-    /* padding: 20px; */
     box-shadow: 0px 0px 12px -1px #10182814;
     border-radius: 20px;
 }
-
+.act-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+}
 .min-h {
     min-height: 354px;
 }
 
 .min-h-activities {
-    min-height: 105px;
+    min-height: auto;
 }
 
 .font-sm-activities {
 font-size: 13px;
+}
+
+.accordion-button:focus{
+    box-shadow: none;
+}
+
+.no-overflow{
+    overflow: hidden;
 }

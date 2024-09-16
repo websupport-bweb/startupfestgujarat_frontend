@@ -488,12 +488,14 @@ const Register = () => {
 
     return (
         <React.Fragment>
-            <div className="register-bg">
-                <Row className="w-100">
-                    <Col lg={5}>
+            <div className="register-bg register-form">
+               <Container fluid>
+               
+                <Row className="">
+                    <Col lg={5} xs={12} className="p-0">
                         <img src={bg} className="w-100 form-img" alt="Background" />
                     </Col>
-                    <Col lg={6}>
+                    <Col lg={6} xs={12}>
                         <div className="form-padding pb-4">
                             <h3 className="title mt-4 mb-1 pt-4">Register</h3>
                             <h5 className="para-custom">Let us know what you are seeking as</h5>
@@ -645,6 +647,7 @@ const Register = () => {
                         </div>
                     </Col>
                 </Row>
+               </Container>
             </div>
 
             <Modal

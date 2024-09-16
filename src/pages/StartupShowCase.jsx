@@ -25,9 +25,9 @@ const StartUpShowCase = () => {
       "Wind Water",
       "Smart Fuel Monitering System",
       "Growio",
+      "The Phoner",
     ],
     [
-      "The Phoner",
       "OJCB (MJO Mega)",
       "Smart FinDoc",
       "Shivay Fire & Life Safety",
@@ -36,10 +36,10 @@ const StartUpShowCase = () => {
       "Dog Food",
       "Erkey Motors India Pvt Ltd",
       "Petzzco",
+      "Marwix",
+      "VeleSolv", 
     ],
     [
-      "Marwix",
-      "VeleSolv",
       "Greenevon",
       "Ev Expert",
       "Agropreneurs",
@@ -53,7 +53,7 @@ const StartUpShowCase = () => {
   return (
     <div className="padding-sec">
       <Container>
-        <div className="soon">
+        <div className="title text-center mb-5">
           2023 Startup Showcase
           {/* <h6 className="title">
             Concurrent streams of pitching sessions Elevator pitch
@@ -63,7 +63,7 @@ const StartUpShowCase = () => {
         <Row className="container-bg rounded-5 p-4 justify-content-between list-names">
           {startupGroups.map((group, index) => (
             <Col key={index} lg={3} sm={12}>
-              <ul className="flex-list text-gray">
+              <ul className="flex-list">
                 {group.map((startup, i) => (
                   <li key={i}>{startup}</li>
                 ))}

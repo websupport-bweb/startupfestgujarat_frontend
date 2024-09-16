@@ -118,10 +118,13 @@
     .showcase {
         height: 300px;
     }
+    .showcase .content{
+        width:90%
+    }
     .showcase .content h5 {
-        font-size: 22px;
-        line-height: 28px;
-        margin-bottom: 20px;
+        font-size: 22px !important;
+        line-height: 28px !important;
+        margin-bottom: 20px !important;
     }
     .showcase .content h3 {
         font-size: 24px;
@@ -164,12 +167,16 @@
         padding-left: 10px;
         vertical-align: top;
     }
+    footer .footer-list li a , footer .footer-list.flex li span{
+        font-size: 14px;
+    }
     footer .footer-list.flex li{
         display: table;
     }
     footer .footer-list.flex li span {
         display: table-cell;
         padding-left: 10px;
+        
     }
 
     footer .footer-list li svg {
@@ -178,7 +185,41 @@
     .col-card p{
         height: fit-content;
     }
-   
+    .mb-mob{
+        margin-bottom: 30px;
+    }
+    .speaker-card2  {
+        margin: 0 20px;
+        height: fit-content;
+        min-height: fit-content;
+    }
+    .min-h-activities {
+        min-height: fit-content;
+    }
+    .act-img {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        padding: 0;
+    }
+    .my-mob{
+        margin: 0 20px;
+    }
+    .min-h{
+        min-height: fit-content;
+    }
+    .speaker-card {
+        height: 320px;
+        margin-bottom: 30px;
+    }
+    .form-padding {
+        padding: 0 20px;
+    }
+    .register-form .nav-link {
+        padding: 10px 0;
+        font-size: 14px;
+        font-weight: 600 !important;
+    }
 }
 
 /* Large devices (large desktops) */

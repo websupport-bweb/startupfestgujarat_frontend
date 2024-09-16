@@ -38,7 +38,7 @@ function Faq() {
           </Col>
 
           <Col lg={9} xs={12} className="p-0">
-            <div className="p-relative">
+            <div className="p-relative my-mob">
               <Accordion defaultActiveKey="0" >
                 {faq && (
                   <>
@@ -66,7 +66,6 @@ function Faq() {
         </Row>
         </Container>
       </section>
-      <br /><br /><br />
     </>
   );
 }

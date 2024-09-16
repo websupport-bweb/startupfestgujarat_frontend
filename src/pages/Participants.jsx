@@ -100,7 +100,7 @@ export default function Participants() {
                     ₹1,000
                   </h3>
                   {/* <h2 className="bg-yellow"> */}
-                  <div className=" d-flex align-items-center justify-content-center "><h2 className="bg-yellow w-content">₹1,00 </h2></div>
+                  <div className=" d-flex align-items-center justify-content-center "><h2 className="bg-yellow w-content">₹100 </h2></div>
                   {/* </h2> */}
 
                   <Link to='/register'>
@@ -120,14 +120,14 @@ export default function Participants() {
       <section className="padding-sec">
         <Container>
           <div className="justify-content-between">
-            <h3 className="title text-center">
+            <h3 className="title text-center mb-mob">
             Exhibit Your Startup
 
             </h3>
 
             <Row className="justify-content-center">
               <Col lg={4} className="h-100  bg-white ">
-                <div className="speaker-card2 h-100 col-padding">
+                <div className="speaker-card2 mb-3 h-100 col-padding">
                   <h3 className="text-center fw-bolder pitcher-card-a heading">
                     Sliver
                   </h3>
@@ -157,7 +157,7 @@ export default function Participants() {
                 </div>
               </Col>
               <Col lg={4} className="h-100  bg-white ">
-                <div className="speaker-card2 h-100 col-padding">
+                <div className="speaker-card2 mb-3 h-100 col-padding">
                   <h3 className="text-center fw-bolder pitcher-card-a heading">
                     Gold
                   </h3>
@@ -187,7 +187,7 @@ export default function Participants() {
                 </div>
               </Col>
               <Col lg={4} className="h-100  bg-white ">
-                <div className="speaker-card2 h-100 col-padding">
+                <div className="speaker-card2 mb-3 h-100 col-padding">
                   <h3 className="text-center pitcher-card-a heading">
                     Platinum
                   </h3>
