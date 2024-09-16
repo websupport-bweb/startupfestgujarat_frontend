@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+import { Container } from "react-bootstrap";
+import clock from "../assets/img/clock-icon.png";
+import caleder from "../assets/img/calender-icon.png";
+import { MdLocationPin } from "react-icons/md";
 
 const Timer =()=>{
   // State to store time remaining
@@ -58,8 +61,42 @@ const Timer =()=>{
 
 
     return(
-        
-             <div className="counter-box">
+      <Container>
+      <Row className="count-box justify-content-center">
+        <Col lg={6} md={12} xs={12}>
+          <h3 className="title mb-5">
+            India <span className="gradient">Startup Revolution </span> is
+            here and now!
+          </h3>
+
+          <Row>
+            <Col lg={4} md={4} xs={12}>
+              <div className="box">
+                <MdLocationPin />
+                <h4>Venue</h4>
+                <p>Vigyan Bhavanm, Science City, Ahmedabad.</p>
+              </div>
+            </Col>
+            <Col lg={4} md={4} xs={12}>
+              <div className="box">
+                {/* <SlCalender /> */}
+                <img src={caleder} width={45} />
+                <h4>Date</h4>
+                <p>28 & 29 September, 2024</p>
+              </div>
+            </Col>
+            <Col lg={4} md={4} xs={12}>
+              <div className="box">
+                <img src={clock} width={45} />
+                <h4>Time</h4>
+                <p>10:00 AM TO 10:00 PM</p>
+              </div>
+            </Col>
+          </Row>
+        </Col>
+
+        <Col lg={6} md={8} xs={12}>
+        <div className="counter-box">
         <Row>
           <Col lg={6} xs={6}>
             <div className="count border-right">
@@ -90,6 +127,10 @@ const Timer =()=>{
           </Col>
         </Row>
       </div>
+        </Col>
+      </Row>
+    </Container>
+            
            
     )
     

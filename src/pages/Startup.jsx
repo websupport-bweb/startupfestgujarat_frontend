@@ -16,6 +16,36 @@ import funding from "../assets/img/startup2.png";
 import img3 from "../assets/img/image.png";
 import startup1 from "../assets/img/startup-img2.png";
 import { Link } from "react-router-dom";
+import CardContent from "../components/CardContent";
+
+const text = ` <p class="para">
+                Startup Fest Gujarat Season 1 delivered unparalleled value with
+                world-br class content, offering direct 1:1 access to industry
+                leaders, speakers, and mentors throughout the event. It was a
+                hub for entrepreneurial growth, featuring investment
+                opportunities worth hundreds of crores awarded onsite, and
+                facilitating countless networking experiences, including curated
+                match-ups and interactive sessions. Designed to connect you with
+                key players and resources, Startup Fest Gujarat Season I was a
+                launchpad for startups to accelerate their growth and make
+                meaningful industry connections.
+              </p>`
+
+
+const text2 = ` <p class="para">
+                With an impressive ₹532+ crore pool fund, Startup Fest Gujarat Season 1 offered startups an unprecedented chance to secure the funding they need to thrive. The event was packed with opportunities to propel your business forward, from high-stakes investment pitches to targeted matchups with top investors. Whether you connected with our expert panels, networked in our exclusive investor lounge, or took the stage to pitch your vision, Startup Fest Gujarat Season 1 was the ultimate platform to unlock your startup’s potential and secure the resources to scale your business.</p>
+            `
+
+
+const opportunities = [
+  { img: opp1, title: "Prestige Sessions" },
+  { img: opp2, title: "Awards & Pitches" },
+  { img: opp3, title: "Media Center" },
+  { img: opp4, title: "Live Sessions" },
+  { img: opp5, title: "Connect & Collaborate" },
+  { img: opp6, title: "Networking Opportunities" },
+];
+
 
 
 function Startup() {
@@ -32,34 +62,14 @@ function Startup() {
       </section>
 
       <section className="padding-sec light-bg">
-        <Container>
-          <Row className="justify-content-between">
-            <Col xs={12} md={5} lg={5}>
-            <h3 className="title">Empowering Tomorrow's 
-Innovators</h3>
-              <p className="para">
-                Startup Fest Gujarat Season 1 delivered unparalleled value with
-                world-br class content, offering direct 1:1 access to industry
-                leaders, speakers, and mentors throughout the event. It was a
-                hub for entrepreneurial growth, featuring investment
-                opportunities worth hundreds of crores awarded onsite, and
-                facilitating countless networking experiences, including curated
-                match-ups and interactive sessions. Designed to connect you with
-                key players and resources, Startup Fest Gujarat Season I was a
-                launchpad for startups to accelerate their growth and make
-                meaningful industry connections.
-              </p>
-              <div className="mt-5">
-                <Link to="/register" className="theme-btn">
-                  Register Now
-                </Link>
-              </div>
-            </Col>
-            <Col xs={12} md={6} lg={6}>
-              <img src={about} className="w-100 img-padding" />
-            </Col>
-          </Row>
-        </Container>
+     
+
+        <CardContent
+          about={about}
+          text={text}
+          title="Empowering Tomorrow's Innovators"
+          buttonShow={true}
+          to="/register" linkToTitle="Register Now" />
       </section>
 
       <section>
@@ -108,9 +118,9 @@ Innovators</h3>
           <div className="overlay padding-sec">
             <div className="w-70 m-auto content">
               <h5 className="title text-center text-white">
-               "I knew that if I failed I wouldn’t regret that, but I knew the one thing I might regret is not trying."</h5>
+                "I knew that if I failed I wouldn’t regret that, but I knew the one thing I might regret is not trying."</h5>
               <h3>
-              ~– Jeff Bezos, Founder of Amazon
+                ~– Jeff Bezos, Founder of Amazon
               </h3>
             </div>
           </div>
@@ -118,23 +128,14 @@ Innovators</h3>
       </section>
 
       <section className="padding-sec">
-        <Container>
-          <Row className="justify-content-between">
-            <Col xs={12} md={5} lg={5}>
-              <h3 className="title">Over ₹532 Crores in Investments!</h3>
-              <p className="para">
-              With an impressive ₹532+ crore pool fund, Startup Fest Gujarat Season 1 offered startups an unprecedented chance to secure the funding they need to thrive. The event was packed with opportunities to propel your business forward, from high-stakes investment pitches to targeted matchups with top investors. Whether you connected with our expert panels, networked in our exclusive investor lounge, or took the stage to pitch your vision, Startup Fest Gujarat Season 1 was the ultimate platform to unlock your startup’s potential and secure the resources to scale your business.</p>
-              <div className="mt-5">
-                <Link to="/register" className="theme-btn">
-                  Register Now
-                </Link>
-              </div>
-            </Col>
-            <Col xs={12} md={6} lg={6}>
-              <img src={funding} className="w-100 img-padding" />
-            </Col>
-          </Row>
-        </Container>
+       
+
+        <CardContent
+          about={funding}
+          text={text2}
+          title="Over ₹532 Crores in Investments!"
+          buttonShow={true}
+          to="/register" linkToTitle="Register Now" />
       </section>
 
       <section>
@@ -159,69 +160,22 @@ Innovators</h3>
                 <h4 className="title">2023 Opportunities</h4>
               </div>
             </Col>
-            <Col lg={4}>
-              <div className="box-opp">
-                <div className="img-opp">
-                  <img src={opp1} class="w-100" />
+            {opportunities.map((opportunity, index) => (
+              <Col lg={4} key={index}>
+                <div className="box-opp">
+                  <div className="img-opp">
+                    <img src={opportunity.img} className="w-100" alt={opportunity.title} />
+                  </div>
+                  <div className="text-opp">
+                    <h6>{opportunity.title}</h6>
+                  </div>
                 </div>
-                <div className="text-opp">
-                  <h6>Prestige Sessions </h6>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4}>
-              <div className="box-opp">
-                <div className="img-opp">
-                  <img src={opp2} class="w-100" />
-                </div>
-                <div className="text-opp">
-                  <h6>Awards & Pitches </h6>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4}>
-              <div className="box-opp">
-                <div className="img-opp">
-                  <img src={opp3} class="w-100" />
-                </div>
-                <div className="text-opp">
-                  <h6>Media Center </h6>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4}>
-              <div className="box-opp">
-                <div className="img-opp">
-                  <img src={opp4} class="w-100" />
-                </div>
-                <div className="text-opp">
-                  <h6>Live Sessions </h6>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4}>
-              <div className="box-opp">
-                <div className="img-opp">
-                  <img src={opp5} class="w-100" />
-                </div>
-                <div className="text-opp">
-                  <h6>Connect & Collaborate </h6>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4}>
-              <div className="box-opp">
-                <div className="img-opp">
-                  <img src={opp6} class="w-100" />
-                </div>
-                <div className="text-opp">
-                  <h6>Networking Opportunities </h6>
-                </div>
-              </div>
-            </Col>
+              </Col>
+            ))}
           </Row>
         </Container>
       </section>
+
     </>
   );
 }

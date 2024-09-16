@@ -1,67 +1,61 @@
-import React, { useEffect, useState } from 'react';
-import { Col, Row, Accordion, Card, Container } from 'react-bootstrap';
-import { FaPlus, FaMinus } from 'react-icons/fa';
-import axios from 'axios';
-import img from "../assets/img/Activities/1.png"
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 
-function Activites() {
-    const content = [
-        { url: require('../assets/img/Activities/1.png') , heading: "Panel Discussion" , para :"Panels with diverse viewpoints on trending industry topics and informal fireside chats with successful entrepreneurs sharing their journey and lessons learned."},
-        { url: require('../assets/img/Activities/2.png') , heading: "Workshops" , para :"Practical workshops on topics like digital marketing, growth hacking, and funding strategies."},
-        { url: require('../assets/img/Activities/3.png') , heading: "Storytelling Sessions" , para :"Entrepreneurs share both their successes and failures."},
-        { url: require('../assets/img/Activities/4.png') , heading: "Open Mic" , para :"An open mic platform for attendees to share their startup experiences."},
-        { url: require('../assets/img/Activities/5.png') , heading: "Business Simulations" , para :"Business simulation games to test entrepreneurial skills."},
-        { url: require('../assets/img/Activities/6.png') , heading: "Startup Trivia" , para :"Trivia sessions focused on startup knowledge and history."},
-        { url: require('../assets/img/Activities/7.png') , heading: "Launch Pads" , para :"Platform for startups to unveil new products or services."},
-        { url: require('../assets/img/Activities/8.png') , heading: "Announcement Spots" , para :"For startups to make significant announcements or updates."},
-        { url: require('../assets/img/Activities/9.png') , heading: "Real-Time Prototyping" , para :"Set up spaces where startups can engage in live prototyping."},
-        { url: require('../assets/img/Activities/10.png') , heading: "Design Thinking Workshops" , para :"Design sprints to tackle real-world challenges."},
-        { url: require('../assets/img/Activities/11.png') , heading: "Problem-Solving Challenges" , para :"Hackathons focused on specific industry problems or themes."},
-        { url: require('../assets/img/Activities/12.png') , heading: "Innovation Sprints" , para :"Short, intense innovation sprints with prizes for the best solutions"},
-        
-      ]
+const sponsors = [
+  { url: require('../assets/img/startup-1.png'), heading: "Sponsor 1" },
+  { url: require('../assets/img/vanilla.png'), heading: "Sponsor 2" },
+  { url: require('../assets/img/zippit.png'), heading: "Sponsor 3" },
+  { url: require('../assets/img/def.png'), heading: "Sponsor 4" },
+  { url: require('../assets/img/rogue.png'), heading: "Sponsor 5" },
+  { url: require('../assets/img/mirchi.png'), heading: "Sponsor 6" },
+  { url: require('../assets/img/swarnim.png'), heading: "Sponsor 7" },
+  { url: require('../assets/img/gallops.png'), heading: "Sponsor 8" },
+  { url: require('../assets/img/chitra.png'), heading: "Sponsor 9" },
+  { url: require('../assets/img/insight.png'), heading: "Sponsor 10" },
+  { url: require('../assets/img/swen.png'), heading: "Sponsor 11" },
+  { url: require('../assets/img/inocen.png'), heading: "Sponsor 12" },
+  { url: require('../assets/img/gyanjyot.png'), heading: "Sponsor 13" },
+  { url: require('../assets/img/drona.png'), heading: "Sponsor 14" },
+  { url: require('../assets/img/heritage.png'), heading: "Sponsor 15" },
+  { url: require('../assets/img/amdavad.png'), heading: "Sponsor 16" },
+  { url: require('../assets/img/gyani.png'), heading: "Sponsor 17" },
+  { url: require('../assets/img/media.png'), heading: "Sponsor 18" },
+  { url: require('../assets/img/startup.png'), heading: "Sponsor 19" },
+  { url: require('../assets/img/ssip.png'), heading: "Sponsor 20" },
+  { url: require('../assets/img/event.png'), heading: "Sponsor 21" },
+  { url: require('../assets/img/swargam.png'), heading: "Sponsor 22" },
+];
 
+const Sponser = () => {
   return (
     <>
-      <section className='padding-sec gradeint-bg'>
-        <Container>
-        <Row className='justify-content-center'>
-          <Col lg={12} xs={12}>
-          <h2 className='title text-center'>
-            Activities
-          </h2>
-
-           
-          </Col>
-
-          <Col lg={12} xs={12} className="p-0">
+      <section className="banner-img-top">
+        <Row className="m-0 p-0">
+          <Col lg={12} className="p-0">
             <div className="p-relative">
-                <Row className='mt-5'>
-            {content.map((item, index) => (
-                    <Col lg={4} key={index} className='mb-5'>
-                    <div className='h-100 speaker-card2 p-4 bg-white'>
-                    
-                    <div className='min-h-activities'>
-                    <h4 className='fw-bold'>{item.heading}</h4>
-                    <p className='subheading font-sm-activities' >{item.para}</p>
-                    </div>
-                    <img src={item.url} className='w-100' alt="no img" />
-                    </div>
-                    </Col>
-                  ))}
-            
-            </Row>
-                
-
-             
+              <img src={require('../assets/img/startup-banner.jpg')} className="w-100" alt="Responsive Banner" />
             </div>
           </Col>
         </Row>
+      </section>
+
+      {/* Sponsors Section */}
+      <section className="register-bg">
+        <Container className="register-bg py-5">
+          <h2 className="title mb-4">Sponsors</h2>
+          <Row className="m-0 p-0">
+            {sponsors.map((sponsor, index) => (
+              <Col lg="4" xs={6} key={index}>
+                <div className="p-relative">
+                  <img src={sponsor.url} className="w-100" alt={sponsor.heading} />
+                </div>
+              </Col>
+            ))}
+          </Row>
         </Container>
       </section>
-      <br /><br /><br />
     </>
   );
-}
+};
 
-export default Activites;
+export default Sponser;

@@ -30,6 +30,7 @@ import edu from "../assets/img/edu.png";
 import { Link } from "react-router-dom";
 import Timer from "./Timer";
 import RegisterYourself from "./RegisterYourself";
+import CardContent from "./CardContent";
 
 
 export default function Home() {
@@ -103,6 +104,13 @@ export default function Home() {
     { url: require('../assets/img/Sponser logo/22.png') },
   ]
 
+  const text =`<p class="para">
+              Snehshilp Foundation's "Start-Up Fest Gujarat" highlights the thriving spirit of entrepreneurship and innovation in the region. Founded and driven by the visionary Mrs. Snehal Brahmbhatt, the event aims to fill the void in start-up support by providing a comprehensive platform for fresh ideas to flourish.
+              </p>
+              <p class="para">
+              The annual event brings together start-ups, investors, and industry collaboration. Leaders for two days, creating an atmosphere of inspiration and fruitful collaboration.
+              </p>`
+
 
   return (
     <>
@@ -168,71 +176,12 @@ export default function Home() {
       </section>
 
       <section className="padding-sec light-bg">
-        <Container>
-          <Row className="justify-content-between">
-            <Col xs={12} md={12} lg={5}>
-              <h3 className="title">About StartUp Fest</h3>
-              <p className="para">
-              Snehshilp Foundation's "Start-Up Fest Gujarat" highlights the thriving spirit of entrepreneurship and innovation in the region. Founded and driven by the visionary Mrs. Snehal Brahmbhatt, the event aims to fill the void in start-up support by providing a comprehensive platform for fresh ideas to flourish.
-              </p>
-              <p className="para">
-              The annual event brings together start-ups, investors, and industry collaboration. Leaders for two days, creating an atmosphere of inspiration and fruitful collaboration.
-              </p>
-              
+      <CardContent about={about} text={text}  title="About StartUp Fest"  buttonShow={true} to="/about" linkToTitle="Learn More"/>
 
-              <div className="padding-btn">
-                <Link to="/about" className="theme-btn">
-                  Learn More
-                </Link>
-              </div>
-            </Col>
-            <Col xs={12} md={8} lg={6} className="offset-md-2 offset-lg-0">
-              <img src={about} className="w-100 img-padding" />
-            </Col>
-          </Row>
-        </Container>
       </section>
 
       <section className="padding-sec">
-        <Container>
-          <Row className="count-box justify-content-center">
-            <Col lg={6} md={12} xs={12}>
-              <h3 className="title mb-5">
-                India <span className="gradient">Startup Revolution </span> is
-                here and now!
-              </h3>
-
-              <Row>
-                <Col lg={4} md={4} xs={12}>
-                  <div className="box">
-                    <MdLocationPin />
-                    <h4>Venue</h4>
-                    <p>Vigyan Bhavanm, Science City, Ahmedabad.</p>
-                  </div>
-                </Col>
-                <Col lg={4} md={4} xs={12}>
-                  <div className="box">
-                    {/* <SlCalender /> */}
-                    <img src={caleder} width={45} />
-                    <h4>Date</h4>
-                    <p>28 & 29 September, 2024</p>
-                  </div>
-                </Col>
-                <Col lg={4} md={4} xs={12}>
-                  <div className="box">
-                    <img src={clock} width={45} />
-                    <h4>Time</h4>
-                    <p>10:00 AM TO 10:00 PM</p>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-
-            <Col lg={6} md={8} xs={12}>
-              <Timer />
-            </Col>
-          </Row>
-        </Container>
+      <Timer />
       </section>
 
       <div className="container-bg">
@@ -357,10 +306,18 @@ export default function Home() {
           </div>
           <Row>
             <Col lg={12}>
-              <div className="banner-btns">
+              {/* <div className="banner-btns">
                 <button className="theme-btn-light light-border">
                   Register Now
                 </button>
+              </div> */}
+              <div className="banner-btns">
+                <Link to="/register" className="theme-btn-light light-border">
+                  Register Now
+                </Link>
+                {/* <button className="theme-btn-light" onClick={handleScroll}>
+                  <IoIosArrowRoundDown /> Explore More
+                </button> */}
               </div>
             </Col>
           </Row>

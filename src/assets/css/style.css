@@ -1852,7 +1852,7 @@ h6.title {
 }
 .list-names ul.flex-list.text-gray li {
     padding: 5px 0;
-    list-style: none;
+    list-style: disc;
 }
 
 .col-20 {

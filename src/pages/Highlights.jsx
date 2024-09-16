@@ -14,6 +14,7 @@ import one from "../assets/img/event1.jpg"
 import two from "../assets/img/event2.jpg"
 import three from "../assets/img/event3.jpg"
 import { Link } from "react-router-dom";
+import CardContent from "../components/CardContent";
 
 export default function Highlights() {
 
@@ -32,6 +33,34 @@ export default function Highlights() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const text =`<p class="para">
+                Snehshilp foundation’s “start-up fest gujarat” highlights the
+                thriving spirit of entrepreneurship and innovation in the
+                region. Founded and driven by the visionary mrs. Snehal
+                brahmbhatt, the event aims to fill the void in start-up support
+                by providing a comprehensive platform for fresh ideas to
+                flourish.
+              </p>
+              <p class="para">
+                The annual event brings together start-ups, investors, and
+                Industry collaboration.Leaders for two days, creating an
+                Atmosphere of inspiration and fruitful collaboration.
+              </p>`
+
+
+              const textScience =` <p class="para">
+                Located off the Sarkhej Gandhinagar Highway, Science City is an
+                ambitious initiative of the government of Gujarat to trigger an
+                inquiry of science in the mind of a common citizen with the aid
+                of entertainment and experiential knowledge. Covering an area of
+                more than 107 hectares, the idea is to create imaginative
+                exhibits, virtual reality activity corners, and live
+                demonstrations in an easily understandable manner
+              </p>
+              <p class="para">
+              Gujarat Science City is a bold initiative of the Government of Gujarat to realize this priority. The Government is creating a sprawling center at Ahmedabad which aims to provide a perfect blend of education and entertainment. It will showcase contemporary and imaginative exhibits, minds-on experiences, working models, virtual reality, activity corners, labs, and live demonstrations to provide an understanding of science and technology to the common man. Photo of Vigyan Bhavan
+              </p>`
     
   return (
     <>
@@ -40,32 +69,16 @@ export default function Highlights() {
       </section>
 
       <section className="padding-sec light-bg">
-        <Container>
-          <Row className="justify-content-between">
-            <Col xs={12} md={5} lg={5}>
-              <h3 className="title">
-                Startup Fest Gujarat: <br />
-                Where Innovation Meets Investment
-              </h3>
-              <p className="para">
-                Snehshilp foundation’s “start-up fest gujarat” highlights the
-                thriving spirit of entrepreneurship and innovation in the
-                region. Founded and driven by the visionary mrs. Snehal
-                brahmbhatt, the event aims to fill the void in start-up support
-                by providing a comprehensive platform for fresh ideas to
-                flourish.
-              </p>
-              <p className="para">
-                The annual event brings together start-ups, investors, and
-                Industry collaboration.Leaders for two days, creating an
-                Atmosphere of inspiration and fruitful collaboration.
-              </p>
-            </Col>
-            <Col xs={12} md={6} lg={6}>
-              <img src={about} className="w-100" />
-            </Col>
-          </Row>
-        </Container>
+       
+
+        <CardContent
+         about={about}
+          text={text}  
+          title="Startup Fest Gujarat: <br />
+                Where Innovation Meets Investment"
+           buttonShow={false} />
+
+
       </section>
 
       {/* <section className="padding-sec">
@@ -170,28 +183,13 @@ export default function Highlights() {
         </Container>
       </section>
       <section className="padding-sec">
-        <Container>
-          <Row className="justify-content-between">
-            <Col xs={12} md={5} lg={5}>
-              <h3 className="title">2023 Venue : Science City</h3>
-              <p className="para">
-                Located off the Sarkhej Gandhinagar Highway, Science City is an
-                ambitious initiative of the government of Gujarat to trigger an
-                inquiry of science in the mind of a common citizen with the aid
-                of entertainment and experiential knowledge. Covering an area of
-                more than 107 hectares, the idea is to create imaginative
-                exhibits, virtual reality activity corners, and live
-                demonstrations in an easily understandable manner
-              </p>
-              <p className="para">
-              Gujarat Science City is a bold initiative of the Government of Gujarat to realize this priority. The Government is creating a sprawling center at Ahmedabad which aims to provide a perfect blend of education and entertainment. It will showcase contemporary and imaginative exhibits, minds-on experiences, working models, virtual reality, activity corners, labs, and live demonstrations to provide an understanding of science and technology to the common man. Photo of Vigyan Bhavan
-              </p>
-            </Col>
-            <Col xs={12} md={6} lg={6}>
-              <img src={venue} className="w-100 br-20" />
-            </Col>
-          </Row>
-        </Container>
+       
+
+        <CardContent
+         about={venue}
+          text={textScience}  
+          title="2023 Venue : Science City"
+           buttonShow={false} />
       </section>
     </>
   );
