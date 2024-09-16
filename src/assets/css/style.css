@@ -1931,3 +1931,22 @@ font-size: 13px;
 .no-overflow{
     overflow: hidden;
 }
+
+.no-btn-style ,
+.no-btn-style:hover,
+.no-btn-style:active{
+    border: none;
+    color: black;
+    width: 100%;
+    text-align: left;
+}
+
+.no-btn-style:hover,
+.no-btn-style:active {
+    background-color: var(--light-blue) !important;
+}
+
+.border-1 {
+    /* border: 1px solid lightgray; */
+    box-shadow: 2px 4px 28px 0px #D5E3F1;
+}

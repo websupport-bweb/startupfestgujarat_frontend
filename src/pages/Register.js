@@ -212,7 +212,7 @@ const Register = () => {
     };
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     const handleShow = () => {
         setShow(true)
         // setRegisterData([])
@@ -938,7 +938,7 @@ const Register = () => {
                                         setIsActive(true)
                                         setSelectedTicket(t._id)
                                     }}
-                                    className={selectedTicket === t._id ? `border-1 container-bg p-3 rounded-3` : 'container-bg p-3 rounded-3 '}
+                                    className={selectedTicket === t._id ? `border-1 no-btn-style container-bg` : 'no-btn-style container-bg  '}
                                 >
                                     <div  >
                                         <h6 className="fw-bold mb-3">{t.name} (₹) </h6>
