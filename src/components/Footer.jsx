@@ -18,9 +18,9 @@ export default function Footer() {
                    <div className='footer-logo'>
                         <img src={logo}/>
                     </div>
-                    <p className='footer-text'>
+                    {/* <p className='footer-text'>
                     Clarity gives you the blocks and components you need to create a truly professional website.
-                    </p>
+                    </p> */}
                    </div>
                 </Col>
 
