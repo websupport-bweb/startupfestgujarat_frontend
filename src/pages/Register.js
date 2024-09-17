@@ -566,7 +566,7 @@ const Register = () => {
 
     const handleCheckout = async () => {
         // const startupIds = registerData.map(item => item._id);
-        const ticketIds = registerData.map(item => item.ticketId);
+        // const ticketIds = registerData.map(item => item.ticketId);
         const { data: { order } } = await axios.post(`${process.env.REACT_APP_URL}/api/auth/payment/checkout`, { startupIds: registerData, selectedTicket })
 
         console.log("checout order", order);
@@ -778,7 +778,7 @@ const Register = () => {
                     <Row className='scroll-hori'>
                         {/* {console.log(registerData)} */}
                         <Col lg={6}>
-                            {registerData.map((items, index) => {
+                            {registerData?.map((items, index) => {
                                 return (
                                     <Row className='mb-2 ticket-area' key={index}>
                                         <Col lg={7} className="b-right">
