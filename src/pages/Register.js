@@ -567,13 +567,14 @@ const Register = () => {
     const handleCheckout = async () => {
         // const startupIds = registerData.map(item => item._id);
         // const ticketIds = registerData.map(item => item.ticketId);
-        const { data: { order } } = await axios.post(`${process.env.REACT_APP_URL}/api/auth/payment/checkout`, { startupIds: registerData, selectedTicket })
+        const { data: { order, person } } = await axios.post(`${process.env.REACT_APP_URL}/api/auth/payment/checkout`, { startupIds: registerData, selectedTicket })
 
         console.log("checout order", order);
 
         const options = {
             // key: `${process.env.RAZORPAY_KEY_ID}`,
-            key: "rzp_live_ST3UBESEnYNzQt",
+            key: "rzp_test_qoZrYXqkyGbjef",
+            // key: "rzp_live_ST3UBESEnYNzQt",
             amount: order.amount,
             currency: "INR",
             name: 'Startupfest Gujarat',
@@ -581,9 +582,9 @@ const Register = () => {
             order_id: order.id,
             callback_url: `${process.env.REACT_APP_URL}/api/auth/payment/paymentVerification/${customActiveTab}`,
             prefill: {
-                name: 'Gaurav Kumar',
-                email: 'gaurav.kumar@example.com',
-                contact: '9999999999'
+                name: registerData[0].contactPersonName,
+                email: registerData[0].email,
+                contact: registerData[0].contactNo
             },
             theme: {
                 color: '#F37254'
