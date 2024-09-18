@@ -573,7 +573,7 @@ const Register = () => {
 
         const options = {
             // key: `${process.env.RAZORPAY_KEY_ID}`,
-            key: "rzp_test_qoZrYXqkyGbjef",
+            key: "rzp_live_ST3UBESEnYNzQt",
             amount: order.amount,
             currency: "INR",
             name: 'Startupfest Gujarat',
@@ -937,7 +937,12 @@ const Register = () => {
                                     onClick={() => {
                                         setSelectedTicket(t._id)
                                     }}
-                                    className={selectedTicket === t._id ? `border-1 no-btn-style container-bg` : 'no-btn-style container-bg  '}
+                                    style={{
+                                        border: selectedTicket === t._id ? '1px solid blue' : 'none', // #28a745 is the Bootstrap "success" color
+                                        backgroundColor: selectedTicket === t._id ? '#f8f9fa' : ' #F4F9FE' // bg-light equivalent
+                                    }}
+                                    className="no-btn-style container-bg"
+                                    // className={selectedTicket === t._id ? `border-1 no-btn-style container-bg` : 'no-btn-style container-bg  '}
                                 >
                                     <div  >
                                         <h6 className="fw-bold mb-3">{t.name} (₹) </h6>
