@@ -1950,3 +1950,9 @@ font-size: 13px;
     /* border: 1px solid lightgray; */
     box-shadow: 0px 0px 15px 9px #e4e9ee;
 }
+
+.vote-input {
+    padding: 10px 25px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+}

@@ -573,8 +573,8 @@ const Register = () => {
 
         const options = {
             // key: `${process.env.RAZORPAY_KEY_ID}`,
-            key: "rzp_test_qoZrYXqkyGbjef",
-            // key: "rzp_live_ST3UBESEnYNzQt",
+            // key: "rzp_test_qoZrYXqkyGbjef",
+            key: "rzp_live_ST3UBESEnYNzQt",
             amount: order.amount,
             currency: "INR",
             name: 'Startupfest Gujarat',
