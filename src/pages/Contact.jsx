@@ -15,7 +15,7 @@ useEffect(() => {
   window.scrollTo(0, 0);
 }, []);
 
-  const apiURL = process.env.REACT_APP_URL || "http://localhost:5000";
+  const apiURL = process.env.REACT_APP_URL;
 
   // Formik initial values and validation schema
   const formik = useFormik({
