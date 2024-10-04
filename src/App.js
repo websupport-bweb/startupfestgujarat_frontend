@@ -37,6 +37,7 @@ import Activities from './pages/Faq';
 import Activites from './pages/Activities';
 import Sponsor2024 from './pages/Sponsor2024';
 import GuestSpeakers from './pages/GuestSpeakers';
+import ScrollTop from './components/ScrollTop';
 
 
 
@@ -80,6 +81,7 @@ function App() {
           <Route path="/guest-speakers" element={<GuestSpeakers />} />
         </Routes>
         <Footer />
+        <ScrollTop/>
       </BrowserRouter>
     </>
   );

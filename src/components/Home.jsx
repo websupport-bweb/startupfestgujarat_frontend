@@ -7,14 +7,15 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { IoIosArrowRoundDown } from "react-icons/io";
 // import video from "../assets/img/video-img.png";
-import video from "../assets/img/video-home.png";
+import video from "../assets/img/video-thumb.png";
+// import video from "../assets/img/video-home.png";
 import about from "../assets/img/about-img.png";
 import clock from "../assets/img/clock-icon.png";
 import caleder from "../assets/img/calender-icon.png";
 import { MdLocationPin } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import { FaRegCheckCircle } from "react-icons/fa";
-import img1 from "../assets/img/img-1.png";
+import mainBanner from "../assets/img/home-banner.png";
 import img2 from "../assets/img/img-2.png";
 import img3 from "../assets/img/img-3.png";
 import parti1 from "../assets/img/client/1.jpg";
@@ -119,6 +120,16 @@ export default function Home() {
         <Container>
           <Row className="justify-content-center">
             <Col lg={12}>
+            <img src={mainBanner} className="w-100"/>
+            </Col>
+          
+          </Row>
+        </Container>
+      </section>
+      <section className="top-banner">
+        <Container>
+          <Row>
+          <Col lg={4} md={5} sm={12} >
               <div className=" p-relative">
                 <img src={video} className="w-100" />
                 <a onClick={handleShow} className="play-btn"></a>
@@ -145,15 +156,9 @@ export default function Home() {
                 </Modal>
               </div>
             </Col>
-          </Row>
-        </Container>
-      </section>
-      <section className="top-banner">
-        <Container>
-          <Row>
-            <Col lg={12}>
-              <div className="text-center">
-                <h5 className="subheading">
+            <Col lg={8} md={7} sm={12}>
+              <div className="">
+                <h5 className="subheading banner">
                   Connecting Innovators and Investors.
                 </h5>
                 <h3 className="banner-text">
@@ -161,17 +166,13 @@ export default function Home() {
                   <span className="gradient">Startup Fest</span> Gujarat!
                 </h3>
               </div>
-            </Col>
-            <Col lg={12}>
-              <div className="banner-btns">
+              <div className="banner-btns left">
                 <Link to="/register" className="theme-btn">
                   Register Now
                 </Link>
-                {/* <button className="theme-btn-light" onClick={handleScroll}>
-                  <IoIosArrowRoundDown /> Explore More
-                </button> */}
               </div>
             </Col>
+           
           </Row>
         </Container>
       </section>

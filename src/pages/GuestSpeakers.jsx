@@ -14,9 +14,9 @@ export default function GuestSpeakers() {
     <div className="padding-sec">
       <Container>
         <div className="">
-          {/* <h2 className='title'>Content Coming Soon...</h2> */}
+          <h2 className='title'>Content Coming Soon...</h2>
          
-          <Row className="justify-content-center">
+          {/* <Row className="justify-content-center">
             <Col lg={9} sm={12}>
             <h2 className="title text-center">Our Esteemed Guest</h2>
               <div className="main-img">
@@ -54,7 +54,7 @@ export default function GuestSpeakers() {
                 </Col>
               </Row>
             </Col>
-          </Row>
+          </Row> */}
         </div>
       </Container>
     </div>

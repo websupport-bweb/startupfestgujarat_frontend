@@ -244,18 +244,19 @@ body {
     position: relative;
 }
 
+
 .play-btn {
     position: absolute;
     background-image: url('../img/play.png');
-    display: block;
-    height: 100px;
-    width: 100px;
-    background-size: cover;
-    top: 40%;
-    left: 45%;
-    cursor: pointer;
-    animation: zoom-in-zoom-out 3s ease infinite;
-}
+        display: block;
+        height: 80px;
+        width: 80px;
+        background-size: cover;
+        top: 36%;
+        left: 38%;
+        cursor: pointer;
+        animation: zoom-in-zoom-out 3s ease infinite;
+    }
 
 @keyframes zoom-in-zoom-out {
     0% {
@@ -1956,4 +1957,27 @@ font-size: 13px;
     padding: 10px 25px;
     border-radius: 10px;
     border: 1px solid lightgray;
+}
+
+.scroll-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #f4f9fe;
+    border: 2px solid #003777;
+    border-radius: 50%;
+    height: 40px;
+    padding: 10px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scroll-top-btn  button {
+    background-color: transparent;
+    border: 0;
+}
+.scroll-top-btn svg{
+    font-size: 20px;
+    color: #003777;
 }
