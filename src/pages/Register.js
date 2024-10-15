@@ -21,7 +21,7 @@ const Register = () => {
     useEffect(() => {
         // Scroll to the top when the component mounts
         window.scrollTo(0, 0);
-      }, []);
+    }, []);
     const initialValues = {
         contactPersonName: '',
         email: '',
@@ -342,7 +342,7 @@ const Register = () => {
         if (!investorvalues.terms) {
             errors.terms = 'Please accept the terms and conditions';
         }
-        if (!investorvalues.City)   {
+        if (!investorvalues.City) {
             errors.City = 'City is required';
         }
         setInvestorFormErrors(errors);
@@ -351,7 +351,7 @@ const Register = () => {
 
     const [visitorformErrors, setvisitorFormErrors] = useState({});
     const validateVisitorForm = () => {
-        
+
         let errors = {};
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const contactRegex = /((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}/;
@@ -619,141 +619,147 @@ const Register = () => {
     return (
         <React.Fragment>
             <div className="register-bg register-form">
-               <Container fluid>
-               
-                <Row className="">
-                    <Col lg={5} xs={12} className="p-0">
-                        <img src={bg} className="w-100 form-img" alt="Background" />
-                    </Col>
-                    <Col lg={6} xs={12}>
-                        <div className="form-padding pb-4">
-                            <h3 className="title mt-4 mb-1 pt-4">Register</h3>
-                            <h5 className="para-custom">Let us know what you are seeking as</h5>
+                <Container fluid>
 
-                            <Nav tabs className="nav-tabs-custom nav-success nav-justified mb-3">
-                                <NavItem className="f-15 pb-0">
-                                    <NavLink
-                                        style={{ cursor: "pointer" }}
-                                        className={classnames({ active: customActiveTab === "1" })}
-                                        onClick={() => {
-                                            toggleCustom("1")
-                                            setPaticipantId("66deba1c8d13756fe2697beb")
-                                            setTicketId('66e162ee158fdfa7198f4765')
-                                            // setValues(initialValues)
-                                        }}
-                                    >
-                                        Pitcher
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem className="f-15 pb-0">
-                                    <NavLink
-                                        style={{ cursor: "pointer" }}
-                                        className={classnames({ active: customActiveTab === "2" })}
-                                        onClick={() => {
-                                            toggleCustom("2")
-                                            setPaticipantId('66deba2b8d13756fe2697bee')
-                                            setTicketId('66e1631b158fdfa7198f4767')
-                                        }
-                                        }
-                                    >
-                                        Start-Up
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem className="f-15 pb-0">
-                                    <NavLink
-                                        style={{ cursor: "pointer" }}
-                                        className={classnames({ active: customActiveTab === "3" })}
-                                        onClick={() => {
-                                            toggleCustom("3")
-                                            setPaticipantId('66deba3b8d13756fe2697bf1')
-                                            setTicketId('66e16380158fdfa7198f476b')
-                                            setIsInvestor(true)
+                    <Row className="">
+                        <Col lg={5} xs={12} className="p-0">
+                            <img src={bg} className="w-100 form-img" alt="Background" />
+                        </Col>
+                        <Col lg={6} xs={12}>
+                            <div className="form-padding pb-4">
+                                <h3 className="title mt-4 mb-1 pt-4">Register</h3>
+                                <h5 className="para-custom">Let us know what you are seeking as</h5>
 
-                                        }}
-                                    >
-                                        Investor
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem className="f-15 pb-0">
-                                    <NavLink
-                                        style={{ cursor: "pointer" }}
-                                        className={classnames({ active: customActiveTab === "4" })}
-                                        onClick={() => {
-                                            toggleCustom("4")
-                                            setPaticipantId('66e1617c158fdfa7198f4763')
-                                            setTicketId('66e163bd158fdfa7198f476d')
-                                            setIsInvestor(false)
+                                <Nav tabs className="nav-tabs-custom nav-success nav-justified mb-3">
+                                    <NavItem className="f-15 pb-0">
+                                        <NavLink
+                                            style={{ cursor: "pointer" }}
+                                            className={classnames({ active: customActiveTab === "4" })}
+                                            onClick={() => {
+                                                toggleCustom("4")
+                                                setPaticipantId('66e1617c158fdfa7198f4763')
+                                                setTicketId('66e163bd158fdfa7198f476d')
+                                                setIsInvestor(false)
 
-                                        }}
-                                    >
-                                        Visitor
-                                    </NavLink>
-                                </NavItem>
-                            </Nav>
+                                            }}
+                                        >
+                                            Visitor
+                                        </NavLink>
+                                    </NavItem>
 
-                            <TabContent activeTab={customActiveTab}>
+                                    <NavItem className="f-15 pb-0">
+                                        <NavLink
+                                            style={{ cursor: "pointer" }}
+                                            className={classnames({ active: customActiveTab === "3" })}
+                                            onClick={() => {
+                                                toggleCustom("3")
+                                                setPaticipantId('66deba3b8d13756fe2697bf1')
+                                                setTicketId('66e16380158fdfa7198f476b')
+                                                setIsInvestor(true)
 
-                                <TabPane tabId="1">
-                                    <div>
-                                        <StartupForm
-                                            values={values}
-                                            handleChange={handleChange}
-                                            handleFileChange={handleFileChange}
-                                            formErrors={formErrors}
-                                            isSubmit={isSubmit}
-                                            handleSubmit={handleSubmit}
-                                            country={country}
-                                            states={states}
-                                            fetchState={fetchState}
-                                            setValues={setValues}
-                                            isdCodes={isdCodes}
-                                            categories={categories}
-                                            stages={stages}
-                                        />
-                                    </div>
-                                </TabPane>
+                                            }}
+                                        >
+                                            Investor
+                                        </NavLink>
+                                    </NavItem>
+
+                                    <NavItem className="f-15 pb-0">
+                                        <NavLink
+                                            style={{ cursor: "pointer" }}
+                                            className={classnames({ active: customActiveTab === "2" })}
+                                            onClick={() => {
+                                                toggleCustom("2")
+                                                setPaticipantId('66deba2b8d13756fe2697bee')
+                                                setTicketId('66e1631b158fdfa7198f4767')
+                                            }
+                                            }
+                                        >
+                                            Start-Up
+                                        </NavLink>
+                                    </NavItem>
+
+                                    <NavItem className="f-15 pb-0">
+                                        <NavLink
+                                            style={{ cursor: "pointer" }}
+                                            className={classnames({ active: customActiveTab === "1" })}
+                                            onClick={() => {
+                                                toggleCustom("1")
+                                                setPaticipantId("66deba1c8d13756fe2697beb")
+                                                setTicketId('66e162ee158fdfa7198f4765')
+                                                // setValues(initialValues)
+                                            }}
+                                        >
+                                            Pitcher
+                                        </NavLink>
+                                    </NavItem>
 
 
-                                <TabPane tabId="2">
-                                    <div>
-                                        <StartupForm
-                                            values={values}
-                                            handleChange={handleChange}
-                                            handleFileChange={handleFileChange}
-                                            formErrors={formErrors}
-                                            isSubmit={isSubmit}
-                                            handleSubmit={handleSubmit}
-                                            country={country}
-                                            states={states}
-                                            fetchState={fetchState}
-                                            setValues={setValues}
-                                            isdCodes={isdCodes}
-                                            categories={categories}
-                                            stages={stages}
-                                        />
-                                    </div>
-                                </TabPane>
 
-                                <TabPane tabId="3">
-                                    <div>
-                                        <InvestorForm
-                                            investorvalues={investorvalues}
-                                            handleInvestorChange={handleInvestorChange}
-                                            InvestorformErrors={InvestorformErrors}
-                                            isSubmit={isSubmit}
-                                            handleInvestorSubmit={handleInvestorSubmit}
-                                            country={country}
-                                            states={states}
-                                            fetchState={fetchState}
-                                            setInvestorValues={setInvestorValues}
-                                            isdCodes={isdCodes}
-                                        />
-                                    </div>
-                                </TabPane>
+                                </Nav>
 
-                                <TabPane tabId="4">
-                                    <div>
-                                        <VisitorForm
+                                <TabContent activeTab={customActiveTab}>
+
+                                    <TabPane tabId="1">
+                                        <div>
+                                            <StartupForm
+                                                values={values}
+                                                handleChange={handleChange}
+                                                handleFileChange={handleFileChange}
+                                                formErrors={formErrors}
+                                                isSubmit={isSubmit}
+                                                handleSubmit={handleSubmit}
+                                                country={country}
+                                                states={states}
+                                                fetchState={fetchState}
+                                                setValues={setValues}
+                                                isdCodes={isdCodes}
+                                                categories={categories}
+                                                stages={stages}
+                                            />
+                                        </div>
+                                    </TabPane>
+
+
+                                    <TabPane tabId="2">
+                                        <div>
+                                            <StartupForm
+                                                values={values}
+                                                handleChange={handleChange}
+                                                handleFileChange={handleFileChange}
+                                                formErrors={formErrors}
+                                                isSubmit={isSubmit}
+                                                handleSubmit={handleSubmit}
+                                                country={country}
+                                                states={states}
+                                                fetchState={fetchState}
+                                                setValues={setValues}
+                                                isdCodes={isdCodes}
+                                                categories={categories}
+                                                stages={stages}
+                                            />
+                                        </div>
+                                    </TabPane>
+
+                                    <TabPane tabId="3">
+                                        <div>
+                                            <InvestorForm
+                                                investorvalues={investorvalues}
+                                                handleInvestorChange={handleInvestorChange}
+                                                InvestorformErrors={InvestorformErrors}
+                                                isSubmit={isSubmit}
+                                                handleInvestorSubmit={handleInvestorSubmit}
+                                                country={country}
+                                                states={states}
+                                                fetchState={fetchState}
+                                                setInvestorValues={setInvestorValues}
+                                                isdCodes={isdCodes}
+                                            />
+                                        </div>
+                                    </TabPane>
+
+                                    <TabPane tabId="4">
+                                        <div>
+                                            {/* <VisitorForm
                                             investorvalues={visitorValues}
                                             handleInvestorChange={handleVisitorChange}
                                             InvestorformErrors={visitorformErrors}
@@ -761,15 +767,21 @@ const Register = () => {
                                             handleInvestorSubmit={handleVisitorSubmit}
                                             setInvestorValues={setVisitorValues}
                                             isdCodes={isdCodes}
-                                        />
-                                    </div>
+                                        /> */}
+                                            <Button type="button" color="primary" className="mt-3 register-btn" onClick={(e) => { 
+                                                e.preventDefault();
+                                                window.open('https://registration.swarnimtouch.com/dashboard/sharedT/66f5557c9f23ba7e871ec2f6', '_blank');
+                                                 }} 
+                                            >Register</Button>
 
-                                </TabPane>
-                            </TabContent>
-                        </div>
-                    </Col>
-                </Row>
-               </Container>
+                                        </div>
+
+                                    </TabPane>
+                                </TabContent>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
 
             <Modal
@@ -900,7 +912,7 @@ const Register = () => {
                                             isdCodes={isdCodes}
                                         />
                                     </div> : <div>
-                                        <VisitorForm
+                                        {/* <VisitorForm
                                             investorvalues={visitorValues}
                                             handleInvestorChange={handleVisitorChange}
                                             InvestorformErrors={visitorformErrors}
@@ -908,7 +920,14 @@ const Register = () => {
                                             handleInvestorSubmit={handleVisitorSubmit}
                                             setInvestorValues={setVisitorValues}
                                             isdCodes={isdCodes}
-                                        />
+                                        /> */}
+                                        <Button type="button" color="primary" className="mt-3 register-btn"
+                                        onClick={(e) => { 
+                                            e.preventDefault();
+                                            window.open('https://registration.swarnimtouch.com/dashboard/sharedT/66f5557c9f23ba7e871ec2f6', '_blank');
+                                             }} 
+                                        >Register</Button>
+
                                     </div>)
                                 )
                             )}
@@ -935,7 +954,8 @@ const Register = () => {
             <Modal
                 className="event-popup register-popup"
                 show={ticketPopup}
-                onHide={() => {setTicketPopup(false);
+                onHide={() => {
+                    setTicketPopup(false);
                     setSelectedTicket();
                 }}
                 animation={false}
@@ -963,7 +983,7 @@ const Register = () => {
                                         backgroundColor: selectedTicket === t._id ? '#f8f9fa' : ' #F4F9FE' // bg-light equivalent
                                     }}
                                     className="no-btn-style container-bg"
-                                    // className={selectedTicket === t._id ? `border-1 no-btn-style container-bg` : 'no-btn-style container-bg  '}
+                                // className={selectedTicket === t._id ? `border-1 no-btn-style container-bg` : 'no-btn-style container-bg  '}
                                 >
                                     <div  >
                                         <h6 className="fw-bold mb-3">{t.name} (₹) </h6>
