@@ -770,7 +770,7 @@ const Register = () => {
                                         /> */}
                                             <Button type="button" color="primary" className="mt-3 register-btn" onClick={(e) => { 
                                                 e.preventDefault();
-                                                window.open('https://registration.swarnimtouch.com/dashboard/sharedT/66f5557c9f23ba7e871ec2f6', '_blank');
+                                                window.open('https://allevents.in/ahmedabad/start-up-fest-20-gujarat-by-snehshilp-foundation/80002391998377?ref=smdl', '_blank');
                                                  }} 
                                             >Register</Button>
 
@@ -924,7 +924,7 @@ const Register = () => {
                                         <Button type="button" color="primary" className="mt-3 register-btn"
                                         onClick={(e) => { 
                                             e.preventDefault();
-                                            window.open('https://registration.swarnimtouch.com/dashboard/sharedT/66f5557c9f23ba7e871ec2f6', '_blank');
+                                            window.open('https://allevents.in/ahmedabad/start-up-fest-20-gujarat-by-snehshilp-foundation/80002391998377?ref=smdl', '_blank');
                                              }} 
                                         >Register</Button>
 
