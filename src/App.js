@@ -49,6 +49,7 @@ function App() {
         <Header /> {/* Move Header outside Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<Navigate to="/" replace/>} />
           <Route path='/register' element={<Register />} />
           <Route path='/participants' element={<Participants />} />
           <Route path='/startup' element={<StartupContent />} />
