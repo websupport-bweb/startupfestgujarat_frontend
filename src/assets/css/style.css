@@ -434,7 +434,8 @@ section.banner-img-top img {
 
     box-shadow: 2px 4px 28px 0px #D5E3F1;
     border-radius: 20px;
-    padding: 21px;
+    padding: 20px;
+    /* margin: 0px 0px 0px 10px; */
 
 }
 
@@ -2094,4 +2095,125 @@ h6.title {
 }
 .list-check-2 .list-inline li {
     display: inline-block;
+}
+
+
+
+
+/* HOME */
+
+/* Stats Section */
+.stats-section {
+  border-radius: 0;
+  background: radial-gradient(circle at top left, #2c73ff 0%, #ffffff 80%) !important;
+  padding: 70px 0;
+}
+
+/* Cards */
+.stat-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 26px 14px;
+  text-align: center;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f1f1;
+  transition: 0.2s ease;
+  box-shadow: 0 14px 32px rgba(40, 176, 255, 0.25);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(40, 176, 255, 0.5);
+}
+
+/* Icons */
+.icon-wrap {
+  margin-bottom: 8px;
+}
+
+/* Values & Labels */
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: #111;
+}
+
+.stat-label {
+  font-size: 18px;
+  margin-top: 3px;
+  color: #555;
+}
+
+/* Title gradient */
+.title-gradient {
+  background: linear-gradient(90deg, #2e6ceb, #2fa89c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.row-margin{
+    margin: 0px -30px;
+}
+
+/* Register Yourself Card – Premium Hover */
+.card-link-wrapper {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.col-card {
+  background-color: #F1F5F9;
+  box-shadow: 5px 20px 20px 20px #D5E3F1;
+  border-radius: 20px;
+  padding: 28px 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.col-card:hover {
+  transform: translateY(-14px) scale(1.05);
+  z-index: 10;
+  box-shadow: 0px 24px 45px rgba(0, 55, 119, 0.28);
+}
+
+.col-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+}
+
+.col-card:hover::after {
+  border: 2px solid rgba(37, 99, 235, 0.4);
+}
+
+.pitcher-card-div h3,
+.arrow-icon {
+  transition: 0.3s ease;
+}
+
+.col-card:hover .card-title {
+  color: var(--primary-blue);
+}
+
+.arrow-icon {
+  font-size: 24px;
+}
+
+.col-card:hover .arrow-icon {
+  transform: translateX(6px);
+  color: #2563EB;
+}
+
+.row-margin {
+  margin: 0 -30px;
+}
+
+.row {
+  overflow: visible !important;
 }
