@@ -23,9 +23,10 @@ export default function EventFlow() {
 <Container>
   <Row>
   <h3 className="title mb-5 text-center">
-        Event Flow!
+        {/* Event Flow! */}
+        Comming Soon
       </h3>
-      {flowImg.map((item, index) => (
+      {/* {flowImg.map((item, index) => (
               <Col lg={4} md={6} sm={12} key={index}>
               <img
                 // key={index}
@@ -35,7 +36,7 @@ export default function EventFlow() {
               />
               </Col>
             ))}
-    
+     */}
     
    
   </Row>

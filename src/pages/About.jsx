@@ -49,17 +49,10 @@ export default function About() {
               `
 
   const text2 =` <p class="para">
-                Located off the Sarkhej Gandhinagar Highway, Science City is an
-                ambitious initiative of the government of Gujarat to trigger an
-                inquiry of science in the mind of a common citizen with the aid
-                of entertainment and experiential knowledge. Covering an area of
-                more than 107 hectares, the idea is to create imaginative
-                exhibits, virtual reality activity corners, and live
-                demonstrations in an easily understandable manner.
+               The GU Atal Kalam Building at Gujarat University is a premier center for research, innovation, and entrepreneurship, inspired by the vision of Dr. A. P. J. Abdul Kalam. Housing the Centre for Extension, Research & Innovation (CERI), it provides a collaborative ecosystem where students, researchers, innovators, and industry experts work together on incubation programs, technical research, product prototyping, and academic partnerships.
               </p>
               <p class="para">
-                Gujarat Science City is a bold initiative of the Government of Gujarat to realize this priority. The Government is creating a sprawling center at Ahmedabad which aims to provide a perfect blend of education and entertainment. It will showcase contemporary and imaginative exhibits, minds-on experiences, working models, virtual reality, activity corners, labs, and live demonstrations to provide an understanding of science and technology to the common man. Photo of Vigyan Bhavan
-              </p>`
+               Located within the university’s lush green campus, the building hosts major conferences, exhibitions, academic ceremonies, and innovation-driven events. With its modern infrastructure and multifunctional spaces, it has become a symbol of Gujarat University’s commitment to advancing science and technology. It also serves as the venue for Startup Fest Gujarat Season 3.0, offering the ideal platform for showcasing ideas and driving the state’s innovation movement. </p>`
 
 
              
@@ -91,7 +84,7 @@ export default function About() {
          <CardContent
           about={sciencecity}
           text={text2}
-          title="2023 Venue : Science City"
+          title="2025 Venue : The GU Atal Kalam Building"
           buttonShow={false}
          />
       </section>
