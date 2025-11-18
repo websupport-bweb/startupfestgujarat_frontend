@@ -219,14 +219,14 @@ export default function Home() {
   return (
     <>
       <section className="" id="target-section">
-        <Container>
+        {/* <Container> */}
           <Row className="justify-content-center">
-            <Col lg={12}>
+            <Col lg={12} className="m-0 p-0">
               <img src={mainBanner} className="w-100" />
             </Col>
 
           </Row>
-        </Container>
+        {/* </Container> */}
       </section>
 
       {/* <section className="hero-banner" id="target-section" style={{

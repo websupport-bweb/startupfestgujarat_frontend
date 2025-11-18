@@ -43,8 +43,8 @@ export default function Footer() {
                         <h4>Fest</h4>
                     </div>
                     <ul className="footer-list">
-                        <li><Link to="/startup">Pitcher</Link></li>
-                        <li><Link to="/startup">Start-Up</Link></li>
+                        <li><Link to="/startup">Exhibitor</Link></li>
+                        <li><Link to="/startup">Sponsor</Link></li>
                         <li><Link to="/startup">Investor</Link></li>
                         <li><Link to="/startup">Visitor</Link></li>
                     </ul>

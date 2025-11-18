@@ -5,6 +5,8 @@ import banner from "../assets/img/pitcher-startup.jpg";
 import cal from "../assets/img/calender.png";
 import img1 from "../assets/img/shilp-icon.png";
 import review from "../assets/img/reviews.png";
+import mainBanner from "../assets/img/banner-1.png";
+
 import rePurchase from "../assets/img/review-purchase.png";
 import { CiStar } from "react-icons/ci";
 import { IoShareSocialOutline } from "react-icons/io5";
@@ -63,7 +65,7 @@ export default function StartupContent() {
         <Container>
           <Row>
             <Col lg={12}>
-              <img src={banner} className="w-100 startup-banner" />
+              <img src={mainBanner} className="w-100 startup-banner" />
             </Col>
           </Row>
 
@@ -177,7 +179,7 @@ export default function StartupContent() {
           <Row>
             <Col lg={12}>
               <h3 className="title w-sm">
-                Start-Up Fest 2.0 Gujarat by Snehshilp Foundation
+                Start-Up Fest 3.0 Gujarat by Snehshilp Foundation
               </h3>
               <Row className=" ">
                 <Col lg={8}>
@@ -227,7 +229,7 @@ export default function StartupContent() {
                       potential of your small business.
                     </p>
                     <p>
-                      Join us at the Start-Up Fest Gujarat 2.0 and take a
+                      Join us at the Start-Up Fest Gujarat 3.0 and take a
                       monumental step towards realizing your entrepreneurial
                       dreams!
                     </p>
@@ -243,7 +245,7 @@ export default function StartupContent() {
                     </p>
                     <h6>Tickets </h6>
                     <p>
-                      Tickets for Start-Up Fest 2.0 Gujarat by Snehshilp
+                      Tickets for Start-Up Fest 3.0 Gujarat by Snehshilp
                       Foundation can be booked here.
                     </p>
 
@@ -283,7 +285,7 @@ export default function StartupContent() {
                           <img src={cal} />
                           <div className="txt">
                             <div className="details-sec">
-                              <h6> 13 December, 2025</h6>
+                              {/* <h6> 13 December, 2025</h6> */}
                               <p>
                                 Sat Dec 13 2025 at 09:00 am to Sun Dec 14 2025
                                 at 11:00 pm (GMT+05:30)
@@ -302,10 +304,9 @@ export default function StartupContent() {
                           <MdLocationPin />
                           <div className="txt">
                             <div className="details-sec">
-                              <h6> Vigyan Bhawan Science City </h6>
+                              {/* <h6> Gujarat University Atal Kalam Building </h6> */}
                               <p>
-                                Vigyan Bhawan Science City, 3FGW+XXW, Divine Rd,
-                                Sola, Ahmedabad, Gujarat 380060, India
+                               Gujarat University Atal Kalam Building, Ahmedabad
                               </p>
                             </div>
                             <div className="mt-2">
@@ -318,9 +319,9 @@ export default function StartupContent() {
                           </div>
                         </div>
                         <div className="iframe-map">
-                          {map && (
+                           {map && (
                             <iframe
-                              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3086.551930808391!2d72.4961889187413!3d23.076971500290245!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9dd1d3d9cd79%3A0xe620538d49e61b0b!2sVigyan%20Bhawan%20Science%20City!5e0!3m2!1sen!2sus!4v1726029670292!5m2!1sen!2sus"
+                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.54275011732!2d72.54009267509234!3d23.040555279161175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84ead1103329%3A0x1a907f7fee8b2b7f!2sGujarat%20University!5e0!3m2!1sen!2sin!4v1763451642149!5m2!1sen!2sin"
                               width="100%"
                               height="200"
                               allowFullScreen

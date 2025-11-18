@@ -30,15 +30,23 @@ export default function RegisterYourself() {
               <Link to="/register" className="theme-btn">Register Now</Link>
             </Col> */}
         </Row>
-        <div class="justify-content-between row-margin row"><div class="col-lg-3 col-md-3 col-12"><a class="no-design card-link-wrapper" href="/register"><div class="col-card"><div class="name-line pitcher-card-div"><h3 class="card-title">Exhibitor</h3><span class="arrow-icon"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"></path></svg></span></div><p>Exhibitors will get a 3 by 3 stall and a chance to <span class="yellow-bg">present their project/idea/</span> startup on stage in front of all the investors.</p></div></a></div><div class="col-lg-3 col-md-3 col-12"><a class="no-design card-link-wrapper" href="/register"><div class="col-card"><div class="name-line pitcher-card-div"><h3 class="card-title">
-          Visitor</h3><span class="arrow-icon">
-            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
-            <path fill="none" d="M0 0h24v24H0z"></path><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z">
-              </path></svg></span></div>
+        <div class="justify-content-between row-margin row">
+          <div class="col-lg-3 col-md-3 col-12">
+            <a class="no-design card-link-wrapper" href="/register">
+            <div class="col-card"><div class="name-line pitcher-card-div">
+              <h3 class="card-title">Exhibitor</h3></div><p>Exhibitors will get a 3 by 3 stall and a chance to <span class="yellow-bg">present their project/idea/</span> startup on stage in front of all the investors.</p></div></a></div><div class="col-lg-3 col-md-3 col-12"><a class="no-design card-link-wrapper" href="/register"><div class="col-card"><div class="name-line pitcher-card-div"><h3 class="card-title">
+          Visitor</h3></div>
               <p>
                Visitors get a chance to connect with exhibitors, explore innovative startups, and <span class="yellow-bg">discover new business opportunities
                   </span> across multiple industries.</p>
-                </div></a></div><div class="col-lg-3 col-md-3 col-12"><a class="no-design card-link-wrapper" href="/register"><div class="col-card"><div class="name-line pitcher-card-div"><h3 class="card-title">Investors</h3><span class="arrow-icon"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"></path></svg></span></div><p>Investors get access to all startups and an opportunity to <span class="yellow-bg">multiply their money by 2–3x.</span></p></div></a></div><div class="col-lg-3 col-md-3 col-12"><a class="no-design card-link-wrapper" href="/register"><div class="col-card"><div class="name-line pitcher-card-div"><h3 class="card-title">Sponsors</h3><span class="arrow-icon"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"></path><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"></path></svg></span></div><p>Sponsors get <span class="yellow-bg">premier visibility and direct access</span> to high-growth founders &amp; capital-ready investors.</p></div></a></div></div>
+                </div></a></div><div class="col-lg-3 col-md-3 col-12">
+                  <a class="no-design card-link-wrapper" href="/register"><div class="col-card">
+                    <div class="name-line pitcher-card-div"><h3 class="card-title">Investors</h3>
+                   
+                     </div><p>Investors get access to all startups and an opportunity to <span class="yellow-bg">multiply their money by 2–3x.</span></p></div></a></div>
+                     <div class="col-lg-3 col-md-3 col-12"><a class="no-design card-link-wrapper" href="/register">
+                     <div class="col-card"><div class="name-line pitcher-card-div"><h3 class="card-title">
+                      Sponsors</h3></div><p>Sponsors get <span class="yellow-bg">premier visibility and direct access</span> to high-growth founders &amp; capital-ready investors.</p></div></a></div></div>
       </Container>
     </section>
 

@@ -96,7 +96,9 @@ body {
     display: flex;
     align-items: center;
 }
-
+.text-white-li .nav-link {
+    padding-right: 20px !important;
+}
 .header .menubar .container {
     display: block;
 }
@@ -495,7 +497,7 @@ section.banner-img-top img {
     font-weight: 400;
     padding-right: 20px;
     line-height: 23px;
-    height: 95px;
+    height: 110px;
 }
 
 .margin-between {
@@ -2450,3 +2452,4 @@ h6.title {
     background-color: #003777;
     color: white !important;
 }
+
