@@ -155,7 +155,7 @@ body {
     z-index: 1050 !important;
     display: none !important;
     float: none !important;
-    min-width: 135px !important;
+    min-width: 200px !important;
     max-width: 400px !important;
 }
 
@@ -2513,3 +2513,7 @@ h6.title {
     display: none !important;
 }
 
+
+.register-drp  .dropdown-menu {
+    min-width: 135px !important
+}

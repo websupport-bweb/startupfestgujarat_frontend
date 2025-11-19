@@ -41,7 +41,7 @@ export default function Header() {
                       <Nav.Link href="/2025-Speakers">2025 Speakers</Nav.Link>
 
                       <NavDropdown title="Highlights" id="navbarScrollingDropdown">
-                        <NavDropdown title="2024 Highlights" id="navbarScrollingDropdown2024">
+                        <NavDropdown title="2024 Highlights" id="navbarScrollingDropdown2024" className="mb-3">
                           <NavDropdown.Item href="/speaker-2024">
                             2024 Moderator And Mentors
                           </NavDropdown.Item>
@@ -55,7 +55,7 @@ export default function Header() {
                             Shark Teens 2024
                           </NavDropdown.Item>
                         </NavDropdown>
-                        <hr className="dropdown-divider my-3" />
+                        {/* <hr className="dropdown-divider my-3" /> */}
                         <NavDropdown title="2023 Highlights" id="navbarScrollingDropdown2023">
                           <NavDropdown.Item href="/highlights">
                             2023 Highlights
@@ -120,7 +120,7 @@ export default function Header() {
                   Register Now
                 </Link> */}
                       </div>
-                      <NavDropdown title="Register" id="navbarScrollingDropdown" className="theme-btn text-white-li ms-4 px-3 px-sm-0" style={{ color: 'white' }}>
+                      <NavDropdown title="Register" id="navbarScrollingDropdown" className="theme-btn text-white-li ms-4 px-3 px-sm-0 register-drp" style={{ color: 'white' }}>
 
                         <NavDropdown.Item href="/register">
                           Exhibitor
