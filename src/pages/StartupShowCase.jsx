@@ -48,7 +48,7 @@ const StartUpShowCase = () => {
       "Greenevon",
       "Ev Expert",
       "Agropreneurs",
-      "Zip.it",
+      "Zippit",
       "Kali-meditech",
       "Dealwala",
       "Delbird",

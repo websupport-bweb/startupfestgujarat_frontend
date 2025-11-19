@@ -1,5 +1,5 @@
-import React , { useState , useEffect}from "react";
-import Slider from 'react-slick';
+import React, { useState, useEffect } from "react";
+import Slider from "react-slick";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,35 +8,35 @@ import bannerImg from "../assets/img/image 15image.png";
 import { MdArrowOutward } from "react-icons/md";
 import venue from "../assets/img/venue.png";
 import { FaArrowDown } from "react-icons/fa6";
-import auth1 from "../assets/img/shilp-icon.png"
-import highbg from "../assets/img/highlights-bg.png"
-import one from "../assets/img/event1.jpg"
-import two from "../assets/img/event2.jpg"
-import three from "../assets/img/event3.jpg"
+import auth1 from "../assets/img/shilp-icon.png";
+import highbg from "../assets/img/highlights-bg.png";
+import one from "../assets/img/event1.jpg";
+import two from "../assets/img/event2.jpg";
+import three from "../assets/img/event3.jpg";
 import { Link } from "react-router-dom";
 import CardContent from "../components/CardContent";
 
 export default function Highlights() {
-      useEffect(() => {
-        window.scrollTo(0, 0);
-      }, []);
-    const [settings] = useState({
-      dots: true,
-      infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      autoplay: false,
-      speed: 3000,
-      autoplaySpeed: 2000,
-      cssEase: 'linear',
-    });
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const [settings] = useState({
+    dots: true,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: false,
+    speed: 3000,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+  });
 
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    const text =`<p class="para">
+  const text = `<p class="para">
                 Snehshilp foundation’s “start-up fest gujarat” highlights the
                 thriving spirit of entrepreneurship and innovation in the
                 region. Founded and driven by the visionary mrs. Snehal
@@ -48,15 +48,17 @@ export default function Highlights() {
                 The annual event brings together start-ups, investors, and
                 Industry collaboration.Leaders for two days, creating an
                 Atmosphere of inspiration and fruitful collaboration.
-              </p>`
+              </p>`;
 
+  const textScience = `
+  <p class="para">
+    Located off the Sarkhej Gandhinagar Highway, Science City is an ambitious initiative of the Government of Gujarat to trigger scientific curiosity in the minds of citizens through entertainment and experiential knowledge. Covering an area of more than 107 hectares, the objective is to create imaginative exhibits, virtual reality activity corners, and live demonstrations in an easily understandable manner.
+  </p>
+  <p class="para">
+    Gujarat Science City is a bold initiative by the Government of Gujarat to realize this vision. The sprawling center in Ahmedabad aims to provide the perfect blend of education and entertainment. It showcases contemporary and imaginative exhibits, minds-on experiences, working models, virtual reality zones, activity corners, labs, and live demonstrations to make science and technology accessible to the common man. (Photo of Vigyan Bhavan)
+  </p>
+`;
 
-              const textScience =` <p class="para">
-            The GU Atal Kalam Building at Gujarat University is a premier center for research, innovation, and entrepreneurship, inspired by the vision of Dr. A. P. J. Abdul Kalam. Housing the Centre for Extension, Research & Innovation (CERI), it provides a collaborative ecosystem where students, researchers, innovators, and industry experts work together on incubation programs, technical research, product prototyping, and academic partnerships.
-              </p>
-              <p class="para">
-             Located within the university’s lush green campus, the building hosts major conferences, exhibitions, academic ceremonies, and innovation-driven events. With its modern infrastructure and multifunctional spaces, it has become a symbol of Gujarat University’s commitment to advancing science and technology. It also serves as the venue for Startup Fest Gujarat Season 3.0, offering the ideal platform for showcasing ideas and driving the state’s innovation movement. </p>`
-    
   return (
     <>
       <section className="">
@@ -64,16 +66,13 @@ export default function Highlights() {
       </section>
 
       <section className="padding-sec light-bg">
-       
-
         <CardContent
-         about={about}
-          text={text}  
+          about={about}
+          text={text}
           title="Startup Fest Gujarat: <br />
                 Where Innovation Meets Investment"
-           buttonShow={false} />
-
-
+          buttonShow={false}
+        />
       </section>
 
       {/* <section className="padding-sec">
@@ -178,13 +177,12 @@ export default function Highlights() {
         </Container>
       </section>
       <section className="padding-sec">
-       
-
         <CardContent
-         about={venue}
-          text={textScience}  
-          title="2025 Venue : The GU Atal Kalam Building"
-           buttonShow={false} />
+          about={venue}
+          text={textScience}
+          title="2023 Venue : Science City"
+          buttonShow={false}
+        />
       </section>
     </>
   );

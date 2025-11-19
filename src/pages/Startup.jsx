@@ -106,7 +106,7 @@ function Startup() {
                   <Col className="outer-border-startup pt-4">
                     <img src={mobile} />
                     <p className="fw-bold pt-3 font-blue">
-                      Innovative Prizes & Investment Oppournities
+                      Innovative Prizes & Investment Opportunities
                     </p>
                   </Col>
                 </Row>

@@ -14,6 +14,7 @@
 
 body {
     font-family: 'Inter';
+    overflow-x: hidden;
 }
 
 .header {
@@ -112,7 +113,7 @@ body {
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
-    padding: 0 0 0 25px;
+    padding: 0 0 0 15px;
 }
 
 .header .menubar .navbar-item a:hover {
@@ -159,6 +160,32 @@ body {
 }
 
 .navbar-nav .dropdown-menu.show {
+    display: block !important;
+}
+
+/* Nested dropdown styling */
+.dropdown-menu .dropdown-menu {
+    position: absolute !important;
+    left: 100% !important;
+    top: 0 !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    display: none !important;
+}
+
+.dropdown-menu .dropdown-toggle::after {
+    content: "";
+}
+
+.dropdown-menu .dropdown-toggle::before {
+    content: "";
+}
+
+.dropdown-menu .dropdown-menu.show {
+    display: block !important;
+}
+
+.dropdown-menu .nav-item.dropdown:hover > .dropdown-menu {
     display: block !important;
 }
 
@@ -380,7 +407,7 @@ body {
 }
 
 .padding-sec {
-    padding: 70px 0;
+    padding: 90px 0;
 }
 
 .title {
@@ -1781,6 +1808,21 @@ p.big-btns {
     margin-right: 20px;
 }
 
+.speaker-card-div-updated {
+    position: absolute;
+    bottom: 0px;
+    background-color: var(--primary-blue);
+    width: calc(100% - 0px);
+    left: 0px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 5px 0px 5px 10px;
+    /* margin-left: 20px; */
+    margin-right: 20px;
+}
+
 .font-sm {
     font-size: 12px;
     font-weight: 500;
@@ -2453,3 +2495,25 @@ h6.title {
     color: white !important;
 }
 
+/* Disable tap behavior on dropdowns - only allow hover */
+@media (hover: hover) and (pointer: fine) {
+    .dropdown-menu .dropdown-toggle {
+        cursor: pointer;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .dropdown-menu .dropdown-toggle {
+        pointer-events: none;
+    }
+}
+
+/* Ensure nested dropdowns only show on hover */
+.dropdown-menu .nav-item.dropdown:not(:hover) > .dropdown-menu {
+    display: none !important;
+}
+
+
+.register-drp  .dropdown-menu {
+    min-width: 135px !important
+}

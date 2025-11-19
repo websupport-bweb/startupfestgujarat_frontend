@@ -6,6 +6,9 @@ import Sandeep from "../assets/img/Sandeep.jpg";
 import user from "../assets/img/user.png";  
 import sneh from "../assets/img/sneh.jpg";  
 import panel from "../assets/img/panel.JPG";  
+import Chiranjeev from "../assets/img/Chiranjeev.webp"
+import Deepali from "../assets/img/Deepali.webp"
+import Hirav from "../assets/img/Hirav.webp"
 
 const Speakers2024 = () => {
     useEffect(() => {
@@ -15,7 +18,7 @@ const Speakers2024 = () => {
     // ===================== DATA =====================
     const sections = [
         {
-            title: "Panelists",
+            title: "Esteemed Guests",
             data: [
                 {
                     name: "Mr. Sandeep Engineer",
@@ -26,13 +29,13 @@ const Speakers2024 = () => {
                 {
                     name: "Mr. Hirav Shah",
                     subtitle:"Astro-Business Strategist",
-                    image: user,
+                    image: Hirav,
                     lg: 4,
                 },
                 {
                     name: "Mr. Chiranjeev Patel",
                     subtitle: "Managing Director, PC Snehal Group",
-                    image: user,
+                    image: Chiranjeev,
                     lg: 4,
                 },
                  
@@ -43,7 +46,7 @@ const Speakers2024 = () => {
             data: [
                 {
                     name: "Ms. Deepali Chatwani",
-                    image: user,
+                    image: Deepali,
                     subtitle: "Business Journalist and Media Host",
                 },
                 
