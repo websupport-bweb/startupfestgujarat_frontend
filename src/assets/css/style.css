@@ -14,6 +14,7 @@
 
 body {
     font-family: 'Inter';
+    overflow-x: hidden;
 }
 
 .header {
@@ -112,7 +113,7 @@ body {
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
-    padding: 0 0 0 25px;
+    padding: 0 0 0 15px;
 }
 
 .header .menubar .navbar-item a:hover {
@@ -406,7 +407,7 @@ body {
 }
 
 .padding-sec {
-    padding: 70px 0;
+    padding: 90px 0;
 }
 
 .title {
@@ -2512,3 +2513,7 @@ h6.title {
     display: none !important;
 }
 
+
+.register-drp  .dropdown-menu {
+    min-width: 135px !important
+}
