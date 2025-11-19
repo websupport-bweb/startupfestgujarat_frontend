@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <div className="header">
       <Navbar expand="lg" className="menubar">
-        <div className="px-5">
+        <div className="px-3">
           <Row className="align-items-center">
             <Col lg={12} md={12} xs={12}>
               <div className="flex">
@@ -37,7 +37,7 @@ export default function Header() {
                     </Offcanvas.Title>
                   </Offcanvas.Header>
                   <Offcanvas.Body className="mobile-menu" >
-                    <Nav className="me-auto my-2 my-lg-0 navbar-item" navbarScroll>
+                    <Nav className="me-auto my-2 my-lg-0 navbar-item align-items-center" navbarScroll>
                       <Nav.Link href="/2025-Speakers">2025 Speakers</Nav.Link>
 
                       <NavDropdown title="Highlights" id="navbarScrollingDropdown">
@@ -105,7 +105,21 @@ export default function Header() {
                       <Nav.Link href="/contact">Contact</Nav.Link>
 
                       <Nav.Link href="/summary">Summary</Nav.Link>
-
+                      <div className="menubar left">
+                        <ul className="navbar-item-left mr-3" style={{ justifyContent: 'center' }}>
+                          <li>
+                            <Link href="/"> <FaRegCalendarAlt />December 13-14,2025</Link>
+                          </li>
+                          <li>
+                            <Link to="https://maps.app.goo.gl/SfCmiCDvEbRHjkpL9?g_st=ic" target="_blank" className="p-0">
+                              <MdLocationPin />
+                              Gujarat University Atal Kalam Building.                     </Link>
+                          </li>
+                        </ul>
+                        {/* <Link to="/register" className="theme-btn">
+                  Register Now
+                </Link> */}
+                      </div>
                       <NavDropdown title="Register" id="navbarScrollingDropdown" className="theme-btn text-white-li ms-4 px-3 px-sm-0" style={{ color: 'white' }}>
 
                         <NavDropdown.Item href="/register">
@@ -124,25 +138,10 @@ export default function Header() {
                     </Nav>
                   </Offcanvas.Body>
                 </Navbar.Offcanvas>
+
               </div>
             </Col>
-            <Col lg={12} md={12} xs={12} className="right-header">
-              <div className="menubar left">
-                <ul className="navbar-item-left mr-3" style={{ justifyContent: 'center' }}>
-                  <li>
-                    <Link href="/"> <FaRegCalendarAlt />December 13-14,2025</Link>
-                  </li>
-                  <li>
-                    <Link to="https://maps.app.goo.gl/SfCmiCDvEbRHjkpL9?g_st=ic" target="_blank">
-                      <MdLocationPin />
-                      Gujarat University Atal Kalam Building.                     </Link>
-                  </li>
-                </ul>
-                {/* <Link to="/register" className="theme-btn">
-                  Register Now
-                </Link> */}
-              </div>
-            </Col>
+
           </Row>
         </div>
       </Navbar>
