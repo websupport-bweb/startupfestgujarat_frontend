@@ -15,7 +15,7 @@ import { Offcanvas } from "react-bootstrap";
 
 export default function Header() {
   return (
-    <div className="header">about
+    <div className="header">
       <Navbar expand="lg" className="menubar">
         <div className="px-5">
           <Row className="align-items-center">
