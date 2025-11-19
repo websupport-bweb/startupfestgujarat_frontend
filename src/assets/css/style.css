@@ -1807,6 +1807,21 @@ p.big-btns {
     margin-right: 20px;
 }
 
+.speaker-card-div-updated {
+    position: absolute;
+    bottom: 0px;
+    background-color: var(--primary-blue);
+    width: calc(100% - 0px);
+    left: 0px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: #ffffff;
+    padding: 5px 0px 5px 10px;
+    /* margin-left: 20px; */
+    margin-right: 20px;
+}
+
 .font-sm {
     font-size: 12px;
     font-weight: 500;
