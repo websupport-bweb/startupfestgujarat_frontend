@@ -162,6 +162,32 @@ body {
     display: block !important;
 }
 
+/* Nested dropdown styling */
+.dropdown-menu .dropdown-menu {
+    position: absolute !important;
+    left: 100% !important;
+    top: 0 !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    display: none !important;
+}
+
+.dropdown-menu .dropdown-toggle::after {
+    content: "";
+}
+
+.dropdown-menu .dropdown-toggle::before {
+    content: "";
+}
+
+.dropdown-menu .dropdown-menu.show {
+    display: block !important;
+}
+
+.dropdown-menu .nav-item.dropdown:hover > .dropdown-menu {
+    display: block !important;
+}
+
 /* .header .menubar ul.navbar-item li a:hover::after {
     content: "";
     position: absolute;

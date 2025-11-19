@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../assets/img/logo2.png";
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { MdLocationPin } from "react-icons/md";
@@ -38,37 +37,38 @@ export default function Header() {
                   </Offcanvas.Header>
                   <Offcanvas.Body className="mobile-menu" >
                     <Nav className="me-auto my-2 my-lg-0 navbar-item" navbarScroll>
-                      <Nav.Link href="/2025-Speakers">2025 Speakers & chief guest</Nav.Link>
+                      <Nav.Link href="/2025-Speakers">2025 Speakers</Nav.Link>
 
-                      <NavDropdown title="2024 Highlights" id="navbarScrollingDropdown">
-
-                        <NavDropdown.Item href="/speaker-2024">
-                          2024 Moderator And Mentors
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/sharktank-2024">
-                          Meet our Sharks
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/pre-series">
-                          Pitching of Pre-series (ask for more than 1 crore)
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/shark-teen">
-                          Shark Teens 2024
-                        </NavDropdown.Item>
-                      </NavDropdown>
-                      <NavDropdown title="2023 Highlights" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="/highlights">
-                          2023 Highlights
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/speakers">
-                          2023 Speaker And Mentors
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/sharkTank">
-                          Shark Tank Featured Startups
-                        </NavDropdown.Item>
-                        <NavDropdown.Item href="/awards">Award Night</NavDropdown.Item>
-                        <NavDropdown.Item href="/start-up-showcase">
-                          2023 Startup Showcase
-                        </NavDropdown.Item>
+                      <NavDropdown title="Highlights" id="navbarScrollingDropdown">
+                        <NavDropdown title="2024 Highlights" id="navbarScrollingDropdown2024">
+                          <NavDropdown.Item href="/speaker-2024">
+                            2024 Moderator And Mentors
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="/sharktank-2024">
+                            Meet our Sharks
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="/pre-series">
+                            Pitching of Pre-series (ask for more than 1 crore)
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="/shark-teen">
+                            Shark Teens 2024
+                          </NavDropdown.Item>
+                        </NavDropdown>
+                        <NavDropdown title="2023 Highlights" id="navbarScrollingDropdown2023">
+                          <NavDropdown.Item href="/highlights">
+                            2023 Highlights
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="/speakers">
+                            2023 Speaker And Mentors
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="/sharkTank">
+                            Shark Tank Featured Startups
+                          </NavDropdown.Item>
+                          <NavDropdown.Item href="/awards">Award Night</NavDropdown.Item>
+                          <NavDropdown.Item href="/start-up-showcase">
+                            2023 Startup Showcase
+                          </NavDropdown.Item>
+                        </NavDropdown>
                       </NavDropdown>
 
                       <NavDropdown
