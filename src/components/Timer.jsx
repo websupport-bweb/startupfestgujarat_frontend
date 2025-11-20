@@ -86,7 +86,9 @@ const Timer = () => {
           <Row className="justify-content-center">
             <Col lg={4} md={4} xs={12}>
               <div className="box text-center fade-item">
-                <MdLocationPin />
+                <div className="timer-icon-wrapper">
+                  <MdLocationPin className="timer-icon" />
+                </div>
                 <h4>Venue</h4>
                 <p>Gujarat University Atal Kalam Building, Ahmedabad.</p>
               </div>
@@ -94,7 +96,9 @@ const Timer = () => {
 
             <Col lg={4} md={4} xs={12}>
               <div className="box text-center fade-item delay-1">
-                <img src={caleder} width={45} />
+                <div className="timer-icon-wrapper">
+                  <img src={caleder} alt="Calendar" className="timer-icon-img" />
+                </div>
                 <h4>Date</h4>
                 <p>13 & 14 December, 2025</p>
               </div>
@@ -102,7 +106,9 @@ const Timer = () => {
 
             <Col lg={4} md={4} xs={12}>
               <div className="box text-center fade-item delay-2">
-                <img src={clock} width={45} />
+                <div className="timer-icon-wrapper">
+                  <img src={clock} alt="Clock" className="timer-icon-img" />
+                </div>
                 <h4>Time</h4>
                 <p>10:00 AM TO 07:00 PM</p>
               </div>

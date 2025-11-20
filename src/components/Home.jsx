@@ -43,7 +43,7 @@ import Testimonial from "./Testimonial";
 import abhijeet from "../assets/img/image4.png";
 import fenil from "../assets/img/image6.png";
 import naman from "../assets/img/image3.png";
-import neil from "../assets/img/Neil.JPEG";
+import neil from "../assets/img/image7.png";
 import raul from "../assets/img/image2.png";
 import sonu from "../assets/img/image1.png";
 import tirth from "../assets/img/image5.png";
@@ -275,7 +275,7 @@ useEffect(() => {
         {/* <Container> */}
       <Row className="justify-content-center m-0 p-0">
   <Col lg={12} className="m-0 p-0">
-    <img src={mainBanner} className="w-100" style={{ marginTop: "55px" }} />
+    <img src={mainBanner} className="w-100" />
   </Col>
 </Row>
 

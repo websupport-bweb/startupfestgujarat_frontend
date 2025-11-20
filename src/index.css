@@ -1,6 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Ensure images display properly */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +23,32 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Fix for responsive images in Bootstrap containers */
+.container img,
+.row img,
+.col img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure slider images display properly */
+.slick-slider img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+  img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }

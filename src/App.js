@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../src/assets/css/style.css';
 import '../src/assets/css/responsive.css';
+import '../src/assets/css/fixes.css';
 // import '../src/assets/scss/_nav.scss';
 import Home from './components/Home';
 import Register from './pages/Register';
