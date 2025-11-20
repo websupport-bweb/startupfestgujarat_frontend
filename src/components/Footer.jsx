@@ -21,6 +21,7 @@ export default function Footer() {
                     {/* <p className='footer-text'>
                     Clarity gives you the blocks and components you need to create a truly professional website.
                     </p> */}
+                    
                    </div>
                 </Col>
 
