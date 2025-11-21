@@ -83,9 +83,9 @@ export default function StartupContent() {
             </Col>
             <Col lg={3} xs={5} className="text-end">
               {/* <button className="theme-btn" onClick={handleShow}> */}
-              <Link to="/register" className="theme-btn">
+              <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn">
                 Get Ticket
-              </Link>
+              </a>
 
               <Modal
                 show={show}
@@ -250,9 +250,9 @@ export default function StartupContent() {
                     </p>
 
                     {/* <button className="theme-btn" onClick={handleShow}> */}
-                    <Link className="theme-btn" to="/register">
+                    <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn">
                       Get Ticket
-                    </Link>
+                    </a>
                   </div>
 
                   {/* <div className="tags">
@@ -460,9 +460,9 @@ export default function StartupContent() {
                 </p>
 
                 <div className="mt-5">
-                  <Link to="/register" className="theme-btn">
+                  <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn">
                     Register Now
-                  </Link>
+                  </a>
                 </div>
               </Col>
               <Col xs={12} md={6} lg={6}>

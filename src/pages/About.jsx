@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import about from "../assets/img/about-img.png";
 import venue from "../assets/img/venue.webp";
-import g20 from "../assets/img/g20.jpg";
-import clock from "../assets/img/clock-icon.png";
-import caleder from "../assets/img/calender-icon.png";
 import { MdLocationPin } from "react-icons/md";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { IoIosArrowDown } from "react-icons/io";
+
 import { Link } from 'react-router-dom';
 import Timer from '../components/Timer';
 import axios from 'axios';

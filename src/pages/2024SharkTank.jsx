@@ -103,11 +103,11 @@ const STFS2024 = () => {
                         >
                             {/* Image Container */}
                             <div className="relative mb-6 overflow-hidden rounded-2xl">
-                                <div className="aspect-square overflow-hidden">
+                                <div className="aspect-[4/3] overflow-hidden">
                                     <img
                                         src={person.image}
                                         alt={person.name}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                                     />
                                 </div>
                                 

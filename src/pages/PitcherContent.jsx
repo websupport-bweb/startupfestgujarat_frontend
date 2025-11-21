@@ -421,9 +421,9 @@ export default function PitcherContent() {
                 </p>
 
                 <div className="mt-5">
-                <Link to="/register" className="theme-btn">
-                    Register Now
-                  </Link>
+                <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn">
+                  Register Now
+                </a>
                 </div>
               </Col>
               <Col xs={12} md={6} lg={6}>

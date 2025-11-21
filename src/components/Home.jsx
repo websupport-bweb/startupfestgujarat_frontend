@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
+import axios from "axios";
 
 // Child Components
 import HeroBanner from "./HomeComponents/HeroBanner";
@@ -335,7 +336,7 @@ export default function Home() {
       )}
 
       {/* Global Animations Styles */}
-      <style jsx global>{`
+      <style>{`
         @keyframes fade-in {
           0% { opacity: 0; }
           100% { opacity: 1; }

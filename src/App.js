@@ -30,7 +30,6 @@ const lazyImport = (importFunc) => {
 
 // Lazy load all page components
 const Home = lazyImport(() => import('./components/Home'));
-const Register = lazyImport(() => import('./pages/Register'));
 const Participants = lazyImport(() => import('./pages/Participants'));
 const StartupContent = lazyImport(() => import('./pages/StartupContent'));
 const Highlights = lazyImport(() => import('./pages/Highlights'));
@@ -74,7 +73,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<Navigate to="/" replace />} />
-            <Route path='/register' element={<Register />} />
             <Route path='/participants' element={<Participants />} />
             <Route path='/startup' element={<StartupContent />} />
             <Route path='/investor' element={<InvestorContent />} />

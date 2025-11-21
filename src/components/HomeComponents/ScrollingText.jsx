@@ -11,7 +11,7 @@ const ScrollingText = () => {
           ✧ LIVE STARTUP PITCHES ✧ KEYNOTE SESSIONS ✧ PANEL DISCUSSIONS ✧ FIRESIDE CHATS ✧ WORKSHOPS ✧ SPEED DATING ✧ EXHIBITIONS ✧ 
         </div>
       </div>
-      <style jsx>{`
+      <style>{`
         @keyframes scroll-text {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }

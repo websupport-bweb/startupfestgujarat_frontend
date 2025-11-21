@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { SponsorHeroBanner, SponsorGrid } from '../components/SponsorComponents';
 
 const sponsors = [
-  { url: require('../assets/img/startup-1.png'), heading: "Sponsor 1" },
+  { url: require('../assets/img/startup.png'), heading: "Sponsor 1" },
   { url: require('../assets/img/vanilla.png'), heading: "Sponsor 2" },
   { url: require('../assets/img/zippit.png'), heading: "Sponsor 3" },
   { url: require('../assets/img/def.png'), heading: "Sponsor 4" },

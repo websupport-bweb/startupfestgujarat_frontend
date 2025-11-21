@@ -15,7 +15,12 @@ const Navbar = ({ onMobileMenuToggle }) => {
 
   // Function to handle navigation
   const handleNavigation = (path) => {
-    navigate(path);
+    if (path === '/register') {
+      // Open external registration page in new tab
+      window.open('http://register.startupfestgujarat.com/', '_blank', 'noopener,noreferrer');
+    } else {
+      navigate(path);
+    }
     // Close all dropdowns
     setHighlightsOpen(false);
     setHigh2024Open(false);

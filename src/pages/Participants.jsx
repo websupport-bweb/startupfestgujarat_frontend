@@ -2,20 +2,12 @@ import React , {useEffect} from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import clock from "../assets/img/clock-icon.png";
-import caleder from "../assets/img/calender-icon.png";
 import { MdLocationPin } from "react-icons/md";
 import parti1 from "../assets/img/participants1.jpg";
-import parti2 from "../assets/img/participants2.png";
-import parti3 from "../assets/img/regis-closed.jpg";
-import img1 from "../assets/img/img-1.png";
-import img2 from "../assets/img/img-2.png";
-import img3 from "../assets/img/img-3.png";
 import { Link } from "react-router-dom";
 import Timer from "../components/Timer";
 import { MdArrowOutward } from "react-icons/md";
 import RegisterYourself from "../components/RegisterYourself";
-import bg from "../assets/img/bg-frame.png"
 import { FaArrowRightLong } from "react-icons/fa6";
 import arrow from "../assets/img/hurry-arrow.png"
 
@@ -25,9 +17,7 @@ export default function Participants() {
   }, []);
   return (
     <>
-      <section className="padding-sec " style={{
-      paddingTop: "150px",   // ⭐ TOP GAP FIXED
-    }}>
+      <section className="padding-sec " >
         <Container>
           <Row className="justify-content-between">
             <Col xs={12} md={5} lg={5}>
@@ -45,9 +35,9 @@ export default function Participants() {
                 journey.
               </p>
               <div className="mt-5">
-                <Link to="/register" className="theme-btn">
+                <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn">
                   Register Now
-                </Link>
+                </a>
               </div>
             </Col>
             <Col xs={12} md={6} lg={6}>
@@ -86,9 +76,9 @@ export default function Participants() {
                   {/* <h2 className="bg-yellow"> */}
                   <div className=" d-flex align-items-center justify-content-center "><h2 className="bg-yellow w-content">₹1,000 </h2></div>
                   {/* </h2> */}
-                  <Link to='/register'>
+                  <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer">
                     <div className='speaker-card-div d-flex'><h5 className='m-3 flex-grow-1 text-left text-decoration-none text-white' >Register Now</h5>
-                      <FaArrowRightLong className="shrink-0 right-arrow" /> </div></Link>
+                      <FaArrowRightLong className="shrink-0 right-arrow" /> </div></a>
                 </div>
               </Col>
 
@@ -108,9 +98,9 @@ export default function Participants() {
                   <div className=" d-flex align-items-center justify-content-center "><h2 className="bg-yellow w-content">₹100 </h2></div>
                   {/* </h2> */}
 
-                  <Link to='/register'>
+                  <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer">
                     <div className='speaker-card-div d-flex'><h5 className='m-3 flex-grow-1 text-left text-decoration-none text-white' >Register Now</h5>
-                      <FaArrowRightLong className="shrink-0 right-arrow" /> </div></Link>
+                      <FaArrowRightLong className="shrink-0 right-arrow" /> </div></a>
 
                 </div>
               </Col>
@@ -155,9 +145,9 @@ export default function Participants() {
                   </ul>
                   </div>
                   <div className="mt-5 text-center">
-                    <Link to="/register" className="theme-btn">
+                    <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn">
                       Register Now
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </Col>
@@ -185,9 +175,9 @@ export default function Participants() {
 
                   </ul></div>
                   <div className="mt-5 text-center">
-                    <Link to="/register" className="theme-btn">
+                    <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn">
                       Register Now
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </Col>
@@ -216,9 +206,9 @@ export default function Participants() {
 
                   </ul></div>
                   <div className="mt-5 text-center">
-                    <Link to="/register" className="theme-btn">
+                    <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn">
                       Register Now
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </Col>
@@ -245,9 +235,9 @@ export default function Participants() {
             </Col>
             <Col lg={4}>
               <div className="banner-btns">
-                <Link to="/register" className="theme-btn-light light-border">
+                <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn-light light-border">
                   Register Now
-                </Link>
+                </a>
               </div>
             </Col>
           </Row>

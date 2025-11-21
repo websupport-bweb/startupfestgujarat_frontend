@@ -424,9 +424,9 @@ export default function InvestorContent() {
                 </p>
 
                 <div className="mt-5">
-                  <Link to="/register" className="theme-btn">
+                  <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn">
                     Register Now
-                  </Link>
+                  </a>
                 </div>
               </Col>
               <Col xs={12} md={6} lg={6}>

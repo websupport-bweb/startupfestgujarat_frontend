@@ -35,13 +35,15 @@ export default function RegisterYourself() {
         </div>
         
         <div className={`mt-6 lg:mt-0 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <Link 
-            to="/register" 
+          <a 
+            href="http://register.startupfestgujarat.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="bg-[#003777] hover:bg-blue-900 text-white px-8 py-2 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl inline-block"
             style={{ textDecoration: 'none' }}
           >
             Register Now
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -49,8 +51,10 @@ export default function RegisterYourself() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
         {/* Exhibitor Card */}
-        <Link 
-          to="/register"
+        <a 
+          href="http://register.startupfestgujarat.com/"
+          target="_blank" 
+          rel="noopener noreferrer"
           className={`group block transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           style={{ textDecoration: 'none' }}
         >
@@ -64,11 +68,13 @@ export default function RegisterYourself() {
               startup on stage in front of all the investors.
             </p>
           </div>
-        </Link>
+        </a>
 
         {/* Visitor Card */}
-        <Link 
-          to="/register"
+        <a 
+          href="http://register.startupfestgujarat.com/"
+          target="_blank" 
+          rel="noopener noreferrer"
           className={`group block transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           style={{ textDecoration: 'none' }}
         >
@@ -82,11 +88,13 @@ export default function RegisterYourself() {
               across multiple industries.
             </p>
           </div>
-        </Link>
+        </a>
 
         {/* Investors Card */}
-        <Link 
-          to="/register"
+        <a 
+          href="http://register.startupfestgujarat.com/"
+          target="_blank" 
+          rel="noopener noreferrer"
           className={`group block transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           style={{ textDecoration: 'none' }}
         >
@@ -99,11 +107,13 @@ export default function RegisterYourself() {
               <span className="bg-[#f8a405] bg-opacity-20 px-1 rounded font-medium">multiply their money by 2–3x.</span>
             </p>
           </div>
-        </Link>
+        </a>
 
         {/* Sponsors Card */}
-        <Link 
-          to="/register"
+        <a 
+          href="http://register.startupfestgujarat.com/"
+          target="_blank" 
+          rel="noopener noreferrer"
           className={`group block transition-all duration-1000 delay-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           style={{ textDecoration: 'none' }}
         >
@@ -117,7 +127,7 @@ export default function RegisterYourself() {
               to high-growth founders & capital-ready investors.
             </p>
           </div>
-        </Link>
+        </a>
 
       </div>
 

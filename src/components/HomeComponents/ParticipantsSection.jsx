@@ -35,8 +35,10 @@ const ParticipantsSection = () => {
           
           {/* CTA Button */}
           <div className="animate-bounce-in delay-700">
-       <Link 
-  to="/register" 
+       <a 
+  href="http://register.startupfestgujarat.com/" 
+  target="_blank" 
+  rel="noopener noreferrer"
   className="no-underline group relative inline-flex items-center justify-center px-8 md:px-12 py-4 md:py-5 text-lg md:text-xl font-bold text-[#003777] rounded-full shadow-2xl bg-white hover:scale-105 transition-all duration-300 overflow-hidden"
 >
   <span className="relative z-10 flex items-center space-x-3">
@@ -45,7 +47,7 @@ const ParticipantsSection = () => {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
     </svg>
   </span>
-</Link>
+</a>
 
           </div>
           

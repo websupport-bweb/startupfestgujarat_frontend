@@ -15,7 +15,6 @@ import imgEvent from "../assets/img/eventPass.png"
 import logo from "../assets/img/logo.png";
 import Modal from 'react-bootstrap/Modal';
 import map from "../assets/img/Map.png";
-import frame from "../assets/img/event-ticket.png";
 import isdCodes from "../components/CountryCode"
 import TicketPopup from "../components/TicketPopup";
 

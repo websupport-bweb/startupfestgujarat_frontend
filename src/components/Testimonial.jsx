@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
@@ -9,41 +8,49 @@ import 'swiper/css/effect-coverflow';
 import SectionTitle from './SectionTitle';
 
 const Testimonial = () => {
-    const [testimonials, setTestimonials] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        fetchTestimonials();
-    }, []);
-
-    const fetchTestimonials = async () => {
-        try {
-            const response = await axios.get(`${process.env.REACT_APP_URL}/api/auth/list/testimonialMaster`);
-            // Filter only active testimonials
-            const activeTestimonials = response.data.filter(testimonial => testimonial.isActive);
-            setTestimonials(activeTestimonials);
-            setLoading(false);
-        } catch (error) {
-            console.error('Error fetching testimonials:', error);
-            setLoading(false);
+    // Static testimonials data
+    const testimonials = [
+        {
+            id: "1",
+            title: "Harsh",
+            designation: "CTO",
+            description: "Very interesting event! The networking opportunities and innovative ideas showcased were truly inspiring. Startup Fest Gujarat has created an amazing platform for entrepreneurs to connect and grow.",
+            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+            isActive: true
+        },
+        {
+            id: "2", 
+            title: "Vaishali",
+            designation: "CEO",
+            description: "An exceptional gathering of brilliant minds and groundbreaking startups. The event provided invaluable insights into the latest industry trends and fostered meaningful collaborations.",
+            image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+            isActive: true
+        },
+        {
+            id: "3",
+            title: "Harshal", 
+            designation: "CEO of Marwiz",
+            description: "Nice event with great organization and fantastic speakers. The startup ecosystem in Gujarat is thriving, and this fest perfectly captures that energy and innovation.",
+            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+            isActive: true
+        },
+        {
+            id: "4",
+            title: "Priya Sharma",
+            designation: "Founder, TechVenture",
+            description: "Startup Fest Gujarat exceeded all my expectations. The quality of mentorship, investor connections, and peer learning opportunities were phenomenal.",
+            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+            isActive: true
+        },
+        {
+            id: "5", 
+            title: "Rajesh Patel",
+            designation: "Angel Investor",
+            description: "As an investor, I was impressed by the caliber of startups presented. The event showcases Gujarat's potential as a major startup hub in India.",
+            image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face",
+            isActive: true
         }
-    };
-
-    if (loading) {
-        return (
-            <div className="flex items-center justify-center py-20">
-                <div className="flex flex-col items-center space-y-4">
-                    <div className="w-12 h-12 border-4 border-[#003777] border-t-transparent rounded-full animate-spin"></div>
-                    <p className="text-lg text-gray-600">Loading testimonials...</p>
-                </div>
-            </div>
-        );
-    }
-
-    // Don't render anything if no testimonials
-    if (testimonials.length === 0) {
-        return null;
-    }
+    ];
 
     return (
         <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50">
@@ -83,19 +90,19 @@ const Testimonial = () => {
                     modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
                     className="pb-16"
                 >
-                    {testimonials.map((testimonial, index) => (
-                        <SwiperSlide key={testimonial._id} className="!w-80 md:!w-96">
+                    {testimonials.map((testimonial) => (
+                        <SwiperSlide key={testimonial.id} className="!w-80 md:!w-96">
                             <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 p-8 mx-4 text-center transform hover:scale-105 border border-gray-100">
                                 
                                 {/* Author Image */}
                                 <div className="mb-6">
                                     <div className="w-20 h-20 mx-auto rounded-full overflow-hidden border-4 border-[#003777] shadow-lg">
                                         <img
-                                            src={`${process.env.REACT_APP_URL}/${testimonial.image}`}
+                                            src={testimonial.image}
                                             alt={testimonial.title}
                                             className="w-full h-full object-cover"
                                             onError={(e) => {
-                                                e.target.src = '/default-avatar.png';
+                                                e.target.src = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face';
                                             }}
                                         />
                                     </div>
@@ -106,6 +113,9 @@ const Testimonial = () => {
                                     <h4 className="text-lg md:text-xl font-bold text-[#003777] mb-1">
                                         {testimonial.title}
                                     </h4>
+                                    <p className="text-sm md:text-base text-gray-600 font-medium">
+                                        {testimonial.designation}
+                                    </p>
                                 </div>
 
                                 {/* Testimonial Content */}
@@ -123,6 +133,19 @@ const Testimonial = () => {
                                     <div className="absolute -bottom-4 -right-2 text-4xl text-[#003777] opacity-20 rotate-180">
                                         "
                                     </div>
+                                </div>
+
+                                {/* Star Rating */}
+                                <div className="flex justify-center mt-6 space-x-1">
+                                    {[...Array(5)].map((_, i) => (
+                                        <svg 
+                                            key={i} 
+                                            className="w-5 h-5 text-yellow-400 fill-current" 
+                                            viewBox="0 0 20 20"
+                                        >
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    ))}
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -145,7 +168,7 @@ const Testimonial = () => {
             </div>
 
             {/* Custom Swiper Pagination Styles */}
-            <style jsx>{`
+            <style>{`
                 .swiper-pagination-bullet {
                     background-color: #003777 !important;
                     opacity: 0.3 !important;

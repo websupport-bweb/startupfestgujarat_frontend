@@ -161,9 +161,9 @@ export default function Visitor() {
           <Row>
             <Col lg={12}>
               <div className="banner-btns">
-                <Link to="/register" className="theme-btn-light light-border">
+                <a href="http://register.startupfestgujarat.com/" target="_blank" rel="noopener noreferrer" className="theme-btn-light light-border">
                   Register Now
-                </Link>
+                </a>
               </div>
             </Col>
           </Row>

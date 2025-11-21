@@ -38,13 +38,25 @@ const CardContent = ({ about, text, title, buttonShow, to, linkToTitle }) => {
 
           {buttonShow && (
             <div className="pt-4">
-              <Link 
-                to={to} 
-                className="bg-[#003777] hover:bg-blue-900 text-white px-8 py-2 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl inline-block"
-                style={{ textDecoration: 'none' }}
-              >
-                {linkToTitle}
-              </Link>
+              {to === "/register" ? (
+                <a 
+                  href="http://register.startupfestgujarat.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="bg-[#003777] hover:bg-blue-900 text-white px-8 py-2 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl inline-block"
+                  style={{ textDecoration: 'none' }}
+                >
+                  {linkToTitle}
+                </a>
+              ) : (
+                <Link 
+                  to={to} 
+                  className="bg-[#003777] hover:bg-blue-900 text-white px-8 py-2 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl inline-block"
+                  style={{ textDecoration: 'none' }}
+                >
+                  {linkToTitle}
+                </Link>
+              )}
             </div>
           )}
 

@@ -8,11 +8,7 @@ import bannerImg from "../assets/img/image 15image.png";
 import { MdArrowOutward } from "react-icons/md";
 import venue from "../assets/img/venue.png";
 import { FaArrowDown } from "react-icons/fa6";
-import auth1 from "../assets/img/shilp-icon.png";
 import highbg from "../assets/img/highlights-bg.png";
-import one from "../assets/img/event1.jpg";
-import two from "../assets/img/event2.jpg";
-import three from "../assets/img/event3.jpg";
 import { Link } from "react-router-dom";
 import CardContent from "../components/CardContent";
 

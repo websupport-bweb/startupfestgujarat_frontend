@@ -43,13 +43,15 @@ const AboutVideoSection = () => {
             </p>
 
             {/* BUTTON */}
-            <Link
-              to="/register"
+            <a
+              href="http://register.startupfestgujarat.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#003777] hover:bg-blue-900 text-white px-10 py-2 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl animate-bounce-in delay-1000 inline-block no-underline"
               style={{ textDecoration: 'none' }}
             >
               Register
-            </Link>
+            </a>
 
           </div>
 
