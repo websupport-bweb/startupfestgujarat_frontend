@@ -48,7 +48,7 @@ const VenueSection = ({ venueImage, venueText }) => {
             />
             
             {/* Features List */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
               {[
                 "Research & Innovation Hub",
                 "Industry Partnerships",
@@ -62,7 +62,7 @@ const VenueSection = ({ venueImage, venueText }) => {
                   <span className="text-sm font-medium text-gray-600">{feature}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Image */}

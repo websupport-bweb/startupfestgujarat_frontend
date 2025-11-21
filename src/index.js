@@ -3,15 +3,33 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { preloadCriticalResources, registerServiceWorker } from './hooks/usePerformance';
+
+// Preload critical resources
+preloadCriticalResources();
+
+// Register service worker for caching
+registerServiceWorker();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Use concurrent features for better performance
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Enhanced performance monitoring
+reportWebVitals((metric) => {
+  // Log to console in development
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Web Vital:', metric);
+  }
+  
+  // Send to analytics in production
+  if (process.env.NODE_ENV === 'production') {
+    // Replace with your analytics endpoint
+    // analytics.send(metric);
+  }
+});
