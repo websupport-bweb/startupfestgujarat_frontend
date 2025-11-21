@@ -127,7 +127,7 @@ export default function Participants() {
                     Sliver
                   </h3>
                   <h3 className="text-center fw-bold font-blue">
-                    ₹10,000
+                    ₹12,000
                   </h3>
                   <h3 className="text-center fs-4 mt-5">
                     2X2 Meter Stall
@@ -157,7 +157,7 @@ export default function Participants() {
                     Gold
                   </h3>
                   <h3 className="text-center fw-bold font-blue">
-                    ₹25,000
+                    ₹30,000
                   </h3>
                   <h3 className="text-center fs-4 mt-5">
                     3x3 Meter Stall
