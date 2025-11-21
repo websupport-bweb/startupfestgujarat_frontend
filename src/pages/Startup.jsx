@@ -107,9 +107,6 @@ function Startup() {
         </div>
       </section>
 
-      {/* Content Banner */}
-      <ContentBanner image={startup1} alt="Startup Journey" />
-
       {/* Opportunities Section */}
       <OpportunitiesSection opportunities={opportunities} />
     </div>

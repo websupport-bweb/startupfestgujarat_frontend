@@ -22,15 +22,13 @@ const OpportunitiesSection = ({ opportunities }) => {
   return (
     <section 
       ref={sectionRef}
-      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20"
+      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10"
     >
-      <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <SectionTitle 
           title="2024 Opportunities" 
           subtitle="Discover the diverse range of opportunities and experiences that await you at Startup Fest Gujarat."
           className="mb-16 text-center"
         />
-      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
         {opportunities.map((opportunity, index) => (
