@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+
+// Import child components
+import HeroBanner from "../components/2024Highlights/HeroBanner";
+import EsteemedGuests from "../components/2024Highlights/EsteemedGuests";
+import Moderator from "../components/2024Highlights/Moderator";
+import Mentors from "../components/2024Highlights/Mentors";
+import MotivationalSpeaker from "../components/2024Highlights/MotivationalSpeaker";
 
 // Import images
 import Sandeep from "../assets/img/Sandeep.jpg";
-import user from "../assets/img/user.png";  
 import sneh from "../assets/img/sneh.jpg";  
 import panel from "../assets/img/panel.JPG";  
 import Chiranjeev from "../assets/img/Chiranjeev.webp"
@@ -16,107 +21,49 @@ const Speakers2024 = () => {
     }, []);
 
     // ===================== DATA =====================
-    const sections = [
+    const esteemedGuests = [
         {
-            title: "Esteemed Guests",
-            data: [
-                {
-                    name: "Mr. Sandeep Engineer",
-                    subtitle: "Managing Director, Astral Limited",
-                    image: Sandeep,
-                     lg: 4,
-                },
-                {
-                    name: "Mr. Hirav Shah",
-                    subtitle:"Astro-Business Strategist",
-                    image: Hirav,
-                    lg: 4,
-                },
-                {
-                    name: "Mr. Chiranjeev Patel",
-                    subtitle: "Managing Director, PC Snehal Group",
-                    image: Chiranjeev,
-                    lg: 4,
-                },
-                 
-            ],
+            name: "Mr. Sandeep Engineer",
+            subtitle: "Managing Director, Astral Limited",
+            image: Sandeep,
         },
         {
-            title: "Moderator",
-            data: [
-                {
-                    name: "Ms. Deepali Chatwani",
-                    image: Deepali,
-                    subtitle: "Business Journalist and Media Host",
-                },
-                
-            ],
+            name: "Mr. Hirav Shah",
+            subtitle: "Astro-Business Strategist",
+            image: Hirav,
         },
         {
-            title: "Mentor",
-            data: Array.from({ length: 9 }, (_, index) => ({
-                image: require(`../assets/img/m${index + 1}.webp`),
-            })),
+            name: "Mr. Chiranjeev Patel",
+            subtitle: "Managing Director, PC Snehal Group",
+            image: Chiranjeev,
         },
-        {
-            title: "Motivational Speaker",
-            data: [
-                {
-                    name: "Sneh Desai ",
-                    image: sneh,
-                    subtitle: "Business Journalist and Media Host",
-                },
-                
-            ],
-        },
-     
     ];
+
+    const moderator = {
+        name: "Ms. Deepali Chatwani",
+        image: Deepali,
+        subtitle: "Business Journalist and Media Host",
+    };
+
+    const mentors = Array.from({ length: 9 }, (_, index) => ({
+        image: require(`../assets/img/m${index + 1}.webp`),
+    }));
+
+    const motivationalSpeaker = {
+        name: "Sneh Desai",
+        image: sneh,
+        subtitle: "Business Journalist and Media Host",
+    };
 
     // ===================== RENDER =====================
     return (
-        <>
-        <section className=""  style={{
-      paddingTop: "120px",   // ⭐ TOP GAP FIXED
-    }}><img src={panel} className="w-100"/></section>
-        <section className="container-bg padding-sec" >
-            {sections.map((section, i) => (
-                <Container key={i} className={i !== 0 ? "pt-5" : ""}>
-                    <Row className="d-flex mb-3">
-                        <Col>
-                            <h3 className="title">{section.title}</h3>
-                        </Col>
-                    </Row>
-
-                    <Row className="g-4">
-                        {section.data.map((person, index) => (
-                            <Col
-                                key={index}
-                                lg={person.lg || 4}
-                                md={6}
-                                xs={12}
-                            >
-                                <div className="speaker-card">
-                                    <img
-                                        src={person.image}
-                                        alt={person.name}
-                                        className="w-100"
-                                    />
-                                    <div className="speaker-card-div">
-                                        <div>
-                                            <p className="mb-0">{person.name}</p>
-                                            {person.subtitle && (
-                                                <p className="mb-0 font-sm">{person.subtitle}</p>
-                                            )}
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                        ))}
-                    </Row>
-                </Container>
-            ))}
-        </section>
-        </>
+        <div className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen">
+            <HeroBanner panelImage={panel} />
+            <EsteemedGuests guests={esteemedGuests} />
+            <Moderator moderator={moderator} />
+            <Mentors mentors={mentors} />
+            <MotivationalSpeaker speaker={motivationalSpeaker} />
+        </div>
     );
 };
 

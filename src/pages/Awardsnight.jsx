@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import { Col, Row } from 'react-bootstrap'
 import img1 from "../assets/img/awards.png";
+import SectionTitle from '../components/SectionTitle';
 
 function Awardsnight() {
   useEffect(() => {
@@ -10,21 +11,11 @@ function Awardsnight() {
   return (
     <>
   
-      <section className="" style={{
-      paddingTop: "140px",   // ⭐ TOP GAP FIXED
+      <section className="mt-10" style={{
     }}>
         <Row className="m-0 p-0">
 
-            <h2
-            style={{
-              fontWeight: "bold",
-              paddingTop: "40px",
-              paddingBottom: "40px",
-              textAlign: "center",
-            }}
-          >
-            Startup Fest Award Night 2023
-          </h2>
+           <SectionTitle title="Startup fest Award Night 2023" className="mb-12 md:mb-16 text-center" />
           <Col lg={12} className="p-0">
             <div className="p-relative">
               <img

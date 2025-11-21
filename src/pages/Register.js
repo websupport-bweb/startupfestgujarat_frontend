@@ -883,9 +883,7 @@ const Register = () => {
 
     return (
         <React.Fragment>
-            <div className="register-bg register-form" style={{
-      paddingTop: "120px",   // ⭐ TOP GAP FIXED
-    }}>
+            <div className="register-bg register-form" >
                 <Container fluid>
 
                     <Row className="">

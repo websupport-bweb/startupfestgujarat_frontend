@@ -1,22 +1,18 @@
-import React, { useEffect, useRef } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import SectionTitle from "./SectionTitle";
 
 const CardContent = ({ about, text, title, buttonShow, to, linkToTitle }) => {
   
+  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // ⭐ Scroll Animation Trigger
   useEffect(() => {
     const section = sectionRef.current;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          section.classList.add("cc-active");
-        } else {
-          section.classList.remove("cc-active");
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.3 }
     );
@@ -26,90 +22,45 @@ const CardContent = ({ about, text, title, buttonShow, to, linkToTitle }) => {
   }, []);
 
   return (
-    <React.Fragment>
-      <Container ref={sectionRef} className="cc-section">
+    <div ref={sectionRef} className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+      
+      <SectionTitle title={title} className="text-center"/>
 
-        <Row className="justify-content-between card-anim-row">
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-12">
 
-          {/* LEFT SIDE */}
-          <Col xs={12} md={12} lg={5}>
+        {/* LEFT SIDE - Content */}
+        <div className={`space-y-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
-            <h3 className="title cc-fade-up">
-              {React.createElement("div", {
-                dangerouslySetInnerHTML: { __html: title },
-              })}
-            </h3>
+          <div 
+            className="prose prose-lg max-w-none text-gray-700 leading-relaxed [&>p]:mb-4 [&>ul]:mb-4 [&>li]:mb-2"
+            dangerouslySetInnerHTML={{ __html: text }}
+          />
 
-            <div className="cc-fade-in">
-              {React.createElement("div", {
-                dangerouslySetInnerHTML: { __html: text },
-              })}
+          {buttonShow && (
+            <div className="pt-4">
+              <Link 
+                to={to} 
+                className="bg-[#003777] hover:bg-blue-900 text-white px-8 py-2 rounded-3xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl inline-block"
+                style={{ textDecoration: 'none' }}
+              >
+                {linkToTitle}
+              </Link>
             </div>
+          )}
 
-            {buttonShow && (
-              <div className="padding-btn cc-zoom-in">
-                <Link to={to} className="theme-btn">
-                  {linkToTitle}
-                </Link>
-              </div>
-            )}
-          </Col>
+        </div>
 
-          {/* RIGHT SIDE IMAGE */}
-          <Col xs={12} md={12} lg={6} className="offset-lg-0">
-            <img src={about} className="w-100 img-padding cc-slide-right" />
-          </Col>
-        </Row>
-      </Container>
+        {/* RIGHT SIDE IMAGE */}
+        <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+          <img 
+            src={about} 
+            alt="Content illustration"
+            className="w-full h-auto rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300" 
+          />
+        </div>
 
-      {/* ⭐ SCROLL ANIMATION CSS ⭐ */}
-      <style>{`
-        
-        /* Base hidden states */
-        .cc-fade-up,
-        .cc-fade-in,
-        .cc-zoom-in,
-        .cc-slide-right {
-          opacity: 0;
-          transform: translateY(25px);
-          transition: 0.8s ease-out;
-        }
-
-        /* Different transforms */
-        .cc-slide-right {
-          transform: translateX(40px);
-        }
-
-        .cc-zoom-in {
-          transform: scale(0.92);
-        }
-
-        /* When Active (scroll visible) */
-        .cc-section.cc-active .cc-fade-up {
-          opacity: 1;
-          transform: translateY(0);
-        }
-
-        .cc-section.cc-active .cc-fade-in {
-          opacity: 1;
-          transform: translateY(0);
-          transition-delay: 0.2s;
-        }
-
-        .cc-section.cc-active .cc-zoom-in {
-          opacity: 1;
-          transform: scale(1);
-          transition-delay: 0.4s;
-        }
-
-        .cc-section.cc-active .cc-slide-right {
-          opacity: 1;
-          transform: translateX(0);
-          transition-delay: 0.3s;
-        }
-
-      `}</style>
-    </React.Fragment>
+      </div>
+    </div>
   );
 };
 

@@ -1,52 +1,26 @@
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import axios from 'axios';
-import { IoIosArrowRoundDown } from "react-icons/io";
-// import video from "../assets/img/video-img.png";
-import video from "../assets/img/video-thumb.png";
-// import video from "../assets/img/video-home.png";
-// import about from "../assets/img/about-img.png";
-import about from "../assets/img/homePic1.JPG";
 
-import clock from "../assets/img/clock-icon.png";
-import caleder from "../assets/img/calender-icon.png";
-import { MdLocationPin } from "react-icons/md";
-import { FaRegCalendarAlt } from "react-icons/fa";
+// Child Components
+import HeroBanner from "./HomeComponents/HeroBanner";
+import ScrollingText from "./HomeComponents/ScrollingText";
+import CountdownCounter from "./HomeComponents/CountdownCounter";
+import AboutVideoSection from "./HomeComponents/AboutVideoSection";
+import StatisticsSection from "./HomeComponents/StatisticsSection";
+import SpeakersSection from "./HomeComponents/SpeakersSection";
+import InnovationSection from "./HomeComponents/InnovationSection";
+import ParticipantsSection from "./HomeComponents/ParticipantsSection";
 
-import { FaRegCheckCircle } from "react-icons/fa";
-// import mainBanner from "../assets/img/home-banner.png";
-import mainBanner from "../assets/img/banner-1.png";
-import img2 from "../assets/img/img-2.png";
-import img3 from "../assets/img/img-3.png";
-import parti1 from "../assets/img/client/1.jpg";
-import parti2 from "../assets/img/client/2.jpg";
-import parti3 from "../assets/img/client/3.jpg";
-import parti4 from "../assets/img/client/4.jpg";
-import agry from "../assets/img/agry.png";
-import food from "../assets/img/food.png";
-import innov from "../assets/img/innov.png";
-import fin from "../assets/img/fin.png";
-import mobile from "../assets/img/mobile.png";
-import edu from "../assets/img/edu.png";
-import { Link } from "react-router-dom";
+// Other Components
 import Timer from "./Timer";
 import RegisterYourself from "./RegisterYourself";
 import CardContent from "./CardContent";
-import "../assets/css/style.css";
-import { FiUsers, FiTrendingUp, FiBriefcase, FiUser } from "react-icons/fi"; 
 import Testimonial from "./Testimonial";
-import abhijeet from "../assets/img/image4.png";
-import fenil from "../assets/img/image6.png";
-import naman from "../assets/img/image3.png";
-import neil from "../assets/img/image7.png";
-import raul from "../assets/img/image2.png";
-import sonu from "../assets/img/image1.png";
-import tirth from "../assets/img/image5.png";
+import SectionTitle from "./SectionTitle";
+import SponsorSection from "./SponsorSection";
+
+// Helpers
+import { aboutImage, sponsorLogosS1, sponsorLogosS2, aboutText } from "../helpers/homepageHelper.ts";
 
 export default function Home() {
   const [mediaData, setMediaData] = useState([]);
@@ -54,6 +28,14 @@ export default function Home() {
   const [lightboxShow, setLightboxShow] = useState(false);
   const [lightboxImage, setLightboxImage] = useState('');
   const [lightboxTitle, setLightboxTitle] = useState('');
+  
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
   const handleScroll = () => {
     window.scrollTo({
       top: document.getElementById("target-section").offsetTop,
@@ -61,132 +43,110 @@ export default function Home() {
     });
   };
 
-  const [timeLeft, setTimeLeft] = useState({
-  days: 0,
-  hours: 0,
-  minutes: 0,
-  seconds: 0,
-});
+  useEffect(() => {
+    const sections = document.querySelectorAll(".scroll-sec");
 
-useEffect(() => {
-  const sections = document.querySelectorAll(".scroll-sec");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          } else {
+            entry.target.classList.remove("active");
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        } else {
-          entry.target.classList.remove("active");
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
+    sections.forEach((sec) => observer.observe(sec));
 
-  sections.forEach((sec) => observer.observe(sec));
+    return () => observer.disconnect();
+  }, []);
 
-  return () => observer.disconnect();
-}, []);
+  useEffect(() => {
+    const targetDate = new Date("2025-12-13T00:00:00");
 
-useEffect(() => {
-  const targetDate = new Date("2025-12-13T00:00:00");
+    const timer = setInterval(() => {
+      const now = new Date();
+      const difference = targetDate - now;
 
-  const timer = setInterval(() => {
-    const now = new Date();
-    const difference = targetDate - now;
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / 1000 / 60) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
 
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((difference / 1000 / 60) % 60);
-    const seconds = Math.floor((difference / 1000) % 60);
+      setTimeLeft({ days, hours, minutes, seconds });
+    }, 1000);
 
-    setTimeLeft({ days, hours, minutes, seconds });
-  }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-  return () => clearInterval(timer);
-}, []);
-
-  // Fetch media and recognition data
+  // Media API calls
   useEffect(() => {
     const fetchMediaData = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_URL}/api/auth/list/mediaAndRecognition`);
-        setMediaData(response.data);
+        const response = await axios.get(`${process.env.REACT_APP_URL}/api/media`);
+        // Ensure response.data is an array
+        const data = Array.isArray(response.data) ? response.data : [];
+        setMediaData(data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching media data:', error);
+        // Set empty array on error
+        setMediaData([]);
         setLoading(false);
       }
     };
 
-    fetchMediaData();
+    // Only fetch if API URL is available
+    if (process.env.REACT_APP_URL) {
+      fetchMediaData();
+    } else {
+      setMediaData([]);
+      setLoading(false);
+    }
   }, []);
 
-  const [settings] = useState({
-    dots: true,
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
-    speed: 500,
-    autoplaySpeed: 4000,
-    cssEase: "linear",
-    responsive: [
-      {
-        breakpoint: 1024, // Screen width less than 1024px
-        settings: {
-          slidesToShow: 3, // Show 3 slides
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 768, // Screen width less than 768px
-        settings: {
-          slidesToShow: 3, // Show 2 slides
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 480, // Screen width less than 480px
-        settings: {
-          slidesToShow: 2, // Show 1 slide
-          slidesToScroll: 2,
-        },
-      },
-    ],
-  });
+  const handleLightboxClose = () => {
+    setLightboxShow(false);
+    setLightboxImage('');
+    setLightboxTitle('');
+  };
 
-  // Dynamic media settings based on available items
+  const handleMediaCardClick = (item) => {
+    setLightboxImage(`${process.env.REACT_APP_URL}/${item.image}`);
+    setLightboxTitle(item.title);
+    setLightboxShow(true);
+  };
+
   const getMediaSettings = () => {
-    const itemCount = mediaData.length;
-    const slidesToShow = Math.min(itemCount, 3); // Show max 3 or available items
+    // Ensure mediaData is an array before getting length
+    const itemCount = Array.isArray(mediaData) ? mediaData.length : 0;
+    const slidesToShow = Math.min(itemCount, 3);
     const slidesToScroll = Math.min(itemCount, 3);
 
     return {
-      dots: itemCount > 1, // Only show dots if more than 1 item
-      infinite: itemCount > 3, // Only infinite scroll if more than 3 items
-      slidesToShow: slidesToShow,
-      slidesToScroll: slidesToScroll,
-      autoplay: itemCount > 1, // Only autoplay if more than 1 item
+      dots: false,
+      infinite: itemCount > 3,
       speed: 500,
-      autoplaySpeed: 4000,
-      cssEase: 'linear',
+      slidesToShow: slidesToShow || 1,
+      slidesToScroll: slidesToScroll || 1,
+      autoplay: itemCount > 1,
+      autoplaySpeed: 2000,
       responsive: [
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: Math.min(itemCount, 2),
-            slidesToScroll: Math.min(itemCount, 2),
-            infinite: itemCount > 2,
+            slidesToShow: Math.min(itemCount, 2) || 1,
+            slidesToScroll: Math.min(itemCount, 2) || 1,
           },
         },
         {
           breakpoint: 768,
           settings: {
-            slidesToShow: Math.min(itemCount, 2),
-            slidesToScroll: Math.min(itemCount, 2),
-            infinite: itemCount > 2,
+            slidesToShow: Math.min(itemCount, 2) || 1,
+            slidesToScroll: Math.min(itemCount, 2) || 1,
           },
         },
         {
@@ -194,732 +154,233 @@ useEffect(() => {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            infinite: itemCount > 1,
           },
         },
       ],
     };
   };
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const handleLightboxClose = () => setLightboxShow(false);
-  const handleLightboxShow = (image, title) => {
-    setLightboxImage(image);
-    setLightboxTitle(title);
-    setLightboxShow(true);
-  };
-
-  const handleMediaCardClick = (item) => {
-    if (item.link) {
-      window.open(item.link, '_blank', 'noopener,noreferrer');
-    } else {
-      handleLightboxShow(`${process.env.REACT_APP_URL}/${item.image}`, item.title);
-    }
-  };
-
-  const gallery = [
-    { url: require("../assets/img/Sponser logo/1.png") },
-    { url: require("../assets/img/Sponser logo/2.png") },
-    { url: require("../assets/img/Sponser logo/3.png") },
-    { url: require("../assets/img/Sponser logo/4.png") },
-    { url: require("../assets/img/Sponser logo/5.png") },
-    { url: require("../assets/img/Sponser logo/6.png") },
-    { url: require("../assets/img/Sponser logo/7.png") },
-    { url: require("../assets/img/Sponser logo/8.png") },
-    { url: require("../assets/img/Sponser logo/9.png") },
-    { url: require("../assets/img/Sponser logo/11.png") },
-    { url: require("../assets/img/Sponser logo/12.png") },
-    { url: require("../assets/img/Sponser logo/13.png") },
-    { url: require("../assets/img/Sponser logo/14.png") },
-    { url: require("../assets/img/Sponser logo/15.png") },
-    { url: require("../assets/img/Sponser logo/16.png") },
-    { url: require("../assets/img/Sponser logo/17.png") },
-    { url: require("../assets/img/Sponser logo/18.png") },
-    { url: require("../assets/img/Sponser logo/19.png") },
-    { url: require("../assets/img/Sponser logo/20.png") },
-    { url: require("../assets/img/Sponser logo/21.png") },
-    { url: require("../assets/img/Sponser logo/22.png") },
-    { url: require("../assets/img/Sponser logo/23.png") },
-  ];
 
 
-  const gallery2 = [
-    { url: require("../assets/img/sponsor2/logo1.png") },
-    { url: require("../assets/img/sponsor2/logo2.png") },
-    { url: require("../assets/img/sponsor2/logo3.png") },
-    { url: require("../assets/img/sponsor2/logo4.png") },
-    { url: require("../assets/img/sponsor2/logo5.png") },
-    { url: require("../assets/img/sponsor2/logo6.png") },
-    { url: require("../assets/img/sponsor2/logo7.png") },
-    { url: require("../assets/img/sponsor2/logo8.png") },
-    { url: require("../assets/img/sponsor2/logo9.png") },
-    // { url: require("../assets/img/sponsor2/logo11.png") },
-    { url: require("../assets/img/sponsor2/logo12.png") },
-    { url: require("../assets/img/sponsor2/logo13.jpg") },
-  ];
-
-
-  const text = `<p class="para"> 
-              Snehshilp Foundation's "Start-Up Fest Gujarat" highlights the thriving spirit of entrepreneurship and innovation in the region. Founded and driven by the visionary Mrs. Snehal Brahmbhatt, the event aims to fill the void in start-up support by providing a comprehensive platform for fresh ideas to flourish.
-              </p>
-              <p class="para">
-              The annual event brings together start-ups, investors, and industry collaboration. Leaders for two days, creating an atmosphere of inspiration and fruitful collaboration.
-              </p>`;
 
   return (
-    <>
-      <section className="scroll-sec" id="target-section">
-        {/* <Container> */}
-      <Row className="justify-content-center m-0 p-0">
-  <Col lg={12} className="m-0 p-0">
-    <img src={mainBanner} className="w-100" />
-  </Col>
-</Row>
+    <div className="min-h-screen overflow-x-hidden">
+      {/* Hero Banner Section */}
+      <HeroBanner />
 
+      {/* Scrolling Text Section */}
+      <ScrollingText />
 
-        {/* </Container> */}
-      </section>
+      {/* Countdown Counter Section */}
+      <CountdownCounter timeLeft={timeLeft} />
 
-      {/* <section className="hero-banner" id="target-section" style={{
-        backgroundImage: `url(${mainBanner})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        // minHeight: '100vh',
-        position: 'relative'
-      }}>
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgb(0 0 0 / 47%)',
-          zIndex: 1
-        }}></div>
-        <div style={{ position: 'relative', zIndex: 2 }}>
-          <Row className="m-0 px-5 justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-            <Col md={8}>
-              <h1 className="text-white display-3 fw-bold mb-4 text-left">
-                Transforming Ideas Into Lasting Impact : <span style={{ color: '#c39649' }}>Season 2</span>
-              </h1>
-              <h4 className="text-white fw-bold mb-4 text-left">Empowering Tomorrow’s Bharat </h4>
-              <h4 className="text-white fw-bold mb-4 text-left">Join Us on December 13 & 14, 2025 </h4>
-            </Col>
-            <Col md={4} >
-              <div className="d-grid gap-3" style={{ justifyContent: 'center' }}>
-                <Link to="/register" className="theme-btn-2">
-                  Visitor
-                </Link>
+      {/* About Video Section */}
+      <AboutVideoSection />
 
-                <Link to="/register" className="theme-btn-2">
-                  Investor
-                </Link>
-
-                <Link to="/register" className="theme-btn-2">
-                  Exhibitor
-                </Link>
-              </div>
-            </Col>
-
-          </Row>
-
-
-        </div>
-      </section> */}
-
-<div 
-  style={{
-    background:
-      "linear-gradient(to right,#C29343 25%, #C29343 50%, #C29343 75%)",
-    padding: "20px 0",
-    overflow: "hidden",
-    whiteSpace: "nowrap",
-  }}
->
-  <div className="scroll-sec"
-    style={{
-      display: "inline-block",
-      animation: "scrollText 18s linear infinite",
-      fontSize: "22px",
-      fontWeight: "700",
-      color: "white",
-    }}
-  >
-      ✧ LIVE STARTUP PITCHES ✧ KEYNOTE SESSIONS ✧ PANEL DISCUSSIONS ✧ FIRESIDE CHATS ✧  
-      WORKSHOPS ✧ SPEED DATING ✧ EXHIBITIONS ✧  
-      LIVE STARTUP PITCHES ✧ KEYNOTE SESSIONS ✧ PANEL DISCUSSIONS ✧ FIRESIDE CHATS ✧  
-      WORKSHOPS ✧ SPEED DATING ✧ EXHIBITIONS ✧
-  </div>
-</div>
-
-
-<div
-  className="counter-box"
-  style={{
-    backgroundColor: "#003777",
-    padding: "20px 0",
-    borderRadius: "10px",
-  }}
->
-  <Row>
-    <Col lg={3} xs={6}>
-      <div className="count border-right">
-        <h3>{timeLeft.days}</h3>
-        <h5 className="subtitle">Days</h5>
-      </div>
-    </Col>
-
-    <Col lg={3} xs={6}>
-      <div className="count border-right">
-        <h3>{timeLeft.hours}</h3>
-        <h5 className="subtitle">Hours</h5>
-      </div>
-    </Col>
-
-    <Col lg={3} xs={6}>
-      <div className="count border-right">
-        <h3>{timeLeft.minutes}</h3>
-        <h5 className="subtitle">Minutes</h5>
-      </div>
-    </Col>
-
-    <Col lg={3} xs={6}>
-      <div className="count">
-        <h3>{timeLeft.seconds}</h3>
-        <h5 className="subtitle">Seconds</h5>
-      </div>
-    </Col>
-  </Row>
-</div>
-
-
-<section
-  className="top-banner scroll-sec"
-  style={{
-    padding: "80px 0",
-    backgroundImage: "url('/vivid-blurred-colorful-wallpaper-background.png')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
->
-  <Container>
-    <Row className="align-items-center">
-
-      {/* LEFT SIDE CONTENT */}
-      <Col lg={7} md={7} sm={12}>
-
-        {/* INITIATED BY */}
-        <div style={{ marginBottom: "15px" }}>
-          <p style={{ margin: 0, fontSize: "20px", fontWeight: "600" }}>
-            Initiated By
-          </p>
-
-          <img
-            src="/snehalshilplogo.svg"
-            alt="logo"
-            style={{ height: "80px", marginTop: "5px" }}
-          />
-        </div>
-
-        {/* MAIN HEADING */}
-           <h2
-          style={{
-            fontWeight: "900",
-            fontSize: "48px",
-            lineHeight: "1.2",
-            marginBottom: "15px",
-            maxWidth: "800px",
-            color: "#000000",
-            letterSpacing: "1px",
-          }}
-        >
-          TRANSFORMING IDEAS <br />
-          INTO LASTING{" "}
-          <span
-            style={{
-              color: "#003777",
-              fontWeight: "900",
-              letterSpacing: "1px",
-            }}
-          >
-            IMPACT
-          </span>
-        </h2>
-
-<p
-  style={{
-    fontSize: "22px",
-    fontWeight: "500",
-    marginBottom: "30px",
-    color: "#1a1a1a",
-  }}
->
-  Empowering Tomorrow’s Bharat
-</p>
-
-        {/* BUTTON */}
-        <Link
-          to="/register"
-          style={{
-            background: "#003777",
-            color: "#fff",
-            padding: "12px 35px",
-            borderRadius: "8px",
-            textDecoration: "none",
-            fontSize: "18px",
-            fontWeight: "600",
-            display: "inline-block",
-          }}
-        >
-          Register
-        </Link>
-
-      </Col>
-
- <Col lg={5} md={5} sm={12}>
-    <div className="p-relative">
-      <img src={video} className="w-100" />
-      <a onClick={handleShow} className="play-btn"></a>
-
-      <Modal
-        show={show}
-        onHide={handleClose}
-        size="xl"
-        className="video-modal"
-        centered
-      >
-        <Modal.Header closeButton></Modal.Header>
-        <Modal.Body className="p-0">
-          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-            <iframe
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%'
-              }}
-              src="https://www.youtube.com/embed/kKACoyYyHpg"
-              title="Startup Fest 2023"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </Modal.Body>
-      </Modal>
-
-      {/* Lightbox Modal for Images */}
-      <Modal
-        show={lightboxShow}
-        onHide={handleLightboxClose}
-        size="xl"
-        className="lightbox-modal"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>{lightboxTitle}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="text-center p-0">
-          <img
-            src={lightboxImage}
-            alt={lightboxTitle}
-            className="img-fluid w-100"
-            style={{ maxHeight: '100vh', objectFit: 'contain' }}
-          />
-        </Modal.Body>
-      </Modal>
-    </div>
-  </Col>
-
-
-    </Row>
-  </Container>
- 
-</section>
-
-
-
-
-      <section className="padding-sec light-bg about-sec">
-        <CardContent about={about} text={text} title="About StartUp Fest" buttonShow={true} to="/about" linkToTitle="Learn More" />
-
-
-      </section>
-
-      <section className="padding-sec">
-        <Timer />
-      </section>
-
-      <div className="container-bg">
-        <RegisterYourself />
-      </div>
-
-      <section className="padding-sec scroll-sec">
-        <div
-          className="stats-bg">
-          <Container>
-            <Row>
-              <Col>
-               <h3
-  className="title mb-5 text-center "
-  style={{ color: "#000" }}
->
-  Empowering India’s{" "}
-  <span className="title-gradient">Startup Ecosystem</span>
-</h3>
-
-              </Col>
-            </Row>
-
-            <Row>
-              {/* Left: Stats Cards */}
-              <Col lg={6} xs={12} className="order-lg-0 order-1">
-                <Row>
-                  {[
-                    {
-                      value: "1000+",
-                      label: "Participants",
-                      icon: <FiUsers size={32} color="#d28b2a" />,
-                    },
-                    {
-                      value: "200+",
-                      label: "Startups",
-                      icon: <FiTrendingUp size={32} color="#4a85e6" />,
-                    },
-                    {
-                      value: "135+",
-                      label: "Investors",
-                      icon: <FiBriefcase size={32} color="#8b6de0" />,
-                    },
-                    {
-                      value: "15000+",
-                      label: "Visitors",
-                      icon: <FiUser size={32} color="#3bb5a1" />,
-                    },
-                  ].map((card, index) => (
-                    <Col lg={5} xs={6} key={index} className="mb-4">
-                      <div className="stat-card">
-                        <div className="icon-wrap">{card.icon}</div>
-                        <p className="stat-value">{card.value}</p>
-                        <h4 className="stat-label">{card.label}</h4>
-                      </div>
-                    </Col>
-                  ))}
-                </Row>
-              </Col>
-
-              {/* Right: SFG Text */}
-              <Col lg={6} xs={12} className="sfg order-lg-1 order-0" style={{ marginTop: 'auto', marginBottom: 'auto' }}>
-                <p className="font-blue">SFG 2025</p>
-                <h3 className="title" style={{ color: "#000" }}>
-                  India Startup Revolution is Here and now! At Ahmedabad{" "}
-                  <span className="title-gradient">December 13 & 14, 2025</span>
-                </h3>
-              </Col>
-            </Row>
-          </Container>
+      {/* About Section */}
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-gray-50">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <CardContent about={aboutImage} text={aboutText} title="About StartUp Fest" buttonShow={true} to="/about" linkToTitle="Learn More" />
         </div>
       </section>
 
-      
-{/* ---------------- SPEAKERS SECTION ---------------- */}
-<Container className="pt-5 speaker-section scroll-sec">
-  <Row className="d-flex justify-content-center mb-4">
-    <Col className="text-center">
-      <h3 className="title" style={{ color: "#000" }}>Speakers</h3>
-    </Col>
-    <div className="title-divider">
-            <span className="line"></span>
-           <span className="icon">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f8a405" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polygon points="12 2 22 12 12 22 2 12 12 2"></polygon>
-  </svg>
-</span>
-
-            <span className="line"></span>
-          </div>
-  </Row>
-
-  <Row className="g-4 justify-content-center">
-    {[
-      { img: neil, name: "Neil Nitin Mukesh", role: "Renowned Indian Actor & Film Producer" },
-      { img: sonu, name: "Sonu Sharma", role: "International Motivational Speaker" },
-      { img: raul, name: "Raul John Aju", role: "India's Young AI Innovator, CEO Project 47x, TEDx Speaker" },
-      { img: naman, name: "Naman Anand", role: "Mentalist, Magician" },
-      { img: abhijeet, name: "Mr. Abhijeet Satani", role: "Scientist" },
-      { img: tirth, name: "Mr. Tirth Patel", role: "CEO & Director – Anand Innovation Pvt Ltd" },
-      { img: fenil, name: "CA. DR. CS. Fenil Shah", role: "WIRC Treasurer, Former ICAI Chairperson, CA-CS Professional" },
-    ].map((spk, index) => (
-      <Col key={index} lg={4} md={6} xs={12} className="d-flex justify-content-center">
-        <div className="speaker-card">
-
-          {/* IMAGE WRAP */}
-          <div className="speaker-img-wrap">
-            <img
-              src={spk.img}
-              alt={spk.name}
-              className="speaker-img"
-            />
-          </div>
-
-          <h4 className="speaker-name">{spk.name}</h4>
-          <p className="speaker-role">{spk.role}</p>
+      {/* Timer Section */}
+      <section className="min-h-[50vh] flex items-center justify-center bg-white ">
+        <div className="w-full max-w-full mx-auto ">
+          <Timer />
         </div>
-      </Col>
-    ))}
-  </Row>
-</Container>
-
-{/* 🔥 PERFECT GAP BETWEEN SECTIONS */}
-<div style={{ height: "80px" }}></div>
-
-
-{/* ---------------- NEXT SECTION ---------------- */}
-<section className="container-bg padding-sec scroll-sec">
-  <Container>
-    <Row>
-      <Col lg={6} md={12} xs={12} className="sfg">
-        <p className="font-blue">SFG 2025</p>
-        <h3 className="title mb-5" style={{ color: "#000" }}>
-          Innovation at Bottom of the Pyramid in Rural Innovations and Entrepreneurship
-        </h3>
-      </Col>
-
-      <Col lg={6} md={12} xs={12}>
-        <Row className="text-center border-custom">
-          <Col>
-            <img src={agry} />
-            <p className="fw-bold pt-3 font-blue">Agri-Tech</p>
-          </Col>
-
-          <Col className="outer-border">
-            <img src={food} />
-            <p className="fw-bold pt-3 font-blue">Food-Tech</p>
-          </Col>
-
-          <Col>
-            <img src={innov} />
-            <p className="fw-bold pt-3 font-blue">Rural Innovation</p>
-          </Col>
-        </Row>
-
-        <Row className="text-center">
-          <Col className="pt-4">
-            <img src={fin} />
-            <p className="fw-bold pt-3 font-blue">Fin-Tech</p>
-          </Col>
-
-          <Col className="outer-border pt-4">
-            <img src={mobile} />
-            <p className="fw-bold pt-3 font-blue">Rural Healthcare</p>
-          </Col>
-
-          <Col className="pt-4">
-            <img src={edu} />
-            <p className="fw-bold pt-3 font-blue">Edu-Tech</p>
-          </Col>
-        </Row>
-
-        <Row>
-          <div className="mt-4 text-center">
-            <p className="fw-bold pt-3 font-blue">Many More...</p>
-          </div>
-        </Row>
-
-      </Col>
-    </Row>
-  </Container>
-</section>
-
-
-      <section className="register-sec dark-bg padding-sec scroll-sec">
-        <Container>
-          <div className="w-70 m-auto">
-            <h3 className="title text-center text-white">
-              Be a Part of Gujarat's Largest Startup Fest Setting the Pace for
-              Innovation!
-            </h3>
-          </div>
-          <Row>
-            <Col lg={12}>
-              {/* <div className="banner-btns">
-                <button className="theme-btn-light light-border">
-                  Register Now
-                </button>
-              </div> */}
-              <div className="banner-btns">
-                <Link to="/register" className="theme-btn-light light-border">
-                  Register Now
-                </Link>
-                {/* <button className="theme-btn-light" onClick={handleScroll}>
-                  <IoIosArrowRoundDown /> Explore More
-                </button> */}
-              </div>
-            </Col>
-          </Row>
-        </Container>
       </section>
-      <Testimonial />
 
-   {/* ⭐⭐⭐ OUR SPONSORS – SEASON 4 ⭐⭐⭐ */}
-<section className="padding-sec sponsor-section scroll-sec">
-  <Container>
-
-    {/* Title */}
-    <Row className="justify-content-center">
-      <Col lg={12} className="text-center">
-        <h2 className="sponsor-title-heading">Sponsors of Season 2</h2>
-
-        <div className="title-divider">
-          <span className="line"></span>
-          <span className="icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f8a405" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polygon points="12 2 22 12 12 22 2 12 12 2"></polygon>
-          </svg>
-        </span>
-   <span className="line"></span>
+      {/* Registration Section */}
+      <section className="flex items-center justify-center bg-gradient-to-br from-blue-50 to-white py-16">
+        <div className="w-full max-w-full mx-auto px-4">
+          <RegisterYourself />
         </div>
-      </Col>
-    </Row>
+      </section>
 
-    {/* Grid */}
-    <Row className="justify-content-center mt-4">
-      {gallery2.map((item, index) => (
-        <Col lg={3} md={4} sm={6} xs={12} key={index} className="mb-4">
-          <div className="sponsor-card">
-            <img
-              src={item.url}
-              alt={`Sponsor ${index}`}
-              className="sponsor-img"
-            />
-          </div>
-        </Col>
-      ))}
-    </Row>
+      {/* Statistics Section */}
+      <StatisticsSection />
 
-  </Container>
-</section>
+      {/* Speakers Section */}
+      <SpeakersSection />
 
-{/* ⭐⭐⭐ SPONSORS OF SEASON 1 ⭐⭐⭐ */}
-<section className="padding-sec sponsor-section scroll-sec">
-  <Container>
-    <Row className="justify-content-center">
-      <Col lg={12} className="text-center">
-        <h2 className="sponsor-title-heading">Sponsors of Season 1</h2>
+      {/* Innovation Section */}
+      <InnovationSection />
 
-          <div className="title-divider">
-            <span className="line"></span>
-           <span className="icon">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f8a405" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polygon points="12 2 22 12 12 22 2 12 12 2"></polygon>
-  </svg>
-</span>
+      {/* Participants Registration Section */}
+      <ParticipantsSection />
 
-            <span className="line"></span>
-          </div>
-      </Col>
-    </Row>
+      {/* Testimonials Section */}
+      <section className="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-gray-50 to-white py-16">
+        <div className="w-full max-w-7xl mx-auto px-4">
+          <Testimonial />
+        </div>
+      </section>
 
-    <Row className="justify-content-center mt-4">
-      {gallery.map((item, index) => (
-        <Col lg={3} md={4} sm={6} xs={12} key={index} className="mb-4">
-          <div className="sponsor-card">
-            <img
-              src={item.url}
-              alt={`Sponsor ${index}`}
-              className="sponsor-img"
-            />
-          </div>
-        </Col>
-      ))}
-    </Row>
-  </Container>
-</section>
+      {/* Sponsors of Season 2 */}
+      <SponsorSection 
+        title="Sponsors of Season 2" 
+        sponsors={sponsorLogosS2}
+        backgroundColor="bg-gradient-to-br from-white via-gray-50 to-blue-50"
+      />
 
-      {mediaData.length > 0 && 
-       <section className="padding-sec light-bg media-recognition-sec">
-        <Container>
-          <Row className="justify-content-center">
-            <Col lg={12}>
-              <h3 className="title text-center">Media & Recognition</h3>
-            </Col>
-            <Col lg={10}>
+      {/* Sponsors of Season 1 */}
+      <SponsorSection 
+        title="Sponsors of Season 1" 
+        sponsors={sponsorLogosS1}
+        backgroundColor="bg-gradient-to-br from-gray-50 via-white to-blue-50"
+      />
+
+      {/* Media & Recognition */}
+      {Array.isArray(mediaData) && mediaData.length > 0 && (
+        <section className="min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-gray-50 py-16 md:py-20">
+          <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionTitle title="Media & Recognition" />
+            
+            <div className="w-full max-w-6xl mx-auto">
               {loading ? (
-                <div className="text-center">
-                  <p>Loading...</p>
+                <div className="flex flex-col items-center justify-center space-y-4 animate-pulse">
+                  <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                  <p className="text-lg text-gray-600">Loading...</p>
                 </div>
-              ) : mediaData.length > 0 ? (
+              ) : Array.isArray(mediaData) && mediaData.length > 0 ? (
                 <div>
                   {mediaData.length === 1 ? (
-                    // Single item - no slider needed
-                    <Row className="justify-content-center">
-                      <Col lg={4} md={6} sm={8}>
-                        <div className="media-card-wrapper">
-                          <div
-                            className="media-card clickable-card"
-                            onClick={() => handleMediaCardClick(mediaData[0])}
-                            style={{ cursor: 'pointer' }}
-                          >
-                            <div className="media-image">
+                    <div className="flex justify-center">
+                      <div className="w-full max-w-md">
+                        <div
+                          className="group cursor-pointer animate-slide-up"
+                          onClick={() => handleMediaCardClick(mediaData[0])}
+                        >
+                          <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 overflow-hidden">
+                            <div className="aspect-video overflow-hidden">
                               <img
                                 src={`${process.env.REACT_APP_URL}/${mediaData[0].image}`}
                                 alt={mediaData[0].title}
-                                className="img-fluid"
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                               />
                             </div>
-                            <div className="media-content">
-                              <h4 className="media-title">{mediaData[0].title}</h4>
+                            <div className="p-6">
+                              <h4 className="text-xl font-bold text-gray-900 group-hover:text-[#003777] transition-colors duration-300">
+                                {mediaData[0].title}
+                              </h4>
                             </div>
                           </div>
                         </div>
-                      </Col>
-                    </Row>
+                      </div>
+                    </div>
                   ) : (
-                    // Multiple items - use slider
-                    <Slider {...getMediaSettings()}>
-                      {mediaData.map((item, index) => (
-                        <div className="media-card-wrapper" key={index}>
-                          <div
-                            className="media-card clickable-card"
-                            onClick={() => handleMediaCardClick(item)}
-                            style={{ cursor: 'pointer' }}
-                          >
-                            <div className="media-image">
-                              <img
-                                src={`${process.env.REACT_APP_URL}/${item.image}`}
-                                alt={item.title}
-                                className="img-fluid"
-                              />
-                            </div>
-                            <div className="media-content">
-                              <h4 className="media-title">{item.title}</h4>
+                    <div className="px-4">
+                      <Slider {...getMediaSettings()}>
+                        {Array.isArray(mediaData) && mediaData.map((item, index) => (
+                          <div key={index} className="px-2">
+                            <div
+                              className="group cursor-pointer"
+                              onClick={() => handleMediaCardClick(item)}
+                            >
+                              <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 overflow-hidden">
+                                <div className="aspect-video overflow-hidden">
+                                  <img
+                                    src={`${process.env.REACT_APP_URL}/${item.image}`}
+                                    alt={item.title}
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                  />
+                                </div>
+                                <div className="p-6">
+                                  <h4 className="text-lg font-bold text-gray-900 group-hover:text-[#003777] transition-colors duration-300">
+                                    {item.title}
+                                  </h4>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
-                    </Slider>
+                        ))}
+                      </Slider>
+                    </div>
                   )}
                 </div>
               ) : (
-                <div className="text-center">
-                  <p>No media content available</p>
+                <div className="text-center py-12">
+                  <p className="text-xl text-gray-600">No media data available</p>
                 </div>
               )}
-            </Col>
-          </Row>
-        </Container>
-      </section>}
+            </div>
+          </div>
+        </section>
+      )}
 
-     
+      {/* Lightbox Modal for Media Images */}
+      {lightboxShow && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm" onClick={handleLightboxClose}>
+          <div className="relative max-w-6xl max-h-[90vh] mx-4" onClick={(e) => e.stopPropagation()}>
+            <button 
+              onClick={handleLightboxClose}
+              className="absolute -top-12 right-0 text-white text-4xl hover:text-gray-300 transition-colors z-10"
+            >
+              ×
+            </button>
+            <div className="bg-white rounded-lg overflow-hidden">
+              <div className="p-4 border-b border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900">{lightboxTitle}</h3>
+              </div>
+              <div className="p-0 text-center">
+                <img
+                  src={lightboxImage}
+                  alt={lightboxTitle}
+                  className="w-full h-auto max-h-[70vh] object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
-    </>
+      {/* Global Animations Styles */}
+      <style jsx global>{`
+        @keyframes fade-in {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+        @keyframes slide-up {
+          0% { opacity: 0; transform: translateY(30px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slide-in-left {
+          0% { opacity: 0; transform: translateX(-30px); }
+          100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slide-in-right {
+          0% { opacity: 0; transform: translateX(30px); }
+          100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes bounce-in {
+          0% { opacity: 0; transform: scale(0.3); }
+          50% { transform: scale(1.05); }
+          70% { transform: scale(0.9); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes bounce-slow {
+          0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+          40% { transform: translateY(-10px); }
+          60% { transform: translateY(-5px); }
+        }
+        
+        .animate-fade-in { animation: fade-in 0.6s ease-out forwards; }
+        .animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
+        .animate-slide-in-left { animation: slide-in-left 0.6s ease-out forwards; }
+        .animate-slide-in-right { animation: slide-in-right 0.6s ease-out forwards; }
+        .animate-bounce-in { animation: bounce-in 0.8s ease-out forwards; }
+        .animate-bounce-slow { animation: bounce-slow 2s ease-in-out infinite; }
+        
+        .delay-150 { animation-delay: 150ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-700 { animation-delay: 700ms; }
+        .delay-1000 { animation-delay: 1000ms; }
+        
+        .animation-delay-150 { animation-delay: 150ms; }
+        .animation-delay-300 { animation-delay: 300ms; }
+        .animation-delay-500 { animation-delay: 500ms; }
+      `}</style>
+    </div>
   );
 }
-

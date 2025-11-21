@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { Container } from "react-bootstrap";
-import clock from "../assets/img/clock-icon.png";
-import caleder from "../assets/img/calender-icon.png";
 import { MdLocationPin } from "react-icons/md";
+import { FaCalendarAlt, FaClock } from "react-icons/fa";
 
 const Timer = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -14,6 +10,7 @@ const Timer = () => {
     seconds: 0,
   });
 
+  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
   const targetDate = new Date("2025-12-13T10:00:00").getTime();
@@ -40,17 +37,12 @@ const Timer = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // ⭐ SCROLL ANIMATION TRIGGER
   useEffect(() => {
     const section = sectionRef.current;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          section.classList.add("anim-active");
-        } else {
-          section.classList.remove("anim-active");
-        }
+        setIsVisible(entry.isIntersecting);
       },
       { threshold: 0.3 }
     );
@@ -61,96 +53,129 @@ const Timer = () => {
   }, []);
 
   return (
-    <div
+    <section
       ref={sectionRef}
-      className="timer-section"
+      className="min-h-screen flex items-center justify-center relative py-16 md:py-20"
       style={{
-        position: "relative",
-        padding: "80px 0",
-        backgroundImage:
-          "url('/vivid-blurred-colorful-wallpaper-background-1.png')",
+        backgroundImage: "url('/vivid-blurred-colorful-wallpaper-background-1.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
-      {/* WHITE OVERLAY */}
-      <div className="overlay"></div>
+      {/* White Overlay */}
+      <div className="absolute inset-0 bg-white/70"></div>
 
-      <Container style={{ position: "relative", zIndex: 2 }}>
-        <div className="content-wrapper">
-
-          <h2 className="title mb-5 text-center fade-item">
-            India Startup Revolution is here and now!
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Main Title */}
+        <div className="text-center mb-16">
+          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-[#003777] leading-tight transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            India Startup Revolution is{" "}
+            <span className="text-[#003777]">
+              here and now!
+            </span>
           </h2>
+        </div>
 
-          <Row className="justify-content-center">
-            <Col lg={4} md={4} xs={12}>
-              <div className="box text-center fade-item">
-                <div className="timer-icon-wrapper">
-                  <MdLocationPin className="timer-icon" />
-                </div>
-                <h4>Venue</h4>
-                <p>Gujarat University Atal Kalam Building, Ahmedabad.</p>
-              </div>
-            </Col>
+        {/* Event Details Cards */}
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12 mb-16">
+          
+          {/* Venue Card */}
+          <div className={`bg-white rounded-3xl p-8 text-center shadow-xl hover:shadow-2xl transform transition-all duration-700 hover:-translate-y-2 border-t-4 border-[#003777] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '200ms' }}>
+            <div className="w-20 h-20 mx-auto mb-6 bg-[#003777] rounded-full flex items-center justify-center shadow-lg">
+              <MdLocationPin className="text-white text-3xl" />
+            </div>
+            <h4 className="text-2xl font-bold text-[#003777] mb-4">Venue</h4>
+            <p className="text-gray-700 leading-relaxed">
+              Gujarat University Atal Kalam Building, Ahmedabad.
+            </p>
+          </div>
 
-            <Col lg={4} md={4} xs={12}>
-              <div className="box text-center fade-item delay-1">
-                <div className="timer-icon-wrapper">
-                  <img src={caleder} alt="Calendar" className="timer-icon-img" />
-                </div>
-                <h4>Date</h4>
-                <p>13 & 14 December, 2025</p>
-              </div>
-            </Col>
+          {/* Date Card */}
+          <div className={`bg-white rounded-3xl p-8 text-center shadow-xl hover:shadow-2xl transform transition-all duration-700 hover:-translate-y-2 border-t-4 border-[#003777] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '400ms' }}>
+            <div className="w-20 h-20 mx-auto mb-6 bg-[#003777] rounded-full flex items-center justify-center shadow-lg">
+              <FaCalendarAlt className="text-white text-3xl" />
+            </div>
+            <h4 className="text-2xl font-bold text-[#003777] mb-4">Date</h4>
+            <p className="text-gray-700 leading-relaxed">
+              13 & 14 December, 2025
+            </p>
+          </div>
 
-            <Col lg={4} md={4} xs={12}>
-              <div className="box text-center fade-item delay-2">
-                <div className="timer-icon-wrapper">
-                  <img src={clock} alt="Clock" className="timer-icon-img" />
-                </div>
-                <h4>Time</h4>
-                <p>10:00 AM TO 07:00 PM</p>
-              </div>
-            </Col>
-          </Row>
-
-          {/* COUNTER */}
-          <div className="counter-box fade-item delay-3">
-            <Row>
-              <Col lg={3} xs={6}>
-                <div className="count border-right">
-                  <h3>{timeLeft.days}</h3>
-                  <h5 className="subtitle">Days</h5>
-                </div>
-              </Col>
-
-              <Col lg={3} xs={6}>
-                <div className="count border-right">
-                  <h3>{timeLeft.hours}</h3>
-                  <h5 className="subtitle">Hours</h5>
-                </div>
-              </Col>
-
-              <Col lg={3} xs={6}>
-                <div className="count border-right">
-                  <h3>{timeLeft.minutes}</h3>
-                  <h5 className="subtitle">Minutes</h5>
-                </div>
-              </Col>
-
-              <Col lg={3} xs={6}>
-                <div className="count">
-                  <h3>{timeLeft.seconds}</h3>
-                  <h5 className="subtitle">Seconds</h5>
-                </div>
-              </Col>
-            </Row>
+          {/* Time Card */}
+          <div className={`bg-white rounded-3xl p-8 text-center shadow-xl hover:shadow-2xl transform transition-all duration-700 hover:-translate-y-2 border-t-4 border-[#003777] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '600ms' }}>
+            <div className="w-20 h-20 mx-auto mb-6 bg-[#003777] rounded-full flex items-center justify-center shadow-lg">
+              <FaClock className="text-white text-3xl" />
+            </div>
+            <h4 className="text-2xl font-bold text-[#003777] mb-4">Time</h4>
+            <p className="text-gray-700 leading-relaxed">
+              10:00 AM TO 07:00 PM
+            </p>
           </div>
 
         </div>
-      </Container>
-    </div>
+
+        {/* Countdown Timer */}
+        <div className={`bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-200 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: '800ms' }}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            
+            {/* Days */}
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-[#003777] to-[#004499] rounded-2xl p-6 md:p-8 shadow-xl transform transition-all duration-500 group-hover:scale-105">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2">
+                  {timeLeft.days}
+                </h3>
+                <div className="w-full h-1 bg-white/30 rounded mb-3"></div>
+                <h5 className="text-sm md:text-base text-white font-bold uppercase tracking-widest">
+                  Days
+                </h5>
+              </div>
+            </div>
+
+            {/* Hours */}
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-[#003777] to-[#004499] rounded-2xl p-6 md:p-8 shadow-xl transform transition-all duration-500 group-hover:scale-105">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2">
+                  {timeLeft.hours}
+                </h3>
+                <div className="w-full h-1 bg-white/30 rounded mb-3"></div>
+                <h5 className="text-sm md:text-base text-white font-bold uppercase tracking-widest">
+                  Hours
+                </h5>
+              </div>
+            </div>
+
+            {/* Minutes */}
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-[#003777] to-[#004499] rounded-2xl p-6 md:p-8 shadow-xl transform transition-all duration-500 group-hover:scale-105">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2">
+                  {timeLeft.minutes}
+                </h3>
+                <div className="w-full h-1 bg-white/30 rounded mb-3"></div>
+                <h5 className="text-sm md:text-base text-white font-bold uppercase tracking-widest">
+                  Minutes
+                </h5>
+              </div>
+            </div>
+
+            {/* Seconds */}
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-[#003777] to-[#004499] rounded-2xl p-6 md:p-8 shadow-xl transform transition-all duration-500 group-hover:scale-105">
+                <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2">
+                  {timeLeft.seconds}
+                </h3>
+                <div className="w-full h-1 bg-white/30 rounded mb-3"></div>
+                <h5 className="text-sm md:text-base text-white font-bold uppercase tracking-widest">
+                  Seconds
+                </h5>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
   );
 };
 

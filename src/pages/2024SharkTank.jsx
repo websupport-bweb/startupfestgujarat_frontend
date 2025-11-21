@@ -1,17 +1,35 @@
-import React, { useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useEffect, useRef, useState } from "react";
+import SectionTitle from "../components/SectionTitle";
 
-import user from "../assets/img/user.png";
 import tanuj from "../assets/img/Tanuj.jpg";
 import yash from "../assets/img/yash.jpg";
 import devansh from "../assets/img/Devansh.jpg";
 import Ronak from "../assets/img/ronak.jpg";
 import arnav from "../assets/img/arnav.jpg";
-import panel from "../assets/img/startuppanel.JPG";
+import panel from "../assets/img/startuppanel.png";
 
 const STFS2024 = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef(null);
+
+    // ⭐ Scroll to top
     useEffect(() => {
         window.scrollTo(0, 0);
+    }, []);
+
+    // ⭐ Intersection Observer for animations
+    useEffect(() => {
+        const section = sectionRef.current;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting);
+            },
+            { threshold: 0.2 }
+        );
+
+        if (section) observer.observe(section);
+        return () => observer.disconnect();
     }, []);
 
     // ===================== DATA =====================
@@ -48,65 +66,86 @@ const STFS2024 = () => {
 
     // ===================== RENDER =====================
     return (
-        <>
-                <section className=""  style={{
-      paddingTop: "120px",   // ⭐ TOP GAP FIXED
-    }}><img src={panel} className="w-100"/></section>
-        
-            {/* ======= INTRO SECTION ======= */}
-            <section className="padding-sec">
-                <Container>
+        <div className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen ">
+            {/* Hero Image Section */}
+            <section className="relative mb-20 ">
+                <img src={panel} alt="Shark Panel" className="w-full h-auto object-contain"/>
+            </section>
+            <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+    <h4 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 leading-relaxed text-center">
+        The Startup Shark Panel brought together some of Gujarat’s most influential investors and 
+        entrepreneurs for an electrifying live pitching experience. Startups presented their ideas to 
+        leading industry figures who shared insights, offered mentorship, and explored real-time investment opportunities.
+    </h4>
+</div>
 
-                    <Row
-                        className="justify-content-center align-items-center"
-                    >
-                        <Col lg={12} xs={12}>
-                            <h4 style={{ fontWeight: 'bolder' }} >The Startup Shark Panel brought together some of Gujarat’s most influential investors and entrepreneurs for an electrifying live pitching experience.
-                                Startups presented their ideas to leading industry figures who shared insights,
-                                offered mentorship, and explored real-time investment opportunities.</h4>
-                        </Col>
+            {/* Main Content Section */}
+            <section 
+                ref={sectionRef}
+                className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+            >
+                <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <SectionTitle 
+                        title="Meet Our Sharks 2024" 
+                        subtitle="The Startup Shark Panel brought together some of Gujarat's most influential investors and entrepreneurs for an electrifying live pitching experience. Startups presented their ideas to leading industry figures who shared insights, offered mentorship, and explored real-time investment opportunities."
+                        className="mb-16 text-center"
+                    />
+                </div>
 
-                    </Row>
-
-                    <Row className="g-4 mt-4 justify-content-center">
-                        {section.map((person, index) => (
-                            <Col
-                                key={index}
-                                lg={person.lg || 4}
-                                md={6}
-                                xs={12}
-                            >
-                                <div className="speaker-card">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                    {section.map((person, index) => (
+                        <div 
+                            key={index}
+                            className={`group bg-white rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-4 transition-all duration-500 border-t-4 border-[#003777] ${
+                                isVisible ? 'animate-slide-up' : ''
+                            }`}
+                            style={{ animationDelay: `${300 + index * 150}ms` }}
+                        >
+                            {/* Image Container */}
+                            <div className="relative mb-6 overflow-hidden rounded-2xl">
+                                <div className="aspect-square overflow-hidden">
                                     <img
                                         src={person.image}
                                         alt={person.name}
-                                        className="w-100"
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                    <div className="speaker-card-div">
-                                        <div>
-                                            <p className="mb-0">{person.name}</p>
-                                            {person.subtitle && (
-                                                <p className="mb-0 font-sm">{person.subtitle}</p>
-                                            )}
-                                        </div>
-                                    </div>
                                 </div>
-                            </Col>
-                        ))}
-                    </Row>
-                    <Row
-                        className="justify-content-center align-items-center mt-5"
-                    >
-                        <Col lg={12} xs={12}>
-                            <h4 style={{ fontWeight: 'bolder' }} >The session created an inspiring space where innovation met opportunity, empowering startups to connect, collaborate, and grow with the guidance of Gujarat’s leading business visionaries.</h4>
-                        </Col>
+                                
+                                {/* Overlay Effect */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#003777]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
 
-                    </Row>
-                </Container>
+                            {/* Content */}
+                            <div className="text-center space-y-3">
+                                <h4 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-[#003777] transition-colors duration-300">
+                                    {person.name}
+                                </h4>
+                                {person.subtitle && (
+                                    <p className="text-sm md:text-base text-gray-600 leading-relaxed font-medium">
+                                        {person.subtitle}
+                                    </p>
+                                )}
+                            </div>
+                            
+                            {/* Hover Border Effect */}
+                            <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-[#003777] transition-colors duration-300"></div>
+                        </div>
+                    ))}
+                </div>
+                
+                {/* Closing Message */}
+                <div className={`mt-20 text-center max-w-4xl mx-auto transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <div className="bg-gradient-to-br from-[#003777] to-blue-700 rounded-3xl p-8 text-white shadow-xl">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                            Innovation Meets Opportunity
+                        </h3>
+                        <p className="text-lg leading-relaxed opacity-90">
+                            The session created an inspiring space where innovation met opportunity, empowering startups to connect, collaborate, and grow with the guidance of Gujarat's leading business visionaries.
+                        </p>
+                    </div>
+                </div>
             </section>
-
-
-        </>
+        </div>
     );
 };
 

@@ -73,9 +73,7 @@ function Contact() {
 <div
     className="padding-sec contact-anim-section"
     ref={sectionRef}
-    style={{
-      paddingTop: "150px",   // ⭐ TOP GAP FIXED
-    }}
+ 
   >
       <Container>
         <Row>

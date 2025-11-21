@@ -22,9 +22,7 @@ export default function EventFlow() {
 
 <Container>
   <Row>
-  <h3 className="title mb-5 text-center"   style={{
-      paddingTop: "150px",   // ⭐ TOP GAP FIXED
-    }}>
+  <h3 className="title mb-5 text-center" >
         {/* Event Flow! */}
         Comming Soon
       </h3>

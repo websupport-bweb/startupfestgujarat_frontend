@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import Timer from '../components/Timer';
 import axios from 'axios';
 import CardContent from '../components/CardContent';
+import { VenueSection, CtaSection } from '../components/AboutComponents';
 
 
 export default function About() {
@@ -58,83 +59,31 @@ export default function About() {
              
             
   return (
-    <>
-     
-
-      <section className="padding-sec light-bg about-sec"   style={{
-      paddingTop: "150px",   // ⭐ TOP GAP FIXED
-    }}>
-        
-
-        <CardContent
-          about={about}
-          text={text}
-          title={`<p class="txt-blue sm-title">
-            About us
-            </p>
-              <h3 class="title">The Largest Business Expert</h3>`}
-          buttonShow={true}
-          to="/register" linkToTitle="Register Now" />
+    <div className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen overflow-x-hidden">
+      {/* About Section */}
+      <section className="w-full py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <CardContent
+            about={about}
+            text={text}
+            title="About Us - The Largest Business Expert"
+            buttonShow={true}
+            to="/register" 
+            linkToTitle="Register Now" 
+          />
+        </div>
       </section>
 
-      <section className="padding-sec">
-        <Timer />
+      {/* Timer Section */}
+      <section className="w-full py-20 bg-white">
+          <Timer />
       </section>
 
-      <section className="padding-sec light-bg">
-        <Container>
-          <Row className="mb-5">
-            <Col xs={12}>
-              <h3 className="title">2025 Venue : The GU Atal Kalam Building</h3>
-            </Col>
-          </Row>
-        </Container>
+      {/* Venue Section */}
+      <VenueSection venueImage={venue} venueText={text2} />
 
-        <Container fluid className="px-0">
-          <Row className="g-0">
-            <Col xs={12} md={12} lg={6} className="d-flex align-items-center">
-              <div className="px-4">
-                <p className="para">
-                  The GU Atal Kalam Building at Gujarat University is a premier center for research, innovation, and entrepreneurship, inspired by the vision of Dr. A. P. J. Abdul Kalam. Housing the Centre for Extension, Research & Innovation (CERI), it provides a collaborative ecosystem where students, researchers, innovators, and industry experts work together on incubation programs, technical research, product prototyping, and academic partnerships.
-                </p>
-              </div>
-            </Col>
-            <Col xs={12} md={12} lg={6}>
-              <img src={venue} className="w-100" alt="Venue" />
-            </Col>
-          </Row>
-
-          <Row className="g-0 mt-5">
-            <Col xs={12} className="d-flex align-items-center">
-              <div className="px-4 w-100">
-                <p className="para">
-                  Located within the university's lush green campus, the building hosts major conferences, exhibitions, academic ceremonies, and innovation-driven events. With its modern infrastructure and multifunctional spaces, it has become a symbol of Gujarat University's commitment to advancing science and technology. It also serves as the venue for Startup Fest Gujarat Season 3.0, offering the ideal platform for showcasing ideas and driving the state's innovation movement.
-                </p>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
-      <section className="register-sec dark-bg padding-sec">
-        <Container>
-          <div className="w-70 m-auto">
-            <h3 className="title text-center text-white">
-              Be a Part of Gujarat's Largest Startup Fest Setting the Pace for
-              Innovation!
-            </h3>
-          </div>
-          <Row>
-            <Col lg={12}>
-              <div className="banner-btns">
-                <Link to="/register" className="theme-btn-light light-border">
-                  Register Now
-                </Link>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-    </>
+      {/* Call to Action Section */}
+      <CtaSection />
+    </div>
   );
 }

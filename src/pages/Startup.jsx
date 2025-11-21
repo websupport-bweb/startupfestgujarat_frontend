@@ -1,5 +1,4 @@
-import React  , {useEffect} from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import React, { useEffect } from "react";
 import img1 from "../assets/img/startup-banner.jpg";
 import agry from "../assets/img/mic.png";
 import food from "../assets/img/network.png";
@@ -15,8 +14,12 @@ import opp6 from "../assets/img/opp6.png";
 import funding from "../assets/img/startup2.png";
 import img3 from "../assets/img/image.png";
 import startup1 from "../assets/img/startup-img2.png";
-import { Link } from "react-router-dom";
 import CardContent from "../components/CardContent";
+import HeroBanner from "../components/StartupComponents/HeroBanner";
+import GlanceSection from "../components/StartupComponents/GlanceSection";
+import QuoteSection from "../components/StartupComponents/QuoteSection";
+import OpportunitiesSection from "../components/StartupComponents/OpportunitiesSection";
+import ContentBanner from "../components/StartupComponents/ContentBanner";
 
 const text = ` <p class="para">
                 Startup Fest Gujarat Season 1 delivered unparalleled value with
@@ -37,6 +40,14 @@ const text2 = ` <p class="para">
             `
 
 
+// Data for child components
+const glanceFeatures = [
+  { icon: agry, title: "World-class Content" },
+  { icon: food, title: "Curated Networking" },
+  { icon: fin, title: "Media Spotlight & Exposure" },
+  { icon: mobile, title: "Investment Opportunities" },
+];
+
 const opportunities = [
   { img: opp1, title: "Prestige Sessions" },
   { img: opp2, title: "Awards & Pitches" },
@@ -54,135 +65,54 @@ function Startup() {
   }, []);
 
   return (
-    <>
-      <section className="banner-img-top "    style={{
-      paddingTop: "120px",   // ⭐ TOP GAP FIXED
-    }}>
-        <Row className="m-0 p-0">
-          <Col lg={12} className="p-0">
-            <div className="p-relative">
-              <img src={img1} className="w-100" alt="Responsive Image" />
-            </div>
-          </Col>
-        </Row>
+    <div className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen overflow-x-hidden">
+      {/* Hero Banner */}
+      <HeroBanner image={img1} alt="Startup Fest Gujarat Banner" />
+
+      {/* About Section with CardContent */}
+      <section className="w-full py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <CardContent
+            about={about}
+            text={text}
+            title="Empowering Tomorrow's Innovators"
+            buttonShow={true}
+            to="/register" 
+            linkToTitle="Register Now" 
+          />
+        </div>
       </section>
 
-      <section className="padding-sec light-bg about-sec">
-     
+      {/* Glance Section */}
+      <GlanceSection features={glanceFeatures} />
 
-        <CardContent
-          about={about}
-          text={text}
-          title="Empowering Tomorrow's Innovators"
-          buttonShow={true}
-          to="/register" linkToTitle="Register Now" />
+      {/* Quote Section */}
+      <QuoteSection 
+        image={img3}
+        quote="I knew that if I failed I wouldn't regret that, but I knew the one thing I might regret is not trying."
+        author="Jeff Bezos, Founder of Amazon"
+      />
+
+      {/* Investment Section with CardContent */}
+      <section className="w-full py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <CardContent
+            about={funding}
+            text={text2}
+            title="Over ₹532 Crores in Investments!"
+            buttonShow={true}
+            to="/register" 
+            linkToTitle="Register Now" 
+          />
+        </div>
       </section>
 
-      <section>
-        <section className="padding-sec">
-          <Container>
-            <Row>
-              <Col lg={5} xs={12} className="sfg align-content-center">
-                <h3 className="title">Startupfest At A Glance</h3>
-              </Col>
-              <Col lg={6} xs={12} className="offset-lg-1">
-                <Row className="text-center border-custom">
-                  <Col>
-                    <img src={agry} />
-                    <p className="fw-bold pt-3 font-blue ">
-                      World-class content
-                    </p>
-                  </Col>
-                  <Col className="outer-border-startup">
-                    <img src={food} />
-                    <p className="fw-bold pt-3 font-blue">Curated Networking</p>
-                  </Col>
-                </Row>
-                <Row className="text-center">
-                  <Col className="pt-4">
-                    <img src={fin} />
-                    <p className="fw-bold pt-3 font-blue ">
-                      Media spotlight and Exposure
-                    </p>
-                  </Col>
-                  <Col className="outer-border-startup pt-4">
-                    <img src={mobile} />
-                    <p className="fw-bold pt-3 font-blue">
-                      Innovative Prizes & Investment Opportunities
-                    </p>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </Container>
-        </section>
-      </section>
+      {/* Content Banner */}
+      <ContentBanner image={startup1} alt="Startup Journey" />
 
-      <section className="register-sec dark-bg padding-sec showcase">
-        <Container>
-          <img src={img3} />
-          <div className="overlay padding-sec">
-            <div className="w-70 m-auto content">
-              <h5 className="title text-center text-white">
-                "I knew that if I failed I wouldn’t regret that, but I knew the one thing I might regret is not trying."</h5>
-              <h3>
-                ~– Jeff Bezos, Founder of Amazon
-              </h3>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="padding-sec">
-       
-
-        <CardContent
-          about={funding}
-          text={text2}
-          title="Over ₹532 Crores in Investments!"
-          buttonShow={true}
-          to="/register" linkToTitle="Register Now" />
-      </section>
-
-      <section>
-        <Row className="m-0 p-0">
-          <Col lg={12} className="p-0">
-            <div className="p-relative">
-              <img
-                src={startup1}
-                className="w-100 inner-banner"
-                alt="Responsive Image"
-              />
-            </div>
-          </Col>
-        </Row>
-      </section>
-
-      <section className="padding-sec">
-        <Container>
-          <Row>
-            <Col lg={12}>
-              <div className="text-center">
-                <h4 className="title mb-mob">2023 Opportunities</h4>
-              </div>
-            </Col>
-            {opportunities.map((opportunity, index) => (
-              <Col lg={4} key={index}>
-                <div className="box-opp">
-                  <div className="img-opp">
-                    <img src={opportunity.img} className="w-100" alt={opportunity.title} />
-                  </div>
-                  <div className="text-opp">
-                    <h6>{opportunity.title}</h6>
-                  </div>
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </section>
-
-    </>
+      {/* Opportunities Section */}
+      <OpportunitiesSection opportunities={opportunities} />
+    </div>
   );
 }
 

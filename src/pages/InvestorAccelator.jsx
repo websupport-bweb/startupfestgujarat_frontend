@@ -1,11 +1,9 @@
-import React , {useEffect} from 'react'
-import { Col, Container, Row } from "react-bootstrap";
+import React, { useEffect } from 'react';
 import banner from "../assets/img/invest-banner.png";
 import img1 from "../assets/img/investor11.png";
 import img2 from "../assets/img/investor2.jpg";
 import a1 from "../assets/img/accelator1.jpg";
 import img3 from "../assets/img/bg-img-invest.png";
-import { Link } from 'react-router-dom';
 import opp1 from "../assets/img/opp1.png";
 import opp2 from "../assets/img/opp2.png";
 import opp3 from "../assets/img/opp3.png";
@@ -13,6 +11,7 @@ import opp4 from "../assets/img/opp4.png";
 import opp5 from "../assets/img/opp5.png";
 import opp6 from "../assets/img/opp6.png";
 import CardContent from '../components/CardContent';
+import { InvestorHeroBanner, InvestorQuoteSection, InvestorOpportunities, InvestorContentBanner } from '../components/InvestorComponents';
 
 
 export default function InvestorAccelator() {
@@ -44,97 +43,50 @@ export default function InvestorAccelator() {
   ];
 
   return (
-    <>
+    <div className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen overflow-x-hidden">
+      {/* Hero Banner */}
+      <InvestorHeroBanner image={banner} alt="Investor & Accelerator Banner" />
 
-      <section className="banner-img-top"    style={{
-      paddingTop: "120px",   // ⭐ TOP GAP FIXED
-    }}>
-        <Row className="m-0 p-0">
-          <Col lg={12} className="p-0">
-            <div className="p-relative">
-              <img src={banner} className="w-100" alt="Responsive Image" />
-            </div>
-          </Col>
-        </Row>
-      </section>
-      {/* <section className="breadcrumb-img">
-        <img src={banner} className="w-100" />
-      </section> */}
-
-      <section className="padding-sec light-bg about-sec">
-       
-
-        <CardContent
-          about={img1}
-          text={text}
-          title="Where Startups Meet Leading Investor"
-          buttonShow={true}
-          to="/register" linkToTitle="Register Now" />
-      </section>
-      <section className="register-sec padding-sec showcase">
-        <Container>
-          <img src={img3} />
-          <div className="overlay padding-sec">
-            <div className="w-70 m-auto content">
-              <h5 className="title text-center text-white">
-                I'm convinced that about half of what separates the successful entrepreneurs from the non-successful ones is pure perseverance.
-              </h5>
-              <h3>
-                ~–Steve Jobs, Co-founder of Apple
-              </h3>
-            </div>
-
-          </div>
-        </Container>
-      </section>
-      <section className="padding-sec">
-      
-
-        <CardContent
-          about={img2}
-          text={text2}
-          title="Engage with Leading Startups from Elite Programs"
-          buttonShow={true}
-          to="/register" linkToTitle="Register Now" />
+      {/* First Content Section */}
+      <section className="w-full py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <CardContent
+            about={img1}
+            text={text}
+            title="Where Startups Meet Leading Investors"
+            buttonShow={true}
+            to="/register" 
+            linkToTitle="Register Now" 
+          />
+        </div>
       </section>
 
-      <section>
-        <Row className="m-0 p-0">
-          <Col lg={12} className="p-0">
-            <div className="p-relative">
-              <img
-                src={a1}
-                className="w-100 inner-banner"
-                alt="Responsive Image"
-              />
-            </div>
-          </Col>
-        </Row>
+      {/* Quote Section */}
+      <InvestorQuoteSection 
+        image={img3}
+        quote="I'm convinced that about half of what separates the successful entrepreneurs from the non-successful ones is pure perseverance."
+        author="Steve Jobs, Co-founder of Apple"
+      />
+
+      {/* Second Content Section */}
+      <section className="w-full py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <CardContent
+            about={img2}
+            text={text2}
+            title="Engage with Leading Startups from Elite Programs"
+            buttonShow={true}
+            to="/register" 
+            linkToTitle="Register Now" 
+          />
+        </div>
       </section>
 
-      <section className="padding-sec">
-        <Container>
-          <Row>
-            <Col lg={12}>
-              <div className="text-center">
-                <h4 className="title mb-mob">2023 Opportunities</h4>
-              </div>
-            </Col>
-            {opportunities.map((opportunity, index) => (
-              <Col lg={4} key={index}>
-                <div className="box-opp">
-                  <div className="img-opp">
-                    <img src={opportunity.img} className="w-100" alt={opportunity.title} />
-                  </div>
-                  <div className="text-opp">
-                    <h6>{opportunity.title}</h6>
-                  </div>
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </section>
-    </>
+      {/* Content Banner */}
+      <InvestorContentBanner image={a1} alt="Accelerator Programs" />
+
+      {/* Opportunities Section */}
+      <InvestorOpportunities opportunities={opportunities} />
+    </div>
   );
 }

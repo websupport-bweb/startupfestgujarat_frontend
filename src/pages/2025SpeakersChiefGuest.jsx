@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useEffect, useRef, useState } from "react";
+import SectionTitle from "../components/SectionTitle";
 
 // Images
 import abhijeet from "../assets/img/Abhijeet-Satani.jpg";
@@ -11,6 +11,7 @@ import sonu from "../assets/img/SonuSharma.png";
 import tirth from "../assets/img/tirth.jpeg";
 
 const SpeakersChiefGuest = () => {
+    const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
 
     // ⭐ Scroll to top
@@ -18,21 +19,19 @@ const SpeakersChiefGuest = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // ⭐ SCROLL ANIMATION OBSERVER (NO ERROR)
+    // ⭐ Intersection Observer for animations
     useEffect(() => {
-        if (!sectionRef.current) return;
-        const sec = sectionRef.current;
+        const section = sectionRef.current;
 
-        const obs = new IntersectionObserver(
+        const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) sec.classList.add("speaker-active");
-                else sec.classList.remove("speaker-active");
+                setIsVisible(entry.isIntersecting);
             },
             { threshold: 0.2 }
         );
 
-        obs.observe(sec);
-        return () => obs.disconnect();
+        if (section) observer.observe(section);
+        return () => observer.disconnect();
     }, []);
 
     // All Speakers Data
@@ -70,119 +69,99 @@ const SpeakersChiefGuest = () => {
     ];
 
     return (
-        <>
-            <section className="container-bg padding-sec speakers-anim-section" ref={sectionRef}   style={{
-      paddingTop: "160px",   // ⭐ TOP GAP FIXED
-    }}>
-                {/* ⭐ Chief Guest */}
-                <Container>
-                    <Row className="d-flex justify-content-center">
-                        <Col className="text-center fade-up">
-                            <h3 className="title">Chief Guest</h3>
-                        </Col>
-                    </Row>
+        <div className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen  py-14">
+            
+            {/* Chief Guest Section */}
+            <section 
+                ref={sectionRef}
+                className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20"
+            >
+                <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <SectionTitle title="Chief Guest" className="mb-16 text-center"/>
+                </div>
 
-                    <Row className="g-4 justify-content-center">
-                        <Col lg={4} md={6} xs={12} className="slide-up delay-1">
-                            <div className="speaker-card">
-                                <img src={neil} alt="Neil Nitin Mukesh" className="w-100" />
-                                <div className="speaker-card-div">
-                                    <p className="mb-0 fw-bold">Neil Nitin Mukesh</p>
-                                    <p className="mb-0 font-sm">
-                                        Renowned Indian Actor & Film Producer
-                                    </p>
+                <div className="flex justify-center">
+                    <div className={`max-w-md transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                        <div className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-4 transition-all duration-500 border-t-4 border-[#003777]">
+                            
+                            {/* Image Container */}
+                            <div className="relative mb-6 overflow-hidden rounded-2xl">
+                                <div className="aspect-square overflow-hidden">
+                                    <img
+                                        src={neil}
+                                        alt="Neil Nitin Mukesh"
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
                                 </div>
+                                
+                                {/* Overlay Effect */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#003777]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </div>
-                        </Col>
-                    </Row>
-                </Container>
 
-                {/* ⭐ Speakers */}
-                <Container className="pt-5">
-                    <Row className="d-flex justify-content-center">
-                        <Col className="text-center fade-up delay-1">
-                            <h3 className="title">Speakers</h3>
-                        </Col>
-                    </Row>
-
-                    <Row className="g-4">
-                        {speakers.map((spk, index) => (
-                            <Col
-                                key={index}
-                                lg={4}
-                                md={6}
-                                xs={12}
-                                className={`slide-up delay-${index + 2}`}
-                            >
-                                <div className="speaker-card">
-                                    <img src={spk.img} alt={spk.name} className="w-100" />
-                                    <div className="speaker-card-div">
-                                        <p className="mb-0 fw-bold">{spk.name}</p>
-                                        <p className="mb-0 font-sm">{spk.role}</p>
-                                    </div>
-                                </div>
-                            </Col>
-                        ))}
-                    </Row>
-                </Container>
-
-                {/* ⭐ Animation CSS */}
-                <style>{`
-                    .speakers-anim-section {
-                        opacity: 0;
-                        transform: translateY(40px);
-                        transition: 0.9s ease-out;
-                    }
-                    .speaker-active {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-
-                    /* Fade Up */
-                    .fade-up {
-                        opacity: 0;
-                        transform: translateY(25px);
-                        transition: 0.9s ease-out;
-                    }
-                    .speaker-active .fade-up {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-
-                    /* Slide Up */
-                    .slide-up {
-                        opacity: 0;
-                        transform: translateY(35px);
-                        transition: 0.9s ease-out;
-                    }
-                    .speaker-active .slide-up {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-
-                    /* Stagger Delays */
-                    .delay-1 { transition-delay: 0.2s; }
-                    .delay-2 { transition-delay: 0.4s; }
-                    .delay-3 { transition-delay: 0.6s; }
-                    .delay-4 { transition-delay: 0.8s; }
-                    .delay-5 { transition-delay: 1s; }
-                    .delay-6 { transition-delay: 1.2s; }
-                    .delay-7 { transition-delay: 1.4s; }
-
-                    /* Card Hover */
-                    .speaker-card {
-                        position: relative;
-                        overflow: hidden;
-                        border-radius: 12px;
-                        transition: 0.4s;
-                    }
-                    .speaker-card:hover {
-                        transform: translateY(-8px);
-                        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-                    }
-                `}</style>
+                            {/* Content */}
+                            <div className="text-center space-y-3">
+                                <h4 className="text-xl font-bold text-gray-900 group-hover:text-[#003777] transition-colors duration-300">
+                                    Neil Nitin Mukesh
+                                </h4>
+                                <p className="text-base text-gray-600 leading-relaxed font-medium">
+                                    Renowned Indian Actor & Film Producer
+                                </p>
+                            </div>
+                            
+                            {/* Hover Border Effect */}
+                            <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-[#003777] transition-colors duration-300"></div>
+                        </div>
+                    </div>
+                </div>
             </section>
-        </>
+
+            {/* Speakers Section */}
+            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <SectionTitle title="Speakers" className="mb-16 text-center" />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                    {speakers.map((speaker, index) => (
+                        <div 
+                            key={index}
+                            className={`group bg-white rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-4 transition-all duration-500 border-t-4 border-[#003777] ${
+                                isVisible ? 'animate-slide-up' : ''
+                            }`}
+                            style={{ animationDelay: `${700 + index * 150}ms` }}
+                        >
+                            
+                            {/* Image Container */}
+                            <div className="relative mb-6 overflow-hidden rounded-2xl">
+                                <div className="aspect-square overflow-hidden">
+                                    <img
+                                        src={speaker.img}
+                                        alt={speaker.name}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    />
+                                </div>
+                                
+                                {/* Overlay Effect */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#003777]/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="text-center space-y-3">
+                                <h4 className="text-lg md:text-xl font-bold text-gray-900 group-hover:text-[#003777] transition-colors duration-300">
+                                    {speaker.name}
+                                </h4>
+                                <p className="text-sm md:text-base text-gray-600 leading-relaxed font-medium">
+                                    {speaker.role}
+                                </p>
+                            </div>
+                            
+                            {/* Hover Border Effect */}
+                            <div className="absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-[#003777] transition-colors duration-300"></div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        </div>
     );
 };
 

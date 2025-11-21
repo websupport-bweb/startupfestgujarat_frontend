@@ -1,5 +1,5 @@
-import React , {useEffect} from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { SponsorHeroBanner, SponsorGrid } from '../components/SponsorComponents';
 
 const sponsors = [
   { url: require('../assets/img/startup-1.png'), heading: "Sponsor 1" },
@@ -32,35 +32,16 @@ const Sponser = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
-      <section className="banner-img-top "    style={{
-      paddingTop: "120px",   // ⭐ TOP GAP FIXED
-    }}>
-        <Row className="m-0 p-0">
-          <Col lg={12} className="p-0">
-            <div className="p-relative">
-              <img src={require('../assets/img/startup-banner.jpg')} className="w-100" alt="Responsive Banner" />
-            </div>
-          </Col>
-        </Row>
-      </section>
+    <div className="bg-gradient-to-br from-white via-gray-50 to-blue-50 min-h-screen overflow-x-hidden">
+      {/* Hero Banner */}
+      <SponsorHeroBanner 
+        image={require('../assets/img/startup-banner.jpg')} 
+        alt="Sponsors Banner" 
+      />
 
-      {/* Sponsors Section */}
-      <section className="register-bg">
-        <Container className="register-bg py-5">
-          <h2 className="title mb-4">Sponsors</h2>
-          <Row className="m-0 p-0">
-            {sponsors.map((sponsor, index) => (
-              <Col lg="4" xs={6} key={index}>
-                <div className="p-relative">
-                  <img src={sponsor.url} className="w-100" alt={sponsor.heading} />
-                </div>
-              </Col>
-            ))}
-          </Row>
-        </Container>
-      </section>
-    </>
+      {/* Sponsors Grid */}
+      <SponsorGrid sponsors={sponsors} />
+    </div>
   );
 };
 

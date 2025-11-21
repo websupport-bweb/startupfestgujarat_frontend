@@ -61,110 +61,21 @@ export default function Highlights() {
 
   return (
     <>
-      <section className="" style={{
-      paddingTop: "120px",   // ⭐ TOP GAP FIXED
-    }}>
+      <section className="overflow-hidden" >
         <img src={bannerImg} className="w-100" />
       </section>
 
-      <section className="padding-sec light-bg">
+      <section className="padding-sec light-bg overflow-hidden">
         <CardContent
           about={about}
           text={text}
-          title="Startup Fest Gujarat: <br />
+          title="Startup Fest Gujarat:
                 Where Innovation Meets Investment"
           buttonShow={false}
         />
       </section>
 
-      {/* <section className="padding-sec">
-        <Container>
-         
-          <Row>
-            <Col lg={12}>
-              <div className="heading-one d-flex justify-content-between">
-                <h4 className="title">Event Showcases</h4>
-               
-              </div>
-            </Col>
-            <Col lg={4}>
-              <div className="event-box">
-                <div className="img-area">
-                  <img src={one} className="w-100" />
-                </div>
-
-                <div className="txt-area">
-                  <p className="eve-date">Friday, September 13</p>
-                  <Link to="/startup" className="name-line">
-                    <h5>Friday AfterHours: Sufi Unplugged</h5>
-                    <MdArrowOutward />
-                  </Link>
-                  <p className="desc">
-                    Get ready for a mesmerizing evening with "Sufi Unplugged" at
-                    Blockheads featuring the incredible talent of Ayush! Known
-                  </p>
-                </div>
-                <div className="auth-area">
-                  <img src={auth1} className="img" />
-                  <span>Snehshilp Foundation</span>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4}>
-              <div className="event-box">
-                <div className="img-area">
-                  <img src={two} className="w-100" />
-                </div>
-
-                <div className="txt-area">
-                  <p className="eve-date">Saturday, September 28</p>
-                  <Link to="/startup" className="name-line">
-                    <h5>Start-Up Fest 2.0 Gujarat by Snehshilp Foundation</h5>
-                    <MdArrowOutward />
-                  </Link>
-                  <p className="desc">
-                    Join us for the second edition of Start-Up Fest Gujarat, a
-                    day dedicated to empowering your business journey with
-                    unparalleled knowledge, inspiration, and networking
-                    opportunities. 
-                  </p>
-                </div>
-                <div className="auth-area">
-                  <img src={auth1} className="img" />
-                  <span>Snehshilp Foundation</span>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4}>
-              <div className="event-box">
-                <div className="img-area">
-                  <img src={three} className="w-100" />
-                </div>
-
-                <div className="txt-area">
-                  <p className="eve-date">Tuesday, September 30</p>
-                  <Link to="/startup" className="name-line">
-                    <h5>
-                      14th Engiexpo Industrial Engineering Exhibition Ahmedabad-
-                      2024
-                    </h5>
-                    <MdArrowOutward />
-                  </Link>
-                  <p className="desc">
-                    This exhibition is a must-attend for all industrial
-                    engineering enthusiasts, professionals, and students...
-                  </p>
-                </div>
-                <div className="auth-area">
-                  <img src={auth1} className="img" />
-                  <span>Snehshilp Foundation</span>
-                </div>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section> */}
-
+     
       <section className="register-sec padding-sec showcase">
         <Container>
           <img src={highbg} />
@@ -178,7 +89,7 @@ export default function Highlights() {
           </div>
         </Container>
       </section>
-      <section className="padding-sec">
+      <section className="padding-sec overflow-x-hidden">
         <CardContent
           about={venue}
           text={textScience}
